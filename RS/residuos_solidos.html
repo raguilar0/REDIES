@@ -3,19 +3,30 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../index.css">
+    
     <title>Formulario Recurso hidrico: Aguas Residuales</title>
 </head>
 <body>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     <H1> <span>Residuos Solidos:</H1> <!--#42775e-->
     <hr/>
     <Form>
         <Span>Inventario de Generación de Residuos sólidos, por tipo y cantidad kg de residuos por año </Span>
+        <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
         <ul>
-            <li><!--RH_AR_I_I_RS-->
+            <li>
                 <input type="number" min="0" max="10000"> Papel
             </li>
-            <li><!--RH_AR_I_II_RS-->
+            <li>
                  <input id="cantPapel" type="checkbox"> N/D
             </li>
         </ul>
@@ -97,9 +108,10 @@
             </li>
         </ul>
        <Span>Generación de residuos sólidos per cápita</Span>
+       <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
         <ul>
             <li>
-            	<!--RH_AR_IV_G-->
+            	
 				<input type="number" min="0"> kg/ año / persona
             </li>
             <li>
@@ -107,9 +119,10 @@
             </li>
          </ul>
          <Span>Indicadores de recuperación de residuos sólidos</Span>
+         <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
         <ul>
             <li>
-                <!--RH_AR_IV_G-->
+                
                 <input type="number" min="0"> kg valorizables/ año/ persona
             </li>
             <li>
@@ -119,7 +132,7 @@
          <Span> Tasa anual de reciclaje</Span>
         <ul>
             <li>
-                <!--RH_AR_IV_G-->
+               
                 <input type="number" min="0"> %
             </li>
             <li>
@@ -127,9 +140,10 @@
             </li>
          </ul>
          <Span> Trazabilidad de gestores de residuos</Span>
+         <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
         <ul>
             <li>
-                <!--RH_AR_IV_G-->
+                
                 <input type="number" min="0"> # de gestores autorizados
             </li>
             <li>
@@ -138,8 +152,8 @@
          </ul>
         <ul class="preguntas">
         	<li>
-                <Span>¿Posee plan de manejo de residuos sólidos en ejecución?</Span><br>
-                <!--RH_AR_III_RS-->
+                <Span>¿Posee plan de manejo de residuos sólidos en ejecución?</Span>
+                <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;"><br>
                 	<input type ="radio" name="PlanManejo" value="Si"> Si
                 	<input type ="radio" name="PlanManejo" value="No"> No
                 	<input type ="radio" name="PlanManejo" value="ND"> N/D
