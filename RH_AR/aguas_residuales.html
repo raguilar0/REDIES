@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../index.css">
+
+    <title>Formulario Recurso hidrico: Aguas Residuales</title>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <H1> <span>Recurso Hídrico:</span> Aguas Residuales</H1> <!--#42775e-->
+    <hr/>
+    <Form>
+        <Span>Inventario de efluentes de aguas residuales y puntos de descarga</Span>
+        <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+        <ul>
+            <li><!--RH_AR_I_I_RS-->
+                <input type="number" min="0" max="10000"># de descargas al alcantarillado p&uacute;blico
+            </li>
+            <li><!--RH_AR_I_II_RS-->
+                 <input id="NDDescargasPublico" type="checkbox"> N/D 
+            </li>
+            <li><!--RH_AR_I_III_RS-->
+                <input id="NADescargasPublico" type="checkbox"> N/A 
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <input type="number" min="0" max="10000"> # Descargas a tanques s&eacute;pticos
+            </li>
+            <li>
+                <input id="NDDescargaSeptico" type="checkbox"> N/D 
+            </li>
+            <li>
+                <input id="NADescargaSeptico" type="checkbox"> N/A 
+            </li>
+        </ul>
+        <ul>
+        	<li>
+       		     <input type="number" min="0" max="10000"> # Descargas a sistemas de tratamiento
+            </li>
+            <li>
+                <input id="NDDescargasTratamiento" type="checkbox"> N/D 
+            </li>
+            <li>
+            	<input id="NADescargasTratamiento" type="checkbox"> N/A 
+            </li>
+        </ul>
+       <Span>Reportes operacionales</Span>
+       <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+        <ul>
+            <li>
+            	<!--RH_AR_IV_G-->
+				<input type="number" min="0"> # Reportes operacionales
+            </li>
+            <li>
+                <input id="NDReportesOperacionales" type="checkbox"> N/D
+            </li>
+            <li>
+         		<input id="NAReportesOperacionales" type="checkbox"> N/A 
+            </li>
+         </ul>
+        <ul class="preguntas">
+        	<li>
+                <Span>¿Posee sistema de tratamiento de aguas residuales debidamente inscrito y con un diseño adecuado a la naturaleza del agua residual a tratar?</Span>
+                <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;"><br>
+                <!--RH_AR_III_RS-->
+                	<input type ="radio" name="SistemaTratamiento" value="Si"> Si
+                	<input type ="radio" name="SistemaTratamiento" value="No"> No
+                	<input type ="radio" name="SistemaTratamiento" value="ND"> N/D
+                	<input type ="radio" name="SistemaTratamiento" value="NA"> N/A
+                	
+            </li>
+            <li>
+                    <Span>¿Realiza análisis de aguas residuales?</Span>
+                    <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;"><br>
+                    <input type ="radio" name="AnasilisAguasResiduales" value="Si"> Si
+                    <input type ="radio" name="AnasilisAguasResiduales" value="No"> No
+                    <input type ="radio" name="AnasilisAguasResiduales" value="ND"> N/D
+                    <input type ="radio" name="AnasilisAguasResiduales" value="NA"> N/A
+            </li>
+            
+            
+        </ul>
+
+        <input type="submit" value="Enviar Formulario">
+    </Form>
+</body>
+</html>
