@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RH, Consumo Humano</title>
+
+    <meta name="description" content="Matriz de indicadores - Recurso Hídrico, Agua para consumo humano">
+    <meta name="author" content="Luis Mata, José Slon, Michael, Ricardo, Brandon">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Recurso Hídrico, Agua para consumo humano
+			</h3>
+			<form role="form">
+				
+				<div class="form-group">	 
+					<label for="CN_Q1">
+						Consumo de Agua per capita
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<input type="number" class="form-control" id="RS_Q3" min="0"/>
+						<div class="input-group-addon">m<sup>3</sup>/Persona</div>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario">?</a></span>
+					</div>
+					<div class="input-group col-md-3 has-success">
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+						</label>
+					</div>	
+				</div>
+				
+				<div class="form-group">
+				
+					<label for="RS_Q2">
+						Inventario Fuentes de Agua
+					</label>
+					
+					<div class="form-group has-success">
+						<div class="input-group col-md-3">
+							<input type="number" class="form-control" id="RS_Q2.1" min="0"/>
+							<span class="input-group-addon">Pozos</span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario">?</a></span>
+						</div>
+						<div class="input-group col-md-3">
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							</label>
+						</div>
+					</div>
+					
+					<div class="form-group has-success">
+						<div class="input-group col-md-3">
+							<input type="number" class="form-control" id="RS_Q2.2" min="0"/>
+							<span class="input-group-addon">Nacientes</span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario">?</a></span>
+						</div>
+						<div class="input-group col-md-3">
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							</label>
+						</div>
+					</div>
+					
+					<div class="form-group has-success">
+						<div class="input-group col-md-3">
+							<input type="number" class="form-control" id="RS_Q2.3" min="0"/>
+							<div class="input-group-addon">Ríos</div>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario">?</a></span>
+						</div>
+						<div class="input-group col-md-3">
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							</label>
+						</div>
+					</div>
+					
+					<div class="form-group has-success">
+						<div class="input-group col-md-3">
+							<input type="number" class="form-control" id="RS_Q2.4" min="0"/>
+							<div class="input-group-addon">Hidrómetros</div>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario">?</a></span>
+						</div>
+						<div class="input-group col-md-3">
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">	 
+					<label for="CN_Q1">
+						Registros de Consumo de Agua
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<input type="number" class="form-control" id="RS_Q3" min="0"/>
+						<div class="input-group-addon">m<sup>3</sup></div>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario">?</a></span>
+					</div>
+					<div class="input-group col-md-3 has-success">
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+						</label>
+					</div>	
+				</div>
+				
+				<div class="form-group">
+					<label for="CN_Q6">
+						¿Se realizan análisis de calidad de agua?
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="Sí">
+							Sí
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="No">
+							No
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/D
+						  </label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="CN_Q6">
+						¿Poseen plan de ahorro de agua?
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="Sí">
+							Sí
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="No">
+							No
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/D
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/A
+						  </label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="CN_Q6">
+						¿Poseen plan de manejo de cuerpos de agua?
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="Sí">
+							Sí
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="No">
+							No
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/D
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/A
+						  </label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="CN_Q6">
+						¿Poseen permisos de explotación de pozos?
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="Sí">
+							Sí
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="No">
+							No
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/D
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/A
+						  </label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="CN_Q6">
+						¿Poseen plan de mantenimiento de sistemas de abastecimiento de agua?
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="Sí">
+							Sí
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="No">
+							No
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/D
+						  </label>
+						</div>
+						<div class="radio-inline">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/A
+						  </label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-3">
+					<button type="submit" class="btn btn-success btn-block">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						Enviar
+					</button>
+				</div>
+				
+  			</form>
+		</div>
+	</div>
+	</div>
+  
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
