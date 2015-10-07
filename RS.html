@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Residuos Sólidos</title>
+
+    <meta name="description" content="Matriz de indicadores - Residuos Sólidos">
+    <meta name="author" content="Luis Mata, José Slon, Michael, Ricardo, Brandon">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+   <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Residuos Sólidos
+			</h3>
+			<form role="form">
+				<div class="form-group">
+				
+					<label for="RS_Q1">
+						Inventario de Generación de Residuos sólidos, por tipo y cantidad kg de residuos por año 
+					</label>
+					
+					<div class="input-group col-md-4 ">
+						<input type="number" class="form-control" id="RS_Q1.1" min="0"/>
+						<span class="input-group-addon">Papel</span>
+					</div>
+					
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" id="RS_Q1.2" min="0"/>
+						<span class="input-group-addon">Plástico</span>
+					</div>
+					
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" id="RS_Q1.3" min="0"/>
+						<div class="input-group-addon">Vidrio</div>
+					</div>
+					
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" id="RS_Q1.4" min="0"/>
+						<div class="input-group-addon">Cartón</div>
+					</div>
+					
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" id="RS_Q1.5" min="0"/>
+						<div class="input-group-addon">Aluminio</div>
+					</div>
+					
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" id="RS_Q1.6" min="0"/>
+						<div class="input-group-addon">Toner</div>
+					</div>
+					
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" id="RS_Q1.7" min="0"/>
+						<div class="input-group-addon">Electrónicos</div>
+					</div>
+					
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" id="RS_Q1.8" min="0"/>
+						<div class="input-group-addon">Otros</div>
+					</div>
+					
+				</div>			
+				<div class="form-group">
+					 
+					<label for="RS_Q2">
+						Generación de residuos sólidos per cápita
+					</label>
+					<div class="input-group col-md-4 ">
+						<input type="number" class="form-control" id="RS_Q2" min="0"/>
+						<div class="input-group-addon">Kg/Persona</div>
+					</div>
+				</div>
+				<div class="form-group">
+					 
+					<label for="CN_Q3">
+						Indicadores de recuperación de residuos sólidos
+					</label>
+					<div class="input-group col-md-4 ">
+						<input type="number" class="form-control" id="RS_Q3" min="0"/>
+						<div class="input-group-addon">Kg valorizables/Persona</div>
+					</div>
+				</div>
+				<div class="form-group">
+					 
+					<label for="CN_Q2">
+						Tasa anual de reciclaje
+					</label>
+					<div class="input-group col-md-4 ">
+						<input type="number" class="form-control" id="RS_Q4" min="0"/>
+						<div class="input-group-addon">%</div>
+					</div>
+				</div>
+				<div class="form-group">
+					 
+					<label for="CN_Q2">
+						Trazabilidad de gestores de residuos
+					</label>
+					<div class="input-group col-md-4 ">
+						<input type="number" class="form-control" id="RS_Q5" min="0"/>
+						<div class="input-group-addon">Gestores Autorizados</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="CN_Q2">
+						¿Posee plan de manejo de residuos sólidos en ejecución?
+					</label>
+					<div class="input-group col-md-4 ">
+						<div class="radio">
+						  <label>
+							<input type="radio" name="PlanManejo" value="Sí">
+							Sí
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+							<input type="radio" name="PlanManejo" value="No">
+							No
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+							<input type="radio" name="PlanManejo" value="N/A">
+							N/D
+						  </label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-4">
+					<button type="submit" class="btn btn-success btn-block">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						Enviar
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
