@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+	<!--Prueba Tooltip-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../index.css">
+
+
+	<title>Formulario Gestión del Recurso Energético</title>
+</head>
+<body>
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+</script>
+    <H1> <span>Gestión del Recurso Energético</span></H1> <!---->
+    <hr/>
+    <Form>
+        <ul class="preguntas">
+        	<li>
+                <Span>Conformar Comité para la Gestión del Recurso Energético</Span>
+				<img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+				<br>
+                <!--GRE_I_G	BOOL-->
+                	<input type ="radio" name="SistemaTratamiento" value="Si"> Si
+                	<input type ="radio" name="SistemaTratamiento" value="No"> No
+                	<input type ="radio" name="SistemaTratamiento" value="ND"> N/D
+                	<input type ="radio" name="SistemaTratamiento" value="NA"> N/A
+
+            </li>
+		</ul>
+		<ul class ="preguntas">
+
+			<li><!--GRE_II_I_RC	INT y GRE_II_II_RC	DOUBLE-->
+				<Span>Consumo eléctrico per cápita anual según el alcance</Span>
+				<img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+				<br>
+				<input type="number" min="0" max="10000"> # de medidores <!--GRE_II_I_RC-->
+				<input type="number" min="0" max="10000"> KWh/año/persona <!--GRE_II_II_RC-->
+				<input id="NDDescargasPublico" type="checkbox"> N/D
+				<input id="NADescargasPublico" type="checkbox"> N/A
+			</li>
+
+		</ul>
+
+		<ul class = "preguntas">
+			<li><!--si responde afirmativo tiene que aparecer un indicar Meta:  con el % reducción (GRE_III_G	DOUBLE)-->
+				<Span>Plan de reducción del consumo en todas las Unidades o Centros</Span>
+				<img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+				<br>
+				<input type ="radio" name="SistemaTratamiento" value="Si" onclick="mostrar()"> Si
+                <input type ="radio" name="SistemaTratamiento" value="No" onclick="ocultar()"> No
+                <input type ="radio" name="SistemaTratamiento" value="ND" onclick="ocultar()"> N/D
+                <input type ="radio" name="SistemaTratamiento" value="NA" onclick="ocultar()"> N/A
+
+					<div id = "oculto" style='display:none;'>
+						<br>
+						Indique la meta:<input type="number" min="0" max="10000"> % de reducción
+					</div>
+
+				<script type="text/javascript">
+					function mostrar(){
+					document.getElementById('oculto').style.display = 'block';}
+				</script>
+
+				<script type="text/javascript">
+					function ocultar(){
+					document.getElementById('oculto').style.display = 'none';}
+				</script>
+			</li>
+		</ul>
+
+       	<ul class = "preguntas">
+			<li><!--GRE_IV_G	DOUBLE-->
+				<Span>Control y evaluación de consumo según el alcance definido</Span>
+				<img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+				<br>
+				<input type="number" min="0" max="10000"> % de reducción
+                <input type ="radio" name="SistemaTratamiento" value="ND"> N/D
+                <input type ="radio" name="SistemaTratamiento" value="NA"> N/A
+			</li>
+		</ul>
+
+		<ul class = "preguntas">
+			<li><!--GRE_V_RC	DOUBLE-->
+				<Span>Consumo total  según el alcance definido(Campus, Unidad o Centro)</Span>
+				<img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+				<br>
+				<input type="number" min="0" max="10000"> KWh total / año
+                <input type ="radio" name="SistemaTratamiento" value="ND"> N/D
+                <input type ="radio" name="SistemaTratamiento" value="NA"> N/A
+			</li>
+		</ul>
+        <input type="submit" value="Enviar Formulario">
+    </Form>
+</body>
+</html>

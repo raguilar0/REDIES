@@ -1,0 +1,55 @@
+root {
+    display: block;
+
+}
+body{
+    padding:5%;
+    color:#42775e;
+    font-family:"caviar_dreamsregular";
+    background-color: beige;
+}
+h1{
+    font-size:1.5em;
+}
+h1>span{
+    font-style: bolder;
+    font-size:1.2em;
+}
+ul{
+    list-style:none;
+}
+li{
+    display: inline-block;
+    width:144px;
+}
+
+li>input{
+    width: 30px;
+}
+
+input[type="radio"]{
+    display: inline-block;
+}
+.preguntas>li{
+    display: block;
+    width:100%;
+    margin-top:32px;
+    margin-left: -48px;
+}
+.preguntas>li>input{
+    margin-left:48px;
+}
+span{
+    font-size:1.1em;
+    font-weight:bold;
+}
+
+[type="submit"]{
+    height:64px;
+    float: right;
+}
+
+
+[type="range"]{
+    width:100px;
+}
