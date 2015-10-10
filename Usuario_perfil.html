@@ -12,7 +12,7 @@
     <title>Perfil</title>
     <script> 
 		function abrir(url) { 
-		open(url,'','top=300,left=300,width=300,height=300') ; 
+		open(url,'','top=300,left=300,width=426,height=266') ; 
 		} 
 	</script>
 </head>
@@ -27,34 +27,34 @@
     <Form>
         <Span>Información</Span>
         <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
-        <ul>
-            <li><!--RH_AR_I_I_RS-->
-               Nombre  <input type="text" name = "usuario_perfil_nombre" >
-            </li>
-        </ul>
-        <ul>
-            <li>
-                Correo  <input type="text" name ="usuario_perfil_correo" disabled >
-            </li>
-        </ul>
-        <ul>
-        	<li>
-       		    Universidad  <input type="number" name = "usuario_perfil_universidad">
-            </li>
-        </ul>
-        <ul>
-            <li>
-				Telefono  <input type="number" name = "usuario_perfil_telefono">
-            </li>
-         </ul>            
-        </ul>
-        <ul>
-            <li>
-				<a href="javascript:abrir('cambiar_password.html')">Cambiar Contraseña</a>
-            </li>
-         </ul>            
-        </ul>
-        <input type="submit" value="Guardar Cambios">
+       <table>
+            <tr>
+                <td>Nombre</td>
+                <td>&nbsp;<input type="text" name="agregar_usuario_nombre"></td>
+            </tr>
+            <tr>
+                <td>Correo</td>
+                <td>&nbsp;<input type="text" name="agregar_usuario_correo"></td>
+            </tr>
+            <tr>
+                <td>Universidad</td>
+                <td>&nbsp;<input type="text" name="agregar_usuario_universidad"></td>
+            </tr>
+            <tr>
+                <td>Teléfono</td>
+                <td>&nbsp;<input type="text" name="agregar_usuario_telefono"></td>
+            </tr>
+            <tr>
+                <td><a href="javascript:abrir('cambiar_password.html')">Cambiar Contraseña</a></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>&nbsp;<input type="submit" value="Guardar Cambios"></td>
+            </tr>
+
+       </table>
+        
     </Form>
 </body>
 </html>
