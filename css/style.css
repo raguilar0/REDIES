@@ -1,1 +1,5 @@
 # Empty CSS file for your own CSS
+
+.custom {
+    width: 100px !important;
+}
