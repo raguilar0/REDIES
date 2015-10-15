@@ -3,3 +3,7 @@
 .custom {
     width: 100px !important;
 }
+
+.hiddenRow {
+    padding: 0 !important;
+}
