@@ -1,70 +1,111 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <title>Perfil de Usuario</title>
+
+    <meta name="description" content="Perfil de Usuario">
+    <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="index.css">
+    <link href="css/style.css" rel="stylesheet">
     <script src="js/app.js"></script>
-    <title>Perfil</title>
+    
     <script>
 		function abrir(url) {
 		open(url,'','top=300,left=300,width=426,height=266') ;
 		}
 	</script>
 </head>
+
+
 <body ng-app="formApp">
+
     <script>
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 
-    <H1> <span>Perfil</span> </H1> <!--#42775e-->
-    <hr/>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
 
-    <Form name="Formulario_UP" role="form" ng-controller="MainCtrl">
-        <Span>Información</Span>
-        <img src="../images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
-       <table>
-            <tr>
-                <td>Nombre</td>
-                <td>&nbsp;<input type="text" name="agregar_usuario_nombre" ng-model="formData.nombre" required></td>
-            </tr>
-            <tr>
-                <td>Correo</td>
-                <td>&nbsp;<input type="text" name="agregar_usuario_correo" ng-model="formData.correo" required></td >
-            </tr>
-            <tr>
-                <td>Universidad</td>
-                <td>&nbsp;<input type="text" name="agregar_usuario_universidad" ng-model="formData.universidad" required></td>
-            </tr>
-            <tr>
-                <td>Profesión</td>
-                <td>&nbsp;<input type="text" name="agregar_usuario_profesion" ng-model="formData.profesion" ></td>
-            </tr>
-            <tr>
-                <td>Puesto</td>
-                <td>&nbsp;<input type="text" name="agregar_usuario_puesto" ng-model="formData.puesto"></td>
-            </tr>
-            </tr>
-                <td>Teléfono</td>
-                <td>&nbsp;<input type="text" name="agregar_usuario_telefono" ng-model="formData.telefono" required></td>
-            </tr>
-            <tr>
-                <td><a href="javascript:abrir('cambiar_password.html')">Cambiar Contraseña</a></td>
-            </tr>
+        <H3> Perfil de Usuario</H3> <!--#42775e-->
 
-            <tr>
-                <td></td>
-                <td>&nbsp;<input type="submit" value="Guardar Cambios" ng-click="submitForm(formData)"></td>
-            </tr>
+        <Form name="Formulario_UP" role="form" ng-controller="MainCtrl">
 
-       </table>
+        <div class="form-group">
+            <label for="GRE_Q1">
+                Información
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+            </label>
+            
+            <div class="input-group col-md-3 has-success">
+                    <div class="input-group-addon">Nombre</div>
+                    <input type="text" name="agregar_usuario_nombre" ng-model="formData.nombre" required>
+            </div>
+        </div>
 
-    </Form>
+        <div class="form-group">
+            <div class="input-group col-md-3 has-success">
+                    <div class="input-group-addon">Correo</div>
+                    <input type="text" name="agregar_usuario_correo" ng-model="formData.correo" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group col-md-3 has-success">
+                    <div class="input-group-addon">Universidad</div>
+                    <input type="text" name="agregar_usuario_universidad" ng-model="formData.correo" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group col-md-3 has-success">
+                    <div class="input-group-addon">Profesión</div>
+                    <input type="text" name="agregar_usuario_profesion" ng-model="formData.profesion" >
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group col-md-3 has-success">
+                    <div class="input-group-addon">Puesto</div>
+                    <input type="text" name="agregar_usuario_puesto" ng-model="formData.puesto">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group col-md-3 has-success">
+                    <div class="input-group-addon">Teléfono</div>
+                    <input type="text" name="agregar_usuario_telefono" ng-model="formData.telefono" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group col-md-3 has-success">
+                    <a href="javascript:abrir('cambiar_password.html')">Cambiar Contraseña</a>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3">
+            <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                Guardar Cambios
+            </button>
+        </div>
+        
+        </Form>
+        </div>
+    </div>
+    </div>
 </body>
 </html>
