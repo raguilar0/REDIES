@@ -54,9 +54,12 @@
                                       name="nombre" placeholder="nombre"
                                       ng-model="formData.nombre" required
                                       ng-class="{ error: !form.$pristine && form.nombre.$error.required}">
-                                      <span ng-show="!form.$pristine && form.nombre.$error.required">Ingrese su nombre.</span>
-                                      
                         </div>
+                                    <div>
+                                        <span ng-show="!form.$pristine && form.nombre.$error.required"><font color ="red">Ingrese su nombre.</font></span>
+                                    </div>   
+                                      
+                        
                     </div>
 
                         <div class="form-group">
