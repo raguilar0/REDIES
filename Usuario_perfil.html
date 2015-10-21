@@ -13,7 +13,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link href="css/style.css" rel="stylesheet">
     <script src="js/app.js"></script>
@@ -34,6 +35,85 @@
         });
     </script>
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    <H1> <span>Perfil</span> </H1> <!--#42775e-->
+    <hr/>
+
+    <form name="form" role="form" ng-controller="MainCtrl">  <!--ng-submit="submitForm(form.$valid)" novalidate-->
+        <Span>Información</Span>
+        <img src="images/question_icon.png" alt="Pregunta" data-toggle="tooltip" title="Algun texto de ayuda al usuario"style="width:20px;height:20px;">
+       <table>
+            <tr>
+                <td>Nombre</td>
+                <td>&nbsp;
+                  <input  type="text" class="form-control"
+                          name="nombre" placeholder="nombre"
+                          ng-model="formData.nombre" required
+                          ng-class="{ error: !form.$pristine && form.nombre.$error.required}">
+                          <span ng-show="!form.$pristine && form.nombre.$error.required">Ingrese su nombre.</span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Correo</td>
+                <td>&nbsp;
+                  <input  type="text" class="form-control"
+                          name="correo" placeholder='example@email.com'
+                          ng-model="formData.correo" required
+                          ng-class="{ error: !form.$pristine && form.correo.$error.required, warning: !form.$pristine && form.correo.$error.email }">
+                </td >
+            </tr>
+            <tr>
+                <td>Universidad</td>
+                <td>&nbsp;
+                  <input  type="text" class="form-control"
+                          name="universidad" ng-model="formData.universidad" required
+                          ng-class="{ error: !form.$pristine && form.universidad.$error.required}">
+                </td>
+            </tr>
+            <tr>
+                <td>Profesión</td>
+                <td>&nbsp;
+                  <input type="text" class="form-control" name="profesion" ng-model="formData.profesion" >
+
+                </td>
+            </tr>
+            <tr>
+                <td>Puesto</td>
+                <td>&nbsp;
+                  <input type="text" class="form-control" name="puesto" ng-model="formData.puesto">
+                </td>
+            </tr>
+            </tr>
+                <td>Teléfono</td>
+                <td>&nbsp;
+                  <input type="text" class="form-control"
+                  name="telefono" ng-model="formData.telefono" required
+                  ng-class="{ error: !form.$pristine && form.telefono.$error.required}">
+            </tr>
+            <tr>
+                <td><a href="javascript:abrir('cambiar_password.html')">Cambiar Contraseña</a></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>&nbsp;
+                  <button type="submit" class="btn btn-success pull-right" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
+                    Guardar Cambios
+                </td>
+            </tr>
+
+       </table>
+
+    </Form>
+    <br>
+        Form content:
+        {{formData}}
+    </br>
+=======
+>>>>>>> Stashed changes
     <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -107,5 +187,9 @@
         </div>
     </div>
     </div>
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 </body>
 </html>

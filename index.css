@@ -53,3 +53,11 @@ span{
 [type="range"]{
     width:100px;
 }
+
+.error {
+  border-color: red;
+}
+
+.warning {
+  border-color: yellow;
+}

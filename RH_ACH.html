@@ -8,10 +8,12 @@
     <title>RH, Consumo Humano</title>
 
     <meta name="description" content="Matriz de indicadores - Recurso Hídrico, Agua para consumo humano">
-    <meta name="author" content="Luis Mata, José Slon, Michael, Ricardo, Brandon">
+    <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí$">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="js/app.js"></script>
 
 
@@ -23,23 +25,26 @@
 			<h3>
 				Recurso Hídrico, Agua para consumo humano
 			</h3>
-			<form name="Formulario_RH_ACH" role="form" ng-controller="MainCtrl">
+			<form name="form" role="form" ng-controller="MainCtrl" >
 
 				<div class="form-group">
 					<label for="CN_Q1">
 						Consumo de Agua per capita
 					</label>
-					<div class="input-group col-md-3 has-success">
-						<input type="number" class="form-control" id="RS_Q3" min="0"/ ng-model="formData.consumoPC">
+					<div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : form.consumoPC.$required && !form.consumoPC.$pristine }">
+						<input  type="number" class="form-control"
+                    name="consumoPC" id="RS_Q3" min="0"
+                    ng-model="form.consumoPC" required >
 						<div class="input-group-addon">m<sup>3</sup>/Persona</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 					<div class="input-group col-md-3 has-success">
 						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							<input  type="checkbox" name="consumoPCcheckbox1" id="inlineCheckbox1"
+                      value="N/A" ng-model="form.NAConsumoPC"> N/A
 						</label>
 						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<input type="checkbox" name="consumoPCcheckbox2" id="inlineCheckbox2" value="N/D" ng-model="form.NDConsumoPC"> N/D
 						</label>
 					</div>
 				</div>
@@ -52,7 +57,7 @@
 
 					<div class="form-group has-success">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.1" min="0"/>
+							<input type="number" class="form-control" id="RS_Q2.1" min="0"/ ng-model="formData.nPozos">
 							<span class="input-group-addon">Pozos</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
@@ -68,7 +73,7 @@
 
 					<div class="form-group has-success">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.2" min="0"/>
+							<input type="number" class="form-control" id="RS_Q2.2" min="0" ng-model="formData.nNacientes"/>
 							<span class="input-group-addon">Nacientes</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
@@ -84,7 +89,7 @@
 
 					<div class="form-group has-success">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.3" min="0"/>
+							<input type="number" class="form-control" id="RS_Q2.3" min="0" ng-model="formData.nRios"/>
 							<div class="input-group-addon">Ríos</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
@@ -100,7 +105,7 @@
 
 					<div class="form-group has-success">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.4" min="0"/>
+							<input type="number" class="form-control" id="RS_Q2.4" min="0" ng-model="formData.nHidrometros"/>
 							<div class="input-group-addon">Hidrómetros</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
@@ -289,13 +294,17 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)">
+					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						Enviar
 					</button>
 				</div>
 
   			</form>
+
+        Form content:
+        {{formData}}
+
 		</div>
 	</div>
 	</div>

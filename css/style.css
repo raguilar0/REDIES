@@ -7,3 +7,11 @@
 .hiddenRow {
     padding: 0 !important;
 }
+
+.error {
+  border-color: red;
+}
+
+.warning {
+  border-color: yellow;
+}
