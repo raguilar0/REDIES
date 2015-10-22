@@ -11,12 +11,12 @@
     <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link href="css/style.css" rel="stylesheet">
     <script src="js/app.js"></script>
 
     <script>
@@ -44,40 +44,40 @@
         <form name="formulario_UP" role="form" ng-controller="MainCtrl">
 
         <div class="form-group">
-            <label for="GRE_Q1">
+            <label>
                 Información
                 <a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
             </label>
 
-            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.nombre.$pristine && formulario_UP.nombre.$error.required}">
+            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.nombre.$error.required}">
                     <div class="input-group-addon">
                     Nombre &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                     <input  type="text" class="form-control"
                             name="nombre"
                             ng-model="formData.nombre" required>
             </div>
-            <span ng-show="!formulario_UP.nombre.$pristine && formulario_UP.nombre.$error.required" class="help-block">Ingrese su nombre</span>
+            <span ng-show="!formulario_UP.$pristine && formulario_UP.nombre.$error.required" class="help-block">Ingrese su nombre</span>
         </div>
 
         <div class="form-group">
-            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.correo.$pristine && formulario_UP.correo.$error.required}">
+            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.correo.$error.required}">
                     <div class="input-group-addon">Correo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                     <input type="text" class="form-control"
                     name="correo"
                     ng-model="formData.correo" required>
             </div>
-            <span ng-show="!formulario_UP.correo.$pristine && formulario_UP.correo.$error.required" class="help-block">Ingrese su correo</span>
-            <span ng-show="!formulario_UP.correo.$pristine && formulario_UP.correo.$error.email" class="help-block">Ingrese su correo correctamente</span>
+            <span ng-show="!formulario_UP.$pristine && formulario_UP.correo.$error.required" class="help-block">Ingrese su correo</span>
+            <span ng-show="!formulario_UP.$pristine && formulario_UP.correo.$error.email" class="help-block">Ingrese su correo correctamente</span>
         </div>
 
         <div class="form-group">
-            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.universidad.$pristine && formulario_UP.universidad.$error.required }">
+            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.universidad.$error.required }">
                     <div class="input-group-addon">Universidad</div>
                     <input  type="text" class="form-control"
                             name="universidad"
                             ng-model="formData.universidad" required>
             </div>
-            <span ng-show="!formulario_UP.universidad.$pristine && formulario_UP.universidad.$error.required">Ingrese la universidad</span>
+            <span ng-show="!formulario_UP.$pristine && formulario_UP.universidad.$error.required" class="help-block">Ingrese la universidad</span>
         </div>
 
         <div class="form-group">
@@ -97,12 +97,12 @@
         </div>
 
         <div class="form-group">
-            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.telefono.$pristine && formulario_UP.telefono.$error.required }">
+            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.telefono.$error.required }">
                     <div class="input-group-addon">Teléfono &nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <input  type="te" class="form-control"
+                    <input  type="tel" class="form-control"
                             name="telefono" ng-model="formData.telefono" required>
             </div>
-              <span ng-show="!formulario_UP.telefono.$pristine && formulario_UP.telefono.$error.required">Ingrese su número de teléfono</span>
+              <span ng-show="!formulario_UP.$pristine && formulario_UP.telefono.$error.required" class="help-block">Ingrese su número de teléfono</span>
         </div>
 
         <div class="form-group">

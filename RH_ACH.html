@@ -12,8 +12,11 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
 
 
@@ -22,271 +25,297 @@
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<h3>
-				Recurso Hídrico, Agua para consumo humano
-			</h3>
-			<form name="form" role="form" ng-controller="MainCtrl" >
+			<h3>Recurso Hídrico, Agua para consumo humano</h3>
 
-				<div class="form-group">
-					<label for="CN_Q1">
+			<form name="form" role="form" ng-controller="MainCtrl">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required || !formData.consumoPC }">
+					<label for="RH_ACH_Q1">
 						Consumo de Agua per capita
 					</label>
-					<div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : form.consumoPC.$required && !form.consumoPC.$pristine }">
-						<input  type="number" class="form-control"
-                    name="consumoPC" id="RS_Q3" min="0"
-                    ng-model="form.consumoPC" required >
-						<div class="input-group-addon">m<sup>3</sup>/Persona</div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
-					</div>
 					<div class="input-group col-md-3 has-success">
-						<label class="checkbox-inline">
-							<input  type="checkbox" name="consumoPCcheckbox1" id="inlineCheckbox1"
-                      value="N/A" ng-model="form.NAConsumoPC"> N/A
+						<input  type="number" class="form-control"
+                    name="consumoPC" id="RH_ACH_Q1" min="0"
+                    ng-model="formData.consumoPC" required>
+						<div class="input-group-addon">m<sup>3</sup>/Persona</div>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida por persona al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+          </div>
+					<div class="input-group col-md-3 has-success">
+						<label class="radio-inline">
+							<input  type="radio" name="consumoPC" id="inlineRadio1"
+                      value="N/A" ng-model="formData.consumoPC" required> N/A
 						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" name="consumoPCcheckbox2" id="inlineCheckbox2" value="N/D" ng-model="form.NDConsumoPC"> N/D
+						<label class="radio-inline">
+							<input type="radio" name="consumoPC" id="inlineRadio2"
+               value="N/D" ng-model="formData.consumoPC" required> N/D
 						</label>
 					</div>
 				</div>
 
 				<div class="form-group">
 
-					<label for="RS_Q2">
+					<label for="RH_ACH_Q2">
 						Inventario Fuentes de Agua
 					</label>
 
-					<div class="form-group has-success">
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nPozos.$error.required || !formData.nPozos }">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.1" min="0"/ ng-model="formData.nPozos">
+							<input  type="number" class="form-control"
+                      name="nPozos" id="RH_ACH_Q2.1" min="0" ng-model="formData.nPozos" required/>
 							<span class="input-group-addon">Pozos</span>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de pozos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							<label class="radio-inline">
+								<input  type="radio" name="nPozos" id="inlineRadio1"
+                        value="N/A" ng-model="formData.nPozos" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="nPozos" id="inlineRadio2"
+                        value="N/D" ng-model="formData.nPozos" required> N/D
 							</label>
 						</div>
 					</div>
 
-					<div class="form-group has-success">
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nNacientes.$error.required || !formData.nNacientes }">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.2" min="0" ng-model="formData.nNacientes"/>
+							<input  type="number" class="form-control"
+                      name="nNacientes" id="RH_ACH_Q2.2" min="0" ng-model="formData.nNacientes" required/>
 							<span class="input-group-addon">Nacientes</span>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de nacientes"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							<label class="radio-inline">
+								<input  type="radio" name="nNacientes" id="inlineRadio1"
+                        value="N/A" ng-model="formData.nNacientes" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="nNacientes" id="inlineRadio2"
+                        value="N/D" ng-model="formData.nNacientes" required> N/D
 							</label>
 						</div>
 					</div>
 
-					<div class="form-group has-success">
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nRios.$error.required || !formData.nRios }">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.3" min="0" ng-model="formData.nRios"/>
+							<input  type="number" class="form-control"
+                      name="nRios" id="RH_ACH_Q2.3" min="0"
+                      ng-model="formData.nRios"/>
 							<div class="input-group-addon">Ríos</div>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de ríos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							<label class="radio-inline">
+								<input  type="radio" name ="nRios" id="inlineRadio1"
+                        value="N/A" ng-model="formData.nRios" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="nRios" id="inlineRadio2"
+                        value="N/D" ng-model="formData.nRios" required> N/D
 							</label>
 						</div>
 					</div>
 
-					<div class="form-group has-success">
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nHidrometros.$error.required || !formData.nHidrometros }">
 						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q2.4" min="0" ng-model="formData.nHidrometros"/>
+							<input  type="number" class="form-control"
+                      name="nHidrometros" id="RH_ACH_Q2.4" min="0"
+                      ng-model="formData.nHidrometros" required/>
 							<div class="input-group-addon">Hidrómetros</div>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de hidrómetros"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							<label class="radio-inline">
+								<input  type="radio" name="nHidrometros" id="inlineRadio1"
+                        value="N/A" ng-model="formData.nHidrometros" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="nHidrometros" id="inlineRadio2"
+                        value="N/D" ng-model="formData.nHidrometros" required> N/D
 							</label>
 						</div>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="CN_Q1">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoAgua.$error.required || !formData.consumoAgua }">
+					<label for="RH_ACH_Q3">
 						Registros de Consumo de Agua
 					</label>
 					<div class="input-group col-md-3 has-success" >
-						<input type="number" class="form-control" id="RS_Q3" min="0" ng-model="formData.consumoAgua" required/>
+						<input  type="number" class="form-control"
+                    name="consumoAgua" id="RH_ACH_Q3" min="0"
+                    ng-model="formData.consumoAgua" required/>
 						<div class="input-group-addon">m<sup>3</sup></div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 					<div class="input-group col-md-3 has-success">
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						<label class="radio-inline">
+							<input  type="radio" name="consumoAgua" id="inlineRadio1"
+                      value="N/A" ng-model="formData.consumoAgua" required> N/A
 						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+            <label class="radio-inline">
+							<input  type="radio" name="consumoAgua" id="inlineRadio2"
+                      value="N/D" ng-model="formData.consumoAgua" required> N/D
 						</label>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="CN_Q6">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.analisisCalidad.$error.required || !formData.analisisCalidad }">
+					<label for="RH_ACH_Q4">
 						¿Se realizan análisis de calidad de agua?
 					</label>
 					<div class="input-group col-md-3 has-success">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="analisisCalidad" value="Sí" ng-model="formData.analisisCalidad" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="analisisCalidad" value="No" ng-model="formData.analisisCalidad" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="analisisCalidad" value="N/A" ng-model="formData.analisisCalidad" required>
 							N/D
 						  </label>
 						</div>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="CN_Q6">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planAhorro.$error.required || !formData.planAhorro }">
+					<label for="RH_ACH_Q5">
 						¿Poseen plan de ahorro de agua?
 					</label>
 					<div class="input-group col-md-3 has-success">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="planAhorro" value="Sí" ng-model="formData.planAhorro" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="planAhorro" value="No" ng-model="formData.planAhorro" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="planAhorro" value="N/D" ng-model="formData.planAhorro" required>
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="planAhorro" value="N/A" ng-model="formData.planAhorro" required>
 							N/A
 						  </label>
 						</div>
 					</div>
+          <div class="form-group" ng-show="formData.planAhorro=='Sí'">
+            <label>Porcentaje de Reducción</label>
+            <div class="input-group col-md-3 has-success">
+              <input type="number" class="form-control" name="porcentajeReduccion"
+              min="0" max="100" ng-model="formData.porcentajeReduccion" >
+              <div class="input-group-addon">% Reducción</div>
+              <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+          </div>
 				</div>
 
-				<div class="form-group">
-					<label for="CN_Q6">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planManejo.$error.required || !formData.planManejo }">
+					<label for="RH_ACH_Q6">
 						¿Poseen plan de manejo de cuerpos de agua?
 					</label>
 					<div class="input-group col-md-3 has-success">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="planManejo" value="Sí" ng-model="formData.planManejo" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="planManejo" value="No" ng-model="formData.planManejo" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="planManejo" value="N/D" ng-model="formData.planManejo" required>
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="planManejo" value="N/A" ng-model="formData.planManejo" required>
 							N/A
 						  </label>
 						</div>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="CN_Q6">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.permisoExplotacion.$error.required || !formData.permisoExplotacion }">
+					<label for="RH_ACH_Q7">
 						¿Poseen permisos de explotación de pozos?
 					</label>
 					<div class="input-group col-md-3 has-success">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="permisoExplotacion" value="Sí" ng-model="formData.permisoExplotacion" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="permisoExplotacion" value="No" ng-model="formData.permisoExplotacion" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="permisoExplotacion" value="N/D" ng-model="formData.permisoExplotacion" required>
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="permisoExplotacion" value="N/A" ng-model="formData.permisoExplotacion" required>
 							N/A
 						  </label>
 						</div>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="CN_Q6">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planMantenimiento.$error.required || !formData.planMantenimiento }">
+					<label for="RH_ACH_Q8">
 						¿Poseen plan de mantenimiento de sistemas de abastecimiento de agua?
 					</label>
 					<div class="input-group col-md-3 has-success">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="planMantenimiento" value="Sí" ng-model="formData.planMantenimiento" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="planMantenimiento" value="No" ng-model="formData.planMantenimiento" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="planMantenimiento" value="N/D" ng-model="formData.planMantenimiento" required>
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="planMantenimiento" value="N/A" ng-model="formData.planMantenimiento" required>
 							N/A
 						  </label>
 						</div>
@@ -300,10 +329,80 @@
 					</button>
 				</div>
 
-  			</form>
 
-        Form content:
-        {{formData}}
+
+
+
+        <div class="row">
+        <div class="col-xs-3">
+            <h3>Validación Formulario</h3>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td ng-class="{ success: form.$valid, danger: form.$invalid }">Valid</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: form.$pristine, danger: !form.$pristine }">Pristine</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: form.$dirty }">Dirty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+        <div class="col-xs-3">
+            <h3>Validación de campos</h3>
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td ng-class="{ success: form.consumoPC.$valid, danger: form.consumoPC.$invalid}">consumoPC</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.nPozos.$valid, danger: form.nPozos.$invalid}">Pozos</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.nNacientes.$valid, danger: form.nNacientes.$invalid}">Nacientes</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.nRios.$valid, danger: form.nRios.$invalid}">Rios</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.nHidrometros.$valid, danger: form.nHidrometros.$invalid}">Hidrometros</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.consumoAgua.$valid, danger: form.consumoAgua.$invalid}">Consumo Agua</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.analisisCalidad.$valid, danger: form.analisisCalidad.$invalid}">Analisis Calidad</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.planAhorro.$valid, danger: form.planAhorro.$invalid}">Plan Ahorro</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.porcentajeReduccion.$valid, danger: form.porcentajeReduccion.$invalid}">Porcentaje Reduccion</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.planManejo.$valid, danger: form.planManejo.$invalid}">Plan Manejo</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.permisoExplotacion.$valid, danger: form.permisoExplotacion.$invalid}">Permiso Explotación</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.planMantenimiento.$valid, danger: form.planMantenimiento.$invalid}">Plan Mantenimiento</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+
+      </form>
+
+      <div>
+        <p>
+          Form content:{{formData}}
+        </p>
+      </div>
 
 		</div>
 	</div>
