@@ -219,7 +219,7 @@
             <label>Porcentaje de Reducción</label>
             <div class="input-group col-md-3 has-success">
               <input type="number" class="form-control" name="porcentajeReduccion"
-              min="0" max="100" ng-model="formData.porcentajeReduccion" >
+              min="0" max="100" ng-model="formData.porcentajeReduccion">
               <div class="input-group-addon">% Reducción</div>
               <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
             </div>
@@ -330,8 +330,8 @@
 				</div>
 
 
-
-
+<!--VALIDACIÓN DE CAMPOS-->
+<!--
 
         <div class="row">
         <div class="col-xs-3">
@@ -381,9 +381,6 @@
                     <td ng-class="{ success: form.planAhorro.$valid, danger: form.planAhorro.$invalid}">Plan Ahorro</td>
                   </tr>
                   <tr>
-                    <td ng-class="{ success: form.porcentajeReduccion.$valid, danger: form.porcentajeReduccion.$invalid}">Porcentaje Reduccion</td>
-                  </tr>
-                  <tr>
                     <td ng-class="{ success: form.planManejo.$valid, danger: form.planManejo.$invalid}">Plan Manejo</td>
                   </tr>
                   <tr>
@@ -395,15 +392,14 @@
                 </tbody>
             </table>
         </div>
+-->
 
-      </form>
 
       <div>
-        <p>
           Form content:{{formData}}
-        </p>
       </div>
 
+      </form>
 		</div>
 	</div>
 	</div>

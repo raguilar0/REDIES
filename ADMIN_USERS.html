@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Administración de Usuarios</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+  <h2>Administracion de Usuarios</h2>
+  <p>Para eliminar o modificar presione el botón correspondiente</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido 1</th>
+		<th>Apellido 2</th>
+        <th>Correo Electrónico</th>
+		<th>Teléfono</th>
+		<th>Universidad</th>
+		<th>Rol</th>
+        <th>Acciones</th>
+	</tr>
+    </thead>
+    <tbody>
+	<!--una fila con el collapse-->
+      <tr class="success" >
+        <td>Luis</td>
+        <td>Mata</td>
+		<td>Reyes</td>
+		<td>luis.mata@redies.co.cr</td>
+		<td>8888-8888</td>
+		<td>UCR</td>
+		<td>Administrador</td>
+        <td>
+            <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#modificar1" class="accordion-toggle">Modificar
+			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+        </td>
+      </tr>
+	  <tr >
+            <td colspan="8" class="hiddenRow">
+				<div class="accordian-body collapse" id="modificar1">
+					<div class="col-md-4">
+						<div class="input-group">
+							<div class="input-group-addon">Nombre</div>
+							<input type="text" class="form-control" name="nombre">
+						</div>
+						<div class="input-group">
+							<div class="input-group-addon">Apellidos</div>
+							<input type="text" class="form-control" name="apellidos">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="input-group">
+							<div class="input-group-addon">@</div>
+							<input type="text" class="form-control" name="correo">
+						</div>
+						<div class="input-group">
+							<div class="input-group-addon">Teléfono</div>
+							<input type="text" class="form-control" name="telefono">
+						</div>
+						<!--<button type="button" class="btn btn-success btn-block">Guardar Cambios
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>-->
+					</div>
+					<div class="col-md-4">
+						<div class="input-group">
+							<div class="input-group-addon">Universidad</div>
+							<input type="text" class="form-control" name="telefono">
+						</div>
+						<div class="input-group">
+							<div class="input-group-addon">Rol</div>
+							<input type="text" class="form-control" name="telefono">
+						</div>
+						<!--<button type="button" class="btn btn-success btn-block">Reestablecer Contraseña
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>-->
+					</div>
+				</div> 	
+			</td>
+      </tr>
+	<!-- termina la fila -->	
+	
+      <tr class="danger">
+        <td>Jose</td>
+        <td>Slon</td>
+		<td>Baltodano</td>
+        <td>jose.slon@redies.co.cr</td>
+		<td>8888-6666</td>
+		<td>EARTH</td>
+		<td>Representante</td>
+		<td>
+            <button type="button" class="btn btn-warning">Modificar</button>
+            <button type="button" class="btn btn-danger">Eliminar</button>
+        </td>
+		
+      </tr>
+    </tbody>
+  </table>
+  <!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Eliminar Usuario</h4>
+		  </div>
+		  <div class="modal-body">
+			¿Está seguro que desea eliminar este usuario del sistema?
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+			<button type="button" class="btn btn-danger">Eliminar
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+		  </div>
+		</div>
+	  </div>
+</div>
+</div>
+
+</body>
+</html>
