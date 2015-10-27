@@ -79,6 +79,7 @@
 						</label>
 					</div>
         </div>
+
         <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoElectrico.$error.required || !formData.consumoElectrico }" >
 				<div class="input-group col-md-3 has-success">
 					<input type="number" class="form-control"
@@ -93,7 +94,7 @@
                     value="N/A" ng-model="formData.consumoElectrico" required> N/A
           </label>
           <label class="radio-inline">
-            <input type="radio" name="medidores" id="inlineRadio2"
+            <input type="radio" name="consumoElectrico" id="inlineRadio2"
              value="N/D" ng-model="formData.consumoElectrico" required> N/D
           </label>
         </div>
