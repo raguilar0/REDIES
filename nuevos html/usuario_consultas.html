@@ -11,27 +11,54 @@
 </head>
 <body>
     <h2>Consultas sobre indicadores</h2>
+    <div name+"seleccion_busqueda">
+        <h4> Tipo de busqueda</h4>
+        <select name = "tipo_busqueda">
+            <option value="areas">Áreas</option>
+            <option value="tipo">Tipos</option>
+        <select>
+    </div>
+    
     <div name="area_elegida" id="combobox_usuario_consulta_area">
-        Rol
-        <select name = "usuario_consulta_area">
+        <h4>Seleccione un área</h4>
+            <select name = "usuario_consulta_area">
             <option value="CN">Carbono Neutralidad</option>
             <option value="GR">Gestión de Recursos</option>
             <option value="GRE">Gestión de Recursos Energeticos</option>
-            <option value="RHACH">Recurso hídrico: Aguas de Consumo Humano</option>
-            <option value="RHAR">Recurso hídrico: Aguas Residules</option>
+            <option value="RHACH">Recurso Hídrico: Aguas de Consumo Humano</option>
+            <option value="RHAR">Recurso Hídrico: Aguas Residules</option>
             <option value="RS">Residuos Sólidos</option>
-            <option value="ALL">Todas las áreas</option>
-            <option value="PERSONALIZADO">Personalizadas</option>
+            <option value="all_areas">Todas las áreas</option>
+            <option value="personalizados_areas">Personalizadas</option>
         <select>
+    </div>
+        <h4>Seleccione un tipo</h4>
+        <select name = "usuario_consulta_area">
+            <option value="consumo">Registros de Consumo</option>
+            <option value="gestion">Gestión</option>
+            <option value="salida">Registros de Salida</option>
+            <option value="all_tipos">Todos los tipos</option>
+            <option value="personalizados_tipos">Personalizadas</option>
+        <select>
+    <div>
+
     </div>
 
     <div name="areas_personalizadas">
+        <h4>Personalizar Busqueda</h4>
         <input type="checkbox" name="CCN" value="" checked> Carbono Neutralidad </br>
         <input type="checkbox" name="CGR" value="" checked> Gestión de Recursos </br>
         <input type="checkbox" name="CGRE" value="" checked> Gestión de Recursos Energeticos </br>
-        <input type="checkbox" name="CRHACH" value="" checked> Recurso hídrico: Aguas de Consumo Humano </br>
-        <input type="checkbox" name="CRHAR" value="" checked> Recurso hídrico: Aguas Residules </br>
+        <input type="checkbox" name="CRHACH" value="" checked> Recurso Hídrico: Aguas de Consumo Humano </br>
+        <input type="checkbox" name="CRHAR" value="" checked> Recurso Hídrico: Aguas Residules </br>
         <input type="checkbox" name="CRS" value="" checked> Residuos Sólidos </br>
+    </div>
+
+    <div name="tipos_personalizados">
+        <h4>Personalizar Busqueda</h4>
+        <input type="checkbox" name="Cconsumo" value="" checked> Registros de Consumo </br>
+        <input type="checkbox" name="Cgestion" value="" checked> Gestión </br>
+        <input type="checkbox" name="Csalida" value="" checked> Registros de Salida </br>
     </div>
 
     <div name="fecha_visualizacion">
