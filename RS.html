@@ -13,8 +13,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+
   </head>
-  <body>
+  <body ng-app="formApp">
 
 	<div class="container-fluid">
 	<div class="row">
@@ -22,231 +28,272 @@
 			<h3>
 				Residuos Sólidos
 			</h3>
-			<form role="form">
+			<form name="form" role="form" ng-controller="MainCtrl">
 				<div class="form-group">
-				
+
 					<label for="RS_Q1">
-						Inventario de Generación de Residuos sólidos, por tipo y cantidad kg de residuos por año 
+						Inventario de Generación de Residuos sólidos, por tipo y cantidad kg de residuos por año
 					</label>
-					
-					<div class="form-group has-success">
-						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q1.1" min="0" name ="RS_cantidad_papel"/>
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.cantidadPapel.$error.required || !formData.cantidadPapel }">
+						<div class="input-group col-md-4">
+							<input  type="number" class="form-control"
+                      name="cantidadPapel" id="RS_Q1.1" min="0"
+                      ng-model="formData.cantidadPapel" required/>
 							<span class="input-group-addon">Papel</span>
 							<!--<span class="input-group-addon"><input type="checkbox" aria-label="N/A">N/A</span>-->
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de resmas de papel generadas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						<div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" name="cantidadPapel" id="inlineRadio1"
+                        value="N/A" ng-model="formData.cantidadPapel" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="cantidadPapel" id="inlineRadio2"
+                        value="N/D" ng-model="formData.cantidadPapel" requiered> N/D
 							</label>
 						</div>
 					</div>
-					
-					<div class="form-group has-success">
-						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q1.2" min="0" name ="RS_cantidad_residuos_organicos"/>
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rOrganicos.$error.required || !formData.rOrganicos }">
+						<div class="input-group col-md-4">
+							<input  type="number" class="form-control"
+                      name ="rOrganicos" id="RS_Q1.2" min="0"
+                      ng-model="formData.rOrganicos"/>
 							<span class="input-group-addon">Residuos Orgánicos</span>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos orgánicos generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						<div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" id="inlineRadio1" name="rOrganicos"
+                        value="N/A" ng-model="formData.rOrganicos" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio"  name="rOrganicos" id="inlineRadio2"
+                        value="N/D" ng-model="formData.rOrganicos" required> N/D
 							</label>
 						</div>
 					</div>
-					
-					<div class="form-group has-success">
-						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q1.3" min="0" name ="RS_cantidad_residuos_valorizables"/>
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rValorizables.$error.required || !formData.rValorizables }" >
+						<div class="input-group col-md-4">
+							<input  type="number" class="form-control"
+                      name ="rValorizables" id="RS_Q1.3" min="0"
+                      ng-model="formData.rValorizables" required />
 							<div class="input-group-addon">Residuos Valorizables</div>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos valorizables generados por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						<div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" id="inlineRadio1" name="rValorizables"
+                        value="N/A" ng-model="formData.rValorizables" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio"  name ="rValorizables" id="inlineRadio2"
+                        value="N/D" ng-model="formData.rValorizables" requiered> N/D
 							</label>
 						</div>
 					</div>
-					
-					<div class="form-group has-success">
-						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q1.4" min="0" name ="RS_cantidad_residuos_peligrosos"/>
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rPeligrosos.$error.required || !formData.rPeligrosos }">
+						<div class="input-group col-md-4">
+							<input type="number" class="form-control"
+                      name="rPeligrosos" id="RS_Q1.4" min="0"
+                      ng-model="formData.rPeligrosos" required/>
 							<div class="input-group-addon">Residuos Peligrosos</div>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos peligrosos generados por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						<div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" name="rPeligrosos" id="inlineRadio1"
+                        value="N/A" ng-model="formData.rPeligrosos" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="rPeligrosos" id="inlineRadio2"
+                        value="N/D" ng-model="formData.rPeligrosos" requiered> N/D
 							</label>
 						</div>
 					</div>
-					
-					<div class="form-group has-success">
-						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q1.5" min="0" name ="RS_cantidad_residuos_manejo_especial"/>
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rManejoEspecial.$error.required || !formData.rManejoEspecial }">
+						<div class="input-group col-md-4">
+							<input  type="number" class="form-control"
+                      name="rManejoEspecial" id="RS_Q1.5" min="0"
+                      ng-model="formData.rManejoEspecial" required/>
 							<div class="input-group-addon">Residuos de Manejo Especial</div>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos de manejo especial generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+							<label class="radio-inline">
+								<input  type="radio" name="rManejoEspecial" id="inlineRadio1"
+                        value="N/A" ng-model="formData.rManejoEspecial" requiered> N/A
 							</label>
 							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+                <input  type="radio" name="rManejoEspecial" id="inlineRadio2"
+                        value="N/D" ng-model="formData.rManejoEspecial" requiered> N/D
 							</label>
 						</div>
 					</div>
-					
-					<div class="form-group has-success">
-						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q1.6" min="0" name ="RS_cantidad_residuos_no_valorizables"/>
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rNoValorizables.$error.required || !formData.rNoValorizables }">
+						<div class="input-group col-md-4">
+							<input  type="number" class="form-control"
+                      name ="rNoValorizables" id="RS_Q1.6" min="0"
+                      ng-model="formData.rNoValorizables" required />
 							<div class="input-group-addon">Residuos no Valorizables</div>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos no valorizables generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						<div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" name="rNoValorizables" id="inlineRadio1"
+                        value="N/A" ng-model="formData.rNoValorizables" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+              <label class="radio-inline">
+								<input  type="radio" name="rNoValorizables" id="inlineRadio2"
+                        value="N/D" ng-model="formData.rNoValorizables" required> N/D
 							</label>
 						</div>
 					</div>
-					<div class="form-group has-success">
-						<div class="input-group col-md-3">
-							<input type="number" class="form-control" id="RS_Q1.8" min="0" name ="RS_cantidad_otros"/>
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.otros.$error.required || !formData.otros }">
+						<div class="input-group col-md-4">
+							<input  type="number" class="form-control"
+                      name="otros" id="RS_Q1.7" min="0"
+                      ng-model="formData.otros" required/>
 							<div class="input-group-addon">Otros</div>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de otros residuos al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3 has-success">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+						<div class="input-group col-md-4 has-success">
+							<label class="radio-inline">
+								<input  type="radio" name="otros" id="inlineRadio1"
+                        value="N/A" ng-model="formData.otros" required> N/A
 							</label>
-								<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
-							</label>
+              <label class="radio-inline">
+                <input  type="radio" name="otros" id="inlineRadio2"
+                        value="N/D" ng-model="formData.otros" required> N/D
+              </label>
 						</div>
 					</div>
-					
-				</div>			
-				<div class="form-group">
-					 
+
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.rSolidosPC.$error.required || !formData.rSolidosPC }">
+
 					<label for="RS_Q2">
 						Generación de residuos sólidos per cápita
 					</label>
-					<div class="input-group col-md-3 has-success">
-						<input type="number" class="form-control" id="RS_Q2" min="0" name ="RS_percapita"/>
+					<div class="input-group col-md-4 has-success">
+						<input  type="number" class="form-control"
+                    name ="rSolidosPC" id="RS_Q2" min="0"
+                    ng-model="formData.rSolidosPC" required/>
 						<div class="input-group-addon">Kg/Persona</div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos sólidos per-cápita al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-					<div class="input-group col-md-3 has-success">
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+					<div class="input-group col-md-4 has-success">
+						<label class="radio-inline">
+							<input  type="radio" name="rSolidosPC" id="inlineRadio1"
+                      value="N/A" ng-model="formData.rSolidosPC" required> N/A
 						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+            <label class="radio-inline">
+							<input  type="radio" name="rSolidosPC" id="inlineRadio2"
+                      value="N/D" ng-model="formData.rSolidosPC" required> N/D
 						</label>
 					</div>
 				</div>
-				<div class="form-group">
-					 
-					<label for="CN_Q3">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.recuperacionRS.$error.required || !formData.recuperacionRS }">
+					<label for="RS_Q3">
 						Indicadores de recuperación de residuos sólidos
 					</label>
-					<div class="input-group col-md-3 has-success">
-						<input type="number" class="form-control" id="RS_Q3" min="0" name ="RS_inicador_recuperacion"/>
+					<div class="input-group col-md-4 has-success">
+						<input  type="number" class="form-control"
+                    name="recuperacionRS" id="RS_Q3" min="0"
+                    ng-model="formData.recuperacionRS" required/>
 						<div class="input-group-addon">Kg valorizables/Persona</div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el indicador de recuperacion de residuos solidos por persona al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-					<div class="input-group col-md-3 has-success">
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+					<div class="input-group col-md-4 has-success">
+						<label class="radio-inline">
+							<input  type="radio" name="recuperacionRS" id="inlineCheckbox1"
+                      value="N/A" ng-model="formData.recuperacionRS" required> N/A
 						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+            <label class="radio-inline">
+							<input  type="radio" name="recuperacionRS" id="inlineCheckbox2"
+                      value="N/D" ng-model="formData.recuperacionRS" required> N/D
 						</label>
-					</div>	
+					</div>
 				</div>
-				<div class="form-group">
-					 
-					<label for="CN_Q2">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.tazaReciclaje.$error.required || !formData.tazaReciclaje }">
+					<label for="RS_Q4">
 						Tasa anual de reciclaje
 					</label>
-					<div class="input-group col-md-3 has-success">
-						<input type="number" class="form-control" id="RS_Q4" min="0" name ="RS_tasa_reciclaje"/>
+					<div class="input-group col-md-4 has-success">
+						<input  type="number" class="form-control"
+                    name="tazaReciclaje" id="RS_Q4" min="0"
+                    ng-model="formData.tazaReciclaje" required/>
 						<div class="input-group-addon">%</div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la taza anual de reciclaje"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-					<div class="input-group col-md-3 has-success">
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+					<div class="input-group col-md-4 has-success">
+						<label class="radio-inline">
+							<input  type="radio" name="tazaReciclaje" id="inlineRadio1"
+                      value="N/A" ng-model="formData.tazaReciclaje" required> N/A
 						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+            <label class="radio-inline">
+							<input  type="radio" name="tazaReciclaje" id="inlineRadio1"
+                      value="N/D" ng-model="formData.tazaReciclaje" required> N/D
 						</label>
-					</div>	
+					</div>
 				</div>
-				<div class="form-group">
-					 
-					<label for="CN_Q2">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.trazabilidad.$error.required || !formData.trazabilidad }">
+					<label for="RS_Q5">
 						Trazabilidad de gestores de residuos
 					</label>
-					<div class="input-group col-md-3 has-success">
-						<input type="number" class="form-control" id="RS_Q5" min="0" name ="RS_trazabilidad"/>
+					<div class="input-group col-md-4 has-success">
+						<input type="number" class="form-control"
+                    name ="trazabilidad" id="RS_Q5" min="0"
+                    ng-model="formData.trazabilidad" required/>
 						<div class="input-group-addon">Gestores Autorizados</div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de gestores autorizados para la trazabilidad de residuos sólidos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-					<div class="input-group col-md-3 has-success">
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+          <div class="input-group col-md-4 has-success">
+						<label class="radio-inline">
+							<input  type="radio" name="trazabilidad" id="inlineRadio1"
+                      value="N/A" ng-model="formData.trazabilidad" required> N/A
 						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+            <label class="radio-inline">
+							<input  type="radio" name="trazabilidad" id="inlineRadio1"
+                      value="N/D" ng-model="formData.trazabilidad" required> N/D
 						</label>
-					</div>	
+					</div>
 				</div>
-				
-				<div class="form-group">
+
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planManejo.$error.required || !formData.planManejo }">
 					<label for="CN_Q6">
 						¿Posee plan de manejo de residuos sólidos en ejecución?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="planManejo" value="Sí" ng-model="formData.planManejo" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="planManejo" value="No" ng-model="formData.planManejo" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="planManejo" value="N/A" ng-model="formData.planManejo" required >
 							N/D
 						  </label>
 						</div>
 					</div>
 				</div>
-				
-				<div class="form-group col-md-3">
-					<button type="submit" class="btn btn-success btn-block">
+
+				<div class="form-group col-md-4">
+					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						Enviar
 					</button>

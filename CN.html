@@ -13,79 +13,66 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+
   </head>
-  <body>
+  <body ng-app="formApp">
 
    <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-4">
+	  <div class="row">
+		<div class="col-md-12">
 			<h3>
 				Carbono Neutralidad
 			</h3>
-			<form role="form">
-				<div class="form-group">
-					 
+			<form role="form" name="form" ng-controller="MainCtrl">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.emisiones.$error.required || !formData.emisiones }">
+
 					<label for="CN_Q1">
-						Inventario de Emisiones de Gases de Efecto Invernadero
+						¿Posee inventario de Emisiones de Gases de Efecto Invernadero?
 					</label>
-					<input type="number" class="col-sm-5 form-control" id="CN_Q1"/>
-					
+          <div class="input-group col-md-3 has-success">
+						<label class="radio-inline">
+							<input type="radio" name="emisiones" id="inlineRadio2"
+               value="Sí" ng-model="formData.emisiones" required> Sí
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="emisiones" id="inlineRadio2"
+               value="No" ng-model="formData.emisiones" required> No
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="emisiones" id="inlineRadio2"
+               value="N/D" ng-model="formData.emisiones" required> N/D
+						</label>
+					</div>
+          <div ng-show="formData.emisiones=='Sí'" class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.cantidadCO2.$error.required }">
+            <label>
+              Ingrese la cantidad de toneladas de CO<sub>2</sub> por año
+            </label>
+  					<input  type="number" class="col-sm-5 form-control"
+                    name="cantidadCO2" id="CN_Q1"
+                    ng-model="formData.cantidadCO2" required/>
+          </div>
 				</div>
 				<div class="form-group">
-					 
+
 					<label for="CN_Q2">
 						Registro y control del Consumo de combustibles y refrigerantes de todo tipo(fuentes móviles y fijas)
 					</label>
 					<input type="number" class="form-control" id="CN_Q2" />
 				</div>
 				<div class="form-group">
-					 
+
 					<label for="CN_Q2">
 						Plan de reducción de emisiones de gases de efecto invernadero
 					</label>
 					<input type="number" class="form-control" id="CN_Q2" />
 				</div>
 				<div class="form-group">
-					 
-					<label for="CN_Q2">
-						Plan de conservación y reforestación, compra de bonos certificados
-					</label>
-					<input type="number" class="form-control" id="CN_Q2" />
-				</div>
-				<button type="submit" class="btn btn-success btn-block">
-					Enviar
-				</button>
-			</form>
-		</div>
-		<div class="col-md-4">
-			<h3>
-				Carbono Neutralidad
-			</h3>
-			<form role="form">
-				<div class="form-group">
-					 
-					<label for="CN_Q1">
-						Inventario de Emisiones de Gases de Efecto Invernadero
-					</label>
-					<input type="number" class="col-sm-5 form-control" id="CN_Q1"/>
-					
-				</div>
-				<div class="form-group">
-					 
-					<label for="CN_Q2">
-						Registro y control del Consumo de combustibles y refrigerantes de todo tipo(fuentes móviles y fijas)
-					</label>
-					<input type="number" class="form-control" id="CN_Q2" />
-				</div>
-				<div class="form-group">
-					 
-					<label for="CN_Q2">
-						Plan de reducción de emisiones de gases de efecto invernadero
-					</label>
-					<input type="number" class="form-control" id="CN_Q2" />
-				</div>
-				<div class="form-group">
-					 
+
 					<label for="CN_Q2">
 						Plan de conservación y reforestación, compra de bonos certificados
 					</label>

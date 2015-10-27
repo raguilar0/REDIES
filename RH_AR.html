@@ -8,162 +8,184 @@
     <title>RH, Aguas Residuales</title>
 
     <meta name="description" content="Matriz de indicadores - Recurso Hídrico, Aguas Residuales">
-    <meta name="author" content="Luis Mata, José Slon, Michael, Ricardo, Brandon">
+    <meta name="author" content="Luis Mata, José Slon, Michael Qurós, Ricardo Aguilar, Brandon Sardí">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+
   </head>
-  
-  <body>
+  <body ng-app="formApp">
+
   <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<h3>
 				Recurso Hídrico, Aguas Residuales
 			</h3>
-			<form role="form">
-				
+			<form name="form" role="form" ng-controller="MainCtrl">
+
 				<div class="form-group">
-				
-					<label for="RS_Q2">
+
+					<label for="RH_AR_Q1">
 						Inventario de efluentes de aguas residuales y puntos de descarga
 					</label>
-					
-					<div class="form-group has-success">
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.descargasAP.$error.required || !formData.descargasAP }">
 						<div class="input-group col-md-4">
-							<input type="number" class="form-control" id="RS_Q2.1" min="0"/>
+							<input  type="number" class="form-control"
+                      name="descargasAP" id="RH_AR_Q1.1" min="0"
+                      ng-model="formData.descargasAP" required/>
 							<span class="input-group-addon">descargas al alcantarillado público</span>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de descargas al alcantarillado público anualmente"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+            <div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" name="descargasAP" id="inlineRadio1"
+                        value="N/A" ng-model="formData.descargasAP" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="descargasAP" id="inlineRadio2"
+                        value="N/D" ng-model="formData.descargasAP" requiered> N/D
 							</label>
 						</div>
 					</div>
-					
-					<div class="form-group has-success">
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.descargasTS.$error.required || !formData.descargasTS }">
 						<div class="input-group col-md-4">
-							<input type="number" class="form-control" id="RS_Q2.2" min="0"/>
+							<input  type="number" class="form-control"
+                      name="descargasTS" id="RH_AR_Q1.2" min="0"
+                      ng-model="formData.descargasTS" required/>
 							<span class="input-group-addon">descargas a tanques sépticos</span>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de descargas a tanques sépticos anualmente"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-4">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+            <div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" name="descargasTS" id="inlineRadio1"
+                        value="N/A" ng-model="formData.descargasTS" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="descargasTS" id="inlineRadio2"
+                        value="N/D" ng-model="formData.descargasTS" requiered> N/D
 							</label>
 						</div>
 					</div>
-					
-					<div class="form-group has-success">
+
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.descargasST.$error.required || !formData.descargasST }">
 						<div class="input-group col-md-4">
-							<input type="number" class="form-control" id="RS_Q2.2" min="0"/>
+							<input type="number" class="form-control"
+                      name="descargasST" id="RH_AR_Q1.3" min="0"
+                      ng-model="formData.descargasST" required/>
 							<span class="input-group-addon">descargas al sistema de tratamiento</span>
-							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de descargas a sistemas de tratamiento anualmente"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
+            <div class="input-group col-md-4">
+							<label class="radio-inline">
+								<input  type="radio" name="descargasST" id="inlineRadio1"
+                        value="N/A" ng-model="formData.descargasST" required> N/A
 							</label>
-							<label class="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
+							<label class="radio-inline">
+								<input  type="radio" name="descargasST" id="inlineRadio2"
+                        value="N/D" ng-model="formData.descargasST" requiered> N/D
 							</label>
 						</div>
 					</div>
 				</div>
-				
-				<div class="form-group">	 
-					<label for="RH_AR_Q1">
+
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.reportesOP.$error.required || !formData.reportesOP }">
+					<label for="RH_AR_Q2">
 						Reportes Operacionales
 					</label>
 					<div class="input-group col-md-4 has-success">
-						<input type="number" class="form-control" id="RS_Q3" min="0"/>
+						<input  type="number" class="form-control"
+                    name="reportesOP" id="RH_AR_Q2" min="0"
+                    ng-model="formData.reportesOP" required/>
 						<div class="input-group-addon">reportes operacionales</div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de reportes operacionales"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-					<div class="input-group col-md-3 has-success">
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="N/A"> N/A
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="N/D"> N/D
-						</label>
-					</div>	
+          <div class="input-group col-md-4">
+            <label class="radio-inline">
+              <input  type="radio" name="reportesOP" id="inlineRadio1"
+                      value="N/A" ng-model="formData.reportesOP" required> N/A
+            </label>
+            <label class="radio-inline">
+              <input  type="radio" name="reportesOP" id="inlineRadio2"
+                      value="N/D" ng-model="formData.reportesOP" requiered> N/D
+            </label>
+          </div>
 				</div>
-				
-				<div class="form-group">
-					<label for="CN_Q6">
+
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.sistemaTratamientoAR.$error.required || !formData.sistemaTratamientoAR }">
+					<label for="RH_AR_Q3">
 						¿Posee sistema de tratamiento de aguas residuales debidamente inscrito y con un diseño adecuado a la naturaleza del agua residual a tratar?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="sistemaTratamientoAR" value="Sí" ng-model="formData.sistemaTratamientoAR" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="sistemaTratamientoAR" value="No" ng-model="formData.sistemaTratamientoAR" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="sistemaTratamientoAR" value="N/D" ng-model="formData.sistemaTratamientoAR" required>
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="sistemaTratamientoAR" value="N/A" ng-model="formData.sistemaTratamientoAR" required>
 							N/A
 						  </label>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="form-group">
-					<label for="CN_Q6">
-						¿Realiza análisis de aguas residuales? 
+					<label for="RH_AR_Q4">
+						¿Realiza análisis de aguas residuales?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.analisisAR.$error.required || !formData.analisisAR }">
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="Sí">
+							<input type="radio" name="analisisAR" value="Sí" ng-model="formData.analisisAR" required>
 							Sí
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="No">
+							<input type="radio" name="analisisAR" value="No" ng-model="formData.analisisAR" required>
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="analisisAR" value="N/D" ng-model="formData.analisisAR" required>
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="PlanManejo" value="N/A">
+							<input type="radio" name="analisisAR" value="N/A" ng-model="formData.analisisAR" required>
 							N/A
 						  </label>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="form-group col-md-3">
-					<button type="submit" class="btn btn-success btn-block">
+					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						Enviar
 					</button>
