@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../index.css">
+
+    <title>Consultas</title>
+</head>
+<body>
+    <h2>Consultas sobre indicadores</h2>
+    <div name="area_elegida" id="combobox_usuario_consulta_area">
+        Rol
+        <select name = "usuario_consulta_area">
+            <option value="CN">Carbono Neutralidad</option>
+            <option value="GR">Gestión de Recursos</option>
+            <option value="GRE">Gestión de Recursos Energeticos</option>
+            <option value="RHACH">Recurso hídrico: Aguas de Consumo Humano</option>
+            <option value="RHAR">Recurso hídrico: Aguas Residules</option>
+            <option value="RS">Residuos Sólidos</option>
+            <option value="ALL">Todas las áreas</option>
+            <option value="PERSONALIZADO">Personalizadas</option>
+        <select>
+    </div>
+
+    <div name="areas_personalizadas">
+        <input type="checkbox" name="CCN" value="" checked> Carbono Neutralidad </br>
+        <input type="checkbox" name="CGR" value="" checked> Gestión de Recursos </br>
+        <input type="checkbox" name="CGRE" value="" checked> Gestión de Recursos Energeticos </br>
+        <input type="checkbox" name="CRHACH" value="" checked> Recurso hídrico: Aguas de Consumo Humano </br>
+        <input type="checkbox" name="CRHAR" value="" checked> Recurso hídrico: Aguas Residules </br>
+        <input type="checkbox" name="CRS" value="" checked> Residuos Sólidos </br>
+    </div>
+
+    <div name="fecha_visualizacion">
+        <h4>Seleccione los años en los que desea ver la consulta</h4>
+        Desde&nbsp;<input  type="number" name"anio_inicio" min=2014 value=2014>
+        Hasta&nbsp;<input  type="number" name"anio_final" min=2014 value=2014>
+    </div>
+
+    <div name="resultado">
+
+    </div>
+
+</body>
+</html>
