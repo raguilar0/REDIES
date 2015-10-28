@@ -215,11 +215,11 @@
 						  </label>
 						</div>
 					</div>
-          <div class="form-group" ng-show="formData.planAhorro=='Sí'">
+          <div class="form-group" ng-show="formData.planAhorro=='Sí'" ng-class="{ 'has-error' : !form.$pristine  && form.porcentajeReduccion.$error.required }">
             <label>Porcentaje de Reducción</label>
             <div class="input-group col-md-3 has-success">
               <input type="number" class="form-control" name="porcentajeReduccion"
-              min="0" max="100" ng-model="formData.porcentajeReduccion">
+              min="0" max="100" ng-model="formData.porcentajeReduccion" required>
               <div class="input-group-addon">% Reducción</div>
               <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
             </div>
@@ -323,7 +323,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
+					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" > <!-- ng-disabled="!form.$valid"-->
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						Enviar
 					</button>

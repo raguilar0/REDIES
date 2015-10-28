@@ -48,36 +48,175 @@
                value="N/D" ng-model="formData.emisiones" required> N/D
 						</label>
 					</div>
+
           <div ng-show="formData.emisiones=='Sí'" class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.cantidadCO2.$error.required }">
             <label>
               Ingrese la cantidad de toneladas de CO<sub>2</sub> por año
             </label>
+            <div class="input-group col-md-3 has-success">
   					<input  type="number" class="col-sm-5 form-control"
                     name="cantidadCO2" id="CN_Q1"
                     ng-model="formData.cantidadCO2" required/>
+                    <span class="input-group-addon">ton CO2</span>
+                    <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese las toneladas de CO2 emitidas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
           </div>
 				</div>
 				<div class="form-group">
 
 					<label for="CN_Q2">
-						Registro y control del Consumo de combustibles y refrigerantes de todo tipo(fuentes móviles y fijas)
+						Registro y control del Consumo de combustibles y refrigerantes de todo tipo por fuentes móviles y fijas
 					</label>
-					<input type="number" class="form-control" id="CN_Q2" />
-				</div>
-				<div class="form-group">
 
-					<label for="CN_Q2">
-						Plan de reducción de emisiones de gases de efecto invernadero
-					</label>
-					<input type="number" class="form-control" id="CN_Q2" />
+          <div class="form-group has-success">
+            <div class="input-group col-md-3" ng-class="{ 'has-error' : !form.$pristine  && form.gasolina.$error.required || !formData.gasolina }">
+              <input  type="number" class="form-control"
+                      name="gasolina" id="CN_Q2.1" min="0" ng-model="formData.gasolina" required/>
+              <span class="input-group-addon">Gasolina</span>
+              <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese los litros de gasolina consumidos al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+            <div class="input-group col-md-3">
+              <label class="radio-inline">
+                <input  type="radio" name="gasolina" id="inlineRadio1"
+                        value="N/A" ng-model="formData.gasolina" required> N/A
+              </label>
+              <label class="radio-inline">
+                <input  type="radio" name="gasolina" id="inlineRadio2"
+                        value="N/D" ng-model="formData.gasolina" required> N/D
+              </label>
+            </div>
+            <br>
+            <div class="input-group col-md-3" ng-class="{ 'has-error' : !form.$pristine  && form.diesel.$error.required || !formData.diesel }">
+              <input  type="number" class="form-control"
+                      name="diesel" id="CN_Q2.2" min="0" ng-model="formData.diesel" required/>
+              <span class="input-group-addon">diesel</span>
+              <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese los litros de diesel consumidos al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+            <div class="input-group col-md-3">
+              <label class="radio-inline">
+                <input  type="radio" name="diesel" id="inlineRadio1"
+                        value="N/A" ng-model="formData.diesel" required> N/A
+              </label>
+              <label class="radio-inline">
+                <input  type="radio" name="diesel" id="inlineRadio2"
+                        value="N/D" ng-model="formData.diesel" required> N/D
+              </label>
+            </div>
+            <br>
+            <div class="input-group col-md-3" ng-class="{ 'has-error' : !form.$pristine  && form.gas.$error.required || !formData.gas }">
+              <input  type="number" class="form-control"
+                      name="gas" id="CN_Q2.3" min="0" ng-model="formData.gas" required/>
+              <span class="input-group-addon">gas LPG</span>
+              <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese los litros de gas LPG consumidos al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+            <div class="input-group col-md-3">
+              <label class="radio-inline">
+                <input  type="radio" name="gas" id="inlineRadio1"
+                        value="N/A" ng-model="formData.gas" required> N/A
+              </label>
+              <label class="radio-inline">
+                <input  type="radio" name="gas" id="inlineRadio2"
+                        value="N/D" ng-model="formData.gas" required> N/D
+              </label>
+            </div>
+            <br>
+            <div class="input-group col-md-3" ng-class="{ 'has-error' : !form.$pristine  && form.otrosCombustibles.$error.required || !formData.otrosCombustibles }">
+              <input  type="number" class="form-control"
+                      name="otrosCombustibles" id="CN_Q2.4" min="0" ng-model="formData.otrosCombustibles" required/>
+              <span class="input-group-addon">otros combustibles</span>
+              <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese los litros de otros combustibles consumidos al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+            <div class="input-group col-md-3">
+              <label class="radio-inline">
+                <input  type="radio" name="otrosCombustibles" id="inlineRadio1"
+                        value="N/A" ng-model="formData.otrosCombustibles" required> N/A
+              </label>
+              <label class="radio-inline">
+                <input  type="radio" name="otrosCombustibles" id="inlineRadio2"
+                        value="N/D" ng-model="formData.otrosCombustibles" required> N/D
+              </label>
+            </div>
+          </div>
 				</div>
-				<div class="form-group">
 
-					<label for="CN_Q2">
-						Plan de conservación y reforestación, compra de bonos certificados
+
+        <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planReduccionEmisiones.$error.required || !formData.planReduccionEmisiones }">
+
+					<label for="CN_Q1">
+						¿Posee plan de reducción de emisiones de gases de efecto invernadero?
 					</label>
-					<input type="number" class="form-control" id="CN_Q2" />
+          <div class="input-group col-md-3 has-success">
+						<label class="radio-inline">
+							<input type="radio" name="planReduccionEmisiones" id="inlineRadio2"
+               value="Sí" ng-model="formData.planReduccionEmisiones" required> Sí
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="planReduccionEmisiones" id="inlineRadio2"
+               value="No" ng-model="formData.planReduccionEmisiones" required> No
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="planReduccionEmisiones" id="inlineRadio2"
+               value="N/D" ng-model="formData.planReduccionEmisiones" required> N/D
+						</label>
+					</div>
+
+          <div ng-show="formData.planReduccionEmisiones=='Sí'" class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.porcentajeReduccion.$error.required }">
+            <label>
+              Ingrese meta
+            </label>
+            <div class="input-group col-md-3 has-success">
+  					<input  type="number" class="col-sm-5 form-control"
+                    name="porcentajeReduccion" id="CN_Q1"
+                    ng-model="formData.cantidadCO2" required/>
+                    <span class="input-group-addon">% reducción</span>
+                    <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la meta de porcentaje de reducción de emisiones al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+          </div>
 				</div>
+
+        <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planConservacion.$error.required || !formData.planConservacion }">
+
+					<label for="CN_Q1">
+						¿Posee plan de conservación y reforestación, compra de bonos certificados?
+					</label>
+          <div class="input-group col-md-3 has-success">
+						<label class="radio-inline">
+							<input type="radio" name="planConservacion" id="inlineRadio2"
+               value="Sí" ng-model="formData.planConservacion" required> Sí
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="planConservacion" id="inlineRadio2"
+               value="No" ng-model="formData.planConservacion" required> No
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="planReduccioplanConservacionnEmisiones" id="inlineRadio2"
+               value="N/D" ng-model="formData.planConservacion" required> N/D
+						</label>
+					</div>
+          <br>
+          <div ng-show="formData.planConservacion=='Sí'" class="form-group" >
+
+            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.arbolesSembrados.$error.required }">
+  					<input  type="number" class="col-sm-5 form-control"
+                    name="arbolesSembrados" id="CN_Q1"
+                    ng-model="formData.arbolesSembrados" required/>
+                    <span class="input-group-addon">árboles sembrados/año</span>
+                    <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de árboles sembrados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+            <br>
+            <div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.certificados.$error.required }">
+            <input  type="number" class="col-sm-5 form-control"
+                    name="certificados" id="CN_Q1"
+                    ng-model="formData.certificados" required/>
+                    <span class="input-group-addon">certificados</span>
+                    <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de certificados comprados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+
+          </div>
+				</div>
+
+
+
 				<button type="submit" class="btn btn-success btn-block">
 					Enviar
 				</button>
