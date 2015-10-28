@@ -1,0 +1,199 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../index.css">
+	<title>Administración de Formularios</title>
+</head>
+<body> 
+	<script type="text/javascript">
+        function mostrarFechaCN(){
+            document.getElementById('fechaCN').style.display = 'inline-block';
+        };
+        function ocultarFechaCN(){
+            document.getElementById('fechaCN').style.display = 'none';
+        };
+        function mostrarFechaGR(){
+            document.getElementById('fechaGR').style.display = 'inline-block';
+        };
+        function ocultarFechaGR(){
+            document.getElementById('fechaGR').style.display = 'none';
+        };
+        function mostrarFechaGRE(){
+            document.getElementById('fechaGRE').style.display = 'inline-block';
+        };
+        function ocultarFechaGRE(){
+            document.getElementById('fechaGRE').style.display = 'none';
+        };
+        function mostrarFechaRHACH(){
+            document.getElementById('fechaRHACH').style.display = 'inline-block';
+        };
+        function ocultarFechaRHACH(){
+            document.getElementById('fechaRHACH').style.display = 'none';
+        };
+        function mostrarFechaRHAR(){
+            document.getElementById('fechaRHAR').style.display = 'inline-block';
+        };
+        function ocultarFechaRHAR(){
+            document.getElementById('fechaRHAR').style.display = 'none';
+        };
+        function mostrarFechaRS(){
+            document.getElementById('fechaRS').style.display = 'inline-block';
+        };
+        function ocultarFechaRS(){
+            document.getElementById('fechaRS').style.display = 'none';
+        };
+      </script>
+
+	<h2>Administración de Formularios</h2>
+	<div name = "administracion_areas">
+        
+        <div>
+            <h4>Carbono Neutralidad</h4>
+            <div class="radio-inline">
+                <label>
+       		        <input type="radio"  name="radioCN"  value="Sí" onclick="mostrarFechaCN()">
+            	        Activar
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+            	    <input type="radio"  name="radioCN"  value="desactivado" onclick="ocultarFechaCN()">
+                        Desactivar
+                    </label>
+                <div id="fechaCN" name="input_fechaCN" style='display:none;'>
+                    &nbsp;Desde
+                    <input type="date" min="2016-01-01" >
+                    Hasta
+                    <input type="date" min="2016-01-01" >
+                </div>
+            </div>
+        </div>
+
+        
+        <div>
+            <h4>Gestión de Recursos</h4>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioGR"  value="Sí" onclick="mostrarFechaGR()">
+                        Activar
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioGR"  value="desactivado" onclick="ocultarFechaGR()">
+                        Desactivar
+                    </label>
+                <div id="fechaGR" name="input_fechaGR" style='display:none;'>
+                    &nbsp;Desde
+                    <input type="date" min="2016-01-01" >
+                    Hasta
+                    <input type="date" min="2016-01-01" >
+                </div>
+            </div>
+
+            
+        </div>  
+        
+        <div>
+            <h4>Gestión de Recursos Energeticos</h4>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioGRE"  value="Sí" onclick="mostrarFechaGRE()">
+                        Activar
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioGRE"  value="desactivado" onclick="ocultarFechaGRE()">
+                        Desactivar
+                    </label>
+                <div id="fechaGRE" name="input_fechaGR" style='display:none;'>
+                    &nbsp;Desde
+                    <input type="date" min="2016-01-01" >
+                    Hasta
+                    <input type="date" min="2016-01-01" >
+                </div>
+            </div>
+        </div>  
+        
+        <div>
+            <h4>Recurso Hídrico: Aguas de Consumo Humano</h4>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioRHACH"  value="Sí" onclick="mostrarFechaRHACH()">
+                        Activar
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioRHACH"  value="desactivado" onclick="ocultarFechaRHACH()">
+                        Desactivar
+                    </label>
+                <div id="fechaRHACH" name="input_fechaRHACH" style='display:none;'>
+                    &nbsp;Desde
+                    <input type="date" min="2016-01-01" >
+                    Hasta
+                    <input type="date" min="2016-01-01" >
+                </div>
+            </div>
+        </div>  
+
+        
+        <div>
+            <h4>Recurso Hídrico: Aguas Residules</h4>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioRHAR"  value="Sí" onclick="mostrarFechaRHAR()">
+                        Activar
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioRHAR"  value="desactivado" onclick="ocultarFechaRHAR()">
+                        Desactivar
+                    </label>
+                <div id="fechaRHAR" name="input_fechaRHAR" style='display:none;'>
+                    &nbsp;Desde
+                    <input type="date" min="2016-01-01" >
+                    Hasta
+                    <input type="date" min="2016-01-01" >
+                </div>
+            </div>
+        </div>  
+        
+        <div>
+            <h4>Residuos Sólidos</h4>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioRS"  value="Sí" onclick="mostrarFechaRS()">
+                        Activar
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio"  name="radioRS"  value="desactivado" onclick="ocultarFechaRS()">
+                        Desactivar
+                    </label>
+                <div id="fechaRS" name="input_fechaRS" style='display:none;'>
+                    &nbsp;Desde
+                    <input type="date" min="2016-01-01" >
+                    Hasta
+                    <input type="date" min="2016-01-01" >
+                </div>
+            </div>
+        </div>   
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success btn-block">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Guardar Cambios
+        </button>
+    </div>
+
+</body>
+</html>
