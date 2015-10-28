@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Consultas Sobre Indicadores</title>
+		
+		<meta name="description" content="Admin - Consultas Sobre Indicadores">
+		<meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="js/app.js"></script>
+
+	</head>
+
+<body ng-app="formApp">
+			<script>
+				$(document).ready(function(){
+					$('[data-toggle="tooltip"]').tooltip();
+				});
+			</script>
+			
+            <script type="text/javascript">
+                function mostrarAreas(){
+                    document.getElementById('combobox_usuario_consulta_area').style.display = 'inline-block';
+                    document.getElementById('combobox_consulta_tipo').style.display = 'none';
+                    document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+
+                };
+
+                function mostrarTipos(){
+                    document.getElementById('combobox_usuario_consulta_area').style.display = 'none';
+                    document.getElementById('combobox_consulta_tipo').style.display = 'inline-block';
+                    document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+
+                };
+
+                 function mostrarAreasPersonalizadas(){
+                    if(document.getElementById('area_personalizada').selectedIndex == 7){
+                        document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
+                    }else{
+                        document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+                    }
+                 };
+
+                 function mostrarTiposPersonalizados(){
+                    if(document.getElementById('tipo_personalizado').selectedIndex == 4){
+                        document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
+                    }else{
+                        document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+                    }
+                 };
+
+            </script>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+			Consultas Sobre Indicadores
+			</h3>
+			
+		<form name="form" role="form" ng-controller="MainCtrl">
+			<div class="form-group">
+				<label for="AD_C1">
+					Tipo de Búsqueda
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+				</label>
+				<div class="input-group col-md-3 has-success">
+					<div class="radio-inline">
+					  <label>
+						<input type="radio" name="busqueda_areas" value="areas" onclick="mostrarAreas()">
+						Áreas
+					  </label>
+					</div>
+					<div class="radio-inline">
+					  <label>
+						<input type="radio" name="busqueda_areas" value="areas" onclick="mostrarTipos()">
+						Tipos
+					  </label>
+					</div>
+				</div>
+			</div>
+		
+			
+		
+			
+			<div name="area_elegida" id="combobox_usuario_consulta_area" style='display:none;'>
+				<div class="form-group">
+					<label for="AD_C1">
+						Seleccione un Área
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<select name = "usuario_consulta_area" onclick="mostrarAreasPersonalizadas()" id="area_personalizada" class="form-control">
+							<option value="CN">Carbono Neutralidad</option>
+							<option value="GR">Gestión de Recursos</option>
+							<option value="GRE">Gestión de Recursos Energeticos</option>
+							<option value="RHACH">Recurso Hídrico: Aguas de Consumo Humano</option>
+							<option value="RHAR">Recurso Hídrico: Aguas Residules</option>
+							<option value="RS">Residuos Sólidos</option>
+							<option value="all_areas">Todas las áreas</option>
+							<option value="personalizados_areas">Personalizadas</option>
+						</select>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+					</div>
+				</div>		
+			</div>
+			
+			
+				
+			<div name="tipo_elegido" id="combobox_consulta_tipo" style='display:none;'>
+				<div class="form-group">
+					<label for="AD_C1">
+						Seleccione un Tipo
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<select name = "usuario_consulta_tipo" onclick="mostrarTiposPersonalizados()" id="tipo_personalizado" class="form-control">
+							<option value="consumo">Registros de Consumo</option>
+							<option value="gestion">Gestión</option>
+							<option value="salida">Registros de Salida</option>
+							<option value="all_tipos">Todos los tipos</option>
+							<option value="personalizados_tipos">Personalizado</option>
+						</select>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+					</div>
+				</div>	
+			</div>
+
+			<div name="areas_personalizadas" id="checkbox_areas_personalizadas" style='display:none;'>
+				<div class="form-group">
+					<label for="AD_C1">
+						Personalizar Búsqueda
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<input type="checkbox" name="CCN" value="" checked> Carbono Neutralidad </br>
+						<input type="checkbox" name="CGR" value="" checked> Gestión de Recursos </br>
+						<input type="checkbox" name="CGRE" value="" checked> Gestión de Recursos Energeticos </br>
+						<input type="checkbox" name="CRHACH" value="" checked> Recurso Hídrico: Aguas de Consumo Humano </br>
+						<input type="checkbox" name="CRHAR" value="" checked> Recurso Hídrico: Aguas Residules </br>
+						<input type="checkbox" name="CRS" value="" checked> Residuos Sólidos </br>
+						
+					</div>
+				</div>
+			</div>
+
+			<div name="tipos_personalizados" id="checkbox_tipos_personalizados" style='display:none;'>
+				<div class="form-group">
+					<label for="AD_C1">
+						Personalizar Búsqueda
+					</label>
+					<div class="input-group col-md-3 has-success">
+						<input type="checkbox" name="Cconsumo" value="" checked> Registros de Consumo </br>
+						<input type="checkbox" name="Cgestion" value="" checked> Gestión </br>
+						<input type="checkbox" name="Csalida" value="" checked> Registros de Salida </br>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="AD_C1">
+						Seleccione una Universidad
+				</label>
+				<div class="input-group col-md-3 has-success">
+					<select name="select_universidad" id="id_select_universidad" class="form-control"  >
+						<option value="UCR">Universidad de Costa Rica</option>
+						<option value="UNA">Universidad Nacional</option>
+						<option value="UL">Universidad Latina</option>
+					</select>
+				<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="GRE_Q4">
+					Seleccione los años en los que desea ver la consulta
+				</label>
+				<div class="input-group col-md-3 has-success">
+					<div class="input-group-addon">Desde</div>
+					<input  type="number" name"anio_inicio" min=2014 value=2014 class="form-control">
+					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="input-group col-md-3 has-success">
+						<div class="input-group-addon">Hasta</div>
+						<input  type="number" name"anio_final" min=2014 value=2014 class="form-control">
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+				</div>
+			</div>
+			
+			<div class="form-group col-md-3">
+					<button type="submit" class="btn btn-success btn-block">
+					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+						Mostrar Tabla
+					</button>
+			</div>
+			
+			
+			<div name="resultado">
+
+			</div>
+			
+		</Form>
+	    </div>
+	</div>
+	</div>
+
+</body>
+</html>
