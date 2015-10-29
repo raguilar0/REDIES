@@ -18,10 +18,5 @@
 
 /* ---- perfil de usuario -----*/
 
-/* ancho de casilla */
-.casilla .input-group-addon
-{
-	width: 100px;
-	text-align: left;
-}
+
 
