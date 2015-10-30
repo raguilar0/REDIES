@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+    <!--#include file="index.html" -->
+
   	<meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,29 +58,6 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.medidores.$error.required || !formData.medidores }">
-				<label for="GRE_Q2">
-					Consumo eléctrico per cápita anual según el alcance
-				</label>
-				<div class="input-group col-md-3 has-success" >
-					<input  type="number" class="form-control"
-                  name="medidores" id="GRE_numMedidores" min="0"
-                  ng-model="formData.medidores" required/>   <!--GRE_II_I_RC-->
-					<div class="input-group-addon"># de medidores</div>
-					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el numero de medidores eléctricos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
-        </div>
-          <div class="input-group col-md-3 has-success">
-						<label class="radio-inline">
-							<input  type="radio" name="medidores" id="inlineRadio1"
-                      value="N/A" ng-model="formData.medidores" required> N/A
-						</label>
-						<label class="radio-inline">
-  						<input type="radio" name="medidores" id="inlineRadio2"
-               value="N/D" ng-model="formData.medidores" required> N/D
-						</label>
-					</div>
-        </div>
 
         <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoElectrico.$error.required || !formData.consumoElectrico }" >
 				<div class="input-group col-md-3 has-success">

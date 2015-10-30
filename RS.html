@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--#include file="index.html" -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,11 +37,11 @@
 						Inventario de Generación de Residuos sólidos, por tipo y cantidad kg de residuos por año
 					</label>
 
-					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.cantidadPapel.$error.required || !formData.cantidadPapel }">
+					<div class="form-group has-success"   ng-class="{ 'has-error' : !form.$pristine  && form.cantidadPapel.$error.required || !formData.cantidadPapel }">
 						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="cantidadPapel" id="RS_Q1.1" min="0"
-                      ng-model="formData.cantidadPapel" required/>
+                      ng-model="formData.cantidadPapel" />
 							<span class="input-group-addon">Papel</span>
 							<!--<span class="input-group-addon"><input type="checkbox" aria-label="N/A">N/A</span>-->
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de resmas de papel generadas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -47,11 +49,11 @@
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name="cantidadPapel" id="inlineRadio1"
-                        value="N/A" ng-model="formData.cantidadPapel" required> N/A
+                        value="N/A" ng-model="formData.cantidadPapel" > N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="cantidadPapel" id="inlineRadio2"
-                        value="N/D" ng-model="formData.cantidadPapel" requiered> N/D
+                        value="N/D" ng-model="formData.cantidadPapel" > N/D
 							</label>
 						</div>
 					</div>

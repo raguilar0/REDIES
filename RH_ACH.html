@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--#include file="index.html" -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,14 +34,14 @@
 					<label for="RH_ACH_Q1">
 						Consumo de Agua per capita
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<input  type="number" class="form-control"
                     name="consumoPC" id="RH_ACH_Q1" min="0"
                     ng-model="formData.consumoPC" required>
 						<div class="input-group-addon">m<sup>3</sup>/Persona</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida por persona al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
           </div>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<label class="radio-inline">
 							<input  type="radio" name="consumoPC" id="inlineRadio1"
                       value="N/A" ng-model="formData.consumoPC" required> N/A
@@ -58,13 +60,13 @@
 					</label>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nPozos.$error.required || !formData.nPozos }">
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nPozos" id="RH_ACH_Q2.1" min="0" ng-model="formData.nPozos" required/>
 							<span class="input-group-addon">Pozos</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de pozos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name="nPozos" id="inlineRadio1"
                         value="N/A" ng-model="formData.nPozos" required> N/A
@@ -77,13 +79,13 @@
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nNacientes.$error.required || !formData.nNacientes }">
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nNacientes" id="RH_ACH_Q2.2" min="0" ng-model="formData.nNacientes" required/>
 							<span class="input-group-addon">Nacientes</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de nacientes"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name="nNacientes" id="inlineRadio1"
                         value="N/A" ng-model="formData.nNacientes" required> N/A
@@ -96,14 +98,14 @@
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nRios.$error.required || !formData.nRios }">
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nRios" id="RH_ACH_Q2.3" min="0"
                       ng-model="formData.nRios"/>
 							<div class="input-group-addon">Ríos</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de ríos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name ="nRios" id="inlineRadio1"
                         value="N/A" ng-model="formData.nRios" required> N/A
@@ -116,14 +118,14 @@
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nHidrometros.$error.required || !formData.nHidrometros }">
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nHidrometros" id="RH_ACH_Q2.4" min="0"
                       ng-model="formData.nHidrometros" required/>
 							<div class="input-group-addon">Hidrómetros</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de hidrómetros"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
-						<div class="input-group col-md-3">
+						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name="nHidrometros" id="inlineRadio1"
                         value="N/A" ng-model="formData.nHidrometros" required> N/A
@@ -140,14 +142,14 @@
 					<label for="RH_ACH_Q3">
 						Registros de Consumo de Agua
 					</label>
-					<div class="input-group col-md-3 has-success" >
+					<div class="input-group col-md-4 has-success" >
 						<input  type="number" class="form-control"
                     name="consumoAgua" id="RH_ACH_Q3" min="0"
                     ng-model="formData.consumoAgua" required/>
 						<div class="input-group-addon">m<sup>3</sup></div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<label class="radio-inline">
 							<input  type="radio" name="consumoAgua" id="inlineRadio1"
                       value="N/A" ng-model="formData.consumoAgua" required> N/A
@@ -163,7 +165,7 @@
 					<label for="RH_ACH_Q4">
 						¿Se realizan análisis de calidad de agua?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<div class="radio-inline">
 						  <label>
 							<input type="radio" name="analisisCalidad" value="Sí" ng-model="formData.analisisCalidad" required>
@@ -189,7 +191,7 @@
 					<label for="RH_ACH_Q5">
 						¿Poseen plan de ahorro de agua?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<div class="radio-inline">
 						  <label>
 							<input type="radio" name="planAhorro" value="Sí" ng-model="formData.planAhorro" required>
@@ -217,7 +219,7 @@
 					</div>
           <div class="form-group" ng-show="formData.planAhorro=='Sí'" ng-class="{ 'has-error' : !form.$pristine  && form.porcentajeReduccion.$error.required }">
             <label>Porcentaje de Reducción</label>
-            <div class="input-group col-md-3 has-success">
+            <div class="input-group col-md-4 has-success">
               <input type="number" class="form-control" name="porcentajeReduccion"
               min="0" max="100" ng-model="formData.porcentajeReduccion" required>
               <div class="input-group-addon">% Reducción</div>
@@ -230,7 +232,7 @@
 					<label for="RH_ACH_Q6">
 						¿Poseen plan de manejo de cuerpos de agua?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<div class="radio-inline">
 						  <label>
 							<input type="radio" name="planManejo" value="Sí" ng-model="formData.planManejo" required>
@@ -262,7 +264,7 @@
 					<label for="RH_ACH_Q7">
 						¿Poseen permisos de explotación de pozos?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<div class="radio-inline">
 						  <label>
 							<input type="radio" name="permisoExplotacion" value="Sí" ng-model="formData.permisoExplotacion" required>
@@ -294,7 +296,7 @@
 					<label for="RH_ACH_Q8">
 						¿Poseen plan de mantenimiento de sistemas de abastecimiento de agua?
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<div class="radio-inline">
 						  <label>
 							<input type="radio" name="planMantenimiento" value="Sí" ng-model="formData.planMantenimiento" required>
@@ -322,7 +324,7 @@
 					</div>
 				</div>
 
-				<div class="form-group col-md-3">
+				<div class="form-group col-md-4">
 					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" > <!-- ng-disabled="!form.$valid"-->
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						Enviar

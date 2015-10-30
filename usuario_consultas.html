@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+		<!--#include file="index.html" -->
+
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<title>Consultas Sobre Indicadores</title>
-		
+
 		<meta name="description" content="Usuario - Consultas Sobre Indicadores">
 		<meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
-		
+
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 
@@ -20,14 +22,14 @@
 		<script src="js/app.js"></script>
 
 	</head>
-	
+
 <body ng-app="formApp">
 			<script>
 				$(document).ready(function(){
 					$('[data-toggle="tooltip"]').tooltip();
 				});
 			</script>
-			
+
             <script type="text/javascript">
                 function mostrarAreas(){
                     document.getElementById('combobox_usuario_consulta_area').style.display = 'inline-block';
@@ -66,7 +68,7 @@
 			<h3>
 			Consultas Sobre Indicadores
 			</h3>
-			
+
 		<form name="form" role="form" ng-controller="MainCtrl">
 			<div class="form-group">
 				<label for="AD_C1">
@@ -88,10 +90,10 @@
 					</div>
 				</div>
 			</div>
-		
-			
-		
-			
+
+
+
+
 			<div name="area_elegida" id="combobox_usuario_consulta_area" style='display:none;'>
 				<div class="form-group">
 					<label for="AD_C2">
@@ -110,11 +112,11 @@
 						</select>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-				</div>		
+				</div>
 			</div>
-			
-			
-				
+
+
+
 			<div name="tipo_elegido" id="combobox_consulta_tipo" style='display:none;'>
 				<div class="form-group">
 					<label for="AD_C3">
@@ -130,7 +132,7 @@
 						</select>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
-				</div>	
+				</div>
 			</div>
 
 			<div name="areas_personalizadas" id="checkbox_areas_personalizadas" style='display:none;'>
@@ -145,7 +147,7 @@
 						<input type="checkbox" name="CRHACH" value="" checked> Recurso Hídrico: Aguas de Consumo Humano </br>
 						<input type="checkbox" name="CRHAR" value="" checked> Recurso Hídrico: Aguas Residules </br>
 						<input type="checkbox" name="CRS" value="" checked> Residuos Sólidos </br>
-						
+
 					</div>
 				</div>
 			</div>
@@ -163,7 +165,7 @@
 				</div>
 			</div>
 
-			
+
 			<div class="form-group">
 				<label for="AD_C7">
 					Seleccione los años en los que desea ver la consulta
@@ -174,7 +176,7 @@
 					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<div class="input-group col-md-3 has-success">
 						<div class="input-group-addon">Hasta</div>
@@ -182,23 +184,23 @@
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
-			
+
 			<div class="form-group col-md-3">
 					<button type="submit" class="btn btn-success btn-block">
 					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 						Mostrar Tabla
 					</button>
 			</div>
-			
-			
+
+
 			<div name="resultado">
 
 			</div>
-			
+
 		</Form>
 	    </div>
 	</div>
 	</div>
 
 </body>
-</html>	
+</html>
