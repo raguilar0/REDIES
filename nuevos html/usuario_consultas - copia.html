@@ -1,0 +1,294 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../index.css">
+
+    <title>Consultas</title>
+    <style >
+        table, th, td {
+        border: 1px solid green;
+        text-align:center; 
+        vertical-align:middle;
+        }
+    </style>
+</head>
+<body>
+            <script type="text/javascript">
+                function mostrarAreas(){
+                    document.getElementById('combobox_usuario_consulta_area').style.display = 'inline-block';
+                    document.getElementById('combobox_consulta_tipo').style.display = 'none';
+                    document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+
+                };
+
+                function mostrarTipos(){
+                    document.getElementById('combobox_usuario_consulta_area').style.display = 'none';
+                    document.getElementById('combobox_consulta_tipo').style.display = 'inline-block';
+                    document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+
+                };
+
+                 function mostrarAreasPersonalizadas(){
+                    if(document.getElementById('area_personalizada').selectedIndex == 7){
+                        document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
+                        document.getElementById('table_CN').style.display = 'none';
+                    }else{
+                        document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+                        switch (document.getElementById('area_personalizada').selectedIndex){
+                            case 0:
+                                document.getElementById('table_CN').style.display = 'block';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                break;
+                            case 1:
+                                document.getElementById('table_GR').style.display = 'block';
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                break;
+                            case 2:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'block';
+                                
+                                break;
+                            case 3:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                break;
+                            case 4:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                break;
+                            case 5:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                break;
+                            case 6:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                break;
+                        }
+                    }
+                 };
+
+                 function mostrarTiposPersonalizados(){
+                    if(document.getElementById('tipo_personalizado').selectedIndex == 4){
+                        document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
+                    }else{
+                        document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+                    }
+                 };
+
+            </script>
+
+    <h2>Consultas sobre indicadores</h2>
+    <div name="seleccion_busqueda">
+        <h4> Tipo de busqueda</h4>
+        <label>
+            <input type="radio" name="busqueda_areas" value="areas" onclick="mostrarAreas()">
+            Áreas
+        </label>
+        <label>
+            <input type="radio" name="busqueda_areas" value="areas" onclick="mostrarTipos()">
+            Tipos
+        </label>
+    </div>
+    
+    <div name="area_elegida" id="combobox_usuario_consulta_area" style='display:none;'>
+        <h4>Seleccione un área</h4>
+            <select name = "usuario_consulta_area" onclick="mostrarAreasPersonalizadas()" id="area_personalizada">
+            <option value="CN">Carbono Neutralidad</option>
+            <option value="GR">Gestión de Recursos</option>
+            <option value="GRE">Gestión de Recursos Energeticos</option>
+            <option value="RHACH">Recurso Hídrico: Aguas de Consumo Humano</option>
+            <option value="RHAR">Recurso Hídrico: Aguas Residules</option>
+            <option value="RS">Residuos Sólidos</option>
+            <option value="all_areas">Todas las áreas</option>
+            <option value="personalizados_areas">Personalizadas</option>
+        </select>
+    </div>
+        
+    <div name="tipo_elegido" id="combobox_consulta_tipo" style='display:none;'>
+        <h4>Seleccione un tipo</h4>
+        <select name = "usuario_consulta_tipo" onclick="mostrarTiposPersonalizados()" id="tipo_personalizado">
+            <option value="consumo">Registros de Consumo</option>
+            <option value="gestion">Gestión</option>
+            <option value="salida">Registros de Salida</option>
+            <option value="all_tipos">Todos los tipos</option>
+            <option value="personalizados_tipos">Personalizadas</option>
+        </select>
+    </div>
+
+    <div name="areas_personalizadas" id="checkbox_areas_personalizadas" style='display:none;'>
+        <h4>Personalizar Busqueda</h4>
+        <input type="checkbox" name="CCN" value="" checked> Carbono Neutralidad </br>
+        <input type="checkbox" name="CGR" value="" checked> Gestión de Recursos </br>
+        <input type="checkbox" name="CGRE" value="" checked> Gestión de Recursos Energeticos </br>
+        <input type="checkbox" name="CRHACH" value="" checked> Recurso Hídrico: Aguas de Consumo Humano </br>
+        <input type="checkbox" name="CRHAR" value="" checked> Recurso Hídrico: Aguas Residules </br>
+        <input type="checkbox" name="CRS" value="" checked> Residuos Sólidos </br>
+    </div>
+
+    <div name="tipos_personalizados" id="checkbox_tipos_personalizados" style='display:none;'>
+        <h4>Personalizar Busqueda</h4>
+        <input type="checkbox" name="Cconsumo" value="" checked> Registros de Consumo </br>
+        <input type="checkbox" name="Cgestion" value="" checked> Gestión </br>
+        <input type="checkbox" name="Csalida" value="" checked> Registros de Salida </br>
+    </div>
+
+    <div name="fecha_visualizacion">
+        <h4>Seleccione los años en los que desea ver la consulta</h4>
+        Desde&nbsp;<input  type="number" name"anio_inicio" min=2014 value=2014>
+        Hasta&nbsp;<input  type="number" name"anio_final" min=2014 value=2014>
+    </div>
+
+    <div name="resultado">
+        <div id="table_CN" style='display:none;'>
+            <table id="tabla_carbono_neutralidad">
+                <tr>
+                    <th>Año</th>
+                    <th>Invent. EG EI</th>
+                    <th>CO2</th>
+                    <th>RC_Gasolina</th>
+                    <th>RC_Diesel</th>
+                    <th>RC_Gas LPG</th>
+                    <th>RC_Otros combustibles</th>
+                    <th>Plan de reducción de emisiones de gases</th>
+                    <th>Meta</th>
+                    <th>Plan de conservación y reforestación</th>
+                    <th>Árboles sembrados/año </th>
+                    <th>Certificados</th>
+                </tr>
+                <tr>
+                    <td>2014</td>
+                    <td>Si</td>
+                    <td>2</td>
+                    <td>200</td>
+                    <td>150</td>
+                    <td>155</td>
+                    <td>123</td>
+                    <td>SI</td>
+                    <td>30</td>
+                    <td>Si</td>
+                    <td>15</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>2015</td>
+                    <td>Si</td>
+                    <td>2</td>
+                    <td>200</td>
+                    <td>150</td>
+                    <td>155</td>
+                    <td>123</td>
+                    <td>NO</td>
+                    <td></td>
+                    <td>Si</td>
+                    <td>15</td>
+                    <td>3</td>
+                </tr>
+
+            </table>
+            <h6>*EG EI: Emisiones de Gases de Efecto Invernadero</h6>
+            <h6>*RC: Registro y control del Consumo de combustibles y refrigerantes de todo tipo por fuentes móviles y fijas</h6>
+
+        </div>
+
+        <div id="table_GR" style='display:none;'>
+            <table id="tabla_gestion_recursos" >
+                <tr>
+                    <th>Año</th>
+                    <th>Politica de Gestión Ambienta</th>
+                    <th>Plan de Gestión Ambiental</th>
+                    <th>Participación en actividades</th>
+                    <th>Iniciativa de Proyección Ambiental</th>
+                    <th>Programas de Compras Verdes</th>
+                    <th>Número de Carteles con Inclusión de Criterios Ambientales</th>
+                    <th>Comision de Gestion Ambiental</th>
+                </tr>
+                <tr>
+                    <td>2014</td>
+                    <td>Si</td>
+                    <td>Si</td>
+                    <td>25</td>
+                    <td>ND</td>
+                    <td>Si</td>
+                    <td>3</td>
+                    <td>Si</td>
+                </tr>
+                <tr>
+                    <td>2015</td>
+                    <td>Si</td>
+                    <td>No</td>
+                    <td></td>
+                    <td>ND</td>
+                    <td>Si</td>
+                    <td>3</td>
+                    <td>Si</td>
+                </tr>
+            </table>
+            <h6>*Participación en actividades se da en personas/año</h6>
+        </div>
+        <div id="table_GRE" style='display:none;'>
+            <table id="tabla_gestion_recurso_energetico">
+                <tr>
+                    <th>Año</th>
+                    <th>Comité para la Gestión del Recurso Energético</th>
+                    <th>CEP-Número de medidores</th>
+                    <th>CEP-KW/Año/Persona</th>
+                    <th>PRC-en todas las Unidades o Centros</th>
+                    <th>Meta de reducción</th>
+                    <th>Control y evaluación de consumo según el alcance definido</th>
+                    <th>Consumo total según el alcance definido</th>
+                </tr>
+                <tr>
+                    <td>2014</td>
+                    <td>Si</td>
+                    <td>4</td>
+                    <td>108</td>
+                    <td>Si</td>
+                    <td>20</td>
+                    <td>10</td>
+                    <td>75000</td>
+                </tr>
+
+            </table>
+            <h6>*CEP: Consumo eléctrico per cápita</h6>
+            <h6>*PRC: Plan de reducción del consumo </h6>
+        </div>
+        <div id="table_RHACH">
+            <table>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div id="table_RHAR"></div>
+        <div id-"table_RS"></div>
+
+    </div>
+
+</body>
+</html>
