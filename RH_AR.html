@@ -99,31 +99,9 @@
 					</div>
 				</div>
 
-				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.reportesOP.$error.required || !formData.reportesOP }">
-					<label for="RH_AR_Q2">
-						Reportes Operacionales
-					</label>
-					<div class="input-group col-md-4 has-success">
-						<input  type="number" class="form-control"
-                    name="reportesOP" id="RH_AR_Q2" min="0"
-                    ng-model="formData.reportesOP" required/>
-						<div class="input-group-addon">reportes operacionales</div>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de reportes operacionales"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
-					</div>
-          <div class="input-group col-md-4">
-            <label class="radio-inline">
-              <input  type="radio" name="reportesOP" id="inlineRadio1"
-                      value="N/A" ng-model="formData.reportesOP" required> N/A
-            </label>
-            <label class="radio-inline">
-              <input  type="radio" name="reportesOP" id="inlineRadio2"
-                      value="N/D" ng-model="formData.reportesOP" requiered> N/D
-            </label>
-          </div>
-				</div>
 
 				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.sistemaTratamientoAR.$error.required || !formData.sistemaTratamientoAR }">
-					<label for="RH_AR_Q3">
+					<label for="RH_AR_Q2">
 						¿Posee sistema de tratamiento de aguas residuales debidamente inscrito y con un diseño adecuado a la naturaleza del agua residual a tratar?
 					</label>
 					<div class="input-group col-md-4 has-success">
@@ -155,7 +133,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="RH_AR_Q4">
+					<label for="RH_AR_Q3">
 						¿Realiza análisis de aguas residuales?
 					</label>
 					<div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.analisisAR.$error.required || !formData.analisisAR }">
@@ -185,6 +163,29 @@
 						</div>
 					</div>
 				</div>
+
+        <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.reportesOP.$error.required || !formData.reportesOP }">
+          <label for="RH_AR_Q4">
+            Reportes Operacionales
+          </label>
+          <div class="input-group col-md-4 has-success">
+            <input  type="number" class="form-control"
+                    name="reportesOP" id="RH_AR_Q2" min="0"
+                    ng-model="formData.reportesOP" required/>
+            <div class="input-group-addon">reportes operacionales</div>
+            <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de reportes operacionales"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+          </div>
+          <div class="input-group col-md-4">
+            <label class="radio-inline">
+              <input  type="radio" name="reportesOP" id="inlineRadio1"
+                      value="N/A" ng-model="formData.reportesOP" required> N/A
+            </label>
+            <label class="radio-inline">
+              <input  type="radio" name="reportesOP" id="inlineRadio2"
+                      value="N/D" ng-model="formData.reportesOP" requiered> N/D
+            </label>
+          </div>
+        </div>
 
 				<div class="form-group col-md-3">
 					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
