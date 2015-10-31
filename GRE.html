@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <!--#include file="index.html" -->
-
   	<meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,8 +39,8 @@
 	    <form name="form" role="form" ng-controller="MainCtrl">
 	    	<div class="form-group">
 				<label for="GRE_Q1">
-					¿Conforman Comité para la Gestión del Recurso Energético?
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+					¿Conforman comité para la gestión del recurso energético?
+					<a href="#" data-toggle="tooltip" data-placement="top" title="¿Conforman comité para la gestión del recurso energético?"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
 				</label>
 				<div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.comite.$error.required || !formData.comite }">
 					<div class="radio-inline">
@@ -56,9 +55,33 @@
 						No
 					  </label>
 					</div>
+          <div class="radio-inline">
+					  <label>
+						<input type="radio" name="comite" value="N/D" ng-model="formData.comite" required>
+						N/D
+					  </label>
+					</div>
 				</div>
 			</div>
 
+			<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.medidores.$error.required || !formData.medidores }">
+				<label for="GRE_Q2">
+					Consumo eléctrico per cápita anual según el alcance
+				</label>
+				<div class="input-group col-md-3 has-success" >
+					<input  type="number" class="form-control"
+                  name="medidores" id="GRE_numMedidores" min="0"
+                  ng-model="formData.medidores" required/>   <!--GRE_II_I_RC-->
+					<div class="input-group-addon"># de medidores</div>
+					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el numero de medidores eléctricos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+        </div>
+          <div class="input-group col-md-3 has-success">
+						<label class="radio-inline">
+  						<input type="radio" name="medidores" id="inlineRadio2"
+               value="N/D" ng-model="formData.medidores" required> N/D
+						</label>
+					</div>
+        </div>
         <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoElectrico.$error.required || !formData.consumoElectrico }" >
 				<div class="input-group col-md-3 has-success">
 					<input type="number" class="form-control"
@@ -69,10 +92,6 @@
 				</div>
         <div class="input-group col-md-3 has-success">
           <label class="radio-inline">
-            <input  type="radio" name="consumoElectrico" id="inlineRadio1"
-                    value="N/A" ng-model="formData.consumoElectrico" required> N/A
-          </label>
-          <label class="radio-inline">
             <input type="radio" name="consumoElectrico" id="inlineRadio2"
              value="N/D" ng-model="formData.consumoElectrico" required> N/D
           </label>
@@ -81,40 +100,40 @@
 
 			<div class="form-group">
 				<label for="GRE_Q3"> <!--si responde afirmativo tiene que aparecer un indicar Meta:  con el % reducción (GRE_III_G	DOUBLE)-->
-					¿Posee plan de reducción del consumo en todas las Unidades o Centros?
+					¿Poseen plan de reducción del consumo en todas las Unidades o Centros?
 					<a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
 				</label>
 				<div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.planReduccionConsumo.$error.required || !formData.planReduccionConsumo }">
-						<label class="radio-inline">
-							<input  type="radio" name="planReduccionConsumo" id="inlineRadio1"
-                      value="Sí" ng-model="formData.planReduccionConsumo" required> Sí
-						</label>
-						<label class="radio-inline">
-  						<input type="radio" name="planReduccionConsumo" id="inlineRadio2"
-               value="No" ng-model="formData.planReduccionConsumo" required> No
-						</label>
-            <label class="radio-inline">
-  						<input type="radio" name="planReduccionConsumo" id="inlineRadio2"
-               value="N/D" ng-model="formData.planReduccionConsumo" required> N/D
-						</label>
-            <label class="radio-inline">
-  						<input type="radio" name="planReduccionConsumo" id="inlineRadio2"
-               value="N/D" ng-model="formData.planReduccionConsumo" required> N/D
-						</label>
-        </div>
-
-
+					<div class="radio-inline">
+					  <label>
+						<input type="radio" name="planReduccionConsumo" value="Sí" onclick="mostrar()" ng-model="formData.planReduccionConsumo" required>
+						Sí
+					  </label>
+					</div>
+					<div class="radio-inline">
+					  <label>
+						<input type="radio" name="planReduccionConsumo" value="No" onclick="ocultar()" ng-model="formData.planReduccionConsumo" required>
+						No
+					  </label>
+					</div>
+          <div class="radio-inline">
+					  <label>
+						<input type="radio" name="planReduccionConsumo" value="N/D" ng-model="formData.planReduccionConsumo" required>
+						N/D
+					  </label>
+					</div>
 				</div>
-				<div class="form-group" ng-show="formData.planReduccionConsumo=='Sí'"  >
-          <label for="GRE_Q4">
-  					Ingresar porcentaje meta de reducción
-  				</label>
-  				<div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.porcentajeMeta.$error.required  && formData.planReduccionConsumo=='Sí'}">
-  					<input type="number" class="form-control" name="porcentajeMeta" id="GRE_consumoAlcanceDefinido" min="0" ng-model="formData.porcentajeMeta" required><!--GRE_IV_G	DOUBLE-->
-  					<div class="input-group-addon">% de Reducción</div>
-  					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
-  				</div>
-        </div>
+				<div id = "oculto" style='display:none;'>
+					<label>
+						Indique la meta
+					</label>
+
+					<div class="input-group col-md-3 has-success">
+						<input type="number" class="form-control" id="GRE_MetaReduccion" min="0">
+						<div class="input-group-addon">% de Reducción</div>
+					</div>
+				</div>
+			</div>
 
 			<script type="text/javascript">
 				function mostrar(){
@@ -126,30 +145,44 @@
 				document.getElementById('oculto').style.display = 'none';}
 			</script>
 
-			<div class="form-group">
+      <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.controlConsumo.$error.required || !formData.controlConsumo }">
 				<label for="GRE_Q4">
 					Control y evaluación de consumo según el alcance definido
 				</label>
-				<div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.controlConsumo.$error.required || !formData.controlConsumo }">
+				<div class="input-group col-md-3 has-success" >
 					<input type="number" class="form-control" name="controlConsumo" id="GRE_consumoAlcanceDefinido" min="0" ng-model="formData.controlConsumo" ><!--GRE_IV_G	DOUBLE-->
 					<div class="input-group-addon">% de Reducción</div>
-					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción anual según el alcance definido"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
+        <div class="radio-inline">
+          <label>
+          <input type="radio" name="controlConsumo" value="N/D" ng-model="formData.controlConsumo" required>
+          N/D
+          </label>
+        </div>
 			</div>
 
-			<div class="form-group">
-				<label for="GRE_Q5">
-					¿Consumo total  según el alcance definido(Campus, Unidad o Centro)?
-				</label>
-				<div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.consumoTotal.$error.required || !formData.consumoTotal }">
-					<input type="number" class="form-control" name="consumoTotal" id="GRE_consumoTotalAlcanceDefinido" min="0" ng-model="formData.consumoTotal"><!--GRE_V_RC	DOUBLE-->
-					<div class="input-group-addon">KWh Total/Año</div>
-					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
-				</div>
-			</div>
+
+      <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoTotal.$error.required || !formData.consumoTotal }">
+        <label for="GRE_Q5">
+          Consumo total según el alcance definido
+        </label>
+        <div class="input-group col-md-3 has-success" >
+          <input type="number" class="form-control" name="consumoTotal" id="GRE_consumoTotalAlcanceDefinido" min="0" ng-model="formData.consumoTotal"><!--GRE_V_RC	DOUBLE-->
+          <div class="input-group-addon">KWh Total/Año</div>
+          <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el consumo total según el alcance definido"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+        </div>
+        <div class="radio-inline">
+          <label>
+          <input type="radio" name="consumoTotal" value="N/D" ng-model="formData.consumoTotal" required>
+          N/D
+          </label>
+        </div>
+      </div>
+
 
 	        <div class="form-group col-md-3">
-					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)">
+					<button type="submit" class="btn btn-success btn-block">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						Enviar
 					</button>

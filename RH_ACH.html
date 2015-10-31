@@ -30,7 +30,7 @@
 			<h3>Recurso Hídrico, Agua para consumo humano</h3>
 
 			<form name="form" role="form" ng-controller="MainCtrl">
-				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required || !formData.consumoPC }">
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required }"> <!--|| !formData.consumoPC-->
 					<label for="RH_ACH_Q1">
 						Consumo de Agua per capita
 					</label>
@@ -43,15 +43,22 @@
           </div>
 					<div class="input-group col-md-4 has-success">
 						<label class="radio-inline">
-							<input  type="radio" name="consumoPC" id="inlineRadio1"
-                      value="N/A" ng-model="formData.consumoPC" required> N/A
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="consumoPC" id="inlineRadio2"
-               value="N/D" ng-model="formData.consumoPC" required> N/D
+							<input type="radio" name="consumoPC" id="inlineRadio1"
+               value="N/D" ng-model="formData.consumoPC"> N/D
 						</label>
 					</div>
 				</div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script>
+                $("#inlineRadio1").click(function() {
+                    $("#RH_ACH_Q1").prop("required", false);
+                });
+
+            </script>
+
+
+
 
 				<div class="form-group">
 
@@ -59,7 +66,7 @@
 						Inventario Fuentes de Agua
 					</label>
 
-					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nPozos.$error.required || !formData.nPozos }">
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nPozos.$error.required  }"> <!--|| !formData.nPozos-->
 						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nPozos" id="RH_ACH_Q2.1" min="0" ng-model="formData.nPozos" required/>
@@ -69,11 +76,11 @@
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name="nPozos" id="inlineRadio1"
-                        value="N/A" ng-model="formData.nPozos" required> N/A
+                        value="N/A" ng-model="formData.nPozos" > N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="nPozos" id="inlineRadio2"
-                        value="N/D" ng-model="formData.nPozos" required> N/D
+                        value="N/D" ng-model="formData.nPozos" > N/D
 							</label>
 						</div>
 					</div>
@@ -88,11 +95,11 @@
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name="nNacientes" id="inlineRadio1"
-                        value="N/A" ng-model="formData.nNacientes" required> N/A
+                        value="N/A" ng-model="formData.nNacientes"> N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="nNacientes" id="inlineRadio2"
-                        value="N/D" ng-model="formData.nNacientes" required> N/D
+                        value="N/D" ng-model="formData.nNacientes"> N/D
 							</label>
 						</div>
 					</div>
@@ -108,11 +115,11 @@
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name ="nRios" id="inlineRadio1"
-                        value="N/A" ng-model="formData.nRios" required> N/A
+                        value="N/A" ng-model="formData.nRios"> N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="nRios" id="inlineRadio2"
-                        value="N/D" ng-model="formData.nRios" required> N/D
+                        value="N/D" ng-model="formData.nRios"> N/D
 							</label>
 						</div>
 					</div>
@@ -128,11 +135,11 @@
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
 								<input  type="radio" name="nHidrometros" id="inlineRadio1"
-                        value="N/A" ng-model="formData.nHidrometros" required> N/A
+                        value="N/A" ng-model="formData.nHidrometros" > N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="nHidrometros" id="inlineRadio2"
-                        value="N/D" ng-model="formData.nHidrometros" required> N/D
+                        value="N/D" ng-model="formData.nHidrometros" > N/D
 							</label>
 						</div>
 					</div>
@@ -150,13 +157,9 @@
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 					<div class="input-group col-md-4 has-success">
-						<label class="radio-inline">
-							<input  type="radio" name="consumoAgua" id="inlineRadio1"
-                      value="N/A" ng-model="formData.consumoAgua" required> N/A
-						</label>
             <label class="radio-inline">
 							<input  type="radio" name="consumoAgua" id="inlineRadio2"
-                      value="N/D" ng-model="formData.consumoAgua" required> N/D
+                      value="N/D" ng-model="formData.consumoAgua" > N/D
 						</label>
 					</div>
 				</div>
@@ -174,13 +177,13 @@
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="analisisCalidad" value="No" ng-model="formData.analisisCalidad" required>
+							<input type="radio" name="analisisCalidad" value="No" ng-model="formData.analisisCalidad" >
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="analisisCalidad" value="N/A" ng-model="formData.analisisCalidad" required>
+							<input type="radio" name="analisisCalidad" value="N/A" ng-model="formData.analisisCalidad" >
 							N/D
 						  </label>
 						</div>
@@ -200,29 +203,25 @@
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="planAhorro" value="No" ng-model="formData.planAhorro" required>
+							<input type="radio" name="planAhorro" value="No" ng-model="formData.planAhorro" >
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="planAhorro" value="N/D" ng-model="formData.planAhorro" required>
+							<input type="radio" name="planAhorro" value="N/D" ng-model="formData.planAhorro" >
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
-						  <label>
-							<input type="radio" name="planAhorro" value="N/A" ng-model="formData.planAhorro" required>
-							N/A
-						  </label>
 						</div>
 					</div>
           <div class="form-group" ng-show="formData.planAhorro=='Sí'" ng-class="{ 'has-error' : !form.$pristine  && form.porcentajeReduccion.$error.required }">
-            <label>Porcentaje de Reducción</label>
+            <label>Ingrese el porcentaje de reducción</label>
             <div class="input-group col-md-4 has-success">
               <input type="number" class="form-control" name="porcentajeReduccion"
-              min="0" max="100" ng-model="formData.porcentajeReduccion" required>
-              <div class="input-group-addon">% Reducción</div>
+              min="0" max="100" ng-model="formData.porcentajeReduccion" >
+              <div class="input-group-addon">% reducción</div>
               <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
             </div>
           </div>
@@ -241,19 +240,19 @@
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="planManejo" value="No" ng-model="formData.planManejo" required>
+							<input type="radio" name="planManejo" value="No" ng-model="formData.planManejo" >
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="planManejo" value="N/D" ng-model="formData.planManejo" required>
+							<input type="radio" name="planManejo" value="N/D" ng-model="formData.planManejo" >
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="planManejo" value="N/A" ng-model="formData.planManejo" required>
+							<input type="radio" name="planManejo" value="N/A" ng-model="formData.planManejo" >
 							N/A
 						  </label>
 						</div>
@@ -273,19 +272,19 @@
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="permisoExplotacion" value="No" ng-model="formData.permisoExplotacion" required>
+							<input type="radio" name="permisoExplotacion" value="No" ng-model="formData.permisoExplotacion" >
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="permisoExplotacion" value="N/D" ng-model="formData.permisoExplotacion" required>
+							<input type="radio" name="permisoExplotacion" value="N/D" ng-model="formData.permisoExplotacion" >
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="permisoExplotacion" value="N/A" ng-model="formData.permisoExplotacion" required>
+							<input type="radio" name="permisoExplotacion" value="N/A" ng-model="formData.permisoExplotacion" >
 							N/A
 						  </label>
 						</div>
@@ -305,21 +304,17 @@
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="planMantenimiento" value="No" ng-model="formData.planMantenimiento" required>
+							<input type="radio" name="planMantenimiento" value="No" ng-model="formData.planMantenimiento" >
 							No
 						  </label>
 						</div>
 						<div class="radio-inline">
 						  <label>
-							<input type="radio" name="planMantenimiento" value="N/D" ng-model="formData.planMantenimiento" required>
+							<input type="radio" name="planMantenimiento" value="N/D" ng-model="formData.planMantenimiento" >
 							N/D
 						  </label>
 						</div>
 						<div class="radio-inline">
-						  <label>
-							<input type="radio" name="planMantenimiento" value="N/A" ng-model="formData.planMantenimiento" required>
-							N/A
-						  </label>
 						</div>
 					</div>
 				</div>
@@ -359,7 +354,10 @@
             <table class="table table-bordered">
                 <tbody>
                   <tr>
-                    <td ng-class="{ success: form.consumoPC.$valid, danger: form.consumoPC.$invalid}">consumoPC</td>
+                    <td ng-class="{ success: form.consumoPC.$valid, danger: form.consumoPC.$invalid}">consumoPC valido</td>
+                  </tr>
+                  <tr>
+                    <td ng-class="{ success: form.consumoPC.error.danger: formData.consumoPC.error.$required}">consumoPC requerido</td>
                   </tr>
                   <tr>
                     <td ng-class="{ success: form.nPozos.$valid, danger: form.nPozos.$invalid}">Pozos</td>
