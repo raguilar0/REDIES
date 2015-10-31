@@ -33,27 +33,129 @@
             <script type="text/javascript">
                 function mostrarAreas(){
                     document.getElementById('combobox_usuario_consulta_area').style.display = 'inline-block';
+                    document.getElementById('boton_areas').style.display = 'inline-block';
+                    document.getElementById('boton_tipos').style.display = 'none';
                     document.getElementById('combobox_consulta_tipo').style.display = 'none';
                     document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+                    document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+                    if(document.getElementById('area_personalizada').selectedIndex == 7){
+                    	document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
+                        document.getElementById('table_CN').style.display = 'none';
+                        document.getElementById('table_GR').style.display = 'none';
+                        document.getElementById('table_GRE').style.display = 'none';
+                        document.getElementById('table_RHACH').style.display = 'none';
+                        document.getElementById('table_RHAR').style.display = 'none';
+                        document.getElementById('table_RS').style.display = 'none';
+                        document.getElementById('table_RS').style.display = 'none';
+                    }
+
 
                 };
 
                 function mostrarTipos(){
                     document.getElementById('combobox_usuario_consulta_area').style.display = 'none';
+                    document.getElementById('boton_tipos').style.display = 'inline-block';
+                    document.getElementById('boton_areas').style.display = 'none';
                     document.getElementById('combobox_consulta_tipo').style.display = 'inline-block';
                     document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+                    document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+                    if(document.getElementById('tipo_personalizado').selectedIndex == 4){
+                    	document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
+                        document.getElementById('table_CN').style.display = 'none';
+                        document.getElementById('table_GR').style.display = 'none';
+                        document.getElementById('table_GRE').style.display = 'none';
+                        document.getElementById('table_RHACH').style.display = 'none';
+                        document.getElementById('table_RHAR').style.display = 'none';
+                        document.getElementById('table_RS').style.display = 'none';
+                        document.getElementById('table_RS').style.display = 'none';
+                    }
+
+
 
                 };
 
-                 function mostrarAreasPersonalizadas(){
-                    if(document.getElementById('area_personalizada').selectedIndex == 7){
-                        document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
-                    }else{
+                 function mostrarAreasSeleccionadas(){
                         document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+                        document.getElementById('tablas_areas').style.display = 'block';
+                        
+                        switch (document.getElementById('area_personalizada').selectedIndex){
+                            case 0:
+                                document.getElementById('table_CN').style.display = 'inline-block';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                document.getElementById('table_RHACH').style.display = 'none';
+                                document.getElementById('table_RHAR').style.display = 'none';
+                                document.getElementById('table_RS').style.display = 'none';
+                                break;
+                            case 1:
+                                
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'inline-block';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                document.getElementById('table_RHACH').style.display = 'none';
+                                document.getElementById('table_RHAR').style.display = 'none';
+                                document.getElementById('table_RS').style.display = 'none';
+                                break;
+                            case 2:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'inline-block';
+                                document.getElementById('table_RHACH').style.display = 'none';
+                                document.getElementById('table_RHAR').style.display = 'none';
+                                document.getElementById('table_RS').style.display = 'none';
+                                
+                                break;
+                            case 3:
+                            
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                document.getElementById('table_RHACH').style.display = 'inline-block';
+                                document.getElementById('table_RHAR').style.display = 'none';
+                                document.getElementById('table_RS').style.display = 'none';
+
+                                break;
+                            case 4:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                document.getElementById('table_RHACH').style.display = 'none';
+                                document.getElementById('table_RHAR').style.display = 'inline-block';
+                                document.getElementById('table_RS').style.display = 'none';
+
+                                
+                                break;
+                            case 5:
+                                document.getElementById('table_CN').style.display = 'none';
+                                document.getElementById('table_GR').style.display = 'none';
+                                document.getElementById('table_GRE').style.display = 'none';
+                                document.getElementById('table_RHACH').style.display = 'none';
+                                document.getElementById('table_RHAR').style.display = 'none';
+                                document.getElementById('table_RS').style.display = 'inline-block';
+
+
+                                break;
+                            case 6:
+                                document.getElementById('table_CN').style.display = 'inline-block';
+                                document.getElementById('table_GR').style.display = 'inline-block';
+                                document.getElementById('table_GRE').style.display = 'inline-block';
+                                document.getElementById('table_RHACH').style.display = 'inline-block';
+                                document.getElementById('table_RHAR').style.display = 'inline-block';
+                                document.getElementById('table_RS').style.display = 'inline-block';
+                                break;
+                            case 7:
+                            	document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
+		                        document.getElementById('table_CN').style.display = 'none';
+		                        document.getElementById('table_GR').style.display = 'none';
+		                        document.getElementById('table_GRE').style.display = 'none';
+		                        document.getElementById('table_RHACH').style.display = 'none';
+		                        document.getElementById('table_RHAR').style.display = 'none';
+		                        document.getElementById('table_RS').style.display = 'none';
+                            	break;	
                     }
                  };
 
-                 function mostrarTiposPersonalizados(){
+                 function mostrarTiposSeleccionados(){
                     if(document.getElementById('tipo_personalizado').selectedIndex == 4){
                         document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
                     }else{
@@ -100,7 +202,7 @@
 						Seleccione un Área
 					</label>
 					<div class="input-group col-md-3 has-success">
-						<select name = "usuario_consulta_area" onclick="mostrarAreasPersonalizadas()" id="area_personalizada" class="form-control">
+						<select name = "usuario_consulta_area" onclick="mostrarAreas()" id="area_personalizada" class="form-control">
 							<option value="CN">Carbono Neutralidad</option>
 							<option value="GR">Gestión de Recursos</option>
 							<option value="GRE">Gestión de Recursos Energeticos</option>
@@ -117,7 +219,7 @@
 
 
 
-			<div name="tipo_elegido" id="combobox_consulta_tipo" style='display:none;'>
+			<div name="tipo_elegido" id="combobox_consulta_tipo" onclick="mostrarTipos()"style='display:none;'>
 				<div class="form-group">
 					<label for="AD_C3">
 						Seleccione un Tipo
@@ -186,14 +288,266 @@
 			</div>
 
 			<div class="form-group col-md-3">
-					<button type="submit" class="btn btn-success btn-block">
+					<button type="submit" class="btn btn-success btn-block" id="boton_areas" style='display:none;' onclick="mostrarAreasSeleccionadas()">
 					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+						Mostrar Tabla
+					</button>
+
+					<button type="submit" class="btn btn-success btn-block" id="boton_tipos" style='display:none;' onclick="mostrarTiposSeleccionados()">
+					<span class="glyphicon glyphicon-list-alt" aria-hidden="true" ></span>
 						Mostrar Tabla
 					</button>
 			</div>
 
 
 			<div name="resultado">
+				<div class="form-group" name="resultado">
+				<div id="tablas_areas" style='display:none;'>
+					<div  id="table_CN" style='display:none;'>
+			            <table class="table table-hover" id="tabla_carbono_neutralidad">
+			                <tr>
+			                    <th>Año</th>
+			                    <th>Invent. EG EI</th>
+			                    <th>CO2</th>
+			                    <th>RC_Gasolina</th>
+			                    <th>RC_Diesel</th>
+			                    <th>RC_Gas LPG</th>
+			                    <th>RC_Otros combustibles</th>
+			                    <th>Plan de reducción de emisiones de gases</th>
+			                    <th>Meta</th>
+			                    <th>Plan de conservación y reforestación</th>
+			                    <th>Árboles sembrados/año </th>
+			                    <th>Certificados</th>
+			                </tr>
+			                <tr>
+			                    <td>2014</td>
+			                    <td>Si</td>
+			                    <td>2</td>
+			                    <td>200</td>
+			                    <td>150</td>
+			                    <td>155</td>
+			                    <td>123</td>
+			                    <td>SI</td>
+			                    <td>30</td>
+			                    <td>Si</td>
+			                    <td>15</td>
+			                    <td>3</td>
+			                </tr>
+			                <tr>
+			                    <td>2015</td>
+			                    <td>Si</td>
+			                    <td>2</td>
+			                    <td>200</td>
+			                    <td>150</td>
+			                    <td>155</td>
+			                    <td>123</td>
+			                    <td>NO</td>
+			                    <td></td>
+			                    <td>Si</td>
+			                    <td>15</td>
+			                    <td>3</td>
+			                </tr>
+
+			            </table>
+			            <h6>*EG EI: Emisiones de Gases de Efecto Invernadero</h6>
+			            <h6>*RC: Registro y control del Consumo de combustibles y refrigerantes de todo tipo por fuentes móviles y fijas</h6>
+
+			        </div>
+
+			        <div id="table_GR" style='display:none;'>
+			            <table class="table table-hover" id="tabla_gestion_recursos" >
+			                <tr>
+			                    <th>Año</th>
+			                    <th>Politica de Gestión Ambienta</th>
+			                    <th>Plan de Gestión Ambiental</th>
+			                    <th>Participación en actividades</th>
+			                    <th>Iniciativa de Proyección Ambiental</th>
+			                    <th>Programas de Compras Verdes</th>
+			                    <th>Número de Carteles con Inclusión de Criterios Ambientales</th>
+			                    <th>Comision de Gestion Ambiental</th>
+			                </tr>
+			                <tr>
+			                    <td>2014</td>
+			                    <td>Si</td>
+			                    <td>Si</td>
+			                    <td>25</td>
+			                    <td>ND</td>
+			                    <td>Si</td>
+			                    <td>3</td>
+			                    <td>Si</td>
+			                </tr>
+			                <tr>
+			                    <td>2015</td>
+			                    <td>Si</td>
+			                    <td>No</td>
+			                    <td></td>
+			                    <td>ND</td>
+			                    <td>Si</td>
+			                    <td>3</td>
+			                    <td>Si</td>
+			                </tr>
+			            </table>
+			            <h6>*Participación en actividades se da en personas/año</h6>
+			        </div>
+			        <div id="table_GRE" style='display:none;'>
+			            <table class="table table-hover" id="tabla_gestion_recurso_energetico">
+			                <tr>
+			                    <th>Año</th>
+			                    <th>Comité para la Gestión del Recurso Energético</th>
+			                    <th>CEP-Número de medidores</th>
+			                    <th>CEP-KW/Año/Persona</th>
+			                    <th>PRC-en todas las Unidades o Centros</th>
+			                    <th>Meta de reducción</th>
+			                    <th>Control y evaluación de consumo según el alcance definido</th>
+			                    <th>Consumo total según el alcance definido</th>
+			                </tr>
+			                <tr>
+			                    <td>2014</td>
+			                    <td>Si</td>
+			                    <td>4</td>
+			                    <td>108</td>
+			                    <td>Si</td>
+			                    <td>20</td>
+			                    <td>10</td>
+			                    <td>75000</td>
+			                </tr>
+
+			            </table>
+			            <h6>*CEP: Consumo eléctrico per cápita</h6>
+			            <h6>*PRC: Plan de reducción del consumo </h6>
+			        </div>
+			        <div id="table_RHACH" style='display:none;'>
+			        	<h4>Recurso Hídrico: Agua para consumo humano</h4>
+			        	
+			            <table class="table table-hover">
+			                <tr>
+			                    <th>Año</th>
+			                    <th>Consumo de Agua per capita</th>
+			                    <th>IFA Número de pozos</th>
+			                    <th>IFA Número de nacientes</th>
+			                    <th>IFA Número de ríos</th>
+			                    <th>IFA Número de hídrometros</th>
+			                    <th>Registros de Consumo de Agua</th>
+			                    <th>realizan análisis de calidad de agua</th>
+			                    <th>¿Poseen plan de ahorro de agua?</th>
+			                    <th>Porcentaje de Reducción</th>
+			                    <th>¿Poseen plan de manejo de cuerpos de agua?</th>
+			                    <th>¿Poseen permisos de explotación de pozos?</th>
+			                    <th>¿Poseen plan de mantenimiento de sistemas de abastecimiento de agua?</th>
+			                </tr>
+			                <tr>
+			                    <td>2014</td>
+			                    <td>125</td>
+			                    <td>N/D</td>
+			                    <td>N/A</td>
+			                    <td>2</td>
+			                    <td>5</td>
+			                    <td>3</td>
+			                    <td>Si</td>
+			                    <td>Si</td>
+			                    <td>15</td>
+			                    <td>SI</td>
+			                    <td>No</td>
+			                    <td>Si</td>
+			                </tr>
+			            </table>
+			            <h6>*IFA: Inventario de fuentes de agua</h6>
+			        </div>
+			        <div id="table_RHAR" style='display:none;'>
+			        	<h4>Recurso Hídrico: Aguas residuales</h4>
+			        	<table class="table table-hover">
+			        		<tr>
+			        			<th>Año</th>
+			        			<th>IEARPD descargas al alcantarillado público</th>
+			        			<th>IEARPD descargas a tanques sépticos</th>
+			        			<th>IEARPD descargas al sistema de tratamiento</th>
+			        			<th>Reportes Operacionales</th>
+			        			<th>¿Posee STAR debidamente inscrito y con un diseño adecuado?</th>
+			        			<th>¿Realiza análisis de aguas residuales?</th>
+			        		</tr>
+			        		<tr>
+			        			<td>2014</td>
+			        			<td>1</td>
+			        			<td>2</td>
+			        			<td>N/A</td>
+			        			<td>2</td>
+			        			<td>Si</td>
+			        			<td>No</td>
+			        		</tr>
+			        	</table>
+			        	<h6>*IEARPD: Inventario de efluentes de aguas residuales y puntos de descarga</h6>
+			        	<h6>*STAR: Sistema de tratamiendro de aguas residuales</h6>
+			        </div>
+			        <div id-"table_RS" style='display:none;'>
+			        	<h4>Residuos Sólidos</h4>
+			        	<table class="table table-hover">
+			        		<tr>
+			        			<th>Año</th>
+			        			<th>IGRS Papel</th>
+			        			<th>IGRS Residuos Orgánicos</th>
+			        			<th>IGRS Residuos Valorizables</th>
+			        			<th>IGRS Residuos Peligrosos</th>
+			        			<th>IGRS Residuos de Manejo Especial</th>
+			        			<th>IGRS Residuos no Valorizables</th>
+			        			<th>IGRS Otros</th>
+			        			<th>Generación de residuos sólidos per cápita</th>
+			        			<th>Indicadores de recuperación de residuos sólidos</th>
+			        			<th>Tasa anual de reciclaje</th>
+			        			<th>Trazabilidad de gestores de residuos</th>
+			        			<th>¿Posee plan de manejo de residuos sólidos en ejecución?</th>
+			        		</tr>
+			        		<tr>
+			        			<td>2014</td>
+			        			<td>50</td>
+			        			<td>N/D</td>
+			        			<td>N/D</td>
+			        			<td>N/D</td>
+			        			<td>N/D</td>
+			        			<td>N/D</td>
+			        			<td>N/D</td>
+			        			<td>15</td>
+			        			<td>N/D</td>
+			        			<td>25</td>
+			        			<td>2</td>
+			        			<td>Si</td>
+			        		</tr>
+			        	</table>
+			        	<h6>IGRS: Inventario de Generación de Residuos sólidos</h6>
+			        </div>
+		        </div>
+
+		        <div id="tablas_tipos">
+		        	<div id="tabla_RC">
+			        	<table class="table table-hover">
+			        		<tr>
+			        			<th>CN RC_Gasolina</th>
+			                    <th>CN RC_Diesel</th>
+			                    <th>CN RC_Gas LPG</th>
+			                    <th>CN RC_Otros combustibles</th>
+			        			<th>CN</th>
+			        			<th>GR</th>
+			        			<th></th>
+			        			<th></th>
+			        			<th></th>
+			        			<th></th>
+			        		</tr>
+			        		<td>
+
+			        		</td>
+		        		</table>
+		        		<h6>*CN: Carbono neutralidad</h6>
+		        		<h6>*GR: Gestión de recursos</h6>
+		        		<h6>*GRE: Gestión del recurso energético</h6>
+		        		<h6>*RC: Registro y control del Consumo de combustibles y refrigerantes de todo tipo por fuentes móviles y fijas</h6>
+		        		<h6>*RHACH: Recurso hídrico: Agua para consumo humano</h6>
+
+		        	</div>
+
+
+		        	<div id="tabla_G"></div>
+		        	<div id="tabla_RS"></div>
+
+		        </div>
 
 			</div>
 
