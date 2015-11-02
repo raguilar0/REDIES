@@ -7,7 +7,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Consultas Sobre Indicadores</title>
+		<title>Consultas sobre indicadores</title>
 
 		<meta name="description" content="Usuario - Consultas Sobre Indicadores">
 		<meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
@@ -254,14 +254,14 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3>
-			Consultas Sobre Indicadores
+			Consultas sobre indicadores
 			</h3>
 
 		<form name="form" role="form" ng-controller="MainCtrl">
 			<div class="form-group">
 				<label for="AD_C1">
-					Tipo de Búsqueda
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+					Tipo de búsqueda
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre Área o Tipos para realizar la consulta"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
 				</label>
 				<div class="input-group col-md-3 has-success">
 					<div class="radio-inline">
@@ -291,14 +291,14 @@
 						<select name = "usuario_consulta_area" onclick="mostrarAreas()" id="area_personalizada" class="form-control">
 							<option value="CN">Carbono Neutralidad</option>
 							<option value="GR">Gestión de Recursos</option>
-							<option value="GRE">Gestión de Recursos Energeticos</option>
+							<option value="GRE">Gestión de Recursos Energéticos</option>
 							<option value="RHACH">Recurso Hídrico: Aguas de Consumo Humano</option>
 							<option value="RHAR">Recurso Hídrico: Aguas Residules</option>
 							<option value="RS">Residuos Sólidos</option>
 							<option value="all_areas">Todas las áreas</option>
 							<option value="personalizados_areas">Personalizadas</option>
 						</select>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Escoja un área para realizar la consulta o puede personalizar su búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 				</div>
 			</div>
@@ -318,7 +318,7 @@
 							<option value="all_tipos">Todos los tipos</option>
 							<option value="personalizados_tipos">Personalizado</option>
 						</select>
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Escoja una tipo para realizar la consulta o puede personalizar su búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 				</div>
 			</div>
@@ -326,12 +326,12 @@
 			<div name="areas_personalizadas" id="checkbox_areas_personalizadas" style='display:none;'>
 				<div class="form-group">
 					<label for="AD_C4">
-						Personalizar Búsqueda
+						Personalizar búsqueda
 					</label>
 					<div class="input-group col-md-3 has-success">
 						<input type="checkbox" id="checkAreasCN" name="checkAreas" value="CCN" checked> Carbono Neutralidad </br>
 						<input type="checkbox" id="checkAreasGR" name="checkAreas" value="CGR" checked> Gestión de Recursos </br>
-						<input type="checkbox" id="checkAreasGRE" name="checkAreas" value="CGRE" checked> Gestión de Recursos Energeticos </br>
+						<input type="checkbox" id="checkAreasGRE" name="checkAreas" value="CGRE" checked> Gestión de Recursos Energéticos </br>
 						<input type="checkbox" id="checkAreasRHACH" name="checkAreas" value="CRHACH" checked> Recurso Hídrico: Aguas de Consumo Humano </br>
 						<input type="checkbox" id="checkAreasRHAR" name="checkAreas" value="CRHAR" checked> Recurso Hídrico: Aguas Residules </br>
 						<input type="checkbox" id="checkAreasRS" name="checkAreas" value="CRS" checked> Residuos Sólidos </br>
@@ -343,7 +343,7 @@
 			<div name="tipos_personalizados" id="checkbox_tipos_personalizados" style='display:none;'>
 				<div class="form-group">
 					<label for="AD_C5">
-						Personalizar Búsqueda
+						Personalizar búsqueda
 					</label>
 					<div class="input-group col-md-3 has-success">
 						<input type="checkbox" id="checkTiposRegistrosConsumo" name="Cconsumo" value="" checked> Registros de Consumo </br>
@@ -363,7 +363,7 @@
 						<option value="UNA">Universidad Nacional</option>
 						<option value="UL">Universidad Latina</option>
 					</select>
-				<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+				<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Elija la Universidad a buscar"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
 
@@ -375,7 +375,7 @@
 				<div class="input-group col-md-3 has-success">
 					<div class="input-group-addon">Desde</div>
 					<input  type="number" name"anio_inicio" min=2014 value=2014 class="form-control">
-					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Fecha de inicio de la búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
 
@@ -383,7 +383,7 @@
 				<div class="input-group col-md-3 has-success">
 						<div class="input-group-addon">Hasta</div>
 						<input  type="number" name"anio_final" min=2014 value=2014 class="form-control">
-						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ayuda al Usuario"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Fecha de finalización de la búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
 
@@ -404,7 +404,7 @@
 				<div class="form-group" name="resultado">
 				<div id="tablas_areas" style='display:none;'>
 					<div  id="table_CN" style='display:none;'>
-						<h4>Carbono neutralidad</h4>
+						<h4>Carbono Neutralidad</h4>
 			            <table class="table table-hover" id="tabla_carbono_neutralidad">
 			                <tr>
 			                    <th>Año</th>
@@ -456,17 +456,17 @@
 			        </div>
 
 			        <div id="table_GR" style='display:none;'>
-			        	<h4>Gestión de recursos</h4>
+			        	<h4>Gestión de Recursos</h4>
 			            <table class="table table-hover" id="tabla_gestion_recursos" >
 			                <tr>
 			                    <th>Año</th>
-			                    <th>Politica de Gestión Ambienta</th>
+			                    <th>Política de Gestión Ambiental</th>
 			                    <th>Plan de Gestión Ambiental</th>
 			                    <th>Participación en actividades</th>
 			                    <th>Iniciativa de Proyección Ambiental</th>
 			                    <th>Programas de Compras Verdes</th>
 			                    <th>Número de Carteles con Inclusión de Criterios Ambientales</th>
-			                    <th>Comision de Gestion Ambiental</th>
+			                    <th>Comisión de Gestión Ambiental</th>
 			                </tr>
 			                <tr>
 			                    <td>2014</td>
@@ -492,7 +492,7 @@
 			            <h6>*Participación en actividades se da en personas/año</h6>
 			        </div>
 			        <div id="table_GRE" style='display:none;'>
-			        	<h4>Gestión de recursos enérgeticos</h4>
+			        	<h4>Gestión de Recursos Enérgeticos</h4>
 			            <table class="table table-hover" id="tabla_gestion_recurso_energetico">
 			                <tr>
 			                    <th>Año</th>
@@ -525,7 +525,7 @@
 			            <table class="table table-hover">
 			                <tr>
 			                    <th>Año</th>
-			                    <th>Consumo de Agua per capita</th>
+			                    <th>Consumo de agua per capita</th>
 			                    <th>IFA Número de pozos</th>
 			                    <th>IFA Número de nacientes</th>
 			                    <th>IFA Número de ríos</th>
@@ -533,7 +533,7 @@
 			                    <th>Registros de Consumo de Agua</th>
 			                    <th>realizan análisis de calidad de agua</th>
 			                    <th>¿Poseen plan de ahorro de agua?</th>
-			                    <th>Porcentaje de Reducción</th>
+			                    <th>Porcentaje de reducción</th>
 			                    <th>¿Poseen plan de manejo de cuerpos de agua?</th>
 			                    <th>¿Poseen permisos de explotación de pozos?</th>
 			                    <th>¿Poseen plan de mantenimiento de sistemas de abastecimiento de agua?</th>
@@ -621,7 +621,7 @@
 
 		        <div id="tablas_tipos">
 		        	<div id="tabla_Registro_Consumo" style='display:none;'>
-		        		<h4>Registro de consumo</h4>
+		        		<h4>Registro de Consumo</h4>
 			        	<table class="table table-hover">
 			        		<tr>
 			        			<th>Año</th>
@@ -644,7 +644,7 @@
 		        		<h6>*CN: Carbono neutralidad</h6>
 		        		<h6>*GR: Gestión de recursos</h6>
 		        		<h6>*GRE: Gestión del recurso energético</h6>
-		        		<h6>*RC: Registro y control del Consumo de combustibles y refrigerantes de todo tipo por fuentes móviles y fijas</h6>
+		        		<h6>*RC: Registro y control del consumo de combustibles y refrigerantes de todo tipo por fuentes móviles y fijas</h6>
 		        		<h6>*RHACH: Recurso hídrico: Agua para consumo humano</h6>
 
 
@@ -661,13 +661,13 @@
 			                    <th>CN Plan de conservación y reforestación</th>
 			                    <th>CN Árboles sembrados/año </th>
 			                    <th>CN Certificados</th>
-			                    <th>GR Politica de Gestión Ambienta</th>
+			                    <th>GR Política de Gestión Ambiental</th>
 			                    <th>GR Plan de Gestión Ambiental</th>
 			                    <th>GR Participación en actividades</th>
 			                    <th>GR Iniciativa de Proyección Ambiental</th>
 			                    <th>GR Programas de Compras Verdes</th>
 			                    <th>GR Número de Carteles con Inclusión de Criterios Ambientales</th>
-			                    <th>GR Comision de Gestion Ambiental</th>
+			                    <th>GR Comision de Gestión Ambiental</th>
 			                    <th>GRE Comité para la Gestión del Recurso Energético</th>
 			                    <th>GRE PRC-en todas las Unidades o Centros</th>
 			                    <th>GRE Meta de reducción</th>
@@ -720,7 +720,7 @@
 		        		<h6>*CN: Carbono neutralidad</h6>
 		        		<h6>*IEARPD: Inventario de efluentes de aguas residuales y puntos de descarga</h6>
 		        		<h6>*RHAR: Recurso hídrico: Aguas residuales</h6>
-		        		<h6>*STAR: Sistema de tratamiendro de aguas residuales</h6>
+		        		<h6>*STAR: Sistema de Tratamiendro de Aguas Residuales</h6>
 		        		<h6>*RS: Residuos sólidos</h6>
 		        	</div>
 		        		

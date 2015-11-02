@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>RH, Consumo Humano</title>
+    <title>RH, Agua para Consumo Humano</title>
 
     <meta name="description" content="Matriz de indicadores - Recurso Hídrico, Agua para consumo humano">
     <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí$">
@@ -27,18 +27,18 @@
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Recurso Hídrico, Agua para consumo humano</h3>
+			<h3>Recurso Hídrico, agua para consumo humano</h3>
 
 			<form name="form" role="form" ng-controller="MainCtrl">
 				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required }"> <!--|| !formData.consumoPC-->
 					<label for="RH_ACH_Q1">
-						Consumo de Agua per capita
+						Consumo de agua per cápita
 					</label>
 					<div class="input-group col-md-4 has-success">
 						<input  type="number" class="form-control"
                     name="consumoPC" id="RH_ACH_Q1" min="0"
                     ng-model="formData.consumoPC" required>
-						<div class="input-group-addon">m<sup>3</sup>/Persona</div>
+						<div class="input-group-addon">m<sup>3</sup>/persona</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida por persona al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
           </div>
 					<div class="input-group col-md-4 has-success">
@@ -63,14 +63,14 @@
 				<div class="form-group">
 
 					<label for="RH_ACH_Q2">
-						Inventario Fuentes de Agua
+						Inventario fuentes de agua
 					</label>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nPozos.$error.required  }"> <!--|| !formData.nPozos-->
 						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nPozos" id="RH_ACH_Q2.1" min="0" ng-model="formData.nPozos" required/>
-							<span class="input-group-addon">Pozos</span>
+							<span class="input-group-addon">pozos</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de pozos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -89,7 +89,7 @@
 						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nNacientes" id="RH_ACH_Q2.2" min="0" ng-model="formData.nNacientes" required/>
-							<span class="input-group-addon">Nacientes</span>
+							<span class="input-group-addon">nacientes</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de nacientes"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -109,7 +109,7 @@
 							<input  type="number" class="form-control"
                       name="nRios" id="RH_ACH_Q2.3" min="0"
                       ng-model="formData.nRios"/>
-							<div class="input-group-addon">Ríos</div>
+							<div class="input-group-addon">ríos</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de ríos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -129,7 +129,7 @@
 							<input  type="number" class="form-control"
                       name="nHidrometros" id="RH_ACH_Q2.4" min="0"
                       ng-model="formData.nHidrometros" required/>
-							<div class="input-group-addon">Hidrómetros</div>
+							<div class="input-group-addon">hidrómetros</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de hidrómetros"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -147,7 +147,7 @@
 
 				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoAgua.$error.required || !formData.consumoAgua }">
 					<label for="RH_ACH_Q3">
-						Registros de Consumo de Agua
+						Registros de consumo de agua
 					</label>
 					<div class="input-group col-md-4 has-success" >
 						<input  type="number" class="form-control"
@@ -322,7 +322,7 @@
 				<div class="form-group col-md-4">
 					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" > <!-- ng-disabled="!form.$valid"-->
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-						Enviar
+						Enviar Formulario
 					</button>
 				</div>
 

@@ -34,7 +34,7 @@
 				<div class="form-group">
 
 					<label for="RS_Q1">
-						Inventario de Generación de Residuos sólidos, por tipo y cantidad kg de residuos por año
+						Inventario de generación de residuos sólidos, por tipo y cantidad kg de residuos por año
 					</label>
 
 					<div class="form-group has-success"   ng-class="{ 'has-error' : !form.$pristine  && form.cantidadPapel.$error.required || !formData.cantidadPapel }">
@@ -42,7 +42,7 @@
 							<input  type="number" class="form-control"
                       name="cantidadPapel" id="RS_Q1.1" min="0"
                       ng-model="formData.cantidadPapel" />
-							<span class="input-group-addon">Papel</span>
+							<span class="input-group-addon">papel</span>
 							<!--<span class="input-group-addon"><input type="checkbox" aria-label="N/A">N/A</span>-->
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de resmas de papel generadas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
@@ -59,7 +59,7 @@
 							<input  type="number" class="form-control"
                       name ="rOrganicos" id="RS_Q1.2" min="0"
                       ng-model="formData.rOrganicos"/>
-							<span class="input-group-addon">Residuos Orgánicos</span>
+							<span class="input-group-addon">residuos orgánicos</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos orgánicos generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -75,7 +75,7 @@
 							<input  type="number" class="form-control"
                       name ="rValorizables" id="RS_Q1.3" min="0"
                       ng-model="formData.rValorizables" required />
-							<div class="input-group-addon">Residuos Valorizables</div>
+							<div class="input-group-addon">residuos valorizables</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos valorizables generados por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -91,7 +91,7 @@
 							<input type="number" class="form-control"
                       name="rPeligrosos" id="RS_Q1.4" min="0"
                       ng-model="formData.rPeligrosos" required/>
-							<div class="input-group-addon">Residuos Peligrosos</div>
+							<div class="input-group-addon">residuos peligrosos</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos peligrosos generados por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -107,7 +107,7 @@
 							<input  type="number" class="form-control"
                       name="rManejoEspecial" id="RS_Q1.5" min="0"
                       ng-model="formData.rManejoEspecial" required/>
-							<div class="input-group-addon">Residuos de Manejo Especial</div>
+							<div class="input-group-addon">residuos de manejo especial</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos de manejo especial generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -123,7 +123,7 @@
 							<input  type="number" class="form-control"
                       name ="rNoValorizables" id="RS_Q1.6" min="0"
                       ng-model="formData.rNoValorizables" required />
-							<div class="input-group-addon">Residuos no Valorizables</div>
+							<div class="input-group-addon">residuos no valorizables</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos no valorizables generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
@@ -138,7 +138,7 @@
 							<input  type="number" class="form-control"
                       name="otros" id="RS_Q1.7" min="0"
                       ng-model="formData.otros" required/>
-							<div class="input-group-addon">Otros</div>
+							<div class="input-group-addon">otros</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de otros residuos al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4 has-success">
@@ -159,7 +159,7 @@
 						<input  type="number" class="form-control"
                     name ="rSolidosPC" id="RS_Q2" min="0"
                     ng-model="formData.rSolidosPC" required/>
-						<div class="input-group-addon">Kg/Persona</div>
+						<div class="input-group-addon">Kg/persona</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos sólidos per-cápita al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 					<div class="input-group col-md-4 has-success">
@@ -253,7 +253,7 @@
 				<div class="form-group col-md-4">
 					<button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-						Enviar
+						Enviar Formulario
 					</button>
 				</div>
 			</form>
