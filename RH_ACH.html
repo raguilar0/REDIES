@@ -30,21 +30,21 @@
 			<h3>Recurso Hídrico, agua para consumo humano</h3>
 
 			<form name="form" role="form" ng-controller="MainCtrl">
-				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required }"> <!--|| !formData.consumoPC-->
+				<div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required || !formData.consumoPC }">
 					<label for="RH_ACH_Q1">
 						Consumo de agua per cápita
 					</label>
 					<div class="input-group col-md-4 has-success">
 						<input  type="number" class="form-control"
                     name="consumoPC" id="RH_ACH_Q1" min="0"
-                    ng-model="formData.consumoPC" required>
+                    ng-model="formData.consumoPC" onclick="funcionEvento(type, 'RH_ACH_Q1', 'consumoPCRadio1')" required>
 						<div class="input-group-addon">m<sup>3</sup>/persona</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida por persona al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
           </div>
 					<div class="input-group col-md-4 has-success">
 						<label class="radio-inline">
-							<input type="radio" name="consumoPC" id="inlineRadio1"
-               value="N/D" ng-model="formData.consumoPC"> N/D
+							<input type="radio" name="consumoPC" id="consumoPCRadio1"
+               value="N/D" ng-model="formData.consumoPC" onclick="funcionEvento(type, 'RH_ACH_Q1', 'consumoPCRadio1')"> N/D
 						</label>
 					</div>
 				</div>
@@ -66,7 +66,7 @@
 						Inventario fuentes de agua
 					</label>
 
-					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nPozos.$error.required  }"> <!--|| !formData.nPozos-->
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nPozos.$error.required || !formData.nPozos }">
 						<div class="input-group col-md-4">
 							<input  type="number" class="form-control"
                       name="nPozos" id="RH_ACH_Q2.1" min="0" ng-model="formData.nPozos" required/>
@@ -403,6 +403,26 @@
 		</div>
 	</div>
 	</div>
+  <script type="text/javascript">
+    function funcionEvento(tipo, id1, id2, id3) {
+      if (tipo == "radio")
+        document.getElementById(id1).value = 0;
+      else {
+        document.getElementById(id2).checked = false;
+        document.getElementById(id3).checked = false;
+      }
+    }
+  </script>
+
+  <script type="text/javascript">
+    function funcionEvento(tipo, id1, id2) {
+      if (tipo == "radio")
+        document.getElementById(id1).value = 0;
+      else {
+        document.getElementById(id2).checked = false;
+      }
+    }
+  </script>
 
 	<script>
 		$(document).ready(function(){

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<!--#include file="index.html" -->
+		<!--#include file="index_admin.html" -->
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +39,7 @@
                     document.getElementById('combobox_consulta_tipo').style.display = 'none';
                     document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
                     document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
-                    
+
 
                     document.getElementById('tabla_Registro_Consumo').style.display = 'none';
                     document.getElementById('tabla_Gestion').style.display = 'none';
@@ -82,12 +82,12 @@
 
                 };
 
-                
+
                  function mostrarAreasSeleccionadas(){
                         document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
                         document.getElementById('tablas_areas').style.display = 'block';
-                        
-                        
+
+
                         switch (document.getElementById('area_personalizada').selectedIndex){
                             case 0:
                                 document.getElementById('table_CN').style.display = 'inline-block';
@@ -98,7 +98,7 @@
                                 document.getElementById('table_RS').style.display = 'none';
                                 break;
                             case 1:
-                                
+
                                 document.getElementById('table_CN').style.display = 'none';
                                 document.getElementById('table_GR').style.display = 'inline-block';
                                 document.getElementById('table_GRE').style.display = 'none';
@@ -113,10 +113,10 @@
                                 document.getElementById('table_RHACH').style.display = 'none';
                                 document.getElementById('table_RHAR').style.display = 'none';
                                 document.getElementById('table_RS').style.display = 'none';
-                                
+
                                 break;
                             case 3:
-                            
+
                                 document.getElementById('table_CN').style.display = 'none';
                                 document.getElementById('table_GR').style.display = 'none';
                                 document.getElementById('table_GRE').style.display = 'none';
@@ -133,7 +133,7 @@
                                 document.getElementById('table_RHAR').style.display = 'inline-block';
                                 document.getElementById('table_RS').style.display = 'none';
 
-                                
+
                                 break;
                             case 5:
                                 document.getElementById('table_CN').style.display = 'none';
@@ -192,12 +192,12 @@
 		                        else{
 		                        	document.getElementById('table_RS').style.display ='none';
 		                        }
-                            	break;	
+                            	break;
 
                     }
                  };
 
-                 
+
 
                  function mostrarTiposSeleccionados(){
                  	document.getElementById('tablas_tipos').style.display = 'block';
@@ -521,7 +521,7 @@
 			        </div>
 			        <div id="table_RHACH" style='display:none;'>
 			        	<h4>Recurso Hídrico: Agua para consumo humano</h4>
-			        	
+
 			            <table class="table table-hover">
 			                <tr>
 			                    <th>Año</th>
@@ -688,7 +688,7 @@
 		        			</tr>
 
 		        			<tr></tr>
-		        		</table>	
+		        		</table>
 		        		<h6>*CN: Carbono neutralidad</h6>
 		        		<h6>*GR: Gestión de recursos</h6>
 		        		<h6>*IFA: Inventario de fuentes de agua</h6>
@@ -723,12 +723,12 @@
 		        		<h6>*STAR: Sistema de Tratamiendro de Aguas Residuales</h6>
 		        		<h6>*RS: Residuos sólidos</h6>
 		        	</div>
-		        		
+
 		        </div>
 
 			</div>
-				
-			</div>	
+
+			</div>
 
 		</Form>
 	    </div>
