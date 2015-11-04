@@ -15,12 +15,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
-
 </head>
 
 <body ng-app="formApp">
@@ -43,7 +37,7 @@
                         ¿Poseen política de gestión ambiental?
                         <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
                     </label>
-                    <div class="input-group col-md-3 has-success" >
+                    <div class="input-group col-md-4 has-success" >
                         <div class="radio-inline">
                           <label>
                             <input 	type="radio"
@@ -79,7 +73,7 @@
                         ¿Poseen plan de gestión ambiental institucional?
                         <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
                     </label>
-                    <div class="input-group col-md-3 has-success">
+                    <div class="input-group col-md-4 has-success">
                         <div class="radio-inline">
                           <label>
                             <input 	type="radio"
@@ -114,7 +108,7 @@
                     <label for="GR_Q3">
                         Nivel de participación en actividades de educación ambiental
                     </label>
-                    <div class="input-group col-md-3 has-success">
+                    <div class="input-group col-md-4 has-success">
                         <input 	type="number"
                 								class="form-control"
                 								name="nivelParticipacion"
@@ -124,12 +118,14 @@
                         <div class="input-group-addon">Personas por año</div>
                         <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de personas por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
                     </div>
-                    <div class="input-group col-md-3 has-success">
+                    <div class="input-group col-md-4 has-success">
+                      <label class="radio-inline">
                         <input 	id="NDPozos"
                 								type="radio"
                 								value ="N/D"
                 								name="nivelParticipacion"
                 								ng-model="formData.nivelParticipacion" requiered> N/D
+                      </label>
                     </div>
                 </div>
 
@@ -138,7 +134,7 @@
                         ¿Existen iniciativas de proyección ambiental?
                         <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
                     </label>
-                    <div class="input-group col-md-3 has-success">
+                    <div class="input-group col-md-4 has-success">
                         <div class="radio-inline">
                           <label>
                             <input 	type="radio"
@@ -171,7 +167,7 @@
                         ¿Existen programas de compras verdes?
                         <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido). Si la respuesta es sí, indique la cantidad de carteles"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
                     </label>
-                    <div class="input-group col-md-3 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.ComprasVerdes.$error.required || !formData.ComprasVerdes}">
+                    <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.ComprasVerdes.$error.required || !formData.ComprasVerdes}">
                         <div class="radio-inline">
                           <label>
                             <input 	type="radio"
@@ -209,7 +205,7 @@
                             Indique número de carteles con inclusión de criterios ambientales:
                         </label>
 
-                        <div class="input-group col-md-3 has-success">
+                        <div class="input-group col-md-4 has-success">
                             <input 	type="number"
                   									class="form-control"
                   									name="numeroCarteles"
@@ -236,7 +232,7 @@
                         ¿Existe comision de gestión ambiental?
                         <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
                     </label>
-                    <div class="input-group col-md-3 has-success">
+                    <div class="input-group col-md-4 has-success">
                         <div class="radio-inline">
                           <label>
                             <input  type="radio"
@@ -267,11 +263,11 @@
                     </div>
                 </div>
 
-                <div class="form-group col-md-3">
-                    <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
-                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        Enviar Formulario
-                    </button>
+                <div class="form-group col-md-4">
+                  <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)"> <!--ng-disabled="!form.$valid"-->
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    Enviar Formulario
+                  </button>
                 </div>
 
             </Form>
@@ -279,4 +275,5 @@
     </div>
     </div>
 </body>
+<script src="js/app.js"></script>
 </html>

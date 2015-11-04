@@ -15,241 +15,10 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="js/app.js"></script>
-
 	</head>
 
 <body ng-app="formApp">
-			<script>
-				$(document).ready(function(){
-					$('[data-toggle="tooltip"]').tooltip();
-				});
-			</script>
 
-            <script type="text/javascript">
-
-                function mostrarAreas(){
-                    document.getElementById('combobox_usuario_consulta_area').style.display = 'inline-block';
-                    document.getElementById('boton_areas').style.display = 'inline-block';
-                    document.getElementById('boton_tipos').style.display = 'none';
-                    document.getElementById('combobox_consulta_tipo').style.display = 'none';
-                    document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
-                    document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
-                    
-
-                    document.getElementById('tabla_Registro_Consumo').style.display = 'none';
-                    document.getElementById('tabla_Gestion').style.display = 'none';
-                    document.getElementById('tabla_Registos_salida').style.display = 'none';
-
-
-                    if(document.getElementById('area_personalizada').selectedIndex == 7){
-                    	document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
-                        document.getElementById('table_CN').style.display = 'none';
-                        document.getElementById('table_GR').style.display = 'none';
-                        document.getElementById('table_GRE').style.display = 'none';
-                        document.getElementById('table_RHACH').style.display = 'none';
-                        document.getElementById('table_RHAR').style.display = 'none';
-                        document.getElementById('table_RS').style.display = 'none';
-                    }
-
-
-                };
-                function mostrarTipos(){
-                    document.getElementById('combobox_usuario_consulta_area').style.display = 'none';
-                    document.getElementById('boton_areas').style.display = 'none';
-                    document.getElementById('boton_tipos').style.display = 'inline-block';
-                    document.getElementById('combobox_consulta_tipo').style.display = 'inline-block';
-                    document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
-                    document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
-                    document.getElementById('table_CN').style.display = 'none';
-                    document.getElementById('table_GR').style.display = 'none';
-                    document.getElementById('table_GRE').style.display = 'none';
-                    document.getElementById('table_RHACH').style.display = 'none';
-                    document.getElementById('table_RHAR').style.display = 'none';
-                    document.getElementById('table_RS').style.display = 'none';
-
-                    if(document.getElementById('tipo_personalizado').selectedIndex == 4){
-                    	document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
-                        document.getElementById('tabla_Registro_Consumo').style.display = 'none';
-                    	document.getElementById('tabla_Gestion').style.display = 'none';
-                    	document.getElementById('tabla_Registos_salida').style.display = 'none';
-                    }
-
-
-                };
-
-                
-                 function mostrarAreasSeleccionadas(){
-                        document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
-                        document.getElementById('tablas_areas').style.display = 'block';
-                        
-                        
-                        switch (document.getElementById('area_personalizada').selectedIndex){
-                            case 0:
-                                document.getElementById('table_CN').style.display = 'inline-block';
-                                document.getElementById('table_GR').style.display = 'none';
-                                document.getElementById('table_GRE').style.display = 'none';
-                                document.getElementById('table_RHACH').style.display = 'none';
-                                document.getElementById('table_RHAR').style.display = 'none';
-                                document.getElementById('table_RS').style.display = 'none';
-                                break;
-                            case 1:
-                                
-                                document.getElementById('table_CN').style.display = 'none';
-                                document.getElementById('table_GR').style.display = 'inline-block';
-                                document.getElementById('table_GRE').style.display = 'none';
-                                document.getElementById('table_RHACH').style.display = 'none';
-                                document.getElementById('table_RHAR').style.display = 'none';
-                                document.getElementById('table_RS').style.display = 'none';
-                                break;
-                            case 2:
-                                document.getElementById('table_CN').style.display = 'none';
-                                document.getElementById('table_GR').style.display = 'none';
-                                document.getElementById('table_GRE').style.display = 'inline-block';
-                                document.getElementById('table_RHACH').style.display = 'none';
-                                document.getElementById('table_RHAR').style.display = 'none';
-                                document.getElementById('table_RS').style.display = 'none';
-                                
-                                break;
-                            case 3:
-                            
-                                document.getElementById('table_CN').style.display = 'none';
-                                document.getElementById('table_GR').style.display = 'none';
-                                document.getElementById('table_GRE').style.display = 'none';
-                                document.getElementById('table_RHACH').style.display = 'inline-block';
-                                document.getElementById('table_RHAR').style.display = 'none';
-                                document.getElementById('table_RS').style.display = 'none';
-
-                                break;
-                            case 4:
-                                document.getElementById('table_CN').style.display = 'none';
-                                document.getElementById('table_GR').style.display = 'none';
-                                document.getElementById('table_GRE').style.display = 'none';
-                                document.getElementById('table_RHACH').style.display = 'none';
-                                document.getElementById('table_RHAR').style.display = 'inline-block';
-                                document.getElementById('table_RS').style.display = 'none';
-
-                                
-                                break;
-                            case 5:
-                                document.getElementById('table_CN').style.display = 'none';
-                                document.getElementById('table_GR').style.display = 'none';
-                                document.getElementById('table_GRE').style.display = 'none';
-                                document.getElementById('table_RHACH').style.display = 'none';
-                                document.getElementById('table_RHAR').style.display = 'none';
-                                document.getElementById('table_RS').style.display = 'inline-block';
-
-
-                                break;
-                            case 6:
-                                document.getElementById('table_CN').style.display = 'inline-block';
-                                document.getElementById('table_GR').style.display = 'inline-block';
-                                document.getElementById('table_GRE').style.display = 'inline-block';
-                                document.getElementById('table_RHACH').style.display = 'inline-block';
-                                document.getElementById('table_RHAR').style.display = 'inline-block';
-                                document.getElementById('table_RS').style.display = 'inline-block';
-                                break;
-                            case 7:
-
-                            	document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
-		                        if(document.getElementById('checkAreasCN').checked){
-		                        	document.getElementById('table_CN').style.display = 'inline-block';
-		                        }
-		                        else{
-		                        	document.getElementById('table_CN').style.display = 'none';
-		                        }
-		                        if(document.getElementById('checkAreasGR').checked){
-		                        	document.getElementById('table_GR').style.display = 'inline-block';
-		                        }
-		                        else{
-		                        	document.getElementById('table_GR').style.display = 'none';
-		                        }
-		                        if(document.getElementById('checkAreasGRE').checked){
-		                        	document.getElementById('table_GRE').style.display = 'inline-block';
-		                        }
-		                        else{
-		                        	document.getElementById('table_GRE').style.display ='none';
-		                        }
-		                        if(document.getElementById('checkAreasRHACH').checked){
-		                        	document.getElementById('table_RHACH').style.display = 'inline-block';
-		                        }
-		                        else{
-		                        	document.getElementById('table_RHACH').style.display ='none';
-		                        }
-		                        if(document.getElementById('checkAreasRHAR').checked){
-		                        	document.getElementById('table_RHAR').style.display = 'inline-block';
-		                        }
-		                        else{
-		                        	document.getElementById('table_RHAR').style.display ='none';
-		                        }
-		                        if(document.getElementById('checkAreasRS').checked){
-		                        	document.getElementById('table_RS').style.display = 'inline-block';
-		                        }
-		                        else{
-		                        	document.getElementById('table_RS').style.display ='none';
-		                        }
-                            	break;	
-
-                    }
-                 };
-
-                 
-
-                 function mostrarTiposSeleccionados(){
-                 	document.getElementById('tablas_tipos').style.display = 'block';
-                 	switch (document.getElementById('tipo_personalizado').selectedIndex){
-                 		case 0:
-                 			document.getElementById('tabla_Registro_Consumo').style.display = 'inline-block';
-                            document.getElementById('tabla_Gestion').style.display = 'none';
-                            document.getElementById('tabla_Registos_salida').style.display = 'none';
-                 			break;
-                 		case 1:
-                 			document.getElementById('tabla_Registro_Consumo').style.display = 'none';
-                            document.getElementById('tabla_Gestion').style.display = 'inline-block';
-                            document.getElementById('tabla_Registos_salida').style.display = 'none';
-
-                 			break;
-                 		case 2:
-                 			document.getElementById('tabla_Registro_Consumo').style.display = 'none';
-                            document.getElementById('tabla_Gestion').style.display = 'none';
-                            document.getElementById('tabla_Registos_salida').style.display = 'inline-block';
-
-                 			break;
-                 		case 3:
-                 			document.getElementById('tabla_Registro_Consumo').style.display = 'inline-block';
-                            document.getElementById('tabla_Gestion').style.display = 'inline-block';
-                            document.getElementById('tabla_Registos_salida').style.display = 'inline-block';
-
-                 			break;
-                 		case 4:
-                 			document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
-                 			if(document.getElementById('checkTiposRegistrosConsumo').checked){
-                 				document.getElementById('tabla_Registro_Consumo').style.display= 'inline-block';
-                 			}
-                 			else{
-                 				document.getElementById('tabla_Registro_Consumo').style.display= 'none';
-                 			}
-                 			if(document.getElementById('checkTiposGestion').checked){
-                 				document.getElementById('tabla_Gestion').style.display= 'inline-block';
-                 			}
-                 			else{
-                 				document.getElementById('tabla_Gestion').style.display= 'none';
-                 			}
-                 			if(document.getElementById('checkTiposRegistrosSalida').checked){
-                 				document.getElementById('tabla_Registos_salida').style.display= 'inline-block';
-                 			}
-                 			else{
-                 				document.getElementById('tabla_Registos_salida').style.display= 'none';
-                 			}
-                 			break;
-                 	}
-                 };
-
-            </script>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -263,7 +32,7 @@
 					Tipo de búsqueda
 					<a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre Área o Tipos para realizar la consulta"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
 				</label>
-				<div class="input-group col-md-3 has-success">
+				<div class="input-group col-md-4 has-success">
 					<div class="radio-inline">
 					  <label>
 						<input type="radio" name="busqueda_areas" value="areas" onclick="mostrarAreas()">
@@ -287,7 +56,7 @@
 					<label for="AD_C2">
 						Seleccione un Área
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<select name = "usuario_consulta_area" onclick="mostrarAreas()" id="area_personalizada" class="form-control">
 							<option value="CN">Carbono Neutralidad</option>
 							<option value="GR">Gestión de Recursos</option>
@@ -310,7 +79,7 @@
 					<label for="AD_C3">
 						Seleccione un Tipo
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<select name = "usuario_consulta_tipo" onclick="mostrarTipos()" id="tipo_personalizado" class="form-control">
 							<option value="consumo">Registros de Consumo</option>
 							<option value="gestion">Gestión</option>
@@ -328,7 +97,7 @@
 					<label for="AD_C4">
 						Personalizar Búsqueda
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<input type="checkbox" id="checkAreasCN" name="checkAreas" value="CCN" checked> Carbono Neutralidad </br>
 						<input type="checkbox" id="checkAreasGR" name="checkAreas" value="CGR" checked> Gestión de Recursos </br>
 						<input type="checkbox" id="checkAreasGRE" name="checkAreas" value="CGRE" checked> Gestión de Recursos Energéticos </br>
@@ -345,7 +114,7 @@
 					<label for="AD_C5">
 						Personalizar Búsqueda
 					</label>
-					<div class="input-group col-md-3 has-success">
+					<div class="input-group col-md-4 has-success">
 						<input type="checkbox" id="checkTiposRegistrosConsumo" name="Cconsumo" value="" checked> Registros de Consumo </br>
 						<input type="checkbox" id="checkTiposGestion" name="Cgestion" value="" checked> Gestión </br>
 						<input type="checkbox" id="checkTiposRegistrosSalida" name="Csalida" value="" checked> Registros de Salida </br>
@@ -358,7 +127,7 @@
 				<label for="AD_C7">
 					Seleccione los años en los que desea ver la consulta
 				</label>
-				<div class="input-group col-md-3 has-success">
+				<div class="input-group col-md-4 has-success">
 					<div class="input-group-addon">Desde</div>
 					<input  type="number" name"anio_inicio" min=2014 value=2014 class="form-control">
 					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Fecha de inicio de la búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -366,14 +135,14 @@
 			</div>
 
 			<div class="form-group">
-				<div class="input-group col-md-3 has-success">
+				<div class="input-group col-md-4 has-success">
 						<div class="input-group-addon">Hasta</div>
 						<input  type="number" name"anio_final" min=2014 value=2014 class="form-control">
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Fecha de finalización de la búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
 
-			<div class="form-group col-md-3">
+			<div class="form-group col-md-4">
 					<button type="submit" class="btn btn-success btn-block" id="boton_areas" style='display:none;' onclick="mostrarAreasSeleccionadas()">
 					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 						Mostrar Tabla
@@ -507,7 +276,7 @@
 			        </div>
 			        <div id="table_RHACH" style='display:none;'>
 			        	<h4>Recurso Hídrico: Agua para consumo humano</h4>
-			        	
+
 			            <table class="table table-hover">
 			                <tr>
 			                    <th>Año</th>
@@ -674,7 +443,7 @@
 		        			</tr>
 
 		        			<tr></tr>
-		        		</table>	
+		        		</table>
 		        		<h6>*CN: Carbono neutralidad</h6>
 		        		<h6>*GR: Gestión de recursos</h6>
 		        		<h6>*IFA: Inventario de fuentes de agua</h6>
@@ -709,12 +478,12 @@
 		        		<h6>*STAR: Sistema de tratamiendro de aguas residuales</h6>
 		        		<h6>*RS: Residuos sólidos</h6>
 		        	</div>
-		        		
+
 		        </div>
 
 			</div>
-				
-			</div>	
+
+			</div>
 
 		</Form>
 	    </div>
@@ -722,4 +491,231 @@
 	</div>
 
 </body>
+		<script src="js/app.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+
+					<script type="text/javascript">
+
+							function mostrarAreas(){
+									document.getElementById('combobox_usuario_consulta_area').style.display = 'inline-block';
+									document.getElementById('boton_areas').style.display = 'inline-block';
+									document.getElementById('boton_tipos').style.display = 'none';
+									document.getElementById('combobox_consulta_tipo').style.display = 'none';
+									document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+									document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+
+
+									document.getElementById('tabla_Registro_Consumo').style.display = 'none';
+									document.getElementById('tabla_Gestion').style.display = 'none';
+									document.getElementById('tabla_Registos_salida').style.display = 'none';
+
+
+									if(document.getElementById('area_personalizada').selectedIndex == 7){
+										document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
+											document.getElementById('table_CN').style.display = 'none';
+											document.getElementById('table_GR').style.display = 'none';
+											document.getElementById('table_GRE').style.display = 'none';
+											document.getElementById('table_RHACH').style.display = 'none';
+											document.getElementById('table_RHAR').style.display = 'none';
+											document.getElementById('table_RS').style.display = 'none';
+									}
+
+
+							};
+							function mostrarTipos(){
+									document.getElementById('combobox_usuario_consulta_area').style.display = 'none';
+									document.getElementById('boton_areas').style.display = 'none';
+									document.getElementById('boton_tipos').style.display = 'inline-block';
+									document.getElementById('combobox_consulta_tipo').style.display = 'inline-block';
+									document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+									document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
+									document.getElementById('table_CN').style.display = 'none';
+									document.getElementById('table_GR').style.display = 'none';
+									document.getElementById('table_GRE').style.display = 'none';
+									document.getElementById('table_RHACH').style.display = 'none';
+									document.getElementById('table_RHAR').style.display = 'none';
+									document.getElementById('table_RS').style.display = 'none';
+
+									if(document.getElementById('tipo_personalizado').selectedIndex == 4){
+										document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
+											document.getElementById('tabla_Registro_Consumo').style.display = 'none';
+										document.getElementById('tabla_Gestion').style.display = 'none';
+										document.getElementById('tabla_Registos_salida').style.display = 'none';
+									}
+
+
+							};
+
+
+							 function mostrarAreasSeleccionadas(){
+											document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
+											document.getElementById('tablas_areas').style.display = 'block';
+
+
+											switch (document.getElementById('area_personalizada').selectedIndex){
+													case 0:
+															document.getElementById('table_CN').style.display = 'inline-block';
+															document.getElementById('table_GR').style.display = 'none';
+															document.getElementById('table_GRE').style.display = 'none';
+															document.getElementById('table_RHACH').style.display = 'none';
+															document.getElementById('table_RHAR').style.display = 'none';
+															document.getElementById('table_RS').style.display = 'none';
+															break;
+													case 1:
+
+															document.getElementById('table_CN').style.display = 'none';
+															document.getElementById('table_GR').style.display = 'inline-block';
+															document.getElementById('table_GRE').style.display = 'none';
+															document.getElementById('table_RHACH').style.display = 'none';
+															document.getElementById('table_RHAR').style.display = 'none';
+															document.getElementById('table_RS').style.display = 'none';
+															break;
+													case 2:
+															document.getElementById('table_CN').style.display = 'none';
+															document.getElementById('table_GR').style.display = 'none';
+															document.getElementById('table_GRE').style.display = 'inline-block';
+															document.getElementById('table_RHACH').style.display = 'none';
+															document.getElementById('table_RHAR').style.display = 'none';
+															document.getElementById('table_RS').style.display = 'none';
+
+															break;
+													case 3:
+
+															document.getElementById('table_CN').style.display = 'none';
+															document.getElementById('table_GR').style.display = 'none';
+															document.getElementById('table_GRE').style.display = 'none';
+															document.getElementById('table_RHACH').style.display = 'inline-block';
+															document.getElementById('table_RHAR').style.display = 'none';
+															document.getElementById('table_RS').style.display = 'none';
+
+															break;
+													case 4:
+															document.getElementById('table_CN').style.display = 'none';
+															document.getElementById('table_GR').style.display = 'none';
+															document.getElementById('table_GRE').style.display = 'none';
+															document.getElementById('table_RHACH').style.display = 'none';
+															document.getElementById('table_RHAR').style.display = 'inline-block';
+															document.getElementById('table_RS').style.display = 'none';
+
+
+															break;
+													case 5:
+															document.getElementById('table_CN').style.display = 'none';
+															document.getElementById('table_GR').style.display = 'none';
+															document.getElementById('table_GRE').style.display = 'none';
+															document.getElementById('table_RHACH').style.display = 'none';
+															document.getElementById('table_RHAR').style.display = 'none';
+															document.getElementById('table_RS').style.display = 'inline-block';
+
+
+															break;
+													case 6:
+															document.getElementById('table_CN').style.display = 'inline-block';
+															document.getElementById('table_GR').style.display = 'inline-block';
+															document.getElementById('table_GRE').style.display = 'inline-block';
+															document.getElementById('table_RHACH').style.display = 'inline-block';
+															document.getElementById('table_RHAR').style.display = 'inline-block';
+															document.getElementById('table_RS').style.display = 'inline-block';
+															break;
+													case 7:
+
+														document.getElementById('checkbox_areas_personalizadas').style.display = 'block';
+													if(document.getElementById('checkAreasCN').checked){
+														document.getElementById('table_CN').style.display = 'inline-block';
+													}
+													else{
+														document.getElementById('table_CN').style.display = 'none';
+													}
+													if(document.getElementById('checkAreasGR').checked){
+														document.getElementById('table_GR').style.display = 'inline-block';
+													}
+													else{
+														document.getElementById('table_GR').style.display = 'none';
+													}
+													if(document.getElementById('checkAreasGRE').checked){
+														document.getElementById('table_GRE').style.display = 'inline-block';
+													}
+													else{
+														document.getElementById('table_GRE').style.display ='none';
+													}
+													if(document.getElementById('checkAreasRHACH').checked){
+														document.getElementById('table_RHACH').style.display = 'inline-block';
+													}
+													else{
+														document.getElementById('table_RHACH').style.display ='none';
+													}
+													if(document.getElementById('checkAreasRHAR').checked){
+														document.getElementById('table_RHAR').style.display = 'inline-block';
+													}
+													else{
+														document.getElementById('table_RHAR').style.display ='none';
+													}
+													if(document.getElementById('checkAreasRS').checked){
+														document.getElementById('table_RS').style.display = 'inline-block';
+													}
+													else{
+														document.getElementById('table_RS').style.display ='none';
+													}
+														break;
+
+									}
+							 };
+
+
+
+							 function mostrarTiposSeleccionados(){
+								document.getElementById('tablas_tipos').style.display = 'block';
+								switch (document.getElementById('tipo_personalizado').selectedIndex){
+									case 0:
+										document.getElementById('tabla_Registro_Consumo').style.display = 'inline-block';
+													document.getElementById('tabla_Gestion').style.display = 'none';
+													document.getElementById('tabla_Registos_salida').style.display = 'none';
+										break;
+									case 1:
+										document.getElementById('tabla_Registro_Consumo').style.display = 'none';
+													document.getElementById('tabla_Gestion').style.display = 'inline-block';
+													document.getElementById('tabla_Registos_salida').style.display = 'none';
+
+										break;
+									case 2:
+										document.getElementById('tabla_Registro_Consumo').style.display = 'none';
+													document.getElementById('tabla_Gestion').style.display = 'none';
+													document.getElementById('tabla_Registos_salida').style.display = 'inline-block';
+
+										break;
+									case 3:
+										document.getElementById('tabla_Registro_Consumo').style.display = 'inline-block';
+													document.getElementById('tabla_Gestion').style.display = 'inline-block';
+													document.getElementById('tabla_Registos_salida').style.display = 'inline-block';
+
+										break;
+									case 4:
+										document.getElementById('checkbox_tipos_personalizados').style.display = 'block';
+										if(document.getElementById('checkTiposRegistrosConsumo').checked){
+											document.getElementById('tabla_Registro_Consumo').style.display= 'inline-block';
+										}
+										else{
+											document.getElementById('tabla_Registro_Consumo').style.display= 'none';
+										}
+										if(document.getElementById('checkTiposGestion').checked){
+											document.getElementById('tabla_Gestion').style.display= 'inline-block';
+										}
+										else{
+											document.getElementById('tabla_Gestion').style.display= 'none';
+										}
+										if(document.getElementById('checkTiposRegistrosSalida').checked){
+											document.getElementById('tabla_Registos_salida').style.display= 'inline-block';
+										}
+										else{
+											document.getElementById('tabla_Registos_salida').style.display= 'none';
+										}
+										break;
+								}
+							 };
+
+					</script>
 </html>
