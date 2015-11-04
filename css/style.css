@@ -50,3 +50,13 @@
 .navbar-custom .icon-bar {
   	background-color:#33aa33;
 }
+
+.navbar-fixed-bottom{
+  background-color:#229922;
+  width: 100%;
+   text-align: center;
+   > li {
+     float: none;
+     display: inline-block;
+   }
+}
