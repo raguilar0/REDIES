@@ -116,7 +116,7 @@
                         <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de personas por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
                     </div>
                     <div class="input-group col-md-4 has-success">
-                      <label class="radio-inline">
+                      <label >
                         <input 	id="NDPozos"
                 								type="radio"
                 								value ="N/D"
