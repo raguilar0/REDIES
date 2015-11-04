@@ -52,7 +52,7 @@
 }
 
 .navbar-fixed-bottom{
-  background-color:#229922;
+  /*background-color:#229922;*/
   width: 100%;
    text-align: center;
    > li {

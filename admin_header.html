@@ -19,7 +19,7 @@
 		<div class="col-md-12">
 
         <div class="main_logo">
-          <a href="index.html">
+          <a href="admin_header.html">
             <img src="images/layouts/main_logo.jpg" alt="Red Costarricense de Instituciones Educativas Sostenibles">
           </a>
           <br><br>
@@ -36,41 +36,31 @@
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Indicadores<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="/REDIES/RH_ACH.html">Recursos Hídricos: Agua para consumo Humano</a>
-								</li>
-								<li>
-									<a href="/REDIES/RH_AR.html">Recursos Hídricos: Aguas Residuales</a>
-								</li>
-								<li>
-									<a href="/REDIES/GRE.html"> Gestión del Recurso Energético </a>
-								</li>
-								<li>
-									<a href="/REDIES/CN.html">Carbono Neutralidad</a>
-								</li>
-								<li>
-									<a href="/REDIES/RS.html">Residuos Sólidos</a>
-								</li>
-								<li>
-									<a href="/REDIES/GR.html">Gestión de Recursos</a>
-								</li>
-							</ul>
-						<li>
-									<a href="/REDIES/usuario_consultas.html">Consultar Datos</a>
-						</li>
-						</li>
-
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrar<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/REDIES/admin_users.shtml">Usuarios</a>
+                </li>
+                <li>
+                  <a href="/REDIES/admin_formularios.shtml">Formularios</a>
+                </li>
+                <li>
+                      <a href="/REDIES/admin_universidades.shtml">Administrar Universidades</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+                  <a href="/REDIES/admin_consultas.shtml">Consultar Indicadores</a>
+            </li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="/REDIES/Usuario_perfil.html">Perfil</a>
+							<a href="/REDIES/usuario_perfil.shtml">Perfil</a>
 						</li>
 						<li>
-							<a href="/REDIES/FAQ.html">Preguntas Frecuentes</a>
+							<a href="/REDIES/FAQ.shtml">Preguntas Frecuentes</a>
 						</li>
 						<li>
 							<a href="/REDIES/login.html"><strong>Salir</strong></a>
@@ -91,22 +81,9 @@
 <!--Aqui termina la parte del header de usuarios-->
   <body>
 
-    <!--Footer
-    <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation" id="footer">
-      <div class="container">
-        <div class="navbar-text pull-left">
-          <span>Universidad de Costa Rica •</span>
-          <span> Escuela de las Ciencias de la Computación y la Informática •</span>
-          <span> 2015 <span>
-        </div>
-      </div>
-    </div>
-  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
 
   </body>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/scripts.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
 </html>
