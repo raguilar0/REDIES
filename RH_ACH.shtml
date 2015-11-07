@@ -417,6 +417,7 @@
 		</div>
 	</div>
 	</div>
+
   <script type="text/javascript">
     function funcionEvento(tipo, input, nd, na) {
       if (tipo == "radio"){
