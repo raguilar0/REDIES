@@ -1,276 +1,301 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="es">
 <head>
-<!--#include file="usuario_header.html" -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--#include file="usuario_header.html" -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Formulario Gestión de Recursos</title>
+  <title>Formulario Gestión de Recursos</title>
 
-    <meta name="description" content="Formulario Gestion de Recurso">
-    <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
+  <meta name="description" content="Formulario Gestion de Recurso">
+  <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
 
 
 </head>
 
 <body ng-app="formApp">
 
-	<script>
-		$(document).ready(function(){
-			$('[data-toggle="tooltip"]').tooltip();
-		});
-    </script>
+  <script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  </script>
 
-    <div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <H3>
-                Gestión recursos
-            </H3>
-            <Form name="Formulario_GR" role="form" ng-controller="MainCtrl">
-                <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.PoliticaGestionAmbiental.$error.required || !formData.PoliticaGestionAmbiental }">
-                    <label for="GR_Q1">
-                        ¿Poseen política de gestión ambiental?
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+      <div class="col-md-12">
+        <H3>
+          Gestión recursos
+        </H3>
+        <Form name="Formulario_GR" role="form" ng-controller="MainCtrl">
+          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.PoliticaGestionAmbiental.$error.required || !formData.PoliticaGestionAmbiental }">
+            <label for="GR_Q1">
+              ¿Poseen política de gestión ambiental?
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+            </label>
+            <div class="input-group col-md-4 has-success" >
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PoliticaGestionAmbiental"
+                  value="Sí"
+                  ng-model="formData.PoliticaGestionAmbiental" required>
+                  Sí
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PoliticaGestionAmbiental"
+                  value="No"
+                  ng-model="formData.PoliticaGestionAmbiental" required>
+                  No
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PoliticaGestionAmbiental"
+                  value="N/D"
+                  ng-model="formData.PoliticaGestionAmbiental" required>
+                  N/D
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.PlanGestionAmbiental.$error.required || !formData.PlanGestionAmbiental }">
+            <label for="GR_Q2">
+              ¿Poseen plan de gestión ambiental institucional?
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+            </label>
+            <div class="input-group col-md-4 has-success">
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PlanGestionAmbiental"
+                  value="Sí"
+                  ng-model="formData.PlanGestionAmbiental" required>
+                  Sí
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PlanGestionAmbiental"
+                  value="No"
+                  ng-model="formData.PlanGestionAmbiental" required>
+                  No
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PlanGestionAmbiental"
+                  value="N/D"
+                  ng-model="formData.PlanGestionAmbiental" required>
+                  N/D
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nivelParticipacion.$error.required || !formData.nivelParticipacion }">
+            <label for="GR_Q3">
+              Nivel de participación en actividades de educación ambiental
+            </label>
+            <div class="input-group col-md-4 has-success">
+              <input 	type="number"
+              class="form-control"
+              name="nivelParticipacion"
+              id="GR_Q3.1"
+              min="0"
+              ng-model="formData.nivelParticipacion" required/><!--GRE_IV_G  DOUBLE-->
+              <div class="input-group-addon">Personas por año</div>
+              <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de personas por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+            <div class="input-group col-md-4 has-success">
+              <label >
+                <input 	id="NDPozos"
+                type="radio"
+                value ="N/D"
+                name="nivelParticipacion"
+                ng-model="formData.nivelParticipacion" requiered> N/D
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.iniciativaAmbiental.$error.required || !formData.iniciativaAmbiental }">
+            <label for="GR_Q4">
+              ¿Existen iniciativas de proyección ambiental hacia la comunidad?
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+            </label>
+            <div class="input-group col-md-4 has-success">
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PoliticaGestionAmbiental"
+                  value="Sí"
+                  ng-model="formData.iniciativaAmbiental" requiered>Sí
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PoliticaGestionAmbiental"
+                  value="No"
+                  ng-model="formData.iniciativaAmbiental" requiered>No
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="PoliticaGestionAmbiental"
+                  value="N/D"
+                  ng-model="formData.iniciativaAmbiental" requiered>N/D
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPapel.$error.required || !formData.consumoPapel }">
+            <label for="GR_Q5">
+              Consumo de papel al año
+            </label>
+            <div class="input-group col-md-4 has-success">
+              <input  type="text" class="form-control"
+              name="consumoPapel" id="GR_Q5" min="0"
+              ng-model="formData.consumoPapel"
+              onclick="funcionEvento(type, 'GR_Q5', 'consumoPapelRadio1')"
+              required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"
+              >
+              <div class="input-group-addon">resmas/año</div>
+              <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de resmas de papel consumidas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+            </div>
+            <div class="input-group col-md-4 has-success">
+              <label class="radio-inline">
+                <input type="radio" name="consumoPapel" id="consumoPapelRadio1"
+                value="N/D" ng-model="formData.consumoPapel"
+                onclick="funcionEvento(type, 'GR_Q5', 'consumoPapelRadio1')"
+                > N/D
+              </label>
+            </div>
+          </div>
+
+
+          <div class="form-group" >
+            <label for="GRE_Q6"> <!--si responde afirmativo tiene que aparecer un indicar Meta:  con el % reducción (GRE_III_G  DOUBLE)-->
+              ¿Existen programas de compras verdes?
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido). Si la respuesta es sí, indique la cantidad de carteles"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+            </label>
+            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.ComprasVerdes.$error.required || !formData.ComprasVerdes}">
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="ComprasVerdes"
+                  value="Sí"
+                  onclick="mostrar()"
+                  ng-model="formData.ComprasVerdes" requiered>
+                  Sí
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="ComprasVerdes"
+                  value="No"
+                  onclick="ocultar()"
+                  ng-model="formData.ComprasVerdes" requiered>
+                  No
+                </label>
+              </div>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="ComprasVerdes"
+                  value="N/D"
+                  onclick="ocultar()"
+                  ng-model="formData.ComprasVerdes" requiered>
+                  N/D
+                </label>
+              </div>
+            </div>
+
+            <div id = "oculto" style='display:none;'>
+              <label>
+                Indique número de carteles con inclusión de criterios ambientales:
+              </label>
+
+              <div class="input-group col-md-4 has-success">
+                <input 	type="number"
+                class="form-control"
+                name="numeroCarteles"
+                id="GRE_MetaReduccion"
+                min="0"
+                ng-model="formData.numeroCarteles" requiered>
+                <div class="input-group-addon">carteles</div>
+              </div>
+            </div>
+          </div>
+
+          <script type="text/javascript">
+          function mostrar(){
+            document.getElementById('oculto').style.display = 'inline-block';}
+            </script>
+
+            <script type="text/javascript">
+            function ocultar(){
+              document.getElementById('oculto').style.display = 'none';}
+              </script>
+
+              <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.ComisionGestionAmbiental.$error.required || !formData.ComisionGestionAmbiental }">
+                <label for="GR_Q7">
+                  ¿Existe comision de gestión ambiental?
+                  <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+                </label>
+                <div class="input-group col-md-4 has-success">
+                  <div class="radio-inline">
+                    <label>
+                      <input  type="radio"
+                      name="ComisionGestionAmbiental"
+                      value="Sí"
+                      ng-model="formData.ComisionGestionAmbiental" required>
+                      Sí
                     </label>
-                    <div class="input-group col-md-4 has-success" >
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PoliticaGestionAmbiental"
-									value="Sí"
-									ng-model="formData.PoliticaGestionAmbiental" required>
-                            Sí
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PoliticaGestionAmbiental"
-									value="No"
-									ng-model="formData.PoliticaGestionAmbiental" required>
-                            No
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PoliticaGestionAmbiental"
-									value="N/D"
-									ng-model="formData.PoliticaGestionAmbiental" required>
-                            N/D
-                          </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.PlanGestionAmbiental.$error.required || !formData.PlanGestionAmbiental }">
-                    <label for="GR_Q2">
-                        ¿Poseen plan de gestión ambiental institucional?
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+                  </div>
+                  <div class="radio-inline">
+                    <label>
+                      <input 	type="radio"
+                      name="ComisionGestionAmbiental"
+                      value="No"
+                      ng-model="formData.ComisionGestionAmbiental" required>
+                      No
                     </label>
-                    <div class="input-group col-md-4 has-success">
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PlanGestionAmbiental"
-									value="Sí"
-									ng-model="formData.PlanGestionAmbiental" required>
-                            Sí
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PlanGestionAmbiental"
-									value="No"
-									ng-model="formData.PlanGestionAmbiental" required>
-                            No
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PlanGestionAmbiental"
-									value="N/D"
-									ng-model="formData.PlanGestionAmbiental" required>
-                            N/D
-                          </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nivelParticipacion.$error.required || !formData.nivelParticipacion }">
-                    <label for="GR_Q3">
-                        Nivel de participación en actividades de educación ambiental
+                  </div>
+                  <div class="radio-inline">
+                    <label>
+                      <input 	type="radio"
+                      name="ComisionGestionAmbiental"
+                      value="N/D"
+                      ng-model="formData.ComisionGestionAmbiental" required>
+                      N/D
                     </label>
-                    <div class="input-group col-md-4 has-success">
-                        <input 	type="number"
-                								class="form-control"
-                								name="nivelParticipacion"
-                								id="GR_Q3.1"
-                								min="0"
-                								ng-model="formData.nivelParticipacion" required/><!--GRE_IV_G  DOUBLE-->
-                        <div class="input-group-addon">Personas por año</div>
-                        <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de personas por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
-                    </div>
-                    <div class="input-group col-md-4 has-success">
-                      <label >
-                        <input 	id="NDPozos"
-                								type="radio"
-                								value ="N/D"
-                								name="nivelParticipacion"
-                								ng-model="formData.nivelParticipacion" requiered> N/D
-                      </label>
-                    </div>
+                  </div>
                 </div>
+              </div>
 
-                <div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.iniciativaAmbiental.$error.required || !formData.iniciativaAmbiental }">
-                    <label for="GR_Q4">
-                        ¿Existen iniciativas de proyección ambiental?
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
-                    </label>
-                    <div class="input-group col-md-4 has-success">
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PoliticaGestionAmbiental"
-									value="Sí"
-									ng-model="formData.iniciativaAmbiental" requiered>Sí
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PoliticaGestionAmbiental"
-									value="No"
-									ng-model="formData.iniciativaAmbiental" requiered>No
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="PoliticaGestionAmbiental"
-									value="N/D"
-									ng-model="formData.iniciativaAmbiental" requiered>N/D
-                          </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group" >
-                    <label for="GRE_Q5"> <!--si responde afirmativo tiene que aparecer un indicar Meta:  con el % reducción (GRE_III_G  DOUBLE)-->
-                        ¿Existen programas de compras verdes?
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido). Si la respuesta es sí, indique la cantidad de carteles"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
-                    </label>
-                    <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.ComprasVerdes.$error.required || !formData.ComprasVerdes}">
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-                  									name="ComprasVerdes"
-                  									value="Sí"
-                  									onclick="mostrar()"
-                  									ng-model="formData.ComprasVerdes" requiered>
-                            Sí
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-                  									name="ComprasVerdes"
-                  									value="No"
-                  									onclick="ocultar()"
-                  									ng-model="formData.ComprasVerdes" requiered>
-                            No
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-                  									name="ComprasVerdes"
-                  									value="N/D"
-                  									onclick="ocultar()"
-                  									ng-model="formData.ComprasVerdes" requiered>
-                            N/D
-                          </label>
-                        </div>
-                    </div>
-
-                    <div id = "oculto" style='display:none;'>
-                        <label>
-                            Indique número de carteles con inclusión de criterios ambientales:
-                        </label>
-
-                        <div class="input-group col-md-4 has-success">
-                            <input 	type="number"
-                  									class="form-control"
-                  									name="numeroCarteles"
-                  									id="GRE_MetaReduccion"
-                  									min="0"
-                  									ng-model="formData.numeroCarteles" requiered>
-                            <div class="input-group-addon">carteles</div>
-                        </div>
-                    </div>
-                </div>
-
-                <script type="text/javascript">
-                    function mostrar(){
-                    document.getElementById('oculto').style.display = 'inline-block';}
-                </script>
-
-                <script type="text/javascript">
-                    function ocultar(){
-                    document.getElementById('oculto').style.display = 'none';}
-                </script>
-
-                <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.ComisionGestionAmbiental.$error.required || !formData.ComisionGestionAmbiental }">
-                    <label for="GR_Q6">
-                        ¿Existe comision de gestión ambiental?
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
-                    </label>
-                    <div class="input-group col-md-4 has-success">
-                        <div class="radio-inline">
-                          <label>
-                            <input  type="radio"
-									name="ComisionGestionAmbiental"
-									value="Sí"
-									ng-model="formData.ComisionGestionAmbiental" required>
-                            Sí
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="ComisionGestionAmbiental"
-									value="No"
-									ng-model="formData.ComisionGestionAmbiental" required>
-                            No
-                          </label>
-                        </div>
-                        <div class="radio-inline">
-                          <label>
-                            <input 	type="radio"
-									name="ComisionGestionAmbiental"
-									value="N/D"
-									ng-model="formData.ComisionGestionAmbiental" required>
-                            N/D
-                          </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                  <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)"> <!--ng-disabled="!form.$valid"-->
+              <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)"> <!--ng-disabled="!form.$valid"-->
                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    Enviar Formulario
-                  </button>
-                </div>
+                  Enviar Formulario
+                </button>
+              </div>
 
             </Form>
+          </div>
         </div>
-    </div>
-    </div>
-</body>
-<script src="js/app.js"></script>
-</html>
+      </div>
+    </body>
+    <script src="js/app.js"></script>
+    </html>
