@@ -30,112 +30,134 @@
 
 					<div class="form-group has-success"   ng-class="{ 'has-error' : !form.$pristine  && form.cantidadPapel.$error.required || !formData.cantidadPapel }">
 						<div class="input-group col-md-4">
-							<input  type="number" class="form-control"
+							<input  type="text" class="form-control"
                       name="cantidadPapel" id="RS_Q1.1" min="0"
-                      ng-model="formData.cantidadPapel" />
+                      ng-model="formData.cantidadPapel"
+                      onclick="funcionEvento(type, 'RS_Q1.1', 'cantidadPapelRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 							<span class="input-group-addon">papel</span>
 							<!--<span class="input-group-addon"><input type="checkbox" aria-label="N/A">N/A</span>-->
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de resmas de papel generadas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
-								<input  type="radio" name="cantidadPapel" id="inlineRadio2"
-                        value="N/D" ng-model="formData.cantidadPapel" > N/D
+								<input  type="radio" name="cantidadPapel" id="cantidadPapelRadio1"
+                        value="N/D" ng-model="formData.cantidadPapel"
+                        onclick="funcionEvento(type, 'RS_Q1.1', 'cantidadPapelRadio1')"> N/D
 							</label>
 						</div>
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rOrganicos.$error.required || !formData.rOrganicos }">
 						<div class="input-group col-md-4">
-							<input  type="number" class="form-control"
+							<input  type="text" class="form-control"
                       name ="rOrganicos" id="RS_Q1.2" min="0"
-                      ng-model="formData.rOrganicos"/>
+                      ng-model="formData.rOrganicos"
+                      onclick="funcionEvento(type, 'RS_Q1.2', 'rOrganicosRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 							<span class="input-group-addon">residuos orgánicos</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos orgánicos generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
-								<input  type="radio"  name="rOrganicos" id="inlineRadio2"
-                        value="N/D" ng-model="formData.rOrganicos" required> N/D
+								<input  type="radio"  name="rOrganicos" id="rOrganicosRadio1"
+                        value="N/D" ng-model="formData.rOrganicos"
+                        onclick="funcionEvento(type, 'RS_Q1.2', 'rOrganicosRadio1')"> N/D
 							</label>
 						</div>
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rValorizables.$error.required || !formData.rValorizables }" >
 						<div class="input-group col-md-4">
-							<input  type="number" class="form-control"
+							<input  type="text" class="form-control"
                       name ="rValorizables" id="RS_Q1.3" min="0"
-                      ng-model="formData.rValorizables" required />
+                      ng-model="formData.rValorizables"
+                      onclick="funcionEvento(type, 'RS_Q1.3', 'rValorizablesRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$" />
 							<div class="input-group-addon">residuos valorizables</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos valorizables generados por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
-								<input  type="radio"  name ="rValorizables" id="inlineRadio2"
-                        value="N/D" ng-model="formData.rValorizables" requiered> N/D
+								<input  type="radio"  name ="rValorizables" id="rValorizablesRadio1"
+                        value="N/D" ng-model="formData.rValorizables"
+                        onclick="funcionEvento(type, 'RS_Q1.3', 'rValorizablesRadio1')"> N/D
+
 							</label>
 						</div>
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rPeligrosos.$error.required || !formData.rPeligrosos }">
 						<div class="input-group col-md-4">
-							<input type="number" class="form-control"
+							<input type="text" class="form-control"
                       name="rPeligrosos" id="RS_Q1.4" min="0"
-                      ng-model="formData.rPeligrosos" required/>
+                      ng-model="formData.rPeligrosos"
+                      onclick="funcionEvento(type, 'RS_Q1.4', 'rPeligrososRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 							<div class="input-group-addon">residuos peligrosos</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos peligrosos generados por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
-								<input  type="radio" name="rPeligrosos" id="inlineRadio2"
-                        value="N/D" ng-model="formData.rPeligrosos" requiered> N/D
+								<input  type="radio" name="rPeligrosos" id="rPeligrososRadio1"
+                        value="N/D" ng-model="formData.rPeligrosos"
+                        onclick="funcionEvento(type, 'RS_Q1.4', 'rPeligrososRadio1')"> N/D
 							</label>
 						</div>
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rManejoEspecial.$error.required || !formData.rManejoEspecial }">
 						<div class="input-group col-md-4">
-							<input  type="number" class="form-control"
+							<input  type="text" class="form-control"
                       name="rManejoEspecial" id="RS_Q1.5" min="0"
-                      ng-model="formData.rManejoEspecial" required/>
+                      ng-model="formData.rManejoEspecial"
+                      onclick="funcionEvento(type, 'RS_Q1.5', 'rManejoEspecialRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 							<div class="input-group-addon">residuos de manejo especial</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos de manejo especial generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
 							<label class="radio-inline">
-                <input  type="radio" name="rManejoEspecial" id="inlineRadio2"
-                        value="N/D" ng-model="formData.rManejoEspecial" requiered> N/D
+                <input  type="radio" name="rManejoEspecial" id="rManejoEspecialRadio1"
+                        value="N/D" ng-model="formData.rManejoEspecial"
+                        onclick="funcionEvento(type, 'RS_Q1.5', 'rManejoEspecialRadio1')"> N/D
 							</label>
 						</div>
 					</div>
 
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.rNoValorizables.$error.required || !formData.rNoValorizables }">
 						<div class="input-group col-md-4">
-							<input  type="number" class="form-control"
+							<input  type="text" class="form-control"
                       name ="rNoValorizables" id="RS_Q1.6" min="0"
-                      ng-model="formData.rNoValorizables" required />
+                      ng-model="formData.rNoValorizables"
+                      onclick="funcionEvento(type, 'RS_Q1.6', 'rNoValorizablesRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$" />
 							<div class="input-group-addon">residuos no valorizables</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos no valorizables generados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4">
               <label class="radio-inline">
-								<input  type="radio" name="rNoValorizables" id="inlineRadio2"
-                        value="N/D" ng-model="formData.rNoValorizables" required> N/D
+								<input  type="radio" name="rNoValorizables" id="rNoValorizablesRadio1"
+                        value="N/D" ng-model="formData.rNoValorizables"
+                        onclick="funcionEvento(type, 'RS_Q1.6', 'rNoValorizablesRadio1')"> N/D
 							</label>
 						</div>
 					</div>
 					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.otros.$error.required || !formData.otros }">
 						<div class="input-group col-md-4">
-							<input  type="number" class="form-control"
+							<input  type="text" class="form-control"
                       name="otros" id="RS_Q1.7" min="0"
-                      ng-model="formData.otros" required/>
+                      ng-model="formData.otros"
+                      onclick="funcionEvento(type, 'RS_Q1.7', 'otrosRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 							<div class="input-group-addon">otros</div>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de otros residuos al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 						</div>
 						<div class="input-group col-md-4 has-success">
               <label class="radio-inline">
-                <input  type="radio" name="otros" id="inlineRadio2"
-                        value="N/D" ng-model="formData.otros" required> N/D
+                <input  type="radio" name="otros" id="otrosRadio1"
+                        value="N/D" ng-model="formData.otros"
+                        onclick="funcionEvento(type, 'RS_Q1.7', 'otrosRadio1')"> N/D
               </label>
 						</div>
 					</div>
@@ -147,16 +169,19 @@
 						Generación de residuos sólidos per cápita
 					</label>
 					<div class="input-group col-md-4 has-success">
-						<input  type="number" class="form-control"
+						<input  type="text" class="form-control"
                     name ="rSolidosPC" id="RS_Q2" min="0"
-                    ng-model="formData.rSolidosPC" required/>
+                    ng-model="formData.rSolidosPC"
+                    onclick="funcionEvento(type, 'RS_Q2', 'rSolidosPCRadio1')"
+                    required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 						<div class="input-group-addon">Kg/persona</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de residuos sólidos per-cápita al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 					<div class="input-group col-md-4 has-success">
             <label class="radio-inline">
-							<input  type="radio" name="rSolidosPC" id="inlineRadio2"
-                      value="N/D" ng-model="formData.rSolidosPC" required> N/D
+							<input  type="radio" name="rSolidosPC" id="rSolidosPCRadio1"
+                      value="N/D" ng-model="formData.rSolidosPC"
+                      onclick="funcionEvento(type, 'RS_Q2', 'rSolidosPCRadio1')"> N/D
 						</label>
 					</div>
 				</div>
@@ -165,16 +190,19 @@
 						Indicadores de recuperación de residuos sólidos
 					</label>
 					<div class="input-group col-md-4 has-success">
-						<input  type="number" class="form-control"
+						<input  type="text" class="form-control"
                     name="recuperacionRS" id="RS_Q3" min="0"
-                    ng-model="formData.recuperacionRS" required/>
+                    ng-model="formData.recuperacionRS"
+                    onclick="funcionEvento(type, 'RS_Q3', 'recuperacionRSRadio1')"
+                    required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 						<div class="input-group-addon">Kg valorizables/Persona</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el indicador de recuperacion de residuos solidos por persona al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 					<div class="input-group col-md-4 has-success">
             <label class="radio-inline">
-							<input  type="radio" name="recuperacionRS" id="inlineCheckbox2"
-                      value="N/D" ng-model="formData.recuperacionRS" required> N/D
+							<input  type="radio" name="recuperacionRS" id="recuperacionRSRadio1"
+                      value="N/D" ng-model="formData.recuperacionRS"
+                      onclick="funcionEvento(type, 'RS_Q3', 'recuperacionRSRadio1')"> N/D
 						</label>
 					</div>
 				</div>
@@ -183,16 +211,20 @@
 						Tasa anual de reciclaje
 					</label>
 					<div class="input-group col-md-4 has-success">
-						<input  type="number" class="form-control"
+						<input  type="text" class="form-control"
                     name="tazaReciclaje" id="RS_Q4" min="0"
-                    ng-model="formData.tazaReciclaje" required/>
+                    ng-model="formData.tazaReciclaje"
+                    onclick="funcionEvento(type, 'RS_Q4', 'tazaReciclajeRadio1')"
+                    required pattern="([1-9]?[0-9](,[0-9][0-9]?)?$|100$)|^N\/D$"/> <!--REGEX para porcentajes-->
+
 						<div class="input-group-addon">%</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la taza anual de reciclaje"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
 					<div class="input-group col-md-4 has-success">
             <label class="radio-inline">
-							<input  type="radio" name="tazaReciclaje" id="inlineRadio1"
-                      value="N/D" ng-model="formData.tazaReciclaje" required> N/D
+							<input  type="radio" name="tazaReciclaje" id="tazaReciclajeRadio1"
+                      value="N/D" ng-model="formData.tazaReciclaje"
+                      onclick="funcionEvento(type, 'RS_Q4', 'tazaReciclajeRadio1')"> N/D
 						</label>
 					</div>
 				</div>
@@ -201,16 +233,19 @@
 						Trazabilidad de gestores de residuos
 					</label>
 					<div class="input-group col-md-4 has-success">
-						<input type="number" class="form-control"
+						<input type="text" class="form-control"
                     name ="trazabilidad" id="RS_Q5" min="0"
-                    ng-model="formData.trazabilidad" required/>
+                    ng-model="formData.trazabilidad"
+                    onclick="funcionEvento(type, 'RS_Q5', 'trazabilidadRadio1')"
+                    required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
 						<div class="input-group-addon">Gestores Autorizados</div>
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de gestores autorizados para la trazabilidad de residuos sólidos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 					</div>
           <div class="input-group col-md-4 has-success">
             <label class="radio-inline">
-							<input  type="radio" name="trazabilidad" id="inlineRadio1"
-                      value="N/D" ng-model="formData.trazabilidad" required> N/D
+							<input  type="radio" name="trazabilidad" id="trazabilidadRadio1"
+                      value="N/D" ng-model="formData.trazabilidad"
+                      onclick="funcionEvento(type, 'RS_Q5', 'trazabilidadRadio1')"> N/D
 						</label>
 					</div>
 				</div>
@@ -242,7 +277,7 @@
 				</div>
 
         <div class="form-group col-md-4">
-          <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)"> <!--ng-disabled="!form.$valid"-->
+          <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             Enviar Formulario
           </button>
@@ -252,6 +287,34 @@
 	</div>
 </div>
   </body>
+
+  <script type="text/javascript">
+  function funcionEvento(tipo, input, nd, na) {
+    if (tipo == "radio"){
+      if(nd.checked
+        document.getElementById(input).value = "N/D";
+
+        if(na.checked
+          document.getElementById(input).value = "N/A";
+        }
+        else {
+          document.getElementById(nd).checked = false;
+          document.getElementById(na).checked = false;
+          document.getElementById(input).value = "";
+        }
+      }
+      </script>
+
+      <script type="text/javascript">
+      function funcionEvento(tipo, input, nd) {
+        if (tipo == "radio")
+        document.getElementById(input).value = "N/D";
+        else {
+          document.getElementById(nd).checked = false;
+          document.getElementById(input).value = "";
+        }
+      }
+      </script>
 
   	<script>
   		$(document).ready(function(){

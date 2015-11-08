@@ -16,12 +16,6 @@
 
 <body ng-app="formApp">
 
-  <script>
-  $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-  </script>
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -39,6 +33,7 @@
                 <label>
                   <input 	type="radio"
                   name="PoliticaGestionAmbiental"
+                  id="GR_Q1"
                   value="Sí"
                   ng-model="formData.PoliticaGestionAmbiental" required>
                   Sí
@@ -49,7 +44,7 @@
                   <input 	type="radio"
                   name="PoliticaGestionAmbiental"
                   value="No"
-                  ng-model="formData.PoliticaGestionAmbiental" required>
+                  ng-model="formData.PoliticaGestionAmbiental" >
                   No
                 </label>
               </div>
@@ -58,7 +53,7 @@
                   <input 	type="radio"
                   name="PoliticaGestionAmbiental"
                   value="N/D"
-                  ng-model="formData.PoliticaGestionAmbiental" required>
+                  ng-model="formData.PoliticaGestionAmbiental" >
                   N/D
                 </label>
               </div>
@@ -75,6 +70,7 @@
                 <label>
                   <input 	type="radio"
                   name="PlanGestionAmbiental"
+                  id="GR_Q2"
                   value="Sí"
                   ng-model="formData.PlanGestionAmbiental" required>
                   Sí
@@ -85,7 +81,7 @@
                   <input 	type="radio"
                   name="PlanGestionAmbiental"
                   value="No"
-                  ng-model="formData.PlanGestionAmbiental" required>
+                  ng-model="formData.PlanGestionAmbiental" >
                   No
                 </label>
               </div>
@@ -94,34 +90,38 @@
                   <input 	type="radio"
                   name="PlanGestionAmbiental"
                   value="N/D"
-                  ng-model="formData.PlanGestionAmbiental" required>
+                  ng-model="formData.PlanGestionAmbiental" >
                   N/D
                 </label>
               </div>
             </div>
           </div>
 
-          <div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.nivelParticipacion.$error.required || !formData.nivelParticipacion }">
+          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.nivelParticipacion.$error.required || !formData.nivelParticipacion }">
             <label for="GR_Q3">
               Nivel de participación en actividades de educación ambiental
             </label>
             <div class="input-group col-md-4 has-success">
-              <input 	type="number"
-              class="form-control"
-              name="nivelParticipacion"
-              id="GR_Q3.1"
-              min="0"
-              ng-model="formData.nivelParticipacion" required/><!--GRE_IV_G  DOUBLE-->
+              <input 	type="text"
+                      class="form-control"
+                      name="nivelParticipacion"
+                      id="GR_Q3.1"
+                      min="0"
+                      ng-model="formData.nivelParticipacion"
+                      onclick="funcionEvento(type, 'GR_Q3.1', 'nivelParticipacionRadio1')"
+                      required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/><!--GRE_IV_G  DOUBLE-->
               <div class="input-group-addon">Personas por año</div>
               <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de personas por año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
             </div>
+
             <div class="input-group col-md-4 has-success">
-              <label >
-                <input 	id="NDPozos"
-                type="radio"
-                value ="N/D"
-                name="nivelParticipacion"
-                ng-model="formData.nivelParticipacion" requiered> N/D
+              <label class="radio-inline">
+                <input  type="radio"
+                        name="nivelParticipacion"
+                        id="nivelParticipacionRadio1"
+                        value ="N/D"
+                        ng-model="formData.nivelParticipacion"
+                        onclick="funcionEvento(type, 'GR_Q3.1', 'nivelParticipacionRadio1')"> N/D
               </label>
             </div>
           </div>
@@ -135,25 +135,25 @@
               <div class="radio-inline">
                 <label>
                   <input 	type="radio"
-                  name="PoliticaGestionAmbiental"
-                  value="Sí"
-                  ng-model="formData.iniciativaAmbiental" requiered>Sí
+                          name="iniciativaAmbiental"
+                          value="Sí"
+                          ng-model="formData.iniciativaAmbiental" required>Sí
                 </label>
               </div>
               <div class="radio-inline">
                 <label>
                   <input 	type="radio"
-                  name="PoliticaGestionAmbiental"
-                  value="No"
-                  ng-model="formData.iniciativaAmbiental" requiered>No
+                          name="iniciativaAmbiental"
+                          value="No"
+                          ng-model="formData.iniciativaAmbiental" >No
                 </label>
               </div>
               <div class="radio-inline">
                 <label>
                   <input 	type="radio"
-                  name="PoliticaGestionAmbiental"
-                  value="N/D"
-                  ng-model="formData.iniciativaAmbiental" requiered>N/D
+                          name="iniciativaAmbiental"
+                          value="N/D"
+                          ng-model="formData.iniciativaAmbiental" >N/D
                 </label>
               </div>
             </div>
@@ -175,17 +175,17 @@
             </div>
             <div class="input-group col-md-4 has-success">
               <label class="radio-inline">
-                <input type="radio" name="consumoPapel" id="consumoPapelRadio1"
-                value="N/D" ng-model="formData.consumoPapel"
-                onclick="funcionEvento(type, 'GR_Q5', 'consumoPapelRadio1')"
-                > N/D
+                <input  type="radio" name="consumoPapel" id="consumoPapelRadio1"
+                        value="N/D" ng-model="formData.consumoPapel"
+                        onclick="funcionEvento(type, 'GR_Q5', 'consumoPapelRadio1')"
+                        > N/D
               </label>
             </div>
           </div>
 
 
           <div class="form-group" >
-            <label for="GRE_Q6"> <!--si responde afirmativo tiene que aparecer un indicar Meta:  con el % reducción (GRE_III_G  DOUBLE)-->
+            <label for="GR_Q6"> <!--si responde afirmativo tiene que aparecer un indicar Meta:  con el % reducción (GRE_III_G  DOUBLE)-->
               ¿Existen programas de compras verdes?
               <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido). Si la respuesta es sí, indique la cantidad de carteles"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
             </label>
@@ -193,30 +193,30 @@
               <div class="radio-inline">
                 <label>
                   <input 	type="radio"
-                  name="ComprasVerdes"
-                  value="Sí"
-                  onclick="mostrar()"
-                  ng-model="formData.ComprasVerdes" requiered>
+                          name="ComprasVerdes"
+                          value="Sí"
+                          onclick="mostrar()"
+                          ng-model="formData.ComprasVerdes" required>
                   Sí
                 </label>
               </div>
               <div class="radio-inline">
                 <label>
                   <input 	type="radio"
-                  name="ComprasVerdes"
-                  value="No"
-                  onclick="ocultar()"
-                  ng-model="formData.ComprasVerdes" requiered>
+                          name="ComprasVerdes"
+                          value="No"
+                          onclick="ocultar()"
+                          ng-model="formData.ComprasVerdes" >
                   No
                 </label>
               </div>
               <div class="radio-inline">
                 <label>
                   <input 	type="radio"
-                  name="ComprasVerdes"
-                  value="N/D"
-                  onclick="ocultar()"
-                  ng-model="formData.ComprasVerdes" requiered>
+                          name="ComprasVerdes"
+                          value="N/D"
+                          onclick="ocultar()"
+                          ng-model="formData.ComprasVerdes" >
                   N/D
                 </label>
               </div>
@@ -229,11 +229,11 @@
 
               <div class="input-group col-md-4 has-success">
                 <input 	type="number"
-                class="form-control"
-                name="numeroCarteles"
-                id="GRE_MetaReduccion"
-                min="0"
-                ng-model="formData.numeroCarteles" requiered>
+                        class="form-control"
+                        name="numeroCarteles"
+                        id="GRE_MetaReduccion"
+                        min="0"
+                        ng-model="formData.numeroCarteles" >
                 <div class="input-group-addon">carteles</div>
               </div>
             </div>
@@ -258,35 +258,35 @@
                   <div class="radio-inline">
                     <label>
                       <input  type="radio"
-                      name="ComisionGestionAmbiental"
-                      value="Sí"
-                      ng-model="formData.ComisionGestionAmbiental" required>
-                      Sí
+                              name="ComisionGestionAmbiental"
+                              value="Sí"
+                              ng-model="formData.ComisionGestionAmbiental" required>
+                              Sí
                     </label>
                   </div>
                   <div class="radio-inline">
                     <label>
                       <input 	type="radio"
-                      name="ComisionGestionAmbiental"
-                      value="No"
-                      ng-model="formData.ComisionGestionAmbiental" required>
-                      No
+                              name="ComisionGestionAmbiental"
+                              value="No"
+                              ng-model="formData.ComisionGestionAmbiental" >
+                              No
                     </label>
                   </div>
                   <div class="radio-inline">
                     <label>
                       <input 	type="radio"
-                      name="ComisionGestionAmbiental"
-                      value="N/D"
-                      ng-model="formData.ComisionGestionAmbiental" required>
-                      N/D
+                              name="ComisionGestionAmbiental"
+                              value="N/D"
+                              ng-model="formData.ComisionGestionAmbiental" >
+                              N/D
                     </label>
                   </div>
                 </div>
               </div>
 
               <div class="form-group col-md-4">
-                <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)"> <!--ng-disabled="!form.$valid"-->
+                <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                   Enviar Formulario
                 </button>
@@ -296,6 +296,39 @@
           </div>
         </div>
       </div>
+      <script src="js/app.js"></script>
+      <script type="text/javascript">
+      function funcionEvento(tipo, input, nd, na) {
+        if (tipo == "radio"){
+          if(nd.checked
+            document.getElementById(input).value = "N/D";
+
+            if(na.checked
+              document.getElementById(input).value = "N/A";
+            }
+            else {
+              document.getElementById(nd).checked = false;
+              document.getElementById(na).checked = false;
+              document.getElementById(input).value = "";
+            }
+          }
+          </script>
+
+          <script type="text/javascript">
+          function funcionEvento(tipo, input, nd) {
+            if (tipo == "radio")
+            document.getElementById(input).value = "N/D";
+            else {
+              document.getElementById(nd).checked = false;
+              document.getElementById(input).value = "";
+            }
+          }
+          </script>
+
+          <script>
+          $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+          });
+          </script>
     </body>
-    <script src="js/app.js"></script>
     </html>
