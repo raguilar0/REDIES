@@ -28,11 +28,11 @@
 						Inventario de efluentes de aguas residuales y puntos de descarga
 					</label>
 
-					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.descargasAP.$error.required || !formData.descargasAP }">
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.inputDescargasAP.$error.required || !formData.inputDescargasAP }">
 						<div class="input-group col-md-4">
 							<input  type="text" class="form-control"
-                      name="descargasAP" id="RH_AR_Q1.1" min="0"
-                      ng-model="formData.descargasAP"
+                      name="inputDescargasAP" id="RH_AR_Q1.1" min="0"
+                      ng-model="formData.inputDescargasAP"
                       onclick="funcionEvento(type, 'RH_AR_Q1.1', 'descargasAPRadio1', 'descargasAPRadio2')"
                       required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$|^N\/A$"/>
 							<span class="input-group-addon">descargas al alcantarillado público</span>
