@@ -27,7 +27,7 @@
               <input  type="text" class="form-control"
               name="consumoPC" id="RH_ACH_Q1" min="0"
               ng-model="formData.consumoPC"
-              onclick="funcionEvento(type, 'RH_ACH_Q1', 'consumoPCRadio1')"
+              onclick="validacionND(type, 'RH_ACH_Q1', 'consumoPCRadio1')"
               required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"
               >
               <div class="input-group-addon">m<sup>3</sup>/persona</div>
@@ -37,7 +37,8 @@
               <label class="radio-inline">
                 <input type="radio" name="consumoPC" id="consumoPCRadio1"
                 value="N/D" ng-model="formData.consumoPC"
-                onclick="funcionEvento(type, 'RH_ACH_Q1', 'consumoPCRadio1')"> N/D
+                onclick="validacionND(type, 'RH_ACH_Q1', 'consumoPCRadio1')"
+              > N/D
               </label>
             </div>
           </div>
@@ -54,7 +55,7 @@
                 <input  type="text" class="form-control"
                 name="nPozos" id="RH_ACH_Q2.1" min="0"
                 ng-model="formData.nPozos"
-                onclick="funcionEvento(type, 'RH_ACH_Q2.1', 'nPozosRadio1', 'nPozosRadio2')"
+                onclick="validacionNDNA(type, 'RH_ACH_Q2.1', 'nPozosRadio1', 'nPozosRadio2')"
                 required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/A$|^N\/D$"/>
                 <span class="input-group-addon">pozos</span>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de pozos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -62,11 +63,13 @@
               <div class="input-group col-md-4">
                 <label class="radio-inline">
                   <input  type="radio" name="nPozos" id="nPozosRadio1"
-                  value="N/A" ng-model="formData.nPozos" onclick="funcionEvento(type, 'RH_ACH_Q2.1', 'nPozosRadio1', 'nPozosRadio2')" > N/A
+                  value="N/A" ng-model="formData.nPozos"
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.1', 'nPozosRadio1', 'nPozosRadio2')" > N/A
                 </label>
                 <label class="radio-inline">
                   <input  type="radio" name="nPozos" id="nPozosRadio2"
-                  value="N/D" ng-model="formData.nPozos" onclick="funcionEvento(type, 'RH_ACH_Q2.1', 'nPozosRadio1', 'nPozosRadio2')" > N/D
+                  value="N/D" ng-model="formData.nPozos"
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.1', 'nPozosRadio1', 'nPozosRadio2')" > N/D
                 </label>
               </div>
             </div>
@@ -76,21 +79,22 @@
                 <input  type="text" class="form-control"
                 name="nNacientes" id="RH_ACH_Q2.2" min="0"
                 ng-model="formData.nNacientes"
-                onclick="funcionEvento(type, 'RH_ACH_Q2.2', 'nNacientesRadio1', 'nNacientesRadio2')"
+                onclick="validacionNDNA(type, 'RH_ACH_Q2.2', 'nNacientesRadio1', 'nNacientesRadio2')"
                 required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/A$|^N\/D$"/>
                 <span class="input-group-addon">nacientes</span>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de nacientes"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
               </div>
+
               <div class="input-group col-md-4">
                 <label class="radio-inline">
                   <input  type="radio" name="nNacientes" id="nNacientesRadio1"
                   value="N/A" ng-model="formData.nNacientes"
-                  onclick="funcionEvento(type, 'RH_ACH_Q2.2', 'nNacientesRadio1', 'nNacientesRadio2')"> N/A
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.2', 'nNacientesRadio1', 'nNacientesRadio2')"> N/A
                 </label>
                 <label class="radio-inline">
                   <input  type="radio" name="nNacientes" id="nNacientesRadio2"
                   value="N/D" ng-model="formData.nNacientes"
-                  onclick="funcionEvento(type, 'RH_ACH_Q2.2', 'nNacientesRadio1', 'nNacientesRadio2')"> N/D
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.2', 'nNacientesRadio1', 'nNacientesRadio2')"> N/D
                 </label>
               </div>
             </div>
@@ -100,7 +104,7 @@
                 <input  type="text" class="form-control"
                 name="nRios" id="RH_ACH_Q2.3" min="0"
                 ng-model="formData.nRios"
-                onclick="funcionEvento(type, 'RH_ACH_Q2.3', 'nRiosRadio1', 'nRiosRadio2')"
+                onclick="validacionNDNA(type, 'RH_ACH_Q2.3', 'nRiosRadio1', 'nRiosRadio2')"
                 required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/A$|^N\/D$">
                 <div class="input-group-addon">ríos</div>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de ríos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -109,12 +113,12 @@
                 <label class="radio-inline">
                   <input  type="radio" name ="nRios" id="nRiosRadio1"
                   value="N/A" ng-model="formData.nRios"
-                  onclick="funcionEvento(type, 'RH_ACH_Q2.3', 'nRiosRadio1', 'nRiosRadio2')"> N/A
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.3', 'nRiosRadio1', 'nRiosRadio2')"> N/A
                 </label>
                 <label class="radio-inline">
                   <input  type="radio" name="nRios" id="nRiosRadio2"
                   value="N/D" ng-model="formData.nRios"
-                  onclick="funcionEvento(type, 'RH_ACH_Q2.3', 'nRiosRadio1', 'nRiosRadio2')"> N/D
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.3', 'nRiosRadio1', 'nRiosRadio2')"> N/D
                 </label>
               </div>
             </div>
@@ -124,7 +128,7 @@
                 <input  type="text" class="form-control"
                 name="nHidrometros" id="RH_ACH_Q2.4" min="0"
                 ng-model="formData.nHidrometros"
-                onclick="funcionEvento(type, 'RH_ACH_Q2.4', 'nHidrometrosRadio1', 'nHidrometrosRadio2')"
+                onclick="validacionNDNA(type, 'RH_ACH_Q2.4', 'nHidrometrosRadio1', 'nHidrometrosRadio2')"
                 required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/A$|^N\/D$"/>
                 <div class="input-group-addon">hidrómetros</div>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de hidrómetros"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -133,13 +137,13 @@
                 <label class="radio-inline">
                   <input  type="radio" name="nHidrometros" id="nHidrometrosRadio1"
                   value="N/A" ng-model="formData.nHidrometros"
-                  onclick="funcionEvento(type, 'RH_ACH_Q2.4', 'nHidrometrosRadio1', 'nHidrometrosRadio2')"
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.4', 'nHidrometrosRadio1', 'nHidrometrosRadio2')"
                   > N/A
                 </label>
                 <label class="radio-inline">
                   <input  type="radio" name="nHidrometros" id="nHidrometrosRadio2"
                   value="N/D" ng-model="formData.nHidrometros"
-                  onclick="funcionEvento(type, 'RH_ACH_Q2.4', 'nHidrometrosRadio1', 'nHidrometrosRadio2')"
+                  onclick="validacionNDNA(type, 'RH_ACH_Q2.4', 'nHidrometrosRadio1', 'nHidrometrosRadio2')"
                   > N/D
                 </label>
               </div>
@@ -154,7 +158,7 @@
               <input  type="text" class="form-control"
               name="consumoAgua" id="RH_ACH_Q3" min="0"
               ng-model="formData.consumoAgua"
-              onclick="funcionEvento(type, 'RH_ACH_Q3', 'consumoAguaRadio1')"
+              onclick="validacionND(type, 'RH_ACH_Q3', 'consumoAguaRadio1')"
               required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$"/>
               <div class="input-group-addon">m<sup>3</sup></div>
               <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de agua consumida al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -163,7 +167,7 @@
               <label class="radio-inline">
                 <input  type="radio" name="consumoAgua" id="consumoAguaRadio1"
                 value="N/D" ng-model="formData.consumoAgua"
-                onclick="funcionEvento(type, 'RH_ACH_Q3', 'consumoAguaRadio1')"> N/D
+                onclick="validacionND(type, 'RH_ACH_Q3', 'consumoAguaRadio1')"> N/D
               </label>
             </div>
           </div>
@@ -330,8 +334,22 @@
             </button>
           </div>
 
+          <div>
+            Form content:{{formData}}
+          </div>
 
-          <!--VALIDACIÓN DE CAMPOS-->
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+
+<!--
+          VALIDACIÓN DE CAMPOS
 
 
           <div class="row">
@@ -396,52 +414,4 @@
                   </tbody>
                 </table>
               </div>
-
-
-
-              <div>
-                Form content:{{formData}}
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <script type="text/javascript">
-      function funcionEvento(tipo, input, nd, na) {
-        if (tipo == "radio"){
-          if(nd.checked
-            document.getElementById(input).value = "N/D";
-
-            if(na.checked
-              document.getElementById(input).value = "N/A";
-            }
-            else {
-              document.getElementById(nd).checked = false;
-              document.getElementById(na).checked = false;
-              document.getElementById(input).value = "";
-            }
-          }
-          </script>
-
-          <script type="text/javascript">
-          function funcionEvento(tipo, input, nd) {
-            if (tipo == "radio")
-            document.getElementById(input).value = "N/D";
-            else {
-              document.getElementById(nd).checked = false;
-              document.getElementById(input).value = "";
-            }
-          }
-          </script>
-
-          <script>
-          $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-          });
-          </script>
-
-          <script src="js/app.js"></script>
-        </body>
-        </html>
+-->

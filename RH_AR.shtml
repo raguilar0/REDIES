@@ -28,12 +28,12 @@
 						Inventario de efluentes de aguas residuales y puntos de descarga
 					</label>
 
-					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.inputDescargasAP.$error.required || !formData.inputDescargasAP }">
+					<div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.descargasAP.$error.required || !formData.descargasAP }">
 						<div class="input-group col-md-4">
 							<input  type="text" class="form-control"
-                      name="inputDescargasAP" id="RH_AR_Q1.1" min="0"
-                      ng-model="formData.inputDescargasAP"
-                      onclick="funcionEvento(type, 'RH_AR_Q1.1', 'descargasAPRadio1', 'descargasAPRadio2')"
+                      name="descargasAP" id="RH_AR_Q1.1" min="0"
+                      ng-model="formData.descargasAP"
+                      onclick="validacionNDNA(type, 'RH_AR_Q1.1', 'descargasAPRadio2', 'descargasAPRadio1')"
                       required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$|^N\/A$"/>
 							<span class="input-group-addon">descargas al alcantarillado público</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de descargas al alcantarillado público anualmente"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -42,12 +42,12 @@
 							<label class="radio-inline">
 								<input  type="radio" name="descargasAP" id="descargasAPRadio1"
                         value="N/A" ng-model="formData.descargasAP"
-                        onclick="funcionEvento(type, 'RH_AR_Q1.1', 'descargasAPRadio1', 'descargasAPRadio2')"> N/A
+                        onclick="validacionNDNA(type, 'RH_AR_Q1.1', 'descargasAPRadio2', 'descargasAPRadio1')"/> N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="descargasAP" id="descargasAPRadio2"
                         value="N/D" ng-model="formData.descargasAP"
-                        onclick="funcionEvento(type, 'RH_AR_Q1.1', 'descargasAPRadio1', 'descargasAPRadio2')"> N/D
+                        onclick="validacionNDNA(type, 'RH_AR_Q1.1', 'descargasAPRadio2', 'descargasAPRadio1')"/> N/D
 							</label>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 							<input  type="text" class="form-control"
                       name="descargasTS" id="RH_AR_Q1.2" min="0"
                       ng-model="formData.descargasTS"
-                      onclick="funcionEvento(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"
+                      onclick="validacionNDNA(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"
                       required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$|^N\/A$"/>
 							<span class="input-group-addon">descargas a tanques sépticos</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de descargas a tanques sépticos anualmente"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -66,12 +66,12 @@
 							<label class="radio-inline">
 								<input  type="radio" name="descargasTS" id="descargasTSRadio1"
                         value="N/A" ng-model="formData.descargasTS"
-                        onclick="funcionEvento(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"> N/A
+                        onclick="validacionNDNA(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"> N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="descargasTS" id="descargasTSRadio2"
                         value="N/D" ng-model="formData.descargasTS"
-                        onclick="funcionEvento(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"> N/D
+                        onclick="validacionNDNA(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"> N/D
 							</label>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 							<input type="text" class="form-control"
                       name="descargasST" id="RH_AR_Q1.3" min="0"
                       ng-model="formData.descargasST"
-                      onclick="funcionEvento(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"
+                      onclick="validacionNDNA(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"
                       required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$|^N\/A$"/>
 							<span class="input-group-addon">descargas al sistema de tratamiento</span>
 							<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de descargas a sistemas de tratamiento anualmente"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -90,12 +90,12 @@
 							<label class="radio-inline">
 								<input  type="radio" name="descargasST" id="descargasSTRadio1"
                         value="N/A" ng-model="formData.descargasST"
-                        onclick="funcionEvento(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"> N/A
+                        onclick="validacionNDNA(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"> N/A
 							</label>
 							<label class="radio-inline">
 								<input  type="radio" name="descargasST" id="descargasSTRadio2"
                         value="N/D" ng-model="formData.descargasST"
-                        onclick="funcionEvento(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"> N/D
+                        onclick="validacionNDNA(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"> N/D
 							</label>
 						</div>
 					</div>
@@ -174,7 +174,7 @@
             <input  type="text" class="form-control"
                     name="reportesOP" id="RH_AR_Q4" min="0"
                     ng-model="formData.reportesOP"
-                    onclick="funcionEvento(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')"
+                    onclick="validacionNDNA(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')"
                     required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$|^N\/A$" />
             <div class="input-group-addon">reportes operacionales</div>
             <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de reportes operacionales"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -183,12 +183,12 @@
             <label class="radio-inline">
               <input  type="radio" name="reportesOP" id="reportesOPRadio1"
                       value="N/A" ng-model="formData.reportesOP"
-                      onclick="funcionEvento(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')" > N/A
+                      onclick="validacionNDNA(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')" > N/A
             </label>
             <label class="radio-inline">
               <input  type="radio" name="reportesOP" id="reportesOPRadio2"
                       value="N/D" ng-model="formData.reportesOP"
-                      onclick="funcionEvento(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')" > N/D
+                      onclick="validacionNDNA(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')" > N/D
             </label>
           </div>
         </div>
@@ -201,41 +201,5 @@
         </div>
 
   <script src="js/app.js"></script>
-
-  <script>
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-  </script>
-
-
-  <script type="text/javascript">
-  function funcionEvento(tipo, input, nd, na) {
-    if (tipo == "radio"){
-      if(nd.checked
-        document.getElementById(input).value = "N/D";
-
-        if(na.checked
-          document.getElementById(input).value = "N/A";
-        }
-        else {
-          document.getElementById(nd).checked = false;
-          document.getElementById(na).checked = false;
-          document.getElementById(input).value = "";
-        }
-      }
-      </script>
-
-      <script type="text/javascript">
-      function funcionEvento(tipo, input, nd) {
-        if (tipo == "radio")
-        document.getElementById(input).value = "N/D";
-        else {
-          document.getElementById(nd).checked = false;
-          document.getElementById(input).value = "";
-        }
-      }
-      </script>
-
   </body>
 </html>

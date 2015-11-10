@@ -59,7 +59,7 @@
 					<input  type="text" class="form-control"
                   name="medidores" id="GRE_Q2.1" min="0"
                   ng-model="formData.medidores"
-                  onclick="funcionEvento(type, 'GRE_Q2.1', 'medidoresRadio1')"
+                  onclick="validacionND(type, 'GRE_Q2.1', 'medidoresRadio1')"
                   required pattern="[0-9]+$|^N\/D$"/>   <!--GRE_II_I_RC-->
 					<div class="input-group-addon"># de medidores</div>
 					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de medidores eléctricos"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -68,7 +68,7 @@
 						<label class="radio-inline">
   						<input type="radio" name="medidores" id="medidoresRadio1"
                value="N/D" ng-model="formData.medidores"
-               onclick="funcionEvento(type, 'GRE_Q2.1', 'medidoresRadio1')"> N/D
+               onclick="validacionNDEvento(type, 'GRE_Q2.1', 'medidoresRadio1')"> N/D
 						</label>
 					</div>
         </div>
@@ -78,7 +78,7 @@
 					<input  type="text" class="form-control"
                   name="consumoElectrico" id="GRE_kwhAnioPersona" min="0"
                   ng-model="formData.consumoElectrico"
-                  onclick="funcionEvento(type, 'GRE_Q2.2', 'consumoElectricoRadio1')"
+                  onclick="validacionND(type, 'GRE_Q2.2', 'consumoElectricoRadio1')"
                   required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$" />  <!--GRE_II_II_RC-->
 					<div class="input-group-addon">KW/Año/Persona</div>
 					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la cantidad de KW utilizados por persona anualmente"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -87,7 +87,7 @@
           <label class="radio-inline">
             <input  type="radio" name="consumoElectrico" id="consumoElectricoRadio1"
                     value="N/D" ng-model="formData.consumoElectrico"
-                    onclick="funcionEvento(type, 'GRE_Q2.2', 'consumoElectricoRadio1')"> N/D
+                    onclick="validacionND(type, 'GRE_Q2.2', 'consumoElectricoRadio1')"> N/D
           </label>
         </div>
       </div>
@@ -146,7 +146,7 @@
 				<div class="input-group col-md-4 has-success" >
 					<input type="text" class="form-control" name="controlConsumo" id="GRE_Q4"
           ng-model="formData.controlConsumo"
-          onclick="funcionEvento(type, 'GRE_Q4', 'controlConsumoRadio1')"
+          onclick="validacionND(type, 'GRE_Q4', 'controlConsumoRadio1')"
           required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$" ><!--GRE_IV_G	DOUBLE-->
 					<div class="input-group-addon">% de reducción</div>
 					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción anual según el alcance definido"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -155,7 +155,7 @@
           <label class="radio-inline">
           <input type="radio" name="controlConsumo" id="controlConsumoRadio1" value="N/D"
           ng-model="formData.controlConsumo"
-          onclick="funcionEvento(type, 'GRE_Q4', 'controlConsumoRadio1')">N/D
+          onclick="validacionND(type, 'GRE_Q4', 'controlConsumoRadio1')">N/D
           </label>
         </div>
 			</div>
@@ -168,7 +168,7 @@
         <div class="input-group col-md-4 has-success" >
           <input  type="text" class="form-control" name="consumoTotal" id="GRE_Q5" min="0"
                   ng-model="formData.consumoTotal"
-                  onclick="funcionEvento(type, 'GRE_Q5', 'consumoTotalRadio1')"
+                  onclick="validacionND(type, 'GRE_Q5', 'consumoTotalRadio1')"
                   required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/D$" ><!--GRE_V_RC	DOUBLE-->
           <div class="input-group-addon">KWh Total/Año</div>
           <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el consumo total según el alcance definido"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
@@ -177,7 +177,7 @@
           <label class="radio-inline">
           <input  type="radio" name="consumoTotal" id="consumoTotalRadio1" value="N/D"
                   ng-model="formData.consumoTotal"
-                  onclick="funcionEvento(type, 'GRE_Q5', 'consumoTotalRadio1')">N/D
+                  onclick="validacionND(type, 'GRE_Q5', 'consumoTotalRadio1')">N/D
           </label>
         </div>
       </div>
@@ -192,43 +192,6 @@
 	    </div>
 	</div>
 	</div>
-
-  <script type="text/javascript">
-  function funcionEvento(tipo, input, nd, na) {
-    if (tipo == "radio"){
-      if(nd.checked
-        document.getElementById(input).value = "N/D";
-
-        if(na.checked
-          document.getElementById(input).value = "N/A";
-        }
-        else {
-          document.getElementById(nd).checked = false;
-          document.getElementById(na).checked = false;
-          document.getElementById(input).value = "";
-        }
-      }
-      </script>
-
-      <script type="text/javascript">
-      function funcionEvento(tipo, input, nd) {
-        if (tipo == "radio")
-        document.getElementById(input).value = "N/D";
-        else {
-          document.getElementById(nd).checked = false;
-          document.getElementById(input).value = "";
-        }
-      }
-      </script>
-
-      <script>
-        $(document).ready(function(){
-          $('[data-toggle="tooltip"]').tooltip();
-        });
-      </script>
-
+  <script src="js/app.js"></script>
 </body>
-
-<script src="js/app.js"></script>
-
 </html>
