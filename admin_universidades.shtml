@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--#include file="admin_header.html" -->
+  <title>Administración de universidades</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Administración de universidades</h2>
+  <p>Para eliminar o modificar presione el botón correspondiente</p>
+
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sigla</th>
+        <th>Nombre</th>
+		<th>Teléfono</th>
+	</tr>
+    </thead>
+    <tbody>
+	<!--una fila con el collapse-->
+      <tr class="success" >
+        <td>UCR</td>
+        <td>Universidad de Costa Rica</td>
+		<td>2511-4000</td>
+        <td>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalModificar" >Modificar
+			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalBloquear">Bloquear
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Modal -->
+	<div class="modal fade" id="modalBloquear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Bloquear Universidad</h4>
+		  </div>
+		  <div class="modal-body">
+			¿Está seguro que desea bloquear esta universidad del sistema?
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+			<button type="button" class="btn btn-danger">Bloquear
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+		  </div>
+		</div>
+	  </div>
+</div>
+
+<div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="modalModificarLabel">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modalModificarLabel">Modificar universidad</h4>
+        </div>
+        <div class="modal-body">
+          <Form name="modificar_universidad" role="form" ng-controller="MainCtrl">
+
+          <div class="form-group">
+              <div class="input-group col-md-4 has-success">
+                      <div class="input-group-addon">Siglas&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                      <input type="text" name="siglas_modificar">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <div class="input-group col-md-4 has-success">
+                      <div class="input-group-addon">Nombre&nbsp;</div>
+                      <input type="text" name="nombre_modificar">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <div class="input-group col-md-4 has-success">
+                      <div class="input-group-addon">Teléfono</div>
+                      <input type="text" name="telefono_modificar">
+              </div>
+          </div>
+
+          </Form>
+
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning">Modificar
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        </button>
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>
