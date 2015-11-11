@@ -10,12 +10,13 @@
 
   <meta name="description" content="Matriz de indicadores - Recurso Hídrico, Agua para consumo humano">
   <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí$">
+  <!--<link href="css/form.css" rel="stylesheet">-->
 
 </head>
-<body ng-app="formApp">
+<body ng-app="formApp" id="form">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 center-block">
         <h3>Recurso Hídrico, agua para consumo humano</h3>
 
         <form name="form" role="form" ng-controller="MainCtrl">
@@ -335,7 +336,7 @@
           </div>
 
           <div>
-            Form content:{{formData}}
+           Form content:{{formData}}
           </div>
 
         </form>

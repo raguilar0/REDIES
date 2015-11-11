@@ -37,13 +37,15 @@ function validacionND(tipo, input, nd) {
   }
 }
 
-function validacionSINO(type, input, x){
+function validacionSINO(tipo, input, no, nd){
   if(tipo == "radio"){
-    if(x.value == "Sí")
-    document.getElementById(input).value = "Sí";
-    
+    if(no.checked){
+      document.getElementById(input).value = "No";
+    }
+    if(nd.checked){
+      document.getElementById(input).value = "N/D";
+    }
   }
-
 }
 
 $(document).ready(function(){
