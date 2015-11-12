@@ -1,12 +1,12 @@
 <?php
 	include("../conexion/conexion.php");
 
-	$descargasAP = $_POST['inputDescargasAP'];
-	$descargasTS = $_POST['inputdescargasTS'];
+	$descargasAP = $_POST['descargasAP'];
+	$descargasTS = $_POST['descargasTS'];
 	$descargasST = $_POST['descargasST'];
 	$sistemaTAR = $_POST['sistemaTratamientoAR'];
 	$analisisAgua = $_POST['analisisAR'];
-	$reportesOperacionales = $_POST['inputreportesOP'];
+	$reportesOperacionales = $_POST['reportesOP'];
 
 	/*
 		Tranformacion de los datos para poder guardarlos
@@ -105,6 +105,6 @@
 
 	//Redireccionamos a la vista de la aplicacion
 
-	header('Location:../../RH_AR.shtml');
+//	header('Location:../../RH_AR.shtml');
 
 ?>
