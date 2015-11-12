@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<form>
 <div class="container">
   <h2>Administración de universidades</h2>
   <p>Para eliminar o modificar presione el botón correspondiente</p>
@@ -19,13 +20,14 @@
       <tr>
         <th>Sigla</th>
         <th>Nombre</th>
-		<th>Teléfono</th>
+		    <th>Teléfono</th>
+        <th>Acciones</th>
 	</tr>
     </thead>
     <tbody>
 	<!--una fila con el collapse-->
-      <tr class="success" >
-        <td>UCR</td>
+      <tr class="success" colspan="8">
+        <td >UCR</td>
         <td>Universidad de Costa Rica</td>
 		<td>2511-4000</td>
         <td>
@@ -64,7 +66,9 @@
 	  </div>
 </div>
 
+</form>
 
+<form>
 <div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="modalModificarLabel">
       <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -98,6 +102,7 @@
 
           </Form>
 
+
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -108,8 +113,11 @@
       </div>
       </div>
     </div>
+    </form>
 
-    <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="modalModificarLabel">
+    <form action="php/administrador/add_universidades.php" method="post">
+
+    <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="modalAgregarLabel">
       <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -152,6 +160,7 @@
       </div>
       </div>
     </div>
+    </form>
 </div>
 
 </body>
