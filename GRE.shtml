@@ -16,14 +16,24 @@
   <body ng-app="formApp">
 
 	<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
+	<!-- fila -->
+    <div class="row">
+
+      <!-- columna 1 -->
+
+          <div class="col-md-1"> </div>
+
+      <!-- columna 1 // -->
+
+      <!-- columna 2 -->
+
+      <div class="col-md-11">
 
 	    <H3>
 	    Gestión del recurso energético
 	    </H3>
 
-	    <form name="form" role="form" ng-controller="MainCtrl">
+	    <form name="form" role="form" ng-controller="MainCtrl" action="php/formularios/GRE.php" method="post">
 	    	<div class="form-group">
 				<label for="GRE_Q1">
 					¿Conforman comité para la gestión del recurso energético?
@@ -66,7 +76,7 @@
         </div>
           <div class="input-group col-md-4 has-success">
 						<label class="radio-inline">
-  						<input type="radio" name="medidores" id="medidoresRadio1"
+  						<input type="radio" name="medidoresND" id="medidoresRadio1"
                value="N/D" ng-model="formData.medidores"
                onclick="validacionNDEvento(type, 'GRE_Q2.1', 'medidoresRadio1')"> N/D
 						</label>
@@ -123,7 +133,7 @@
 					</label>
 
 					<div class="input-group col-md-4 has-success">
-						<input type="number" class="form-control" id="GRE_MetaReduccion" min="0" max="100">
+						<input type="number" class="form-control" name= "meta" id="GRE_MetaReduccion" min="0" max="100">
 						<div class="input-group-addon">% de Reducción</div>
 					</div>
 				</div>
@@ -194,4 +204,9 @@
 	</div>
   <script src="js/app.js"></script>
 </body>
+
+<footer>
+<!--#include file="footer.html" -->
+</footer>
+
 </html>

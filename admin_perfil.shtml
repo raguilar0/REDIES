@@ -17,8 +17,18 @@
 
 <body ng-app="formApp">
     <div class="container-fluid">
+    <!-- fila -->
     <div class="row">
-        <div class="col-md-12">
+
+      <!-- columna 1 -->
+
+          <div class="col-md-1"> </div>
+
+      <!-- columna 1 // -->
+
+      <!-- columna 2 -->
+
+      <div class="col-md-11">
 
         <H3> Perfil de usuario</H3>
 
@@ -178,5 +188,9 @@ open(url,'','top=300,left=300,width=426,height=266') ;
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<footer>
+<!--#include file="footer.html" -->
+</footer>
 
 </html>

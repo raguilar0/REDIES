@@ -61,7 +61,16 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+
+            <!-- columna 1 -->
+
+            <div class="col-md-1"> </div>
+
+            <!-- columna 1 // -->
+
+            <!-- columna 2 -->
+
+            <div class="col-md-11">
                 <h3>
                     Administración de Formularios
                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Seleccione una opción entre Activar o desactivar el formulario. Si lo activa tiene que seleccionar una fecha de inicio y de finalización"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
@@ -271,4 +280,7 @@
     </div>
 </body>
 <script src="js/app.js"></script>
+<footer>
+<!--#include file="footer.html" -->
+</footer>
 </html>
