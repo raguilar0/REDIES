@@ -164,4 +164,8 @@
 </div>
 
 </body>
+
+<footer>
+<!--#include file="footer.html" -->
+</footer>
 </html>
