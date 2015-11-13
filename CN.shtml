@@ -9,7 +9,8 @@
   <title>Carbono neutralidad</title>
 
   <meta name="description" content="Matriz de indicadores - Carbono Neutralidad">
-  <meta name="author" content="Luis Mata">
+  <meta name="author" content="Luis Mata, Jose Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
+
 
 </head>
 <body ng-app="formApp">
