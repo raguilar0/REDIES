@@ -12,7 +12,7 @@
     <meta name="author" content="Luis Mata, José Slon, Michael Qurós, Ricardo Aguilar, Brandon Sardí">
 
   </head>
-  <body ng-app="formApp">
+  <body ng-app="formApp"  onload="llenarAR();">
 
   <div class="container-fluid">
 	<div class="row">
@@ -20,7 +20,7 @@
 			<h3>
 				Recurso Hídrico, Aguas Residuales
 			</h3>
-			<form name="form" role="form" ng-controller="MainCtrl">
+			<form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/formularios/RH_AR.php">
 
 				<div class="form-group">
 
@@ -40,12 +40,12 @@
 						</div>
             <div class="input-group col-md-4">
 							<label class="radio-inline">
-								<input  type="radio" name="descargasAP" id="descargasAPRadio1"
+								<input  type="radio" name="radioDescargasAP" id="descargasAPRadio1"
                         value="N/A" ng-model="formData.descargasAP"
                         onclick="validacionNDNA(type, 'RH_AR_Q1.1', 'descargasAPRadio2', 'descargasAPRadio1')"/> N/A
 							</label>
 							<label class="radio-inline">
-								<input  type="radio" name="descargasAP" id="descargasAPRadio2"
+								<input  type="radio" name="radioDescargasAP" id="descargasAPRadio2"
                         value="N/D" ng-model="formData.descargasAP"
                         onclick="validacionNDNA(type, 'RH_AR_Q1.1', 'descargasAPRadio2', 'descargasAPRadio1')"/> N/D
 							</label>
@@ -64,12 +64,12 @@
 						</div>
             <div class="input-group col-md-4">
 							<label class="radio-inline">
-								<input  type="radio" name="descargasTS" id="descargasTSRadio1"
+								<input  type="radio" name="radioDescargasTS" id="descargasTSRadio1"
                         value="N/A" ng-model="formData.descargasTS"
                         onclick="validacionNDNA(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"> N/A
 							</label>
 							<label class="radio-inline">
-								<input  type="radio" name="descargasTS" id="descargasTSRadio2"
+								<input  type="radio" name="radioDescargasTS" id="descargasTSRadio2"
                         value="N/D" ng-model="formData.descargasTS"
                         onclick="validacionNDNA(type, 'RH_AR_Q1.2', 'descargasTSRadio1', 'descargasTSRadio2')"> N/D
 							</label>
@@ -88,12 +88,12 @@
 						</div>
             <div class="input-group col-md-4">
 							<label class="radio-inline">
-								<input  type="radio" name="descargasST" id="descargasSTRadio1"
+								<input  type="radio" name="radioDescargasST" id="descargasSTRadio1"
                         value="N/A" ng-model="formData.descargasST"
                         onclick="validacionNDNA(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"> N/A
 							</label>
 							<label class="radio-inline">
-								<input  type="radio" name="descargasST" id="descargasSTRadio2"
+								<input  type="radio" name="radioDescargasST" id="descargasSTRadio2"
                         value="N/D" ng-model="formData.descargasST"
                         onclick="validacionNDNA(type, 'RH_AR_Q1.3', 'descargasSTRadio1', 'descargasSTRadio2')"> N/D
 							</label>
@@ -181,12 +181,12 @@
           </div>
           <div class="input-group col-md-4">
             <label class="radio-inline">
-              <input  type="radio" name="reportesOP" id="reportesOPRadio1"
+              <input  type="radio" name="radioReportesOP" id="reportesOPRadio1"
                       value="N/A" ng-model="formData.reportesOP"
                       onclick="validacionNDNA(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')" > N/A
             </label>
             <label class="radio-inline">
-              <input  type="radio" name="reportesOP" id="reportesOPRadio2"
+              <input  type="radio" name="radioReportesOP" id="reportesOPRadio2"
                       value="N/D" ng-model="formData.reportesOP"
                       onclick="validacionNDNA(type, 'RH_AR_Q4', 'reportesOPRadio1', 'reportesOPRadio2')" > N/D
             </label>
@@ -199,6 +199,13 @@
             Enviar Formulario
           </button>
         </div>
+
+   <script type="text/javascript">
+   		function llenarAR(){
+
+
+   		};
+   </script>
 
   <script src="js/app.js"></script>
   </body>
