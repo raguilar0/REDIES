@@ -19,17 +19,15 @@
   </head>
 
   <body>
-
     <div class="container">
-      <form class="form-signin">
-        <!--<h2 class="form-signin-heading">Matriz de Indicadores</h2>-->
+      <form class="form-signin" action="php/login/login_a.php" method="post">
         <img src="images/layouts/main_logo.jpg" alt="Red Costarricense de Instituciones Educativas Sostenibles">
         <br>
         <br>
         <label for="login_email" class="sr-only">Correo eletrónico</label>
-        <input type="email" id="login_email" class="form-control" placeholder="usuario@redies.co.cr" title="usuario@redies.cr"required autofocus required pattern="[a-zA-Z0-9]+\.[a-zA-Z0-9]+@redies\.cr">
+        <input type="email" name="loginemail" id="login_email" class="form-control" placeholder="usuario@redies.co.cr" title="usuario@redies.cr"required autofocus required pattern="[a-zA-Z0-9]+\.[a-zA-Z0-9]+@redies\.cr">
         <label for="login_password" class="sr-only">Password</label>
-        <input type="password" id="loginpassword" class="form-control" placeholder="contraseña" required>
+        <input type="password" name="loginpassword" id="login_password" class="form-control" placeholder="contraseña" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Mantener Sesión
@@ -44,3 +42,4 @@
 
   </body>
 </html>
+
