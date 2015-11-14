@@ -32,7 +32,7 @@
         <H3>
           Gestión recursos
         </H3>
-        <Form name="form" role="form" ng-controller="MainCtrl">
+        <Form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/formularios/GR.php">
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.PoliticaGestionAmbiental.$error.required || !formData.PoliticaGestionAmbiental }">
             <label for="GR_Q1">
               ¿Poseen política de gestión ambiental?
@@ -110,12 +110,12 @@
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.nivelParticipacion.$error.required || !formData.nivelParticipacion }">
             <label for="GR_Q3">
               Nivel de participación en actividades de educación ambiental
-            </label>
+            </label>	
             <div class="input-group col-md-4 has-success">
-              <input 	type="text"
-              class="form-control"
-              name="nivelParticipacion"
-              id="GR_Q3.1"
+				  <input 	type="text"
+				  class="form-control"
+				  name="nivelParticipacion"
+				  id="GR_Q3.1"
               min="0"
               ng-model="formData.nivelParticipacion"
               onclick="validacionND(type, 'GR_Q3.1', 'nivelParticipacionRadio1')"
