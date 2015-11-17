@@ -1,3 +1,15 @@
+<?php
+  
+  session_start();
+
+  if(!$_SESSION){
+    echo  '<script languaje = "javascript">
+					self.location = "login.html"
+					</script>';
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <!--Esta parte se tiene que hacer con shtml para no tener que copiarla en todo lado-->

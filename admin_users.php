@@ -1,53 +1,69 @@
+<?php
+  
+  session_start();
+
+  if(!$_SESSION){
+    echo' <script languaje = javascript>
+					self.location = "login.html"
+					</script>';
+  }
+
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" >
 <head>
-<!--#include file="admin_header.html" -->
+	
+	<!-- forma de hacer ssi en php -->
+  <?php virtual ("admin_header.php");?>
+	
   <title>Administración de Usuarios</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/data.js"></script>
 
 </head>
-<body>
+
+<body  ng-app="myApp" ng-controller="GetUsers">
 
 <div class="container">
   <h2>Administración de usuarios</h2>
   <p>Para eliminar o modificar presione el botón correspondiente</p>
 
   <!--lo agregué acá porque hacía falta, pero hay que acomodarlo donde corresponde!!! -->
-  <a href="/REDIES/agregar_usuario.html">Agregar Usuario</a>
+  <!--<a href="/REDIES/agregar_usuario.html">Agregar Usuario</a>-->
   <table class="table">
     <thead>
       <tr>
         <th>Nombre</th>
         <th>Apellido 1</th>
-		<th>Apellido 2</th>
+				<th>Apellido 2</th>
         <th>Correo Electrónico</th>
-		<th>Teléfono</th>
-		<th>Universidad</th>
-		<th>Rol</th>
+				<th>Teléfono</th>
+				<th>Universidad</th>
+				<th>Rol</th>
         <th>Acciones</th>
-	</tr>
+			</tr>
     </thead>
     <tbody>
 	<!--una fila con el collapse-->
-      <tr class="success" >
-        <td>Luis</td>
-        <td>Mata</td>
-		<td>Reyes</td>
-		<td>luis.mata@redies.co.cr</td>
-		<td>8888-8888</td>
-		<td>UCR</td>
-		<td>Administrador</td>
+      <tr class="success" ng-repeat="user in users">
+        <td>{{user.nombre}}</td>
+        <td>{{user.apellido_I}}</td>
+				<td>{{user.apellido_II}}</td>
+				<td>{{user.correo}}</td>
+				<td>{{user.telefono}}</td>
+				<td>{{user.nombre_u}}</td>
+				<td>{{user.rol}}</td>
         <td>
             <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#modificar1" class="accordion-toggle">Modificar
-			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-			</button>
-			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar
-			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-			</button>
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						</button>
+						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser">Eliminar
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
         </td>
       </tr>
-	  <tr >
+	  <!--<tr >
             <td colspan="8" class="hiddenRow">
 				<div class="accordian-body collapse" id="modificar1">
 					<div class="col-md-4">
@@ -71,7 +87,7 @@
 						</div>
 						<!--<button type="button" class="btn btn-success btn-block">Guardar Cambios
 							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-						</button>-->
+						</button>
 					</div>
 					<div class="col-md-4">
 						<div class="input-group">
@@ -84,14 +100,14 @@
 						</div>
 						<!--<button type="button" class="btn btn-success btn-block">Reestablecer Contraseña
 							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-						</button>-->
+						</button>
 					</div>
 				</div>
 			</td>
-      </tr>
+      </tr>-->
 	<!-- termina la fila -->
 
-      <tr class="success">
+      <!--<tr class="success">
         <td>Jose</td>
         <td>Slon</td>
 		<td>Baltodano</td>
@@ -108,11 +124,11 @@
             </button>
         </td>
 
-      </tr>
+      </tr>-->
     </tbody>
   </table>
   <!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
@@ -138,4 +154,5 @@
 <footer>
 <!--#include file="footer.html" -->
 </footer>
+	
 </html>

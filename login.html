@@ -15,6 +15,15 @@
 
     <!-- Hoja de estilo para el login -->
     <link href="css/login.css" rel="stylesheet">
+    
+    <!-- import de jquery para ocultar el alert-->
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+   <script type="text/javascript">
+    $(document).ready(function () {
+        $("#usrpwdalert").hide();
+    });
+    </script>
 
   </head>
 
@@ -30,11 +39,16 @@
         <input type="password" name="loginpassword" id="login_password" class="form-control" placeholder="contraseña" required>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Mantener Sesión
+            <input type="checkbox" value="remember-me"> Mantener sesión
           </label>
         </div>
         <button class="btn btn-lg btn-success btn-block" type="submit">Ingresar
         </button>
+        <br>
+        <div class="alert alert-warning" id="usrpwdalert">
+          <strong>Usuario y/o contraseña no válidos</strong>&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-alert"></span>
+        </div>
 
       </form>
 

@@ -1,3 +1,4 @@
+?>
 <!DOCTYPE HTML>
 <html lang="es">
     <head>
@@ -10,6 +11,9 @@
 
         <meta name="description" content="Admin- Administracion de Formularios">
         <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
+        
+        <!-- forma de hacer ssi en php -->
+        <?php virtual ("admin_header.php");?>
 
     </head>
 
