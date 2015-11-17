@@ -32,7 +32,7 @@
         <h3>
           Carbono neutralidad
         </h3>
-        <form role="form" name="form" ng-controller="MainCtrl">
+        <form role="form" name="form" ng-controller="MainCtrl" action="php/formularios/CN.php" method="post">
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.emisiones.$error.required || !formData.emisiones }">
 
             <label for="CN_Q1">
@@ -85,11 +85,11 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio" name="gasolina" id="gasolinaRadio1"
+                  <input  type="radio" name="gasolinaOP" id="gasolinaRadio1"
                   value="N/A" ng-model="formData.gasolina" > N/A
                 </label>
                 <label class="radio-inline">
-                  <input  type="radio" name="gasolina" id="gasolinaRadio2"
+                  <input  type="radio" name="gasolinaOP" id="gasolinaRadio2"
                   value="N/D" ng-model="formData.gasolina" > N/D
                 </label>
               </div>
@@ -106,12 +106,12 @@
               </div>
               <div class="input-group col-md-3">
                 <label class="radio-inline">
-                  <input  type="radio" name="diesel" id="dieselRadio1"
+                  <input  type="radio" name="dieselOP" id="dieselRadio1"
                   value="N/A" ng-model="formData.diesel"
                   onclick="validacionNDNA(type, 'CN_Q2.2', 'dieselRadio1', 'dieselRadio2')"> N/A
                 </label>
                 <label class="radio-inline">
-                  <input  type="radio" name="diesel" id="dieselRadio2"
+                  <input  type="radio" name="dieselOP" id="dieselRadio2"
                   value="N/D" ng-model="formData.diesel"
                   onclick="validacionNDNA(type, 'CN_Q2.2', 'dieselRadio1', 'dieselRadio2')"> N/D
                 </label>
@@ -128,12 +128,12 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio" name="gas" id="gasRadio1"
+                  <input  type="radio" name="gasOP" id="gasRadio1"
                   value="N/A" ng-model="formData.gas"
                   onclick="validacionNDNA(type, 'CN_Q2.3', 'gasRadio1', 'gasRadio2')"> N/A
                 </label>
                 <label class="radio-inline">
-                  <input  type="radio" name="gas" id="gasRadio2"
+                  <input  type="radio" name="gasOP" id="gasRadio2"
                   value="N/D" ng-model="formData.gas"
                   onclick="validacionNDNA(type, 'CN_Q2.3', 'gasRadio1', 'gasRadio2')" > N/D
                 </label>
@@ -151,12 +151,12 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio" name="otrosCombustibles" id="otrosRadio1"
+                  <input  type="radio" name="otrosCombustiblesOP" id="otrosRadio1"
                   value="N/A" ng-model="formData.otrosCombustibles"
                   onclick="validacionNDNA(type, 'CN_Q2.4', 'otrosRadio1', 'otrosRadio2')"> N/A
                 </label>
                 <label class="radio-inline">
-                  <input  type="radio" name="otrosCombustibles" id="otrosRadio2"
+                  <input  type="radio" name="otrosCombustiblesOP" id="otrosRadio2"
                   value="N/D" ng-model="formData.otrosCombustibles"
                   onclick="validacionNDNA(type, 'CN_Q2.4', 'otrosRadio1', 'otrosRadio2')"> N/D
                 </label>
@@ -180,7 +180,7 @@
             </div>
             <div class="input-group col-md-4 has-success">
               <label class="radio-inline">
-                <input type="radio" name="consumoRef" id="consumoRefRadio1"
+                <input type="radio" name="consumoRefOP" id="consumoRefRadio1"
                 value="N/D" ng-model="formData.consumoRef"
                 onclick="validacionNDNA(type, 'CN_Q3', 'consumoRefRadio1')"
                 > N/D
