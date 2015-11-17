@@ -33,7 +33,7 @@
         <h3>
           Residuos Sólidos
         </h3>
-        <form name="form" role="form" ng-controller="MainCtrl">
+        <form name="form" role="form" ng-controller="MainCtrl"  method="post" action="php/formularios/RS.php">
           <div class="form-group">
 
             <label for="RS_Q1">
@@ -53,7 +53,7 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio" name="cantidadPapel" id="cantidadPapelRadio1"
+                  <input  type="radio" name="radioCantidadPapel" id="cantidadPapelRadio1"
                   value="N/D" ng-model="formData.cantidadPapel"
                   onclick="validacionND(type, 'RS_Q1.1', 'cantidadPapelRadio1')"> N/D
                 </label>
@@ -72,7 +72,7 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio"  name="rOrganicos" id="rOrganicosRadio1"
+                  <input  type="radio"  name="radioROrganicos" id="rOrganicosRadio1"
                   value="N/D" ng-model="formData.rOrganicos"
                   onclick="validacionND(type, 'RS_Q1.2', 'rOrganicosRadio1')"> N/D
                 </label>
@@ -91,7 +91,7 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio"  name ="rValorizables" id="rValorizablesRadio1"
+                  <input  type="radio"  name ="radioRValorizables" id="rValorizablesRadio1"
                   value="N/D" ng-model="formData.rValorizables"
                   onclick="validacionND(type, 'RS_Q1.3', 'rValorizablesRadio1')"> N/D
 
@@ -111,7 +111,7 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio" name="rPeligrosos" id="rPeligrososRadio1"
+                  <input  type="radio" name="radioRPeligrosos" id="rPeligrososRadio1"
                   value="N/D" ng-model="formData.rPeligrosos"
                   onclick="validacionND(type, 'RS_Q1.4', 'rPeligrososRadio1')"> N/D
                 </label>
@@ -130,7 +130,7 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio" name="rManejoEspecial" id="rManejoEspecialRadio1"
+                  <input  type="radio" name="radioRManejoEspecial" id="rManejoEspecialRadio1"
                   value="N/D" ng-model="formData.rManejoEspecial"
                   onclick="validacionND(type, 'RS_Q1.5', 'rManejoEspecialRadio1')"> N/D
                 </label>
@@ -149,7 +149,7 @@
               </div>
               <div class="input-group col-md-4">
                 <label class="radio-inline">
-                  <input  type="radio" name="rNoValorizables" id="rNoValorizablesRadio1"
+                  <input  type="radio" name="radioRNoValorizables" id="rNoValorizablesRadio1"
                   value="N/D" ng-model="formData.rNoValorizables"
                   onclick="validacionND(type, 'RS_Q1.6', 'rNoValorizablesRadio1')"> N/D
                 </label>
@@ -167,7 +167,7 @@
               </div>
               <div class="input-group col-md-4 has-success">
                 <label class="radio-inline">
-                  <input  type="radio" name="otros" id="otrosRadio1"
+                  <input  type="radio" name="radioOtros" id="otrosRadio1"
                   value="N/D" ng-model="formData.otros"
                   onclick="validacionND(type, 'RS_Q1.7', 'otrosRadio1')"> N/D
                 </label>
@@ -191,7 +191,7 @@
             </div>
             <div class="input-group col-md-4 has-success">
               <label class="radio-inline">
-                <input  type="radio" name="rSolidosPC" id="rSolidosPCRadio1"
+                <input  type="radio" name="radioRSolidosPC" id="rSolidosPCRadio1"
                 value="N/D" ng-model="formData.rSolidosPC"
                 onclick="validacionND(type, 'RS_Q2', 'rSolidosPCRadio1')"> N/D
               </label>
@@ -212,7 +212,7 @@
             </div>
             <div class="input-group col-md-4 has-success">
               <label class="radio-inline">
-                <input  type="radio" name="recuperacionRS" id="recuperacionRSRadio1"
+                <input  type="radio" name="radioRecuperacionRS" id="recuperacionRSRadio1"
                 value="N/D" ng-model="formData.recuperacionRS"
                 onclick="validacionND(type, 'RS_Q3', 'recuperacionRSRadio1')"> N/D
               </label>
@@ -234,7 +234,7 @@
             </div>
             <div class="input-group col-md-4 has-success">
               <label class="radio-inline">
-                <input  type="radio" name="tazaReciclaje" id="tazaReciclajeRadio1"
+                <input  type="radio" name="radioTazaReciclaje" id="tazaReciclajeRadio1"
                 value="N/D" ng-model="formData.tazaReciclaje"
                 onclick="validacionND(type, 'RS_Q4', 'tazaReciclajeRadio1')"> N/D
               </label>
@@ -255,7 +255,7 @@
             </div>
             <div class="input-group col-md-4 has-success">
               <label class="radio-inline">
-                <input  type="radio" name="trazabilidad" id="trazabilidadRadio1"
+                <input  type="radio" name="radioTrazabilidad" id="trazabilidadRadio1"
                 value="N/D" ng-model="formData.trazabilidad"
                 onclick="validacionND(type, 'RS_Q5', 'trazabilidadRadio1')"> N/D
               </label>
