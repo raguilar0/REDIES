@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-	<!--#include file="admin_header.html" -->
+	<?php virtual ("admin_header.php");?>
+
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">

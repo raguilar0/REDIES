@@ -1,6 +1,7 @@
 <?php
 	$host="localhost";
 	$username="root";
-	$pw="";
+	$pw="root";
+	//$pw="";
 	$db = "redies_indicadores";
 ?>

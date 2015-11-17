@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!--#include file="usuario_header.html" -->
+  
+  <?php virtual ("usuario_header.php");?>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +23,7 @@
 
       <!-- columna 1 -->
 
-          <div class="col-md-1"> </div>
+      <div class="col-md-1"> </div>
 
       <!-- columna 1 // -->
 
@@ -32,8 +33,9 @@
         <h3>
           Carbono neutralidad
         </h3>
+
         <form role="form" name="form" ng-controller="MainCtrl" action="php/formularios/CN.php" method="post">
-          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.emisiones.$error.required || !formData.emisiones }">
+          <div class="form-group" ng-class="{ 'has-error' : form.emisiones.$invalid}">
 
             <label for="CN_Q1">
               ¿Posee inventario de emisiones de gases de efecto invernadero?
@@ -41,32 +43,41 @@
             <div class="input-group col-md-4 has-success">
               <label class="radio-inline">
                 <input type="radio" name="emisiones" id="emisionesRadio1"
-                value="Sí" ng-model="formData.emisiones" required> Sí
+                value="Sí" ng-model="formData.emisiones"
+                onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                > Sí
               </label>
               <label class="radio-inline">
                 <input type="radio" name="emisiones" id="emisionesRadio2"
-                value="No" ng-model="formData.emisiones" > No
+                value="No" ng-model="formData.emisiones"
+                onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                > No
               </label>
               <label class="radio-inline">
                 <input type="radio" name="emisiones" id="emisionesRadio3"
-                value="N/D" ng-model="formData.emisiones" > N/D
+                value="N/D" ng-model="formData.emisiones"
+                onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                > N/D
               </label>
             </div>
 
-            <div ng-show="formData.emisiones=='Sí'" class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.cantidadCO2.$error.required }">
+            <div ng-show="formData.emisiones  == 'Sí'" class="form-group"  >
               <label>
                 Ingrese la cantidad de toneladas de CO<sub>2</sub> por año
               </label>
-              <div class="input-group col-md-4 has-success">
-                <input  type="number" class="col-sm-5 form-control"
-                name="cantidadCO2" id="CN_Q1"
+              <div class="input-group col-md-4 has-success" >
+                <input  type="text" class="form-control"
+                name="emisiones" id="CN_Q1"
                 ng-model="formData.cantidadCO2"
-                required pattern="[0-9]+$|[0-9]+,[0-9]+$"/>
+                onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                required pattern="[0-9]+$|[0-9]+,[0-9]+$|^No$|^N\/D$"
+                >
                 <span class="input-group-addon">toneladas de CO<sub>2</sub></span>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese las toneladas de CO2 emitidas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
               </div>
             </div>
           </div>
+
           <div class="form-group">
 
             <label for="CN_Q2">
@@ -76,7 +87,7 @@
             <div class="form-group has-success" ng-class="{ 'has-error' : !form.$pristine  && form.gasolina.$error.required || !formData.gasolina }">
               <div class="input-group col-md-4">
                 <input  type="text" class="form-control"
-                name="gasolina" id="CN_Q2.1" min="0"
+                name="gasolina" id="CN_Q2.1"
                 ng-model="formData.gasolina"
                 onclick="validacionNDNA(type, 'CN_Q2.1', 'gasolinaRadio1', 'gasolinaRadio2')"
                 required pattern="[0-9]+$|[0-9]+,[0-9]+$|^N\/A$|^N\/D$"/>
@@ -182,84 +193,108 @@
               <label class="radio-inline">
                 <input type="radio" name="consumoRefOP" id="consumoRefRadio1"
                 value="N/D" ng-model="formData.consumoRef"
-                onclick="validacionNDNA(type, 'CN_Q3', 'consumoRefRadio1')"
+                onclick="validacionND(type, 'CN_Q3', 'consumoRefRadio1')"
                 > N/D
               </label>
             </div>
           </div>
 
 
-          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planReduccionEmisiones.$error.required || !formData.planReduccionEmisiones }">
+          <div class="form-group">
 
             <label for="CN_Q4">
               ¿Posee plan de reducción de emisiones de gases de efecto invernadero?
             </label>
-            <div class="input-group col-md-4 has-success">
-              <label class="radio-inline">
-                <input type="radio" name="planReduccionEmisiones" id="inlineRadio2"
-                value="Sí" ng-model="formData.planReduccionEmisiones" required> Sí
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="planReduccionEmisiones" id="inlineRadio2"
-                value="No" ng-model="formData.planReduccionEmisiones" > No
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="planReduccionEmisiones" id="inlineRadio2"
-                value="N/D" ng-model="formData.planReduccionEmisiones" > N/D
-              </label>
-            </div>
 
-            <div ng-show="formData.planReduccionEmisiones=='Sí'" class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.porcentajeReduccion.$error.required }">
-              <label>
-                Ingrese meta
-              </label>
-              <div class="input-group col-md-4 has-success">
-                <input  type="number" class="col-sm-5 form-control"
-                name="porcentajeReduccion" id="CN_Q4.1"
-                ng-model="formData.porcentajeReduccion"
-                required pattern="[0-9]+$|[0-9]+,[0-9]+$"/>
-                <span class="input-group-addon">% reducción</span>
-                <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la meta de porcentaje de reducción de emisiones al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
-              </div>
+            <div class="form-group has-success" ng-class="{ 'has-error' : form.planReduccionEmisiones.$invalid}">
+              <div class="input-group col-md-4" >
+                  <label class="radio-inline">
+                    <input  type="radio" name="planReduccionEmisionesRadio" id="planReduccionEmisionesRadio1"
+                            value="Sí"
+                            ng-model="formData.planReduccionEmisiones"
+                            onchange="validacionSINO(type, 'CN_Q4', 'planReduccionEmisionesRadio1', 'planReduccionEmisionesRadio2', 'planReduccionEmisionesRadio3')"
+                    > Sí
+                  </label>
+                  <label class="radio-inline">
+                    <input  type="radio" name="planReduccionEmisionesRadio" id="planReduccionEmisionesRadio2"
+                            value="No"
+                            ng-model="formData.planReduccionEmisiones"
+                            onchange="validacionSINO(type, 'CN_Q4', 'planReduccionEmisionesRadio1', 'planReduccionEmisionesRadio2', 'planReduccionEmisionesRadio3')"
+                    > No
+                  </label>
+                  <label class="radio-inline">
+                    <input  type="radio" name="planReduccionEmisionesRadio" id="planReduccionEmisionesRadio3"
+                            value="N/D"
+                            ng-model="formData.planReduccionEmisiones"
+                            onchange="validacionSINO(type, 'CN_Q4', 'planReduccionEmisionesRadio1', 'planReduccionEmisionesRadio2', 'planReduccionEmisionesRadio3')"
+                    > N/D
+                  </label>
+                </div>
+                <div ng-show="formData.planReduccionEmisiones == 'Sí' " class="form-group">
+                <label>
+                  Ingrese meta
+                </label>
+                  <div class="input-group col-md-4">
+                    <input  type="text" class="form-control"
+                    name="planReduccionEmisiones" id="CN_Q4"
+                    ng-model="formData.planReduccionEmisiones"
+                    onclick="validacionSINO(type, 'CN_Q4', 'planReduccionEmisionesRadio1', 'planReduccionEmisionesRadio2', 'planReduccionEmisionesRadio3')"
+                    required pattern="^[0-9][0-9]?$|^100$|[0-9]+[0-9]?,[0-9]+$|^No$|^N\/D$"
+                    />
+                    <span class="input-group-addon">% reducción</span>
+                    <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la meta de porcentaje de reducción de emisiones al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+                  </div>
+                </div>
             </div>
           </div>
 
-          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planConservacion.$error.required || !formData.planConservacion }">
 
+          <div class="form-group" >
             <label for="CN_Q5">
               ¿Posee plan de conservación y reforestación, compra de bonos certificados?
             </label>
-            <div class="input-group col-md-4 has-success">
+            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : form.certificados.$invalid || form.arbolesSembrados.$invalid}">
               <label class="radio-inline">
-                <input type="radio" name="planConservacion" id="inlineRadio2"
-                value="Sí" ng-model="formData.planConservacion" required> Sí
+                <input  type="radio" name="planConservacion" id="planConservacionRadio1"
+                value="Sí"
+                ng-model="formData.planConservacion"
+                onchange="validacionSINO2(type, 'CN_Q5.1', 'CN_Q5.2', 'planConservacionRadio1', 'planConservacionRadio2', 'planConservacionRadio3')"
+                > Sí
               </label>
               <label class="radio-inline">
-                <input type="radio" name="planConservacion" id="inlineRadio2"
-                value="No" ng-model="formData.planConservacion" > No
+                <input  type="radio" name="planConservacion" id="planConservacionRadio2"
+                value="No"
+                ng-model="formData.planConservacion"
+                onchange="validacionSINO2(type, 'CN_Q5.1', 'CN_Q5.2', 'planConservacionRadio1', 'planConservacionRadio2', 'planConservacionRadio3')"                        > No
               </label>
               <label class="radio-inline">
-                <input type="radio" name="planReduccioplanConservacionnEmisiones" id="inlineRadio2"
-                value="N/D" ng-model="formData.planConservacion" > N/D
+                <input  type="radio" name="planReduccioplanConservacionnEmisiones" id="planConservacionRadio3"
+                value="N/D"
+                ng-model="formData.planConservacion"
+                onchange="validacionSINO2(type, 'CN_Q5.1', 'CN_Q5.2', 'planConservacionRadio1', 'planConservacionRadio2', 'planConservacionRadio3')"
+                > N/D
               </label>
             </div>
             <br>
-            <div ng-show="formData.planConservacion=='Sí'" class="form-group" >
-
-              <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.arbolesSembrados.$error.required }">
-                <input  type="number" class="col-sm-5 form-control"
-                name="arbolesSembrados" id="CN_Q1"
+            <div  ng-show="formData.planConservacion=='Sí'" class="form-group" >
+              <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.arbolesSembrados.$invalid }">
+                <input  type="text" class="col-sm-5 form-control"
+                name="arbolesSembrados" id="CN_Q5.1"
                 ng-model="formData.arbolesSembrados"
-                required pattern="[0-9]+$|[0-9]+,[0-9]+$"/>
+                onchange="validacionSINO2(type, 'CN_Q5.1', 'CN_Q5.2', 'planConservacionRadio1', 'planConservacionRadio2', 'planConservacionRadio3')"
+                required pattern="[0-9]+$|[0-9]+,[0-9]+$|^No$|^N\/D$"
+                />
                 <span class="input-group-addon">árboles sembrados/año</span>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de árboles sembrados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
               </div>
               <br>
-              <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.certificados.$error.required }">
-                <input  type="number" class="col-sm-5 form-control"
-                name="certificados" id="CN_Q1"
+              <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.certificados.$invalid}">
+                <input  type="text" class="col-sm-5 form-control"
+                name="certificados" id="CN_Q5.2"
                 ng-model="formData.certificados"
-                required pattern="[0-9]+$|[0-9]+,[0-9]+$"/>
+                onchange="validacionSINO2(type, 'CN_Q5.1', 'CN_Q5.2', 'planConservacionRadio1', 'planConservacionRadio2', 'planConservacionRadio3')"
+                required pattern="[0-9]+$|[0-9]+,[0-9]+$|^No$|^N\/D$"
+                />
                 <span class="input-group-addon">certificados</span>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el número de certificados comprados al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
               </div>
@@ -287,6 +322,6 @@
 </body>
 
 <footer>
-<!--#include file="footer.html" -->
+  <!--#include file="footer.html" -->
 </footer>
 </html>

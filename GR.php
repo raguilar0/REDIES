@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-  <!--#include file="usuario_header.html" -->
+  <?php virtual ("usuario_header.php");?>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +23,7 @@
 
       <!-- columna 1 -->
 
-          <div class="col-md-1"> </div>
+      <div class="col-md-1"> </div>
 
       <!-- columna 1 // -->
 
@@ -110,12 +111,12 @@
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.nivelParticipacion.$error.required || !formData.nivelParticipacion }">
             <label for="GR_Q3">
               Nivel de participación en actividades de educación ambiental
-            </label>	
+            </label>
             <div class="input-group col-md-4 has-success">
-				  <input 	type="text"
-				  class="form-control"
-				  name="nivelParticipacion"
-				  id="GR_Q3.1"
+              <input 	type="text"
+              class="form-control"
+              name="nivelParticipacion"
+              id="GR_Q3.1"
               min="0"
               ng-model="formData.nivelParticipacion"
               onclick="validacionND(type, 'GR_Q3.1', 'nivelParticipacionRadio1')"
@@ -249,68 +250,59 @@
             </div>
           </div>
 
-          <script type="text/javascript">
-          function mostrar(){
-            document.getElementById('oculto').style.display = 'inline-block';}
-            </script>
 
-            <script type="text/javascript">
-            function ocultar(){
-              document.getElementById('oculto').style.display = 'none';}
-              </script>
-
-              <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.ComisionGestionAmbiental.$error.required || !formData.ComisionGestionAmbiental }">
-                <label for="GR_Q7">
-                  ¿Existe comision de gestión ambiental?
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.ComisionGestionAmbiental.$error.required || !formData.ComisionGestionAmbiental }">
+            <label for="GR_Q7">
+              ¿Existe comision de gestión ambiental?
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
+            </label>
+            <div class="input-group col-md-4 has-success">
+              <div class="radio-inline">
+                <label>
+                  <input  type="radio"
+                  name="ComisionGestionAmbiental"
+                  value="Sí"
+                  ng-model="formData.ComisionGestionAmbiental" required>
+                  Sí
                 </label>
-                <div class="input-group col-md-4 has-success">
-                  <div class="radio-inline">
-                    <label>
-                      <input  type="radio"
-                      name="ComisionGestionAmbiental"
-                      value="Sí"
-                      ng-model="formData.ComisionGestionAmbiental" required>
-                      Sí
-                    </label>
-                  </div>
-                  <div class="radio-inline">
-                    <label>
-                      <input 	type="radio"
-                      name="ComisionGestionAmbiental"
-                      value="No"
-                      ng-model="formData.ComisionGestionAmbiental" >
-                      No
-                    </label>
-                  </div>
-                  <div class="radio-inline">
-                    <label>
-                      <input 	type="radio"
-                      name="ComisionGestionAmbiental"
-                      value="N/D"
-                      ng-model="formData.ComisionGestionAmbiental" >
-                      N/D
-                    </label>
-                  </div>
-                </div>
               </div>
-
-              <div class="form-group col-md-4">
-                <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
-                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                  Enviar Formulario
-                </button>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="ComisionGestionAmbiental"
+                  value="No"
+                  ng-model="formData.ComisionGestionAmbiental" >
+                  No
+                </label>
               </div>
-
-            </Form>
+              <div class="radio-inline">
+                <label>
+                  <input 	type="radio"
+                  name="ComisionGestionAmbiental"
+                  value="N/D"
+                  ng-model="formData.ComisionGestionAmbiental" >
+                  N/D
+                </label>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div class="form-group col-md-4">
+            <button type="submit" class="btn btn-success btn-block" ng-click="submitForm(formData)" ng-disabled="!form.$valid">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              Enviar Formulario
+            </button>
+          </div>
+
+        </Form>
       </div>
-      <script src="js/app.js"></script>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
     </body>
 
-<footer>
-<!--#include file="footer.html" -->
-</footer>
+    <footer>
+      <!--#include file="footer.html" -->
+    </footer>
 
-</html>
+    </html>

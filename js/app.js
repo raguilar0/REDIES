@@ -37,15 +37,43 @@ function validacionND(tipo, input, nd) {
   }
 }
 
-function validacionSINO(tipo, input, no, nd){
+function validacionSINO(tipo, input, si, no, nd){
   if(tipo == "radio"){
-    if(no.checked){
+    if(document.getElementById(si).checked){
+      document.getElementById(input).value = "";
+    }
+    if(document.getElementById(no).checked){
       document.getElementById(input).value = "No";
     }
-    if(nd.checked){
+    if(document.getElementById(nd).checked){
       document.getElementById(input).value = "N/D";
     }
   }
+}
+
+function validacionSINO2(tipo, input1, input2, si, no, nd){
+  if(tipo == "radio"){
+    if(document.getElementById(si).checked){
+      document.getElementById(input1).value = "";
+      document.getElementById(input2).value = "";
+    }
+    if(document.getElementById(no).checked){
+      document.getElementById(input1).value = "No";
+      document.getElementById(input2).value = "No";
+    }
+    if(document.getElementById(nd).checked){
+      document.getElementById(input1).value = "N/D";
+      document.getElementById(input2).value = "N/D";
+    }
+  }
+}
+
+function mostrar(){
+  document.getElementById(oculto).style.display = 'inline-block';
+}
+
+function ocultar(){
+  document.getElementById(oculto).style.display = 'none';
 }
 
 $(document).ready(function(){

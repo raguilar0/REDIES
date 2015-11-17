@@ -1,8 +1,6 @@
-?>
 <!DOCTYPE HTML>
 <html lang="es">
     <head>
-      <!--#include file="admin_header.html" -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +9,7 @@
 
         <meta name="description" content="Admin- Administracion de Formularios">
         <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
-        
+
         <!-- forma de hacer ssi en php -->
         <?php virtual ("admin_header.php");?>
 

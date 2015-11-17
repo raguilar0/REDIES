@@ -3,7 +3,7 @@
 <!--Esta parte se tiene que hacer con shtml para no tener que copiarla en todo lado-->
   <head>
 
-<!--#include file="usuario_header.html" -->
+    <?php virtual ("usuario_header.php");?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,5 +88,5 @@
 
 <footer>
 <!--#include file="footer.html" -->
-</footer>  
+</footer>
 </html>

@@ -1,5 +1,5 @@
+
 <?php
-  
   session_start();
 
   if(!$_SESSION){
@@ -7,7 +7,6 @@
 					self.location = "login.html"
 					</script>';
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +26,9 @@
     <link href="css/style.css" rel="stylesheet">
 
 	<div class="container-fluid">
-	
+
 	<style type="text/css">
-		
+
 		.main_logo
 		{
 			padding-left: 20px;
@@ -40,7 +39,7 @@
 
 	<!-- logo -->
 	<div class="row">
-		
+
 		<div class="col-md-12">
 
 	        <div class="main_logo">
@@ -54,7 +53,7 @@
 
     </div>
     <!-- logo // -->
-	
+
 <!-- menu nuevo -->
 
 <nav class="navbar navbar-custom">
@@ -68,49 +67,49 @@
         <span class="icon-bar"></span>
       </button>
       <!-- espacio de nommbre de empresa en el menu-->
-      <span class="navbar-brand">REDIES</span> 
+      <span class="navbar-brand">REDIES</span>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Indicadores <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/REDIES/RH_ACH.shtml">Recursos Hídricos: Agua para consumo Humano</a></li>
-            <li><a href="/REDIES/RH_AR.shtml">Recursos Hídricos: Aguas Residuales</a></li>
-            <li><a href="/REDIES/GRE.shtml"> Gestión del Recurso Energético</a></li>
+            <li><a href="/REDIES/RH_ACH.php">Recursos Hídricos: Agua para consumo Humano</a></li>
+            <li><a href="/REDIES/RH_AR.php">Recursos Hídricos: Aguas Residuales</a></li>
+            <li><a href="/REDIES/GRE.php"> Gestión del Recurso Energético</a></li>
             <li>
-				<a href="/REDIES/CN.shtml">Carbono Neutralidad</a>
+				<a href="/REDIES/CN.php">Carbono Neutralidad</a>
 			</li>
 			<li>
-				<a href="/REDIES/RS.shtml">Residuos Sólidos</a>
+				<a href="/REDIES/RS.php">Residuos Sólidos</a>
 			</li>
 			<li>
-				<a href="/REDIES/GR.shtml">Gestión de Recursos</a>
+				<a href="/REDIES/GR.php">Gestión de Recursos</a>
 			</li>
           </ul>
         </li>
 
         <li>
-			<a href="/REDIES/usuario_consultas.shtml">Consultar Datos</a>
+			<a href="/REDIES/usuario_consultas.php">Consultar Datos</a>
 		</li>
 
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-       
+
        <li>
-			<a href="/REDIES/usuario_perfil.shtml">Perfil</a>
+			<a href="/REDIES/usuario_perfil.php">Perfil</a>
 		</li>
 		<li>
-			<a href="/REDIES/FAQ.shtml">Preguntas Frecuentes</a>
+			<a href="/REDIES/FAQ.php">Preguntas Frecuentes</a>
 		</li>
 		<li>
 			<a href="/REDIES/login.html"><strong>Salir</strong></a>
 		</li>
-        
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -122,19 +121,19 @@
 
 
 
-	<!-- menu respaldo 
+	<!-- menu respaldo
 
 	<div class="row">
 
-	<div class="col-md-12">	
+	<div class="col-md-12">
 
 		<nav class="navbar navbar-custom" >
-	
+
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Indicadores<strong class="caret"></strong></a>
-							
+
 								<ul class="dropdown-menu">
 									<li>
 										<a href="/REDIES/RH_ACH.shtml">Recursos Hídricos: Agua para consumo Humano</a>
@@ -159,7 +158,7 @@
 						<li>
 							<a href="/REDIES/usuario_consultas.shtml">Consultar Datos</a>
 						</li>
-					
+
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
