@@ -1,3 +1,15 @@
+<?php
+  
+  session_start();
+
+  if(!$_SESSION){
+    echo  '<script languaje = "javascript">
+					self.location = "login.html"
+					</script>';
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <!--Esta parte se tiene que hacer con shtml para no tener que copiarla en todo lado-->
@@ -14,9 +26,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-	<div class="container-fluid">
+	  <div class="container-fluid">
 
-  <style type="text/css">
+    <style type="text/css">
     
     .main_logo
     {
@@ -54,7 +66,7 @@
         <span class="icon-bar"></span>
       </button>
       <!-- espacio de nommbre de empresa en el menu-->
-      <span class="navbar-brand" href="#">REDIES</span> 
+      <span class="navbar-brand" href="#"> <?php echo $_SESSION['usuario'].'&nbsp;'.$_SESSION['apellido'] ?> </span> 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,13 +77,13 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrar <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>
-              <a href="/REDIES/admin_users.shtml">Usuarios</a>
+              <a href="admin_users.php">Usuarios</a>
             </li>
             <li>
-              <a href="/REDIES/admin_formularios.shtml">Formularios</a>
+              <a href="admin_formularios.php">Formularios</a>
             </li>
             <li>
-                  <a href="/REDIES/admin_universidades.shtml">Universidades</a>
+                  <a href="admin_universidades.php">Universidades</a>
             </li>
           </ul>
         </li>
@@ -91,7 +103,7 @@
           <a href="/REDIES/FAQ.shtml">Preguntas Frecuentes</a>
         </li>
         <li>
-          <a href="/REDIES/login.html"><strong>Salir</strong></a>
+          <a href="php/login/logout_a.php"><strong>Salir</strong></a>
         </li>
         
       </ul>
@@ -101,17 +113,6 @@
 
 
 <!-- menu nuevo // -->
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Menu viejo
 			<nav class="navbar navbar-custom" role="navigation">
@@ -168,17 +169,13 @@
 -->
   </head>
 <!--Aqui termina la parte del header de usuarios-->
-  <body>
 
+  <body> </body>
 
-  </body>
-
-  
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
-
   
 </html>

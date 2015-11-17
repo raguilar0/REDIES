@@ -1,7 +1,21 @@
+<?php
+  
+  session_start();
+
+  if(!$_SESSION){
+    echo' <script languaje = javascript>
+					self.location = "login.html"
+					</script>';
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!--#include file="admin_header.html" -->
+  <!-- forma de hacer ssi en php -->
+  <?php virtual ("admin_header.php");?>
+  
   <title>Administración de universidades</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
