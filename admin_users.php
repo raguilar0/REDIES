@@ -1,5 +1,5 @@
 <?php
-  
+
   session_start();
 
   if(!$_SESSION){
@@ -12,10 +12,10 @@
 <!DOCTYPE html>
 <html lang="es" >
 <head>
-	
+
 	<!-- forma de hacer algo parecido a ssi en php -->
   <?php virtual ("admin_header.php");?>
-	
+
   <title>Administración de Usuarios</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,16 +31,16 @@
 
   <!--lo agregué acá porque hacía falta, pero hay que acomodarlo donde corresponde!!! -->
   <!--<a href="/REDIES/agregar_usuario.html">Agregar Usuario</a>-->
-  
+
    <form>
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
         <input type="text" class="form-control" placeholder="Buscar usuario" ng-model="searchUser">
-      </div>      
+      </div>
     </div>
   </form>
-  
+
   <div class="panel panel-default">
 	  <table class="table table-hover table-responsive">
 	    <thead>
@@ -147,14 +147,14 @@
     </tbody>
   </table>
   </div>
-  
+
   <!-- boton agregar usuarios -->
   <button type="button" class="btn btn-primary btn-md" name="btn_addUser" name="btn_addUser" data-toggle="modal" data-target="#addUser">
  	<span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp;
  	Agregar usuario
   </button>
   <!-- termina boton -->
-  
+
   <!-- Modal de eliminar usuarios -->
 	<div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
@@ -242,9 +242,6 @@
 
 </body>
 
-<footer>
-<!--#include file="footer.html" -->
- <?php virtual ("footer.html");?>
-</footer>
-	
+<?php virtual ("footer.html");?>
+
 </html>

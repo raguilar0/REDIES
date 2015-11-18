@@ -731,6 +731,6 @@
 
 </body>
 <script src="js/app.js"></script>
-
+<?php virtual ("footer.html");?>
 
 </html>

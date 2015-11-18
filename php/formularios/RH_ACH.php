@@ -150,11 +150,17 @@ session_start();
 																				VALUES (:consumoPC ,:nPozos ,:nNacientes ,:nRios ,:nHidrometros ,:consumoAgua ,:analisisCalidad,:planAhorro ,:planManejo ,:permisoExplotacion ,:planMantenimiento ,:formulario_id )");//aqui se guardan los datos despues de realizar el execute
 			$stmt->execute(array('consumoPC'=>$consumoPC,'nPozos'=>$nPozos,'nNacientes'=>$nNacientes,'nRios'=>$nRios,'nHidrometros'=>$nHidrometros,'consumoAgua'=>$consumoAgua,'analisisCalidad'=>$analisisCalidad,'planAhorro'=>$planAhorro,'planManejo'=>$planManejo,'permisoExplotacion'=>$permisoExplotacion,'planMantenimiento'=>$planMantenimiento, 'formulario_id'=>$id_formulario));
 
+			header('location: ../../RH_ACH.php');
 
 			//$result = mysql_query($query) or die("Problemas al realizar la consulta ".mysql_error());
 
 		}
 		else{// si ya existe un formulario hacemos un UPDATE
+			echo "ya hay formulario completado anteriormente de rh_ach<br>";
+			$stmt = $conn->prepare("UPDATE `rh_ach`
+															SET (`RH_ACH_I_RC`= :consumoPC,`RH_ACH_II_I_G`= :nPozos,`RH_ACH_II_II_G`= :nNacientes,`RH_ACH_II_III_G`= :nRios,`RH_ACH_II_IV_G`= :nHidrometros,`RH_ACH_III_RC`= :consumoAgua,`RH_ACH_IV_G`= :analisisCalidad,`RH_ACH_V_G`= :planAhorro,`RH_ACH_VI_G`= :planManejo,`RH_ACH_VII_G`= :permisoExplotacion,`RH_ACH_VIII_G`= :planMantenimiento)
+															WHERE `FORMULARIO_ID`= :formulario_id");
+			$stmt->execute(array('consumoPC'=>$consumoPC,'nPozos'=>$nPozos,'nNacientes'=>$nNacientes,'nRios'=>$nRios,'nHidrometros'=>$nHidrometros,'consumoAgua'=>$consumoAgua,'analisisCalidad'=>$analisisCalidad,'planAhorro'=>$planAhorro,'planManejo'=>$planManejo,'permisoExplotacion'=>$permisoExplotacion,'planMantenimiento'=>$planMantenimiento));
 
 		}
 	}

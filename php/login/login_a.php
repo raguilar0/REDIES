@@ -33,10 +33,10 @@
 		}
 
 		if($_SESSION['rol'] == 'administrador'){
-			header("Location: ../../admin_header.php");
+			header("Location: ../../admin_index.php");
 		}else{
 			if($_SESSION['rol'] == 'representante'){
-				header("Location: ../../usuario_header.php");
+				header("Location: ../../usuario_index.php");
 			}
 		}
 	}

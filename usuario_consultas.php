@@ -714,4 +714,5 @@
 							 };
 
 					</script>
+					<?php virtual ("footer.html");?>
 </html>

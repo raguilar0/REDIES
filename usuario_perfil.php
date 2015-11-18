@@ -191,6 +191,6 @@ open(url,'','top=300,left=300,width=426,height=266') ;
 </script>
 
 <footer>
-<!--#include file="footer.html" -->
+<?php virtual ("footer.html");?>
 </footer>
 </html>

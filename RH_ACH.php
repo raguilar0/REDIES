@@ -406,9 +406,8 @@
   <script src="js/app.js"></script>
 </body>
 
-<footer>
-<!--#include file="footer.html" -->
-</footer>
+<?php virtual ("footer.html");?>
+
 </html>
 
 

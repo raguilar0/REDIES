@@ -189,9 +189,5 @@ open(url,'','top=300,left=300,width=426,height=266') ;
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
-
-<footer>
-<!--#include file="footer.html" -->
-</footer>
-
+<?php virtual ("footer.html");?>
 </html>

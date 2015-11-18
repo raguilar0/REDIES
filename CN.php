@@ -324,6 +324,6 @@
 </body>
 
 <footer>
-  <!--#include file="footer.html" -->
+<?php virtual ("footer.html");?>
 </footer>
 </html>

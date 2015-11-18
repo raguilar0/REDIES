@@ -12,8 +12,7 @@
 
     // destroy the session
     session_destroy();
-
-    header('Location: ../../login.html');
+    header('Location: localhost/REDIES/login.html');
 
 ?>
 

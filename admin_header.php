@@ -44,7 +44,7 @@
 		<div class="col-md-12">
 
         <div class="main_logo">
-          <a href="admin_header.php">
+          <a href="admin_index.php">
             <img src="images/layouts/main_logo.jpg" alt="Red Costarricense de Instituciones Educativas Sostenibles">
           </a>
 
@@ -100,7 +100,7 @@
           <a href="/REDIES/admin_perfil.php">Perfil</a>
         </li>
         <li>
-          <a href="/REDIES/FAQ.php">Preguntas Frecuentes</a>
+          <a href="/REDIES/admin_FAQ.php">Preguntas Frecuentes</a>
         </li>
         <li>
           <a href="php/login/logout_a.php"><strong>Salir</strong></a>
@@ -177,5 +177,4 @@
   <script src="js/scripts.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
-
 </html>

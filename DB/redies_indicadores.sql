@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2015 a las 20:03:41
--- Versión del servidor: 5.5.44-0ubuntu0.14.04.1
--- Versión de PHP: 5.5.9-1ubuntu4.13
+-- Servidor: localhost:3306
+-- Tiempo de generación: 18-11-2015 a las 00:27:43
+-- Versión del servidor: 5.5.42
+-- Versión de PHP: 5.6.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `redies_indicadores`
@@ -26,7 +20,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `cn`
 --
 
-CREATE TABLE IF NOT EXISTS `cn` (
+CREATE TABLE `cn` (
   `CN_I_RS` double(6,2) NOT NULL COMMENT 'Inventario de Emisiones de Gases de Efecto Invernadero',
   `CN_II_I_RC` double(6,2) NOT NULL,
   `CN_II_II_RC` double(6,2) NOT NULL,
@@ -38,8 +32,7 @@ CREATE TABLE IF NOT EXISTS `cn` (
   `CN_V_RC` double(6,2) NOT NULL,
   `FORMULARIO_ID` varchar(30) NOT NULL,
   `FECHA_I` date DEFAULT NULL,
-  `FECHA_F` date DEFAULT NULL,
-  KEY `CN_FOLMULARIO` (`FORMULARIO_ID`)
+  `FECHA_F` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Carbono Neutralidad';
 
 --
@@ -57,14 +50,11 @@ INSERT INTO `cn` (`CN_I_RS`, `CN_II_I_RC`, `CN_II_II_RC`, `CN_II_III_RC`, `CN_II
 -- Estructura de tabla para la tabla `formulario`
 --
 
-CREATE TABLE IF NOT EXISTS `formulario` (
+CREATE TABLE `formulario` (
   `ANHO` int(11) NOT NULL,
   `USUARIOS_CORREO` varchar(50) NOT NULL,
   `ID` varchar(30) NOT NULL,
-  `UNIVERSIDAD_ID` int(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FOLMULARIO_UNIVERSIDAD` (`UNIVERSIDAD_ID`),
-  KEY `FOLMULARIO_USUARIOS` (`USUARIOS_CORREO`)
+  `UNIVERSIDAD_ID` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -83,7 +73,7 @@ INSERT INTO `formulario` (`ANHO`, `USUARIOS_CORREO`, `ID`, `UNIVERSIDAD_ID`) VAL
 -- Estructura de tabla para la tabla `gr`
 --
 
-CREATE TABLE IF NOT EXISTS `gr` (
+CREATE TABLE `gr` (
   `GR_I_G` tinyint(1) NOT NULL,
   `GR_II_G` tinyint(1) NOT NULL,
   `GR_III_G` int(11) NOT NULL,
@@ -93,8 +83,7 @@ CREATE TABLE IF NOT EXISTS `gr` (
   `GR_VII_G` tinyint(1) NOT NULL,
   `FORMULARIO_ID` varchar(30) NOT NULL,
   `FECHA_I` date DEFAULT NULL,
-  `FECHA_F` date DEFAULT NULL,
-  KEY `GR_FOLMULARIO` (`FORMULARIO_ID`)
+  `FECHA_F` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -112,7 +101,7 @@ INSERT INTO `gr` (`GR_I_G`, `GR_II_G`, `GR_III_G`, `GR_IV_G`, `GR_V_RC`, `GR_VI_
 -- Estructura de tabla para la tabla `gre`
 --
 
-CREATE TABLE IF NOT EXISTS `gre` (
+CREATE TABLE `gre` (
   `GRE_I_G` tinyint(1) NOT NULL,
   `GRE_II_I_RC` int(11) NOT NULL,
   `GRE_II_II_RC` double(6,2) NOT NULL,
@@ -121,8 +110,7 @@ CREATE TABLE IF NOT EXISTS `gre` (
   `GRE_V_RC` double(6,2) NOT NULL,
   `FORMULARIO_ID` varchar(30) NOT NULL,
   `FECHA_I` date DEFAULT NULL,
-  `FECHA_F` date DEFAULT NULL,
-  KEY `GRE_FOLMULARIO` (`FORMULARIO_ID`)
+  `FECHA_F` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -140,7 +128,7 @@ INSERT INTO `gre` (`GRE_I_G`, `GRE_II_I_RC`, `GRE_II_II_RC`, `GRE_III_G`, `GRE_I
 -- Estructura de tabla para la tabla `grs`
 --
 
-CREATE TABLE IF NOT EXISTS `grs` (
+CREATE TABLE `grs` (
   `GRS_I_I_RS` double(6,2) NOT NULL,
   `GRS_I_II_RS` double(6,2) NOT NULL,
   `GRS_I_III_RS` double(6,2) NOT NULL,
@@ -157,8 +145,7 @@ CREATE TABLE IF NOT EXISTS `grs` (
   `GRS_VII_RS` double(6,2) NOT NULL,
   `FORMULARIO_ID` varchar(30) NOT NULL,
   `FECHA_I` date DEFAULT NULL,
-  `FECHA_F` date DEFAULT NULL,
-  KEY `GRS_FOLMULARIO` (`FORMULARIO_ID`)
+  `FECHA_F` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -176,7 +163,7 @@ INSERT INTO `grs` (`GRS_I_I_RS`, `GRS_I_II_RS`, `GRS_I_III_RS`, `GRS_I_IV_RS`, `
 -- Estructura de tabla para la tabla `rh_ach`
 --
 
-CREATE TABLE IF NOT EXISTS `rh_ach` (
+CREATE TABLE `rh_ach` (
   `RH_ACH_I_RC` double(6,2) NOT NULL COMMENT 'Consumo de agua per cápita en alcance definido',
   `RH_ACH_II_I_G` int(11) NOT NULL COMMENT 'Inventario de fuentes de agua -> #pozos',
   `RH_ACH_II_II_G` int(11) NOT NULL COMMENT 'Inventario de fuentes de agua->#nacientes',
@@ -190,8 +177,7 @@ CREATE TABLE IF NOT EXISTS `rh_ach` (
   `RH_ACH_VIII_G` tinyint(1) NOT NULL COMMENT 'Plan de mantenimiento de sistemas de abastecimiento de agua',
   `FORMULARIO_ID` varchar(30) NOT NULL,
   `FECHA_I` date DEFAULT NULL,
-  `FECHA_F` date DEFAULT NULL,
-  KEY `RH_ACH_FOLMULARIO` (`FORMULARIO_ID`)
+  `FECHA_F` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Recurso Hídrico: Agua para consumo humano';
 
 --
@@ -209,7 +195,7 @@ INSERT INTO `rh_ach` (`RH_ACH_I_RC`, `RH_ACH_II_I_G`, `RH_ACH_II_II_G`, `RH_ACH_
 -- Estructura de tabla para la tabla `rh_ar`
 --
 
-CREATE TABLE IF NOT EXISTS `rh_ar` (
+CREATE TABLE `rh_ar` (
   `RH_AR_I_I_RS` int(11) NOT NULL,
   `RH_AR_I_II_RS` int(11) NOT NULL,
   `RH_AR_I_III_RS` int(11) NOT NULL,
@@ -218,8 +204,7 @@ CREATE TABLE IF NOT EXISTS `rh_ar` (
   `RH_AR_IV_G` int(11) NOT NULL,
   `FORMULARIO_ID` varchar(30) NOT NULL,
   `FECHA_I` date DEFAULT NULL,
-  `FECHA_F` date DEFAULT NULL,
-  KEY `RH_AR_FOLMULARIO` (`FORMULARIO_ID`)
+  `FECHA_F` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -237,22 +222,23 @@ INSERT INTO `rh_ar` (`RH_AR_I_I_RS`, `RH_AR_I_II_RS`, `RH_AR_I_III_RS`, `RH_AR_I
 -- Estructura de tabla para la tabla `universidad`
 --
 
-CREATE TABLE IF NOT EXISTS `universidad` (
+CREATE TABLE `universidad` (
   `ID` int(11) NOT NULL,
   `NOMBRE` varchar(20) NOT NULL,
   `TELEFONO` varchar(12) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `SIGLAS` varchar(15) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `universidad`
 --
 
-INSERT INTO `universidad` (`ID`, `NOMBRE`, `TELEFONO`) VALUES
-(1, 'UCR', '122345'),
-(2, 'TEC', '123456'),
-(3, 'UNA', '4545676'),
-(4, 'Privada', '32443439');
+INSERT INTO `universidad` (`ID`, `NOMBRE`, `TELEFONO`, `SIGLAS`) VALUES
+(1, 'UCR', '122345', NULL),
+(2, 'TEC', '123456', NULL),
+(3, 'UNA', '4545676', NULL),
+(4, 'Privada', '32443439', NULL),
+(5, 'Instituto TecnolÃ³gi', '25112901', 'ITCR');
 
 -- --------------------------------------------------------
 
@@ -260,7 +246,7 @@ INSERT INTO `universidad` (`ID`, `NOMBRE`, `TELEFONO`) VALUES
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios` (
+CREATE TABLE `usuarios` (
   `UNIVERSIDAD_ID` int(11) NOT NULL,
   `CORREO` varchar(50) NOT NULL,
   `NOMBRE` varchar(20) NOT NULL,
@@ -269,9 +255,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `PASS` varchar(100) NOT NULL,
   `ESTADO` tinyint(1) NOT NULL,
   `INTENTOS` tinyint(4) NOT NULL,
-  `rol` varchar(20) NOT NULL,
-  PRIMARY KEY (`CORREO`),
-  KEY `USUARIOS_UNIVERSIDAD` (`UNIVERSIDAD_ID`)
+  `rol` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -279,10 +263,77 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`UNIVERSIDAD_ID`, `CORREO`, `NOMBRE`, `APELLIDO_I`, `APELLIDO_II`, `PASS`, `ESTADO`, `INTENTOS`, `rol`) VALUES
-(3, 'ricardo.aguilar@redies.cr', 'Ricardo', 'Aguilar', '', '654321', 1, 0, 'administrador'),
-(2, 'jose.slon@redies.cr', 'Jose', 'Slon', 'B', 'we34', 0, 0, 'representante'),
-(1, 'luis.mata@redies.cr', 'Luis ', 'Mata', 'Reyes', '123456', 0, 0, 'administrador');
+(3, 'ricardo.aguilar@redies.cr', 'Ricardo', 'Aguilar', '', 'dd5fef9c1c1da1394d6d34b248c51be2ad740840', 1, 0, 'administrador'),
+(2, 'jose.slon@redies.cr', 'Jose', 'Slon', 'B', '5f40e2a915f8c4033332fd3fd4cbb384143cc21d', 0, 0, 'representante'),
+(1, 'luis.mata@redies.cr', 'Luis ', 'Mata', 'Reyes', '99800b85d3383e3a2fb45eb7d0066a4879a9dad0', 0, 0, 'administrador');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cn`
+--
+ALTER TABLE `cn`
+  ADD KEY `CN_FOLMULARIO` (`FORMULARIO_ID`);
+
+--
+-- Indices de la tabla `formulario`
+--
+ALTER TABLE `formulario`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `FOLMULARIO_UNIVERSIDAD` (`UNIVERSIDAD_ID`),
+  ADD KEY `FOLMULARIO_USUARIOS` (`USUARIOS_CORREO`);
+
+--
+-- Indices de la tabla `gr`
+--
+ALTER TABLE `gr`
+  ADD KEY `GR_FOLMULARIO` (`FORMULARIO_ID`);
+
+--
+-- Indices de la tabla `gre`
+--
+ALTER TABLE `gre`
+  ADD KEY `GRE_FOLMULARIO` (`FORMULARIO_ID`);
+
+--
+-- Indices de la tabla `grs`
+--
+ALTER TABLE `grs`
+  ADD KEY `GRS_FOLMULARIO` (`FORMULARIO_ID`);
+
+--
+-- Indices de la tabla `rh_ach`
+--
+ALTER TABLE `rh_ach`
+  ADD KEY `RH_ACH_FOLMULARIO` (`FORMULARIO_ID`);
+
+--
+-- Indices de la tabla `rh_ar`
+--
+ALTER TABLE `rh_ar`
+  ADD KEY `RH_AR_FOLMULARIO` (`FORMULARIO_ID`);
+
+--
+-- Indices de la tabla `universidad`
+--
+ALTER TABLE `universidad`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`CORREO`),
+  ADD KEY `USUARIOS_UNIVERSIDAD` (`UNIVERSIDAD_ID`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `universidad`
+--
+ALTER TABLE `universidad`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;

@@ -282,7 +282,5 @@
     </div>
 </body>
 <script src="js/app.js"></script>
-<footer>
-<!--#include file="footer.html" -->
-</footer>
+<?php virtual ("footer.html");?>
 </html>

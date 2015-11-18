@@ -1,5 +1,5 @@
 <?php
-  
+
   session_start();
 
   if(!$_SESSION){
@@ -15,7 +15,7 @@
 <head>
   <!-- forma de hacer ssi en php -->
   <?php virtual ("admin_header.php");?>
-  
+
   <title>Administración de universidades</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@
   <h2>Administración de universidades</h2>
   <p>Para eliminar o modificar presione el botón correspondiente</p>
 
-  
+
   <table class="table">
     <thead>
       <tr>
@@ -178,8 +178,7 @@
 </div>
 
 </body>
-
 <footer>
-<!--#include file="footer.html" -->
+<?php virtual ("footer.html");?>
 </footer>
 </html>
