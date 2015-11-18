@@ -29,7 +29,7 @@
       <div class="col-md-11">
         <h3>Recurso Hídrico, agua para consumo humano</h3>
 
-        <form name="form" role="form" ng-controller="MainCtrl">
+        <form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/formularios/RH_ACH.php">
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required || !formData.consumoPC }">
             <label for="RH_ACH_Q1">
               Consumo de agua per cápita
@@ -208,43 +208,96 @@
               </div>
             </div>
           </div>
+<!--
+          <div class="form-group" >
 
-          <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planAhorro.$error.required || !formData.planAhorro }">
             <label for="RH_ACH_Q5">
               ¿Poseen plan de ahorro de agua?
             </label>
-            <div class="input-group col-md-4 has-success">
-              <div class="radio-inline">
-                <label>
-                  <input type="radio" name="planAhorro" value="Sí" ng-model="formData.planAhorro" required>
+
+            <div class="form-group has-success" ng-class="{ 'has-error' : form.planAhorro.$invalid }" >
+            <div class="input-group col-md-4">
+                <label class="radio-inline">
+                  <input  type="radio" name="planAhorroRadio" id="porcentajeReduccionRadio1"
+                          value="Sí" ng-model="formData.planAhorro"
+                          onchange="validacionSINO(type, 'RH_ACH_Q5', 'porcentajeReduccionRadio1', 'porcentajeReduccionRadio2', 'porcentajeReduccionRadio3')">
                   Sí
                 </label>
-              </div>
-              <div class="radio-inline">
-                <label>
-                  <input type="radio" name="planAhorro" value="No" ng-model="formData.planAhorro" >
+                <label class="radio-inline">
+                  <input  type="radio" name="planAhorroRadio" id="porcentajeReduccionRadio2"
+                          value="No" ng-model="formData.planAhorro"
+                          onchange="validacionSINO(type, 'RH_ACH_Q5', 'porcentajeReduccionRadio1', 'porcentajeReduccionRadio2', 'porcentajeReduccionRadio3')" >
                   No
                 </label>
-              </div>
-              <div class="radio-inline">
-                <label>
-                  <input type="radio" name="planAhorro" value="N/D" ng-model="formData.planAhorro" >
+                <label class="radio-inline">
+                  <input  type="radio" name="planAhorroRadio" id="porcentajeReduccionRadio3"
+                          value="N/D" ng-model="formData.planAhorro"
+                          onchange="validacionSINO(type, 'RH_ACH_Q5', 'porcentajeReduccionRadio1', 'porcentajeReduccionRadio2', 'porcentajeReduccionRadio3')" >
                   N/D
                 </label>
-              </div>
-              <div class="radio-inline">
-              </div>
             </div>
-            <div class="form-group" ng-show="formData.planAhorro=='Sí'" ng-class="{ 'has-error' : !form.$pristine  && form.porcentajeReduccion.$error.required }">
+            <div class="form-group"  ng-show="formData.porcentajeReduccion=='Sí'">
               <label>Ingrese el porcentaje de reducción</label>
-              <div class="input-group col-md-4 has-success">
-                <input type="number" class="form-control" name="porcentajeReduccion"
-                min="0" max="100" ng-model="formData.porcentajeReduccion" >
-                <div class="input-group-addon">% reducción</div>
+              <div class="input-group col-md-4">
+                <input  type="text" class="form-control"
+                        name="planAhorro" id="RH_ACH_Q5"
+                        ng-model="formData.planAhorro"
+                        onchange="validacionSINO(type, 'RH_ACH_Q5', 'porcentajeReduccionRadio1', 'porcentajeReduccionRadio2', 'porcentajeReduccionRadio3')"
+                        required pattern="^[0-9][0-9]?$|^100$|[0-9]+[0-9]?,[0-9]+$"
+                />
+                <span class="input-group-addon">% reducción</span>
                 <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
               </div>
             </div>
           </div>
+        </div>
+-->
+
+<div class="form-group">
+
+  <label for="RH_ACH_Q5">
+    ¿Poseen plan de ahorro de agua?
+  </label>
+
+  <div class="form-group has-success" ng-class="{ 'has-error' : form.planAhorro.$invalid}">
+    <div class="input-group col-md-4" >
+        <label class="radio-inline">
+          <input  type="radio" name="planAhorroRadio" id="planAhorroRadio1"
+                  value="Sí"
+                  ng-model="formData.planAhorro"
+                  onchange="validacionSINO(type, 'RH_ACH_Q5', 'planAhorroRadio1', 'planAhorroRadio3', 'planAhorroRadio3')"
+          > Sí
+        </label>
+        <label class="radio-inline">
+          <input  type="radio" name="planAhorroRadio" id="planAhorroRadio2"
+                  value="No"
+                  ng-model="formData.planAhorro"
+                  onchange="validacionSINO(type, 'RH_ACH_Q5', 'planAhorroRadio1', 'planAhorroRadio3', 'planAhorroRadio3')"
+          > No
+        </label>
+        <label class="radio-inline">
+          <input  type="radio" name="planAhorroRadio" id="planAhorroRadio3"
+                  value="N/D"
+                  ng-model="formData.planAhorro"
+                  onchange="validacionSINO(type, 'RH_ACH_Q5', 'planAhorroRadio1', 'planAhorroRadio3', 'planAhorroRadio3')"
+          > N/D
+        </label>
+      </div>
+      <div   class="form-group"><!---->
+      <label> Ingrese meta </label>
+        <div class="input-group col-md-4">
+          <input  type="text" class="form-control"
+                  name="planAhorro" id="RH_ACH_Q5"
+                  ng-model="formData.planAhorro"
+                  onchange="validacionSINO(type, 'RH_ACH_Q5', 'planAhorroRadio1', 'planAhorroRadio3', 'planAhorroRadio3')"
+                  required pattern="^[0-9][0-9]?$|^100$|[0-9]+[0-9]?,[0-9]+$|^No$|^N\/D$"
+          />
+          <span class="input-group-addon">% reducción</span>
+          <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese la meta de porcentaje de reducción de emisiones al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+        </div>
+      </div>
+  </div>
+</div>
 
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.planManejo.$error.required || !formData.planManejo }">
             <label for="RH_ACH_Q6">
@@ -343,10 +396,6 @@
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
               Enviar Formulario
             </button>
-          </div>
-
-          <div>
-           Form content:{{formData}}
           </div>
 
         </form>

@@ -43,7 +43,7 @@
 		<div class="col-md-12">
 
 	        <div class="main_logo">
-	          <a href="usuario_header.html">
+	          <a href="usuario_header.php">
 	            <img src="images/layouts/main_logo.jpg" alt="Red Costarricense de Instituciones Educativas Sostenibles">
 	          </a>
 
@@ -67,7 +67,7 @@
         <span class="icon-bar"></span>
       </button>
       <!-- espacio de nommbre de empresa en el menu-->
-      <span class="navbar-brand">REDIES</span>
+      <span class="navbar-brand"><?php echo $_SESSION['usuario'].'&nbsp;'.$_SESSION['apellido'] ?></span>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -107,7 +107,7 @@
 			<a href="/REDIES/FAQ.php">Preguntas Frecuentes</a>
 		</li>
 		<li>
-			<a href="/REDIES/login.html"><strong>Salir</strong></a>
+			<a href="php/login/logout_a.php"><strong>Salir</strong></a>
 		</li>
 
       </ul>

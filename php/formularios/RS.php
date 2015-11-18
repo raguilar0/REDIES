@@ -2,10 +2,10 @@
 session_start();
 ?>
 <?php
-	
+
 	function normalizar_input($input){
 
-		if( $input== "N/D"){ 
+		if( $input== "N/D"){
 			return -1;
 		}
 		else{
@@ -15,7 +15,7 @@ session_start();
 	}
 
 	function  normalizar_si_no($radio){
-		
+
 		if($radio == "Sí"){
 			return  1;
 		}else{
@@ -28,7 +28,7 @@ session_start();
 			}
 		}
 	}
-	
+
 
 	try{
 		include("../conexion/conexion.php");
@@ -46,7 +46,7 @@ session_start();
 
 		// CODE...
 		//Conexion con la base de datos
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// año del formulario no se ha cambiado a formato propuesto por Luis
@@ -68,7 +68,7 @@ session_start();
 		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO) VALUES( :correo,:universidad_id,:anio)');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('correo'=>$username ,'universidad_id'=>$id_universidad, 'anio'=>$anio));
 
-		
+
 
 		}else{
 			echo "Si hay formulario<br>";
@@ -85,7 +85,7 @@ session_start();
 		echo "el id del formulario es ".$id_formulario."<br>";
 
 	//:papel ,:residuos_organicos ,:residuos_valorizables ,:residuos_peligrosos ,:residuos_MEspecial ,
-    //:residuos_no_valorizables ,:otros_residuos,:plan_manejo ,:residuos_solidos_PC ,:recuperacion_residuos_solidos ,:taza_reciclaje ,:trazabilidad 
+    //:residuos_no_valorizables ,:otros_residuos,:plan_manejo ,:residuos_solidos_PC ,:recuperacion_residuos_solidos ,:taza_reciclaje ,:trazabilidad
 	//Tomar los valores del formulario que fue completado por el representate
 		$papel = $_POST['cantidadPapel'];
 		$papel= normalizar_input($papel);
@@ -102,8 +102,8 @@ session_start();
 		$otros_residuos = $_POST['otros'];
 		$otros_residuos = normalizar_input($otros_residuos);
 
-		$residuos_solidos_PC =$_POST['rSolidosPC']; //per 
-		$residuos_solidos_PC = normalizar_input($residuos_solidos_PC);		
+		$residuos_solidos_PC =$_POST['rSolidosPC']; //per
+		$residuos_solidos_PC = normalizar_input($residuos_solidos_PC);
 		$recuperacion_residuos_solidos = $_POST['recuperacionRS'];
 		$recuperacion_residuos_solidos = normalizar_input($recuperacion_residuos_solidos);
 		$taza_reciclaje = $_POST['tazaReciclaje'];
@@ -133,11 +133,12 @@ session_start();
 
 		if(!$data[0]){ // si no hay hacemos INSERT
 			echo "no hay formulario completado anteriormente de grs<br>";
-			$stmt = $conn->prepare("INSERT INTO `grs`(`GRS_I_I_RS`, `GRS_I_II_RS`, `GRS_I_III_RS`, `GRS_I_IV_RS`, `GRS_I_V_RS`, `GRS_I_VI_RS`, `GRS_I_VII_RS`, `GRS_II_G`, `GRS_III_RS`, `GRS_IV_RS`, `GRS_V_RS`, `GRS_VI_G`, `FORMULARIO_ID`) VALUES (:papel ,:residuos_organicos ,:residuos_valorizables ,:residuos_peligrosos ,:residuos_MEspecial ,:residuos_no_valorizables ,:otros_residuos,:plan_manejo ,:residuos_solidos_PC ,:recuperacion_residuos_solidos ,:taza_reciclaje ,:trazabilidad,:formulario_id )");//aqui se guardan los datos despues de realizar el execute
+			$stmt = $conn->prepare("INSERT INTO `grs`(`GRS_I_I_RS`, `GRS_I_II_RS`, `GRS_I_III_RS`, `GRS_I_IV_RS`, `GRS_I_V_RS`, `GRS_I_VI_RS`, `GRS_I_VII_RS`, `GRS_II_G`, `GRS_III_RS`, `GRS_IV_RS`, `GRS_V_RS`, `GRS_VI_G`, `FORMULARIO_ID`)
+																				VALUES (:papel ,:residuos_organicos ,:residuos_valorizables ,:residuos_peligrosos ,:residuos_MEspecial ,:residuos_no_valorizables ,:otros_residuos,:plan_manejo ,:residuos_solidos_PC ,:recuperacion_residuos_solidos ,:taza_reciclaje ,:trazabilidad,:formulario_id )");//aqui se guardan los datos despues de realizar el execute
 			$stmt->execute(array('papel'=>$papel,'residuos_organicos'=>$residuos_organicos,'residuos_valorizables'=>$residuos_valorizables,'residuos_peligrosos'=>$residuos_peligrosos,'residuos_MEspecial'=>$residuos_MEspecial,'residuos_no_valorizables'=>$residuos_no_valorizables,'otros_residuos'=>$otros_residuos,'residuos_solidos_PC'=>$residuos_solidos_PC,'recuperacion_residuos_solidos'=>$recuperacion_residuos_solidos,'taza_reciclaje'=>$taza_reciclaje,'trazabilidad'=>$trazabilidad,'plan_manejo'=>$plan_manejo, 'formulario_id'=>$id_formulario));
-			
+
 //			$query = "INSERT INTO `grs`(`GRS_I_I_RS`, `GRS_I_II_RS`, `GRS_I_III_RS`, `GRS_I_IV_RS`, `GRS_I_V_RS`, `GRS_I_VI_RS`, `GRS_I_VII_RS`) VALUES (".$papel.",".$residuos_organicos.",".$residuos_valorizables.",".$residuos_peligrosos.",".$residuos_MEspecial.",".$residuos_no_valorizables.",".$otros_residuos.");";
-			
+
 			//$result = mysql_query($query) or die("Problemas al realizar la consulta ".mysql_error());
 
 		}

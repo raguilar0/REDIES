@@ -8,13 +8,13 @@
 
 <?php
     // remove all session variables
-    session_unset(); 
+    session_unset();
 
-    // destroy the session 
-    session_destroy(); 
-    
-    header("Location: ../../login.html");
-    
+    // destroy the session
+    session_destroy();
+
+    header('Location: ../../login.html');
+
 ?>
 
 </body>

@@ -44,7 +44,7 @@
 		<div class="col-md-12">
 
         <div class="main_logo">
-          <a href="admin_header.html">
+          <a href="admin_header.php">
             <img src="images/layouts/main_logo.jpg" alt="Red Costarricense de Instituciones Educativas Sostenibles">
           </a>
 
