@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 
 include("../conexion/conexion.php");
 
@@ -115,23 +118,76 @@ include("../conexion/conexion.php");
 
 	//Hacemos la conexion con la base de datos.
 
-	$m_con= mysql_connect($host,$username,$pw) or die ("Problemas al conectar con el servidor");
-	mysql_select_db($db,$m_con) or die("Problemas al conectar la base de datos");
+	
+		try{
+			
+			$id_universidad = $_SESSION['universidad'];
+			$username = $_SESSION['correo'];
+	
+	
+	
+	$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	//Año que pertenece el formulario
+		// año del formulario no se ha cambiado a formato propuesto por Luis
 
-	$qAnio = mysql_query("select YEAR(NOW());") or die("Problemas al realizar la consulta ".mysql_error());
-	$SalidoAnio = mysql_fetch_array($qAnio);
-	$anio =$SalidoAnio[0]-1;
-
-	echo $anio;
-
-	//Insertamos los datos en la base de datos.
+		$qAnio = mysql_query("select YEAR(NOW());") or die("Problemas al realizar la consulta ".mysql_error());
+		$SalidoAnio = mysql_fetch_array($qAnio);
+		$anio =$SalidoAnio[0]-1;
 
 
 
-	//Redireccionamos a la vista de la aplicacion
+		//Se consulta para ver la existencia de algun formulario de esa u en este año.
+		$stmt = $conn->prepare('SELECT id FROM formulario WHERE UNIVERSIDAD_ID = :universidad_id AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
+		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
 
-//	header('Location:../../RH_AR.shtml');
+		$data = $stmt->fetch();
 
+		if(!$data[0]){ // Si no hay un formulario se crea uno nuevo para dicha u en el para el año del formulario
+			echo "no hay formulario<br>";
+		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO) VALUES( :correo,:universidad_id,:anio)');//aqui se guardan los datos despues de realizar el execute
+		$stmt->execute(array('correo'=>$username ,'universidad_id'=>$id_universidad, 'anio'=>$anio));
+
+
+
+		}else{
+			echo "Si hay formulario<br>";
+
+		}
+		$stmt = $conn->prepare('SELECT id FROM formulario WHERE UNIVERSIDAD_ID = :universidad_id AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
+		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
+
+		$data = $stmt->fetch();
+
+		$id_formulario = $data[0];
+
+		echo "el id del formulario es ".$id_formulario."<br>";
+		
+		
+		$stmt = $conn->prepare('SELECT FORMULARIO_ID FROM gr WHERE FORMULARIO_ID = :id_formulario');//aqui se guardan los datos despues de realizar el execute
+		$stmt->execute(array('id_formulario'=>$id_formulario));
+		$data = $stmt->fetch();
+
+		if(!$data[0]){ // si no hay hacemos INSERT
+			echo "no hay formulario completado anteriormente de rh_ach<br>";
+			$stmt = $conn->prepare("INSERT INTO `gr`(`GR_I_G`, `GR_II_G`, `GR_III_G`, `GR_IV_G`, `GR_V_RC`, `GR_VI_G`, `GR_VII_G`, `FORMULARIO_ID`)
+									VALUES (:PolGesAmb ,:PlaGesAmb ,:NivPar ,:IniAmb ,:ConPap ,:ComVer ,:ComGesAmb,:formulario_id )");//aqui se guardan los datos despues de realizar el execute
+			$stmt->execute(array('PolGesAmb'=>$PolGesAmb,'PlaGesAmb'=>$PlaGesAmb,'NivPar'=>$NivPar,'IniAmb'=>$IniAmb,'ConPap'=>$ConPap,'ComVer'=>$ComVer,'ComGesAmb'=>$ComGesAmb,'formulario_id'=>$id_formulario));
+
+
+			//$result = mysql_query($query) or die("Problemas al realizar la consulta ".mysql_error());
+
+		}
+		else{// si ya existe un formulario hacemos un UPDATE
+		
+			echo "hay formulario completado anteriormente de rh_ach<br>";
+			$stmt = $conn->prepare("UPDATE `gr` SET `GR_I_G`=:PolGesAmb,`GR_II_G`=:PlaGesAmb,`GR_III_G`=:NivPar,`GR_IV_G`=:IniAmb,`GR_V_RC`=:ConPap,`GR_VI_G`=:ComVer,`GR_VII_G`=:ComGesAmb
+				WHERE `FORMULARIO_ID` = :formulario_id");//aqui se guardan los datos despues de realizar el execute
+			$stmt->execute(array('PolGesAmb'=>$PolGesAmb,'PlaGesAmb'=>$PlaGesAmb,'NivPar'=>$NivPar,'IniAmb'=>$IniAmb,'ConPap'=>$ConPap,'ComVer'=>$ComVer,'ComGesAmb'=>$ComGesAmb,'formulario_id'=>$id_formulario));
+
+		}
+	}
+	catch(PDOException $excp){
+		echo 'error: ' . $excp->getMessage();
+	}
 ?>
