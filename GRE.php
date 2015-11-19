@@ -127,13 +127,13 @@
 					  </label>
 					</div>
 				</div>
-				<div id = "oculto" style='display:none;'>
+				<div id = "oculto">
 					<label>
 						Indique la meta
 					</label>
 
 					<div class="input-group col-md-4 has-success">
-						<input type="number" class="form-control" name= "meta" id="GRE_MetaReduccion" min="0" max="100">
+						<input type="number" class="form-control" name= "metac" id="GRE_MetaReduccion" min="0" max="100">
 						<div class="input-group-addon">% de Reducción</div>
 					</div>
 				</div>
@@ -163,7 +163,7 @@
 				</div>
         <div >
           <label class="radio-inline">
-          <input type="radio" name="controlConsumo" id="controlConsumoRadio1" value="N/D"
+          <input type="radio" name="controlConsumoRadio1" id="controlConsumoRadio1" value="N/D"
           ng-model="formData.controlConsumo"
           onclick="validacionND(type, 'GRE_Q4', 'controlConsumoRadio1')">N/D
           </label>
