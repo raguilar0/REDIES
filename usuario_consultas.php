@@ -22,7 +22,7 @@
 			Consultas sobre indicadores
 			</h3>
 
-		<form name="form" role="form" ng-controller="MainCtrl">
+		<form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/representante/usuario_consultas_con.php" >
 			<div class="form-group">
 				<label for="AD_C1">
 					Tipo de búsqueda
@@ -37,7 +37,7 @@
 					</div>
 					<div class="radio-inline">
 					  <label>
-						<input type="radio" name="busqueda_areas" value="areas" onclick="mostrarTipos()">
+						<input type="radio" name="busqueda_areas" value="tipos" onclick="mostrarTipos()">
 						Tipos
 					  </label>
 					</div>
@@ -125,7 +125,7 @@
 				</label>
 				<div class="input-group col-md-4 has-success">
 					<div class="input-group-addon">Desde</div>
-					<input  type="number" name"anio_inicio" min=2014 value=2014 class="form-control">
+					<input  type="number" name="anio_inicio" min=2014 value=2014 class="form-control">
 					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Fecha de inicio de la búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
@@ -133,13 +133,13 @@
 			<div class="form-group">
 				<div class="input-group col-md-4 has-success">
 						<div class="input-group-addon">Hasta</div>
-						<input  type="number" name"anio_final" min=2014 value=2014 class="form-control">
+						<input  type="number" name="anio_fin" min=2014 value=2014 class="form-control">
 						<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Fecha de finalización de la búsqueda"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
 			</div>
 
 			<div class="form-group col-md-4">
-					<button type="submit" class="btn btn-success btn-block" id="boton_areas" style='display:none;' onclick="mostrarAreasSeleccionadas()">
+					<button type="submit" class="btn btn-success btn-block" id="boton_areas" style='display:none;' > <!--onclick="mostrarAreasSeleccionadas()"-->
 					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 						Mostrar Tabla
 					</button>

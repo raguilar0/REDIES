@@ -3,42 +3,6 @@ session_start();
 ?>
 <?php
 
-	function normalizar_input($input){
-
-		if( $input== "N/D"){
-			return -1;
-		}
-		else{
-			if($input == "N/A"){
-				return -2;
-			}
-			else{
-				return $input;
-			}
-		}
-	}
-
-	function  normalizar_si_no($radio){
-
-		if($radio == "Sí"){
-			return  1;
-		}else{
-			if($radio == "No"){
-				return  0;
-			}else{
-				if($radio == "N/D"){
-					return -1;
-				}
-				else{
-					return -2;
-				}
-			}
-		}
-	}
-
-
-
-
 	try{
 		include("../conexion/conexion.php");
 
@@ -59,7 +23,7 @@ session_start();
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// año del formulario no se ha cambiado a formato propuesto por Luis
-
+//***************************************************************************************************************************
 		$qAnio = mysql_query("select YEAR(NOW());") or die("Problemas al realizar la consulta ".mysql_error());
 		$SalidoAnio = mysql_fetch_array($qAnio);
 		$anio =$SalidoAnio[0]-1;
@@ -74,14 +38,13 @@ session_start();
 
 		if(!$data[0]){ // Si no hay un formulario se crea uno nuevo para dicha u en el para el año del formulario
 			echo "no hay formulario<br>";
-		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO) VALUES( :correo,:universidad_id,:anio)');//aqui se guardan los datos despues de realizar el execute
-		$stmt->execute(array('correo'=>$username ,'universidad_id'=>$id_universidad, 'anio'=>$anio));
+			$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO) VALUES( :correo,:universidad_id,:anio)');//aqui se guardan los datos despues de realizar el execute
+			$stmt->execute(array('correo'=>$username ,'universidad_id'=>$id_universidad, 'anio'=>$anio));
 
 
 
 		}else{
 			echo "Si hay formulario<br>";
-
 		}
 
 		$stmt = $conn->prepare('SELECT id FROM formulario WHERE UNIVERSIDAD_ID = :universidad_id AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
@@ -146,11 +109,44 @@ session_start();
 
 		if(!$data[0]){ // si no hay hacemos INSERT
 			echo "no hay formulario completado anteriormente de rh_ach<br>";
-			$stmt = $conn->prepare("INSERT INTO `rh_ach`(`RH_ACH_I_RC`, `RH_ACH_II_I_G`, `RH_ACH_II_II_G`, `RH_ACH_II_III_G`, `RH_ACH_II_IV_G`, `RH_ACH_III_RC`, `RH_ACH_IV_G`, `RH_ACH_V_G`, `RH_ACH_VI_G`, `RH_ACH_VII_G`, `RH_ACH_VIII_G`, `FORMULARIO_ID`)
-																				VALUES (:consumoPC ,:nPozos ,:nNacientes ,:nRios ,:nHidrometros ,:consumoAgua ,:analisisCalidad,:planAhorro ,:planManejo ,:permisoExplotacion ,:planMantenimiento ,:formulario_id )");//aqui se guardan los datos despues de realizar el execute
-			$stmt->execute(array('consumoPC'=>$consumoPC,'nPozos'=>$nPozos,'nNacientes'=>$nNacientes,'nRios'=>$nRios,'nHidrometros'=>$nHidrometros,'consumoAgua'=>$consumoAgua,'analisisCalidad'=>$analisisCalidad,'planAhorro'=>$planAhorro,'planManejo'=>$planManejo,'permisoExplotacion'=>$permisoExplotacion,'planMantenimiento'=>$planMantenimiento, 'formulario_id'=>$id_formulario));
+			$stmt = $conn->prepare("INSERT INTO `rh_ach`(`RH_ACH_I_RC`,
+																									 `RH_ACH_II_I_G`,
+																									 `RH_ACH_II_II_G`,
+																									 `RH_ACH_II_III_G`,
+																									 `RH_ACH_II_IV_G`,
+																									 `RH_ACH_III_RC`,
+																									 `RH_ACH_IV_G`,
+																									 `RH_ACH_V_G`,
+																									 `RH_ACH_VI_G`,
+																									 `RH_ACH_VII_G`,
+																									 `RH_ACH_VIII_G`,
+																									 `FORMULARIO_ID`)
+																				VALUES (:consumoPC ,
+																								:nPozos ,
+																								:nNacientes ,
+																								:nRios ,
+																								:nHidrometros ,
+																								:consumoAgua ,
+																								:analisisCalidad,
+																								:planAhorro ,
+																								:planManejo ,
+																								:permisoExplotacion ,
+																								:planMantenimiento ,
+																								:formulario_id)");//aqui se guardan los datos despues de realizar el execute
+			$stmt->execute(array(	'consumoPC'=>$consumoPC,
+														'nPozos'=>$nPozos,
+														'nNacientes'=>$nNacientes,
+														'nRios'=>$nRios,
+														'nHidrometros'=>$nHidrometros,
+														'consumoAgua'=>$consumoAgua,
+														'analisisCalidad'=>$analisisCalidad,
+														'planAhorro'=>$planAhorro,
+														'planManejo'=>$planManejo,
+														'permisoExplotacion'=>$permisoExplotacion,
+														'planMantenimiento'=>$planMantenimiento,
+														'formulario_id'=>$id_formulario));
 
-			header('location: ../../RH_ACH.php');
+
 
 			//$result = mysql_query($query) or die("Problemas al realizar la consulta ".mysql_error());
 
@@ -158,13 +154,77 @@ session_start();
 		else{// si ya existe un formulario hacemos un UPDATE
 			echo "ya hay formulario completado anteriormente de rh_ach<br>";
 			$stmt = $conn->prepare("UPDATE `rh_ach`
-															SET (`RH_ACH_I_RC`= :consumoPC,`RH_ACH_II_I_G`= :nPozos,`RH_ACH_II_II_G`= :nNacientes,`RH_ACH_II_III_G`= :nRios,`RH_ACH_II_IV_G`= :nHidrometros,`RH_ACH_III_RC`= :consumoAgua,`RH_ACH_IV_G`= :analisisCalidad,`RH_ACH_V_G`= :planAhorro,`RH_ACH_VI_G`= :planManejo,`RH_ACH_VII_G`= :permisoExplotacion,`RH_ACH_VIII_G`= :planMantenimiento)
+															SET 	`RH_ACH_I_RC`= :consumoPC,
+																		`RH_ACH_II_I_G`= :nPozos,
+																		`RH_ACH_II_II_G`= :nNacientes,
+																		`RH_ACH_II_III_G`= :nRios,
+																		`RH_ACH_II_IV_G`= :nHidrometros,
+																		`RH_ACH_III_RC`= :consumoAgua,
+																		`RH_ACH_IV_G`= :analisisCalidad,
+																		`RH_ACH_V_G`= :planAhorro,
+																		`RH_ACH_VI_G`= :planManejo,
+																		`RH_ACH_VII_G`= :permisoExplotacion,
+																		`RH_ACH_VIII_G`= :planMantenimiento
 															WHERE `FORMULARIO_ID`= :formulario_id");
-			$stmt->execute(array('consumoPC'=>$consumoPC,'nPozos'=>$nPozos,'nNacientes'=>$nNacientes,'nRios'=>$nRios,'nHidrometros'=>$nHidrometros,'consumoAgua'=>$consumoAgua,'analisisCalidad'=>$analisisCalidad,'planAhorro'=>$planAhorro,'planManejo'=>$planManejo,'permisoExplotacion'=>$permisoExplotacion,'planMantenimiento'=>$planMantenimiento));
+			$stmt->execute(array(	'consumoPC'=>$consumoPC,
+														'nPozos'=>$nPozos,
+														'nNacientes'=>$nNacientes,
+														'nRios'=>$nRios,
+														'nHidrometros'=>$nHidrometros,
+														'consumoAgua'=>$consumoAgua,
+														'analisisCalidad'=>$analisisCalidad,
+														'planAhorro'=>$planAhorro,
+														'planManejo'=>$planManejo,
+														'permisoExplotacion'=>$permisoExplotacion,
+														'planMantenimiento'=>$planMantenimiento,
+														'formulario_id' =>$formulario_id));
+
+			if($stmt == true){
+				echo "consulta ejecutada correctamente<br>";
+			}
+			else{
+				echo "consulta incorrecta<br>";
+				echo $stmt;
+			}
 
 		}
+
 	}
 	catch(PDOException $excp){
 		echo 'error: ' . $excp->getMessage();
+	}
+
+
+	function normalizar_input($input){
+
+		if( $input== "N/D"){
+			return -1;
+		}
+		else{
+			if($input == "N/A"){
+				return -2;
+			}
+			else{
+				return $input;
+			}
+		}
+	}
+
+	function  normalizar_si_no($radio){
+
+		if($radio == "Sí"){
+			return  1;
+		}else{
+			if($radio == "No"){
+				return  0;
+			}else{
+				if($radio == "N/D"){
+					return -1;
+				}
+				else{
+					return -2;
+				}
+			}
+		}
 	}
 ?>

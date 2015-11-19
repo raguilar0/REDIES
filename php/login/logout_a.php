@@ -7,12 +7,15 @@
 <body>
 
 <?php
+
+    //header('Location: http://localhost/REDIES/login.html');
     // remove all session variables
     session_unset();
 
     // destroy the session
     session_destroy();
-    header('Location: localhost/REDIES/login.html');
+
+    echo "<script>window.location = '../../login.html' </script>";
 
 ?>
 
