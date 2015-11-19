@@ -13,7 +13,46 @@
 
   </head>
 
-  <body ng-app="formApp">
+<script> 
+      function cargar() {
+      	//faltan muchas varas... por ejemplo ver si la consulta devuelve vacio...
+          $.ajax({     
+             type: 'post',                                 
+             url: 'php/formularios/GRE_Load.php',                   
+             data: {idq: "", param: ""},             
+                                        
+            dataType: 'json',                   
+            success: function(data)  {
+              
+              if(data[0] == 1){
+              	document.getElementById("GRE_Q1_Si").checked = true;	
+              }else{
+              	if(data[0] == 0){
+              		document.getElementById("GRE_Q1_No").checked = true;	
+              	}else{
+              		if(data[0] == -1){
+              			document.getElementById("GRE_Q1_ND").checked = true;	
+              		}
+              	}
+
+              }
+
+              document.getElementById("GRE_Q2.1").value  = data[1];
+              document.getElementById("GRE_kwhAnioPersona").value  = data[2];
+              document.getElementById("GRE_MetaReduccion").value  = data[3];
+              document.getElementById("GRE_Q4").value  = data[4];
+              document.getElementById("GRE_Q5").value  = data[5];
+              //alert(data[0]+data[1]+data[2]);          
+
+            } 
+
+          });
+      }
+    </script>
+
+
+
+  <body ng-app="formApp" onload="cargar()">
 
 	<div class="container-fluid">
 	<!-- fila -->
@@ -33,7 +72,7 @@
 	    Gestión del recurso energético
 	    </H3>
 
-	    <form name="form" role="form" ng-controller="MainCtrl" action="php/formularios/GRE.php" method="post">
+	    <form name="form" role="form" ng-controller="MainCtrl" action="php/formularios/GRE_Load.php" method="post">
 	    	<div class="form-group">
 				<label for="GRE_Q1">
 					¿Conforman comité para la gestión del recurso energético?
@@ -42,19 +81,19 @@
 				<div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.comite.$error.required || !formData.comite }">
 					<div class="radio-inline">
 					  <label>
-						<input type="radio" name="comite" value="Sí" ng-model="formData.comite" required>
+						<input id="GRE_Q1_Si" type="radio" name="comite" value="Sí" ng-model="formData.comite" required>
 						Sí
 					  </label>
 					</div>
 					<div class="radio-inline">
 					  <label>
-						<input type="radio" name="comite" value="No" ng-model="formData.comite" >
+						<input id="GRE_Q1_No" type="radio" name="comite" value="No" ng-model="formData.comite" >
 						No
 					  </label>
 					</div>
           <div class="radio-inline">
 					  <label>
-						<input type="radio" name="comite" value="N/D" ng-model="formData.comite" >
+						<input id="GRE_Q1_ND" type="radio" name="comite" value="N/D" ng-model="formData.comite" >
 						N/D
 					  </label>
 					</div>
