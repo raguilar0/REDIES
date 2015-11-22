@@ -73,21 +73,15 @@ include("../conexion/conexion.php");
 		$ConPap = -1;
 	}
 	
-	if( $ComVer == "Sí")
-	{ 
-		$ComVer = $_POST['numeroCarteles'];
-	}
-	else
-	{
-		if($ComVer == "No")
+	if($ComVer == "No")
 		{
 			$ComVer = 0;
 		}
-		else
+		else if (ComVer == "N/D")
 		{
 			$ComVer = -1;
 		}
-	}
+	
 	
 	if( $ComGesAmb == "Sí")
 	{ 
@@ -189,7 +183,7 @@ include("../conexion/conexion.php");
 		}
 		else{// si ya existe un formulario hacemos un UPDATE
 		
-			echo "hay formulario completado anteriormente de rh_ach<br>";
+			echo "hay formulario completado anteriormente de gr<br>";
 			$stmt = $conn->prepare("UPDATE `gr` 
 									SET `GR_I_G`=:PolGesAmb,
 										`GR_II_G`=:PlaGesAmb,
@@ -199,7 +193,14 @@ include("../conexion/conexion.php");
 										`GR_VI_G`=:ComVer,
 										`GR_VII_G`=:ComGesAmb
 									WHERE `FORMULARIO_ID` = :formulario_id");//aqui se guardan los datos despues de realizar el execute
-			$stmt->execute(array('PolGesAmb'=>$PolGesAmb,'PlaGesAmb'=>$PlaGesAmb,'NivPar'=>$NivPar,'IniAmb'=>$IniAmb,'ConPap'=>$ConPap,'ComVer'=>$ComVer,'ComGesAmb'=>$ComGesAmb,'formulario_id'=>$id_formulario));
+			$stmt->execute(array(	'PolGesAmb'=>$PolGesAmb,
+									'PlaGesAmb'=>$PlaGesAmb,
+									'NivPar'=>$NivPar,
+									'IniAmb'=>$IniAmb,
+									'ConPap'=>$ConPap,
+									'ComVer'=>$ComVer,
+									'ComGesAmb'=>$ComGesAmb,
+									'formulario_id'=>$id_formulario));
 
 		}
 	}

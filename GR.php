@@ -13,6 +13,7 @@
   <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
 
 
+
 </head>
 
 <body ng-app="formApp">
@@ -194,63 +195,68 @@
             </div>
           </div>
 
+		  
+		  
+		  
+		  
+		  
+		  
+		            <div class="form-group">
 
-          <div class="form-group" >
-            <label for="GR_Q6"> <!--si responde afirmativo tiene que aparecer un indicar Meta:  con el % reducción (GRE_III_G  DOUBLE)-->
+            <label for="GR_Q6">
               ¿Existen programas de compras verdes?
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido). Si la respuesta es sí, indique la cantidad de carteles"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
             </label>
-            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.ComprasVerdes.$error.required || !formData.ComprasVerdes}">
-              <div class="radio-inline">
-                <label>
-                  <input 	type="radio"
-                  name="ComprasVerdes"
-                  value="Sí"
-                  onclick="mostrar()"
-                  ng-model="formData.ComprasVerdes" required>
-                  Sí
-                </label>
-              </div>
-              <div class="radio-inline">
-                <label>
-                  <input 	type="radio"
-                  name="ComprasVerdes"
-                  value="No"
-                  onclick="ocultar()"
-                  ng-model="formData.ComprasVerdes" >
-                  No
-                </label>
-              </div>
-              <div class="radio-inline">
-                <label>
-                  <input 	type="radio"
-                  name="ComprasVerdes"
-                  value="N/D"
-                  onclick="ocultar()"
-                  ng-model="formData.ComprasVerdes" >
-                  N/D
-                </label>
-              </div>
-            </div>
 
-            <div id = "oculto" style='display:none;'>
-              <label>
-                Indique número de carteles con inclusión de criterios ambientales:
-              </label>
-
-              <div class="input-group col-md-4 has-success">
-                <input 	type="number"
-                class="form-control"
-                name="numeroCarteles"
-                id="GRE_MetaReduccion"
-                min="0"
-                ng-model="formData.numeroCarteles" >
-                <div class="input-group-addon">carteles</div>
-              </div>
+            <div class="form-group has-success" ng-class="{ 'has-error' : form.ComprasVerdes.$invalid}">
+              <div class="input-group col-md-4" >
+                  <label class="radio-inline">
+                    <input  type="radio" name="ComprasVerdes" id="emisionesRadio1"
+                            value="Sí"
+                            ng-model="formData.ComprasVerdes"
+                            onchange="validacionSINO(type, 'GR_Q6', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                    > Sí
+                  </label>
+                  <label class="radio-inline">
+                    <input  type="radio" name="ComprasVerdes" id="emisionesRadio2"
+                            value="No"
+                            ng-model="formData.ComprasVerdes"
+                            onchange="validacionSINO(type, 'GR_Q6', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                    > No
+                  </label>
+                  <label class="radio-inline">
+                    <input  type="radio" name="ComprasVerdes" id="emisionesRadio3"
+                            value="N/D"
+                            ng-model="formData.ComprasVerdes"
+                            onchange="validacionSINO(type, 'GR_Q6', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                    > N/D
+                  </label>
+                </div>
+                <div   class="form-group"><!---->
+                <label> Ingrese la cantidad de toneladas de CO<sub>2</sub> por año </label>
+                  <div class="input-group col-md-4">
+                    <input  type="text" class="form-control"
+                            name="ComprasVerdes" id="GR_Q6"
+                            ng-model="formData.ComprasVerdes"
+                            onchange="validacionSINO(type, 'GR_Q6', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
+                            required pattern="[0-9]+$|[0-9]+,[0-9]+$|^No$|^N\/D$"
+                    />
+                    <span class="input-group-addon">toneladas de CO<sub>2</sub></span>
+                    <span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese las toneladas de CO2 emitidas al año"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
+                  </div>
+                </div>
             </div>
           </div>
+		  
 
 
+
+		  
+		  
+		  
+		  
+		  
+		  
+		  
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.ComisionGestionAmbiental.$error.required || !formData.ComisionGestionAmbiental }">
             <label for="GR_Q7">
               ¿Existe comision de gestión ambiental?
@@ -299,10 +305,11 @@
     </div>
   </div>
   <script src="js/app.js"></script>
+  
     </body>
 
     <footer>
-      <?php virtual ("footer.html");?>
+      <!--#include file="footer.html" -->
     </footer>
 
     </html>
