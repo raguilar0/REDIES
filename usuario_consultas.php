@@ -10,10 +10,11 @@
 
 		<meta name="description" content="Usuario - Consultas Sobre Indicadores">
 		<meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
+		<script src = "js/app.js"></script>
 
 	</head>
 
-<body ng-app="formApp">
+<body ng-app="formApp" ng-controller="GetIndicadores">
 
 	<div class="container-fluid">
 	<div class="row">
@@ -22,7 +23,7 @@
 			Consultas sobre indicadores
 			</h3>
 
-		<form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/representante/usuario_consultas_con.php" >
+		<form name="form" role="form"> <!--method="post" action="php/representante/usuario_consultas_con.php"-->
 			<div class="form-group">
 				<label for="AD_C1">
 					Tipo de búsqueda
@@ -139,7 +140,7 @@
 			</div>
 
 			<div class="form-group col-md-4">
-					<button type="submit" class="btn btn-success btn-block" id="boton_areas" style='display:none;' > <!--onclick="mostrarAreasSeleccionadas()"-->
+					<button type="submit" class="btn btn-success btn-block" id="boton_areas" style='display:none;' ng-click="" onclick="mostrarAreasSeleccionadas()">
 					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 						Mostrar Tabla
 					</button>
@@ -153,6 +154,12 @@
 
 			<div name="resultado">
 				<div class="form-group" name="resultado">
+					<div id="tablas_areas_prueba">
+						<tr class="success" ng-repeat= "indicador in indicadores">
+							<td>{{indicador.CN_I_RS}}</td>
+						</tr>
+					<div>
+
 				<div id="tablas_areas" style='display:none;'>
 					<div  id="table_CN" style='display:none;'>
 						<h4>Carbono neutralidad</h4>
@@ -173,7 +180,7 @@
 			                </tr>
 			                <tr>
 			                    <td>2014</td>
-			                    <td>Si</td>
+			                    <td>{{indicador.CN_I_RS}}</td>
 			                    <td>2</td>
 			                    <td>200</td>
 			                    <td>150</td>
@@ -715,4 +722,5 @@
 
 					</script>
 					<?php virtual ("footer.html");?>
+
 </html>

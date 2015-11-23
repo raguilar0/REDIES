@@ -1,5 +1,5 @@
 
-var app = angular.module('formApp', [])
+var app = angular.module('formApp', []);
 
 app.controller('MainCtrl', function ($scope) {
   $scope.formData = {};
@@ -9,6 +9,19 @@ app.controller('MainCtrl', function ($scope) {
   };
 
 });
+
+app.controller('GetIndicadores', function GetIndicadores($scope, $http) {
+
+    // this is where the JSON is consumed
+    $http.get("../php/representante/usuario_consultas_con.php").
+        success(function(data) {
+            // here the data from the api is assigned to a variable named users
+            $scope.indicadores = data;
+          });
+});
+
+
+
 
 function validacionNDNA(tipo, input, na, nd) {
   if (tipo == "radio"){

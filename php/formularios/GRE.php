@@ -6,7 +6,7 @@ session_start();
 
 function normalizar_input($input){
 
-		if( $input== "N/D"){ 
+		if( $input== "N/D"){
 			return -1;
 		}
 		else{
@@ -16,7 +16,7 @@ function normalizar_input($input){
 	}
 
 	function  normalizar_si_no($radio){
-		
+
 		if($radio == "Sí"){
 			return  1;
 		}else{
@@ -41,7 +41,7 @@ function normalizar_input($input){
 				return -2;
 			}else{
 				return $radio;
-			}	
+			}
 		}
 	}
 }
@@ -65,7 +65,7 @@ function normalizar_input($input){
 
 		// CODE...
 		//Conexion con la base de datos
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// año del formulario no se ha cambiado a formato propuesto por Luis
@@ -77,8 +77,8 @@ function normalizar_input($input){
 
 
 		//Se consulta para ver la existencia de algun formulario de esa u en este año.
-		$stmt = $conn->prepare('SELECT id 
-								FROM formulario 
+		$stmt = $conn->prepare('SELECT id
+								FROM formulario
 								WHERE UNIVERSIDAD_ID = :universidad_id AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
 
@@ -86,19 +86,19 @@ function normalizar_input($input){
 
 		if(!$data[0]){ // Si no hay un formulario se crea uno nuevo para dicha u en el para el año del formulario
 			echo "no hay formulario<br>";
-		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO) 
+		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO)
 								VALUES( :correo,:universidad_id,:anio)');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('correo'=>$username ,'universidad_id'=>$id_universidad, 'anio'=>$anio));
 
-		
+
 
 		}else{
 			echo "Si hay formulario<br>";
 
 		}
 
-		$stmt = $conn->prepare('SELECT id 
-								FROM formulario 
+		$stmt = $conn->prepare('SELECT id
+								FROM formulario
 								WHERE UNIVERSIDAD_ID = :universidad_id AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
 
@@ -118,12 +118,12 @@ function normalizar_input($input){
 		$meta = $_POST['metac']; //GRE_III_G
 		$controlConsumo = $_POST['controlConsumo']; //GRE_IV_G
 		$consumoTotal = $_POST['consumoTotal']; //GRE_V_RC
-	
+
 	//Normalizar
 
-		$comite = normalizar_si_no($comite); 
-		$medidores = normalizar_input($medidores); 
-		$consumoElectrico = normalizar_input($consumoElectrico); 
+		$comite = normalizar_si_no($comite);
+		$medidores = normalizar_input($medidores);
+		$consumoElectrico = normalizar_input($consumoElectrico);
 		$meta = normalizar_no_na_nd($meta);
 		$controlConsumo = normalizar_input($controlConsumo);
 		$consumoTotal = normalizar_input($consumoTotal);
@@ -138,15 +138,15 @@ function normalizar_input($input){
 
 	//Verificamos si hay que hacer un update o un insert
 
-		$stmt = $conn->prepare('SELECT FORMULARIO_ID 
-								FROM gre 
+		$stmt = $conn->prepare('SELECT FORMULARIO_ID
+								FROM gre
 								WHERE FORMULARIO_ID = :id_formulario');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('id_formulario'=>$id_formulario));
 		$data = $stmt->fetch();
 
 		if(!$data[0]){ // si no hay hacemos INSERT
 			echo "no hay formulario completado anteriormente de gre<br>";
-			$stmt = $conn->prepare("INSERT INTO `gre`(`GRE_I_G`, `GRE_II_I_RC`, `GRE_II_II_RC`, `GRE_III_G`, `GRE_IV_G`, `GRE_V_RC`, `FORMULARIO_ID`) 
+			$stmt = $conn->prepare("INSERT INTO `gre`(`GRE_I_G`, `GRE_II_I_RC`, `GRE_II_II_RC`, `GRE_III_G`, `GRE_IV_G`, `GRE_V_RC`, `FORMULARIO_ID`)
 									VALUES (:comite ,:medidores ,:consumoElectrico ,:meta ,:controlConsumo ,:consumoTotal ,:formulario_id )");//aqui se guardan los datos despues de realizar el execute
 			$stmt->execute(array('comite'=>$comite,'medidores'=>$medidores,'consumoElectrico'=>$consumoElectrico,'meta'=>$meta,'controlConsumo'=>$controlConsumo,'consumoTotal'=>$consumoTotal,'formulario_id'=>$id_formulario));
 
@@ -155,7 +155,7 @@ function normalizar_input($input){
 
 			echo "hay formulario completado anteriormente de gre<br>";
 			$stmt = $conn->prepare(
-					"UPDATE `gre` 
+					"UPDATE `gre`
 					SET `GRE_I_G`=:comite,`GRE_II_I_RC`=:medidores,`GRE_II_II_RC`=:consumoElectrico,`GRE_III_G`=:meta,`GRE_IV_G`=:controlConsumo,`GRE_V_RC`=:consumoTotal
 					WHERE `FORMULARIO_ID` = :formulario_id"
 					);//aqui se guardan los datos despues de realizar el execute

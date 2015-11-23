@@ -7,7 +7,7 @@ session_start();
 	try{
 		include("../conexion/conexion.php");
 
-		echo "consultas de usuario";
+	//	echo "consultas de usuario";
 		$m_con= mysql_connect($host,$username,$pw) or die ("Problemas al conectar con el servidor");
 		mysql_select_db($db,$m_con) or die("Problemas al conectar la base de datos");
 
@@ -19,20 +19,38 @@ session_start();
 
 
 
-    echo "<br>Ano inicio: ".$anio_inicio;
+    /*echo "<br>Ano inicio: ".$anio_inicio;
     echo "<br>Ano fin: ".$anio_fin;
 
 
 		echo "Id de la universidad ".$id_universidad."<br>";
 		echo "Correo del usuario ".$username."<br>";
-
+*/
 		//Conexion con la base de datos
 		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
+		$anio_inicio = 2014;
+		$anio_fin = 2014;
 
-		if ($_POST['busqueda_areas'] == 'areas')	{
+		$query = "SELECT *
+							FROM cn
+							WHERE FORMULARIO_ID
+							IN( SELECT ID
+									FROM formulario
+									WHERE ANHO >= :anio_inicio AND ANHO <= :anio_fin AND UNIVERSIDAD_ID = :universidad_id)";
+
+	 $stmt = $conn->prepare($query);
+	 $stmt->execute(array('universidad_id'=>$id_universidad, 'anio_inicio'=>$anio_inicio, 'anio_fin'=>$anio_fin));
+	 $row = $stmt->fetchAll( PDO::FETCH_ASSOC );
+
+	 $json = json_encode($row);
+
+	 echo $json;
+
+
+		/*if ($_POST['busqueda_areas'] == 'areas')	{
       echo "Seleccione areas<br>";
       $area_seleccionada = $_POST['usuario_consulta_area'];
       $anio_inicio = $_POST["anio_inicio"];
@@ -50,10 +68,13 @@ session_start();
 
                  $stmt = $conn->prepare($query);
                  $stmt->execute(array('universidad_id'=>$id_universidad, 'anio_inicio'=>$anio_inicio, 'anio_fin'=>$anio_fin));
-                 $row = $stmt->fetch();
-                 echo json_encode($row);
+                 $row = $stmt->fetchAll( PDO::FETCH_ASSOC );
 
-                 echo $row[0]."<br>";
+								 $json = json_encode($row);
+
+								 echo $json;
+
+
 
         break;
         case "GR":
@@ -160,6 +181,7 @@ session_start();
       }
 
     }
+		*/
   }
   catch(PDOException $excp){
     echo 'error: ' . $excp->getMessage();

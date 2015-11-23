@@ -28,7 +28,7 @@
 	function mostrarAreas(){
 		document.getElementById('combobox_usuario_consulta_area').style.display = 'inline-block';
 		document.getElementById('boton_areas').style.display = 'inline-block';
-		document.getElementById('boton_tipos').style.display = 'none';
+		document.getElementById('boton_csv').style.display = 'inline-block';
 		document.getElementById('combobox_consulta_tipo').style.display = 'none';
 		document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
 		document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
@@ -54,7 +54,7 @@
 	function mostrarTipos(){
 		document.getElementById('combobox_usuario_consulta_area').style.display = 'none';
 		document.getElementById('boton_areas').style.display = 'none';
-		document.getElementById('boton_tipos').style.display = 'inline-block';
+		document.getElementById('boton_csv').style.display = 'inline-block';
 		document.getElementById('combobox_consulta_tipo').style.display = 'inline-block';
 		document.getElementById('checkbox_areas_personalizadas').style.display = 'none';
 		document.getElementById('checkbox_tipos_personalizados').style.display = 'none';
@@ -387,9 +387,9 @@
 							Mostrar Tabla
 						</button>
 
-						<button type="submit" class="btn btn-success btn-block" id="boton_tipos" style='display:none;' onclick="mostrarTiposSeleccionados()">
+						<button type="submit" class="btn btn-success btn-block" id="boton_csv" style='display:none;' onclick="mostrarTiposSeleccionados()">
 							<span class="glyphicon glyphicon-list-alt" aria-hidden="true" ></span>
-							Mostrar Tabla
+							Descargar CSV
 						</button>
 					</div>
 

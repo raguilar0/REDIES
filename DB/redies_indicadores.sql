@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 19-11-2015 a las 08:34:08
+-- Tiempo de generación: 19-11-2015 a las 22:50:16
 -- Versión del servidor: 5.5.42
 -- Versión de PHP: 5.5.26
 
@@ -235,6 +235,7 @@ CREATE TABLE `usuarios` (
   `NOMBRE` varchar(20) NOT NULL,
   `APELLIDO_I` varchar(20) NOT NULL,
   `APELLIDO_II` varchar(20) NOT NULL,
+  `TEL_USUARIO` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `PASS` varchar(100) NOT NULL,
   `ESTADO` tinyint(1) NOT NULL,
   `INTENTOS` tinyint(4) NOT NULL,
@@ -245,10 +246,10 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`UNIVERSIDAD_ID`, `CORREO`, `NOMBRE`, `APELLIDO_I`, `APELLIDO_II`, `PASS`, `ESTADO`, `INTENTOS`, `rol`) VALUES
-(3, 'ricardo.aguilar@redies.cr', 'Ricardo', 'Aguilar', '', 'dd5fef9c1c1da1394d6d34b248c51be2ad740840', 1, 0, 'administrador'),
-(2, 'jose.slon@redies.cr', 'Jose', 'Slon', 'Baltodano', '5f40e2a915f8c4033332fd3fd4cbb384143cc21d', 0, 0, 'representante'),
-(1, 'luis.mata@redies.cr', 'Luis ', 'Mata', 'Reyes', '99800b85d3383e3a2fb45eb7d0066a4879a9dad0', 0, 0, 'administrador');
+INSERT INTO `usuarios` (`UNIVERSIDAD_ID`, `CORREO`, `NOMBRE`, `APELLIDO_I`, `APELLIDO_II`, `TEL_USUARIO`, `PASS`, `ESTADO`, `INTENTOS`, `rol`) VALUES
+(3, 'ricardo.aguilar@redies.cr', 'Ricardo', 'Aguilar', '', NULL, 'dd5fef9c1c1da1394d6d34b248c51be2ad740840', 1, 0, 'administrador'),
+(2, 'jose.slon@redies.cr', 'Jose', 'Slon', 'Baltodano', NULL, '5f40e2a915f8c4033332fd3fd4cbb384143cc21d', 0, 0, 'representante'),
+(1, 'luis.mata@redies.cr', 'Luis ', 'Mata', 'Reyes', NULL, '99800b85d3383e3a2fb45eb7d0066a4879a9dad0', 0, 0, 'administrador');
 
 --
 -- Índices para tablas volcadas

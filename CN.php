@@ -255,7 +255,7 @@
             <label for="CN_Q5">
               ¿Posee plan de conservación y reforestación, compra de bonos certificados?
             </label>
-            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : form.certificados.$invalid || form.arbolesSembrados.$invalid}">
+            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine && (form.certificados.$invalid || form.arbolesSembrados.$invalid)}">
               <label class="radio-inline">
                 <input  type="radio" name="planConservacion" id="planConservacionRadio1"
                 value="Sí"

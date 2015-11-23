@@ -13,25 +13,25 @@
 
   </head>
 
-<script> 
+<script>
       function cargar() {
       	//faltan muchas varas... por ejemplo ver si la consulta devuelve vacio...
-          $.ajax({     
-             type: 'post',                                 
-             url: 'php/formularios/GRE_Load.php',                   
-             data: {idq: "", param: ""},             
-                                        
-            dataType: 'json',                   
+          $.ajax({
+             type: 'post',
+             url: 'php/formularios/GRE_Load.php',
+             data: {idq: "", param: ""},
+
+            dataType: 'json',
             success: function(data)  {
-              
+
               if(data[0] == 1){
-              	document.getElementById("GRE_Q1_Si").checked = true;	
+              	document.getElementById("GRE_Q1_Si").checked = true;
               }else{
               	if(data[0] == 0){
-              		document.getElementById("GRE_Q1_No").checked = true;	
+              		document.getElementById("GRE_Q1_No").checked = true;
               	}else{
               		if(data[0] == -1){
-              			document.getElementById("GRE_Q1_ND").checked = true;	
+              			document.getElementById("GRE_Q1_ND").checked = true;
               		}
               	}
 
@@ -42,9 +42,9 @@
               document.getElementById("GRE_MetaReduccion").value  = data[3];
               document.getElementById("GRE_Q4").value  = data[4];
               document.getElementById("GRE_Q5").value  = data[5];
-              //alert(data[0]+data[1]+data[2]);          
+              //alert(data[0]+data[1]+data[2]);
 
-            } 
+            }
 
           });
       }
@@ -72,7 +72,7 @@
 	    Gestión del recurso energético
 	    </H3>
 
-	    <form name="form" role="form" ng-controller="MainCtrl" action="php/formularios/GRE_Load.php" method="post">
+	    <form name="form" role="form" ng-controller="MainCtrl" action="php/formularios/GRE.php" method="post">
 	    	<div class="form-group">
 				<label for="GRE_Q1">
 					¿Conforman comité para la gestión del recurso energético?
