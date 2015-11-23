@@ -65,7 +65,8 @@ function normalizar_input($input){
 
 		// CODE...
 		//Conexion con la base de datos
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
+		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+		//$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// año del formulario no se ha cambiado a formato propuesto por Luis
@@ -168,4 +169,5 @@ function normalizar_input($input){
 		echo 'error: ' . $excp->getMessage();
 	}
 
+header('Location:../../GRE.php');
 ?>

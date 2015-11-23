@@ -23,27 +23,61 @@
 
             dataType: 'json',
             success: function(data)  {
+				if(data[0]){ //si hay algo procedo a llenar los campos 
+					if(data[0] == 1){ //Si
+						document.getElementById("GRE_Q1_Si").checked = true;	
+					}else{
+						if(data[0] == 0){ //No
+							document.getElementById("GRE_Q1_No").checked = true;	
+						}else{
+							if(data[0] == -1){ //ND
+								document.getElementById("GRE_Q1_ND").checked = true;	
+							}
+						}
 
-              if(data[0] == 1){
-              	document.getElementById("GRE_Q1_Si").checked = true;
-              }else{
-              	if(data[0] == 0){
-              		document.getElementById("GRE_Q1_No").checked = true;
-              	}else{
-              		if(data[0] == -1){
-              			document.getElementById("GRE_Q1_ND").checked = true;
-              		}
-              	}
+					}
 
-              }
+					if(data[1] == -1){ //seteo el option
+						document.getElementById("GRE_Q2.1").value  = "N/D";
+						document.getElementById("medidoresRadio1").checked = true;
+					}else{
+						document.getElementById("GRE_Q2.1").value  = data[1];
+					}
 
-              document.getElementById("GRE_Q2.1").value  = data[1];
-              document.getElementById("GRE_kwhAnioPersona").value  = data[2];
-              document.getElementById("GRE_MetaReduccion").value  = data[3];
-              document.getElementById("GRE_Q4").value  = data[4];
-              document.getElementById("GRE_Q5").value  = data[5];
-              //alert(data[0]+data[1]+data[2]);
+					if(data[2] == -1){ //seteo el option
+						document.getElementById("GRE_kwhAnioPersona").value  = "N/D";
+						document.getElementById("consumoElectricoRadio1").checked = true;
+					}else{
+						document.getElementById("GRE_kwhAnioPersona").value  = data[2];
+					}
 
+					if(data[3] == 0){ //No
+						document.getElementById("planReduccionConsumoNo").checked = true;	
+					}else{
+						if(data[3] == -1){ //ND
+							document.getElementById("planReduccionConsumoND").checked = true;	
+						}else{ //numero en meta
+							document.getElementById("planReduccionConsumoSi").checked = true;
+						}
+					}
+					document.getElementById("GRE_MetaReduccion").value  = data[3];
+
+					
+					if(data[4] == -1){ //seteo el option
+						document.getElementById("GRE_Q4").value  = "N/D";
+						document.getElementById("controlConsumoRadio1").checked = true;
+					}else{
+						document.getElementById("GRE_Q4").value  = data[4];
+					}
+
+					if(data[5] == -1){ //seteo el option
+						document.getElementById("GRE_Q5").value  = "N/D";
+						document.getElementById("consumoTotalRadio1").checked = true;
+					}else{
+						document.getElementById("GRE_Q5").value  = data[5];
+					}
+					//alert(data[0]+data[1]+data[2]);          
+	            }
             }
 
           });
@@ -149,19 +183,19 @@
 				<div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.planReduccionConsumo.$error.required || !formData.planReduccionConsumo }">
 					<div class="radio-inline">
 					  <label>
-						<input type="radio" name="planReduccionConsumo" value="Sí" onclick="mostrar()" ng-model="formData.planReduccionConsumo" required>
+						<input id="planReduccionConsumoSi" type="radio" name="planReduccionConsumo" value="Sí" onclick="mostrar()" ng-model="formData.planReduccionConsumo" required>
 						Sí
 					  </label>
 					</div>
 					<div class="radio-inline">
 					  <label>
-						<input type="radio" name="planReduccionConsumo" value="No" onclick="ocultar()" ng-model="formData.planReduccionConsumo" >
+						<input id="planReduccionConsumoNo" type="radio" name="planReduccionConsumo" value="No" onclick="ocultar()" ng-model="formData.planReduccionConsumo" >
 						No
 					  </label>
 					</div>
           <div class="radio-inline">
 					  <label>
-						<input type="radio" name="planReduccionConsumo" value="N/D" ng-model="formData.planReduccionConsumo" >
+						<input id="planReduccionConsumoND" type="radio" name="planReduccionConsumo" value="N/D" ng-model="formData.planReduccionConsumo" >
 						N/D
 					  </label>
 					</div>
