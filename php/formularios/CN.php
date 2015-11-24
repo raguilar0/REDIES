@@ -178,5 +178,5 @@ try{
 		echo 'error: ' . $excp->getMessage();
 	}
 
-
+header('Location:../../CN.php');
 ?>

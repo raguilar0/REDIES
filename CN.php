@@ -13,7 +13,132 @@
 
 
 </head>
-<body ng-app="formApp">
+
+<script>
+      function cargar() {
+        //faltan muchas varas... por ejemplo ver si la consulta devuelve vacio...
+          $.ajax({
+             type: 'post',
+             url: 'php/formularios/CN_Load.php',
+             data: {idq: "", param: ""},
+
+            dataType: 'json',
+            success: function(data)  {
+        if(data[0]){ //si hay algo procedo a llenar los campos
+          if(data[0] == 0){ //No
+            document.getElementById("emisionesRadio2").checked = true;
+            document.getElementById("CN_Q1").value = "No";
+          }else{
+            if(data[0] == -1){ //ND
+              document.getElementById("emisionesRadio3").checked = true;
+              document.getElementById("CN_Q1").value = "N/D";
+            }else{
+              document.getElementById("emisionesRadio1").checked = true;
+              document.getElementById("CN_Q1").value = data[0];
+            }
+          }
+
+          
+//Gasolina
+          if(data[1] == -1){ //seteo el option
+            document.getElementById("CN_Q2.1").value  = "N/D";
+            document.getElementById("gasolinaRadio2").checked = true;
+          }else{
+            if(data[1] == -2){
+              document.getElementById("CN_Q2.1").value  = "N/A";
+              document.getElementById("gasolinaRadio1").checked = true;
+            }else{
+              document.getElementById("CN_Q2.1").value  = data[1];
+            }
+          }
+
+//Diesel          
+        if(data[2] == -1){ //seteo el option
+            document.getElementById("CN_Q2.2").value  = "N/D";
+            document.getElementById("dieselRadio2").checked = true;
+          }else{
+            if(data[2] == -2){
+              document.getElementById("CN_Q2.2").value  = "N/A";
+              document.getElementById("dieselRadio1").checked = true;
+            }else{
+              document.getElementById("CN_Q2.2").value  = data[2];
+            }
+          }  
+
+//Gas LPG
+        if(data[3] == -1){ //seteo el option
+            document.getElementById("CN_Q2.3").value  = "N/D";
+            document.getElementById("gasRadio2").checked = true;
+          }else{
+            if(data[3] == -2){
+              document.getElementById("CN_Q2.3").value  = "N/A";
+              document.getElementById("gasRadio1").checked = true;
+            }else{
+              document.getElementById("CN_Q2.3").value  = data[3];
+            }
+          } 
+
+//Otros Combustibles
+        if(data[4] == -1){ //seteo el option
+            document.getElementById("CN_Q2.4").value  = "N/D";
+            document.getElementById("otrosRadio1").checked = true;
+          }else{
+            if(data[4] == -2){
+              document.getElementById("CN_Q2.4").value  = "N/A";
+              document.getElementById("otrosRadio1").checked = true;
+            }else{
+              document.getElementById("CN_Q2.4").value  = data[4];
+            }
+          } 
+
+//consumo de refrigerantes
+        if(data[8] == -1){ //seteo el option
+            document.getElementById("CN_Q3").value  = "N/D";
+            document.getElementById("consumoRefRadio1").checked = true;
+          }else{
+            document.getElementById("CN_Q3").value  = data[8];
+          }
+
+//emisiones de gases de efecto invernadero
+          if(data[5] == 0){ //No
+            document.getElementById("planReduccionEmisionesRadio2").checked = true;
+            document.getElementById("CN_Q4").value = "No";
+          }else{
+            if(data[5] == -1){ //ND
+              document.getElementById("planReduccionEmisionesRadio3").checked = true;
+              document.getElementById("CN_Q4").value = "N/D";
+            }else{
+              document.getElementById("planReduccionEmisionesRadio1").checked = true;
+              document.getElementById("CN_Q4").value = data[5];
+            }
+          }
+
+//Arboles Sembrados y Certificados
+          if(data[6] == 0 && data[7] == 0){ //No
+            document.getElementById("planConservacionRadio2").checked = true;
+            document.getElementById("CN_Q5.1").value = "No";
+            document.getElementById("CN_Q5.2").value = "No";
+          }else{
+            if(data[6] == -1 && data[7] == -1){ //ND
+              document.getElementById("planConservacionRadio3").checked = true;
+              document.getElementById("CN_Q5.1").value = "N/D";
+              document.getElementById("CN_Q5.2").value = "N/D";              
+            }else{ //Si
+              document.getElementById("planConservacionRadio1").checked = true;
+              document.getElementById("CN_Q5.1").value = data[6];
+              document.getElementById("CN_Q5.2").value = data[7];
+
+            }
+          }
+          //alert(data[0]+data[1]+data[2]);
+        }
+            }
+          
+        });
+      }
+</script>
+
+<body ng-app="formApp" onload="cargar()">
 
   <div class="container-fluid">
 
