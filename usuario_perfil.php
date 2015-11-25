@@ -33,7 +33,7 @@
 
         <H3> Perfil de usuario</H3>
 
-        <form name="formulario_UP" role="form" ng-controller="MainCtrl" action="php/formularios/usuario_perfil.php">
+        <form name="formulario_UP" role="form" ng-controller="MainCtrl" method="post" action="php/formularios/usuario_perfil.php">
 
         <div class="form-group">
             <label>
@@ -43,10 +43,12 @@
 
             <div class="input-group col-md-4 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.nombre.$error.required}">
                     <div class="input-group-addon">
-                    Nombre </div>
+                    Nombre 
+					</div>
 
                     <input  type="text" 
 							class="form-control"
+							id="q1"
                             name="nombre"
                             ng-model="formData.nombre" 
 							required>
@@ -120,6 +122,7 @@
 							class="form-control"
                             name="telefono" 
 							ng-model="formData.telefono" 
+							
 							required>
             </div>
               

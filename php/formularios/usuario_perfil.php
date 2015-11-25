@@ -39,8 +39,8 @@ include("../conexion/conexion.php");
 									SET `NOMBRE`=:nom,
 										`APELLIDO_I`=:ap1,
 										`APELLIDO_II`=:ap2,
-										`tel`=tel,
-										`cel`=cel
+										`tel`=:tel,
+										`cel`=:cel
 									WHERE `CORREO` = :cor");//aqui se guardan los datos despues de realizar el execute
 									
 									
@@ -49,7 +49,7 @@ include("../conexion/conexion.php");
 									'ap2'=>$ap2,
 									'tel'=>$tel,
 									'cel'=>$cel,
-									'cor'=>$username,));
+									'cor'=>$username));
 
 		}
 	catch(PDOException $excp){
