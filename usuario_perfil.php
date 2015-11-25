@@ -33,7 +33,7 @@
 
         <H3> Perfil de usuario</H3>
 
-        <form name="formulario_UP" role="form" ng-controller="MainCtrl">
+        <form name="formulario_UP" role="form" ng-controller="MainCtrl" action="php/formularios/usuario_perfil.php">
 
         <div class="form-group">
             <label>
@@ -45,72 +45,102 @@
                     <div class="input-group-addon">
                     Nombre </div>
 
-                    <input  type="text" class="form-control"
+                    <input  type="text" 
+							class="form-control"
                             name="nombre"
-                            ng-model="formData.nombre" required>
+                            ng-model="formData.nombre" 
+							required>
             </div>
 
-            <span ng-show="!formulario_UP.$pristine && formulario_UP.nombre.$error.required" class="help-block">Ingrese su nombre</span>
+        </div>
+		
+		 <div class="form-group">
+
+        <div class="casilla">
+            <div class="input-group col-md-4 col-sm-12 col-xs-12 has-success">
+                    <div class="input-group-addon">Primer Apellido</div>
+                    <input 	type="text" 
+							class="form-control" 
+							name="PriApe" 
+							ng-model="formData.PriApe" >
+            </div>
+        </div>
+
         </div>
 
         <div class="form-group">
-            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.correo.$error.required}">
-                    <div class="input-group-addon">Correo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <input type="text" class="form-control"
-                    name="correo"
-                    ng-model="formData.correo" required>
+
+        <div class="casilla">
+            <div class="input-group col-md-4 col-sm-12 col-xs-12 has-success">
+                    <div class="input-group-addon">Segundo apellido </div>
+                    <input 	type="text" 
+							class="form-control" 
+							name="SegApe" 
+							ng-model="formData.SegApe">
             </div>
-            <span ng-show="!formulario_UP.$pristine && formulario_UP.correo.$error.required" class="help-block">Ingrese su correo</span>
-            <span ng-show="!formulario_UP.$pristine && formulario_UP.correo.$error.email" class="help-block">Ingrese su correo correctamente</span>
+        </div>
+		 </div>
+
+
+        <div class="form-group">
+            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.correo.$error.required}">
+                    <div class="input-group-addon">Correo</div>
+                    <input 	type="text" 
+							class="form-control"
+							name="correo"
+							ng-model="formData.correo" 
+							required>
+							<!--disabled-->
+							
+            </div>
         </div>
 
         <div class="form-group">
             <div class="input-group col-md-4 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.universidad.$error.required }">
 
-                    <div class="input-group-addon">Universidad</div>
-                    <input  type="text" class="form-control" name="universidad" ng-model="formData.universidad" required>
+                    <div class="input-group-addon">Institucion</div>
+                    <input  type="text" 
+							class="form-control" 
+							name="universidad" 
+							ng-model="formData.universidad" 
+							required>
+							<!--disabled-->
             </div>
 
-            <span ng-show="!formulario_UP.$pristine && formulario_UP.universidad.$error.required" class="help-block">Ingrese la universidad</span>
-
         </div>
 
-        <div class="form-group">
+       
 
-        <div class="casilla">
-            <div class="input-group col-md-4 col-sm-12 col-xs-12 has-success">
-                    <div class="input-group-addon">Profesión</div>
-                    <input type="text" class="form-control" name="profesion" ng-model="formData.profesion" >
-            </div>
-        </div>
-
-        </div>
-
-        <div class="form-group">
-
-        <div class="casilla">
-            <div class="input-group col-md-4 col-sm-12 col-xs-12 has-success">
-                    <div class="input-group-addon">Puesto </div>
-                    <input type="text" class="form-control" name="puesto" ng-model="formData.puesto">
-            </div>
-        </div>
-
-        </div>
 
         <div class="form-group">
 
             <div class="input-group col-md-4 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.telefono.$error.required }">
-                    <div class="input-group-addon">Teléfono &nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <input  type="tel" class="form-control"
-                            name="telefono" ng-model="formData.telefono" required>
+                    <div class="input-group-addon">Teléfono </div>
+                    <input  type="tel" 
+							class="form-control"
+                            name="telefono" 
+							ng-model="formData.telefono" 
+							required>
             </div>
-              <span ng-show="!formulario_UP.$pristine && formulario_UP.telefono.$error.required" class="help-block">Ingrese su número de teléfono</span>
+              
+
+        </div>
+		        <div class="form-group">
+
+            <div class="input-group col-md-4 has-success" ng-class="{ 'has-error': !formulario_UP.$pristine && formulario_UP.celula.$error.required }">
+                    <div class="input-group-addon">Celular </div>
+                    <input  type="tel" 
+							class="form-control"
+                            name="celular" 
+							ng-model="formData.celular" 
+							required>
+            </div>
+              
 
         </div>
 
         <div class="form-group">
             <div class="input-group col-md-4 has-success">
-                    <!--<a href="javascript:abrir('cambiar_password.html')">Cambiar Contraseña</a>-->
                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalCambiarContraseña">Cambiar Contraseña
                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 		</button>
@@ -145,14 +175,14 @@
 
           <div class="form-group">
               <div class="input-group col-md-4 has-success">
-                      <div class="input-group-addon">Contraseña actual &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                      <div class="input-group-addon">Contraseña actual </div>
                       <input type="password" name="cambiar_pass_actual">
               </div>
           </div>
 
           <div class="form-group">
               <div class="input-group col-md-4 has-success">
-                      <div class="input-group-addon">Contraseña nueva &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                      <div class="input-group-addon">Contraseña nueva </div>
                       <input type="password" name="cambiar_pass_nueva">
               </div>
           </div>
@@ -178,17 +208,7 @@
     </div>
 
 </body>
-<script src="js/app.js"></script>
-<script>
-function abrir(url) {
-open(url,'','top=300,left=300,width=426,height=266') ;
-}
-</script>
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
+
 
 <footer>
 <?php virtual ("footer.html");?>
