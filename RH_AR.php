@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>RH, Aguas Residuales</title>
+  <title>Recurso Hídrico: Aguas Residuales</title>
 
   <meta name="description" content="Matriz de indicadores - Recurso Hídrico, Aguas Residuales">
   <meta name="author" content="Luis Mata, José Slon, Michael Qurós, Ricardo Aguilar, Brandon Sardí">
@@ -28,7 +28,7 @@
 
       <div class="col-md-11">
         <h3>
-          Recurso Hídrico, Aguas Residuales
+          Recurso Hídrico: Aguas Residuales
         </h3>
         <form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/formularios/RH_AR.php">
 

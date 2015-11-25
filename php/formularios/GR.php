@@ -13,9 +13,9 @@ include("../conexion/conexion.php");
 	$ConPap    = $_POST['consumoPapel'];
 	$ComVer    = $_POST['ComprasVerdes'];
 	$ComGesAmb = $_POST['ComisionGestionAmbiental'];
-	
+
 	if( $PolGesAmb == "Sí")
-	{ 
+	{
 		$PolGesAmb = 1;
 	}
 	else
@@ -29,10 +29,10 @@ include("../conexion/conexion.php");
 			$PolGesAmb = -1;
 		}
 	}
-	
-	
+
+
 	if( $PlaGesAmb == "Sí")
-	{ 
+	{
 		$PlaGesAmb = 1;
 	}
 	else
@@ -46,14 +46,14 @@ include("../conexion/conexion.php");
 			$PlaGesAmb = -1;
 		}
 	}
-	
+
 	if ($NivPar == "N/D")
 	{
 		$NivPar = -1;
 	}
-	
+
 	if( $IniAmb == "Sí")
-	{ 
+	{
 		$IniAmb = 1;
 	}
 	else
@@ -67,13 +67,24 @@ include("../conexion/conexion.php");
 			$IniAmb = -1;
 		}
 	}
-	
+
 	if($ConPap == "N/D")
 	{
 		$ConPap = -1;
 	}
-	
+<<<<<<< Updated upstream
+
 	if($ComVer == "No")
+=======
+
+	if( $ComVer == "Sí")
+	{
+		$ComVer = $_POST['numeroCarteles'];
+	}
+	else
+	{
+		if($ComVer == "No")
+>>>>>>> Stashed changes
 		{
 			$ComVer = 0;
 		}
@@ -81,10 +92,15 @@ include("../conexion/conexion.php");
 		{
 			$ComVer = -1;
 		}
-	
-	
+<<<<<<< Updated upstream
+
+
+=======
+	}
+
+>>>>>>> Stashed changes
 	if( $ComGesAmb == "Sí")
-	{ 
+	{
 		$ComGesAmb = 1;
 	}
 	else
@@ -98,10 +114,10 @@ include("../conexion/conexion.php");
 			$ComGesAmb = -1;
 		}
 	}
-	
-	
 
-	
+
+
+
 	echo "Politica gestion ambiental  ".$PolGesAmb."<br>";
 	echo "Plan gestion ambiental ".$PlaGesAmb."<br>";
 	echo "nivel participacion ".$NivPar."<br>";
@@ -112,15 +128,15 @@ include("../conexion/conexion.php");
 
 	//Hacemos la conexion con la base de datos.
 
-	
+
 		try{
-			
+
 			$id_universidad = $_SESSION['universidad'];
 			$username = $_SESSION['correo'];
-	
-	
-	
-	$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+
+
+
+	$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// año del formulario no se ha cambiado a formato propuesto por Luis
@@ -132,9 +148,9 @@ include("../conexion/conexion.php");
 
 
 		//Se consulta para ver la existencia de algun formulario de esa u en este año.
-		$stmt = $conn->prepare('SELECT id 
-								FROM formulario 
-								WHERE UNIVERSIDAD_ID = :universidad_id 
+		$stmt = $conn->prepare('SELECT id
+								FROM formulario
+								WHERE UNIVERSIDAD_ID = :universidad_id
 									AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
 
@@ -142,7 +158,7 @@ include("../conexion/conexion.php");
 
 		if(!$data[0]){ // Si no hay un formulario se crea uno nuevo para dicha u en el para el año del formulario
 			echo "no hay formulario<br>";
-		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO) 
+		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO)
 												VALUES( :correo,:universidad_id,:anio)');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('correo'=>$username ,'universidad_id'=>$id_universidad, 'anio'=>$anio));
 
@@ -152,9 +168,9 @@ include("../conexion/conexion.php");
 			echo "Si hay formulario<br>";
 
 		}
-		$stmt = $conn->prepare('SELECT id 
-								FROM formulario 
-								WHERE UNIVERSIDAD_ID = :universidad_id 
+		$stmt = $conn->prepare('SELECT id
+								FROM formulario
+								WHERE UNIVERSIDAD_ID = :universidad_id
 									AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
 
@@ -163,10 +179,10 @@ include("../conexion/conexion.php");
 		$id_formulario = $data[0];
 
 		echo "el id del formulario es ".$id_formulario."<br>";
-		
-		
-		$stmt = $conn->prepare('SELECT FORMULARIO_ID 
-								FROM gr 
+
+
+		$stmt = $conn->prepare('SELECT FORMULARIO_ID
+								FROM gr
 								WHERE FORMULARIO_ID = :id_formulario');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('id_formulario'=>$id_formulario));
 		$data = $stmt->fetch();
@@ -182,10 +198,10 @@ include("../conexion/conexion.php");
 
 		}
 		else{// si ya existe un formulario hacemos un UPDATE
-		
+
 			echo "hay formulario completado anteriormente de gr<br>";
-			$stmt = $conn->prepare("UPDATE `gr` 
-									SET `GR_I_G`=:PolGesAmb,
+			$stmt = $conn->prepare("UPDATE `gr`
+										SET `GR_I_G`=:PolGesAmb,
 										`GR_II_G`=:PlaGesAmb,
 										`GR_III_G`=:NivPar,
 										`GR_IV_G`=:IniAmb,

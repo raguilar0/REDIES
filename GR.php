@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Formulario Gestión de Recursos</title>
+  <title>Gestión de Recursos</title>
 
   <meta name="description" content="Formulario Gestion de Recurso">
   <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
@@ -32,7 +32,7 @@
 
       <div class="col-md-11">
         <H3>
-          Gestión recursos
+          Gestión de Recursos
         </H3>
         <Form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/formularios/GR.php">
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.PoliticaGestionAmbiental.$error.required || !formData.PoliticaGestionAmbiental }">
@@ -195,12 +195,12 @@
             </div>
           </div>
 
-		  
-		  
-		  
-		  
-		  
-		  
+
+
+
+
+
+
 		            <div class="form-group">
 
             <label for="GR_Q6">
@@ -246,17 +246,7 @@
                 </div>
             </div>
           </div>
-		  
 
-
-
-		  
-		  
-		  
-		  
-		  
-		  
-		  
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.ComisionGestionAmbiental.$error.required || !formData.ComisionGestionAmbiental }">
             <label for="GR_Q7">
               ¿Existe comision de gestión ambiental?
@@ -305,7 +295,7 @@
     </div>
   </div>
   <script src="js/app.js"></script>
-  
+
     </body>
 
     <footer>

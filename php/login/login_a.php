@@ -1,7 +1,7 @@
 <?php
 	try{
-		//$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
+		//$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$email = $_POST['loginemail'];

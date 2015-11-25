@@ -26,7 +26,7 @@ session_start();
 		echo "Correo del usuario ".$username."<br>";
 
 		//Conexion con la base de datos
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
+		$conn = new PDO('mysql:host=redies.cr;dbname=redies_indicadores', 'redies', 'Acceso123!');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 

@@ -9,7 +9,7 @@
 	}
 
 	try{
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
+		$conn = new PDO('mysql:host=redies.cr;dbname=redies_indicadores', 'redies', 'Acceso123!');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = 'SELECT u.nombre, u.apellido_I, u.apellido_II, u.correo, d.telefono, d.nombre_u, u.rol FROM usuarios u, universidad d WHERE u.universidad_id = d.id';

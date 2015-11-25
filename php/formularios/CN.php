@@ -6,7 +6,7 @@ session_start();
 
 function normalizar_input($input){
 
-		if( $input== "N/D"){ 
+		if( $input== "N/D"){
 			return -1;
 		}
 		else{
@@ -16,7 +16,7 @@ function normalizar_input($input){
 }
 
 function  normalizar_si_no($radio){
-		
+
 	if($radio == "Sí"){
 		return  1;
 	}else{
@@ -41,7 +41,7 @@ function  normalizar_no_na_nd($radio){
 				return -2;
 			}else{
 				return $radio;
-			}	
+			}
 		}
 	}
 }
@@ -62,7 +62,7 @@ try{
 
 		// CODE...
 		//Conexion con la base de datos
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// año del formulario no se ha cambiado a formato propuesto por Luis
@@ -74,8 +74,8 @@ try{
 
 
 		//Se consulta para ver la existencia de algun formulario de esa u en este año.
-		$stmt = $conn->prepare('SELECT id 
-								FROM formulario 
+		$stmt = $conn->prepare('SELECT id
+								FROM formulario
 								WHERE UNIVERSIDAD_ID = :universidad_id AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
 
@@ -83,19 +83,19 @@ try{
 
 		if(!$data[0]){ // Si no hay un formulario se crea uno nuevo para dicha u en el para el año del formulario
 			echo "no hay formulario<br>";
-		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO) 
+		$stmt = $conn->prepare('INSERT INTO formulario(USUARIOS_CORREO, UNIVERSIDAD_ID, ANHO)
 								VALUES( :correo,:universidad_id,:anio)');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('correo'=>$username ,'universidad_id'=>$id_universidad, 'anio'=>$anio));
 
-		
+
 
 		}else{
 			echo "Si hay formulario<br>";
 
 		}
 
-		$stmt = $conn->prepare('SELECT id 
-								FROM formulario 
+		$stmt = $conn->prepare('SELECT id
+								FROM formulario
 								WHERE UNIVERSIDAD_ID = :universidad_id AND ANHO = :anio');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('universidad_id'=>$id_universidad, 'anio'=>$anio));
 
@@ -117,7 +117,7 @@ try{
 		$certificados = $_POST['certificados']; //CN_IV_II_G//
 
 	//Normalizar
-		$cantidadCO2 = normalizar_no_na_nd($cantidadCO2); 
+		$cantidadCO2 = normalizar_no_na_nd($cantidadCO2);
 		$gasolina = normalizar_no_na_nd($gasolina);
 		$diesel = normalizar_no_na_nd($diesel);
 		$gas = normalizar_no_na_nd($gas);
@@ -140,15 +140,15 @@ try{
 
 	//Verificamos si hay que hacer un update o un insert
 
-		$stmt = $conn->prepare('SELECT FORMULARIO_ID 
-								FROM cn 
+		$stmt = $conn->prepare('SELECT FORMULARIO_ID
+								FROM cn
 								WHERE FORMULARIO_ID = :id_formulario');//aqui se guardan los datos despues de realizar el execute
 		$stmt->execute(array('id_formulario'=>$id_formulario));
 		$data = $stmt->fetch();
 
 		if(!$data[0]){ // si no hay hacemos INSERT
 			echo "no hay formulario completado anteriormente de cn<br>";
-			$stmt = $conn->prepare("INSERT INTO `cn`(`CN_I_RS`, `CN_II_I_RC`, `CN_II_II_RC`, `CN_II_III_RC`, `CN_II_IV_RC`, `CN_III_G`, `CN_IV_I_G`, `CN_IV_II_G`, `CN_V_RC`, `FORMULARIO_ID`) 
+			$stmt = $conn->prepare("INSERT INTO `cn`(`CN_I_RS`, `CN_II_I_RC`, `CN_II_II_RC`, `CN_II_III_RC`, `CN_II_IV_RC`, `CN_III_G`, `CN_IV_I_G`, `CN_IV_II_G`, `CN_V_RC`, `FORMULARIO_ID`)
 									VALUES (:cantidadCO2 ,:gasolina ,:diesel ,:gas ,:otrosCombustibles ,:planReduccionEmisiones ,:arbolesSembrados ,:certificados ,:consumoRef ,:formulario_id )");//aqui se guardan los datos despues de realizar el execute
 			$stmt->execute(array('cantidadCO2'=>$cantidadCO2,'gasolina'=>$gasolina,'diesel'=>$diesel,'gas'=>$gas,'otrosCombustibles'=>$otrosCombustibles,'planReduccionEmisiones'=>$planReduccionEmisiones, 'arbolesSembrados'=>$arbolesSembrados, 'certificados'=>$certificados, 'consumoRef'=>$consumoRef, 'formulario_id'=>$id_formulario));
 
@@ -157,15 +157,15 @@ try{
 
 			echo "hay formulario completado anteriormente de cn<br>";
 			$stmt = $conn->prepare(
-					"UPDATE `cn` 
+					"UPDATE `cn`
 					SET `CN_I_RS`=:cantidadCO2,
 						`CN_II_I_RC`=:gasolina,
 						`CN_II_II_RC`=:diesel,
 						`CN_II_III_RC`=:gas,
 						`CN_II_IV_RC`=:otrosCombustibles,
-						`CN_III_G`=:planReduccionEmisiones, 
-						`CN_IV_I_G`=:arbolesSembrados, 
-						`CN_IV_II_G`=:certificados, 
+						`CN_III_G`=:planReduccionEmisiones,
+						`CN_IV_I_G`=:arbolesSembrados,
+						`CN_IV_II_G`=:certificados,
 						`CN_V_RC`=:consumoRef
 					WHERE `FORMULARIO_ID` = :formulario_id"
 					);//aqui se guardan los datos despues de realizar el execute
@@ -178,5 +178,10 @@ try{
 		echo 'error: ' . $excp->getMessage();
 	}
 
+<<<<<<< Updated upstream
 header('Location:../../CN.php');
 ?>
+=======
+
+?>
+>>>>>>> Stashed changes

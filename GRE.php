@@ -15,72 +15,74 @@
 
 <script>
       function cargar() {
-      	//faltan muchas varas... por ejemplo ver si la consulta devuelve vacio...
-          $.ajax({
-             type: 'post',
-             url: 'php/formularios/GRE_Load.php',
-             data: {idq: "", param: ""},
+        //faltan muchas varas... por ejemplo ver si la consulta devuelve vacio...
+        $.ajax({
+          type: 'post',
+          url: 'php/formularios/GRE_Load.php',
+          data: {idq: "", param: ""},
 
-            dataType: 'json',
-            success: function(data)  {
-				if(data[0]){ //si hay algo procedo a llenar los campos
-					if(data[0] == 1){ //Si
-						document.getElementById("GRE_Q1_Si").checked = true;
-					}else{
-						if(data[0] == 0){ //No
-							document.getElementById("GRE_Q1_No").checked = true;
-						}else{
-							if(data[0] == -1){ //ND
-								document.getElementById("GRE_Q1_ND").checked = true;
-							}
-						}
+          dataType: 'json',
+          success: function(data)  {
+            if(data[0]){ //si hay algo procedo a llenar los campos
+              if(data[0] == 1){ //Si
+                document.getElementById("GRE_Q1_Si").checked = true;
+              }else{
+                if(data[0] == 0){ //No
+                  document.getElementById("GRE_Q1_No").checked = true;
+                }else{
+                  if(data[0] == -1){ //ND
+                    document.getElementById("GRE_Q1_ND").checked = true;
+                  }
+                }
+              }
 
-					}
+              if(data[1] == -1){ //seteo el option
+                document.getElementById("GRE_Q2.1").value  = "N/D";
+                document.getElementById("medidoresRadio1").checked = true;
+              }else{
+                document.getElementById("GRE_Q2.1").value  = data[1];
+              }
 
-					if(data[1] == -1){ //seteo el option
-						document.getElementById("GRE_Q2.1").value  = "N/D";
-						document.getElementById("medidoresRadio1").checked = true;
-					}else{
-						document.getElementById("GRE_Q2.1").value  = data[1];
-					}
+              if(data[2] == -1){ //seteo el option
+                document.getElementById("GRE_kwhAnioPersona").value  = "N/D";
+                document.getElementById("consumoElectricoRadio1").checked = true;
+              }else{
+                document.getElementById("GRE_kwhAnioPersona").value  = data[2];
+              }
 
-					if(data[2] == -1){ //seteo el option
-						document.getElementById("GRE_kwhAnioPersona").value  = "N/D";
-						document.getElementById("consumoElectricoRadio1").checked = true;
-					}else{
-						document.getElementById("GRE_kwhAnioPersona").value  = data[2];
-					}
-
-					if(data[3] == 0){ //No
-						document.getElementById("planReduccionConsumoNo").checked = true;
-					}else{
-						if(data[3] == -1){ //ND
-							document.getElementById("planReduccionConsumoND").checked = true;
-						}else{ //numero en meta
-							document.getElementById("planReduccionConsumoSi").checked = true;
-						}
-					}
-					document.getElementById("GRE_Q3").value  = data[3];
+              if(data[3] == 0){ //No
+                document.getElementById("planReduccionConsumoRadio2").checked = true;
+                document.getElementById("GRE_Q3").value = "No";
+              }else{
+                if(data[3] == -1){ //ND
+                  document.getElementById("planReduccionConsumoRadio3").checked = true;
+                  document.getElementById("GRE_Q3").value = "N/D";
+                }else{ //numero en meta
+                  document.getElementById("planReduccionConsumoRadio1").checked = true;
+                  document.getElementById("GRE_Q3").value = data[3];
+                }
+              }
 
 
-					if(data[4] == -1){ //seteo el option
-						document.getElementById("GRE_Q4").value  = "N/D";
-						document.getElementById("controlConsumoRadio1").checked = true;
-					}else{
-						document.getElementById("GRE_Q4").value  = data[4];
-					}
+              if(data[4] == -1){ //seteo el option
+                document.getElementById("GRE_Q4").value  = "N/D";
+                document.getElementById("controlConsumoRadio1").checked = true;
+              }else{
+                document.getElementById("GRE_Q4").value  = data[4];
+              }
 
-					if(data[5] == -1){ //seteo el option
-						document.getElementById("GRE_Q5").value  = "N/D";
-						document.getElementById("consumoTotalRadio1").checked = true;
-					}else{
-						document.getElementById("GRE_Q5").value  = data[5];
-					}
-					//alert(data[0]+data[1]+data[2]);
-	            }
+              if(data[5] == -1){ //seteo el option
+                document.getElementById("GRE_Q5").value  = "N/D";
+                document.getElementById("consumoTotalRadio1").checked = true;
+              }else{
+                document.getElementById("GRE_Q5").value  = data[5];
+              }
+              //alert(data[0]+data[1]+data[2]);
             }
 
-          });
+          }
+
+        });
       }
     </script>
 
@@ -103,7 +105,7 @@
       <div class="col-md-11">
 
 	    <H3>
-	    Gestión del recurso energético
+	    Gestión del Recurso Energético
 	    </H3>
 
 	    <form name="form" role="form" ng-controller="MainCtrl" action="php/formularios/GRE.php" method="post">
@@ -112,7 +114,7 @@
 					¿Conforman comité para la gestión del recurso energético?
 					<a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no, o N/D (No definido)"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
 				</label>
-				<div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : !form.$pristine  && form.comite.$error.required || !formData.comite }">
+				<div class="input-group col-md-4 has-success" ng-class="{ 'has-error' : form.comite.$invalid }">
 					<div class="radio-inline">
 					  <label>
 						<input id="GRE_Q1_Si" type="radio" name="comite" value="Sí" ng-model="formData.comite" required>
@@ -134,14 +136,17 @@
 				</div>
 			</div>
 
-			<div class="form-group" ng-class="{ 'has-error' : !form.$pristine   }">
+			<div class="form-group has-success" ng-class="{ 'has-error' : !formData.medidores}">
 				<label for="GRE_Q2">
 					Consumo eléctrico per cápita anual según el alcance
 				</label>
 				<div class="input-group col-md-4 has-success" >
-					<input  type="text" class="form-control"
-                  name="medidores" id="GRE_Q2.1" min="0"
+					<input  type="text"
+                  class="form-control"
+                  name="medidores"
+                  id="GRE_Q2.1"
                   ng-model="formData.medidores"
+                  ng-init="2"
                   onclick="validacionND(type, 'GRE_Q2.1', 'medidoresRadio1')"
                   required pattern="[0-9]+$|^N\/D$"/>   <!--GRE_II_I_RC-->
 					<div class="input-group-addon"># de medidores</div>
@@ -156,7 +161,7 @@
 					</div>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoElectrico.$error.required || !formData.consumoElectrico }" >
+        <div class="form-group" ng-class="{ 'has-error' : !formData.consumoElectrico}" >
 				<div class="input-group col-md-4 has-success">
 					<input  type="text" class="form-control"
                   name="consumoElectrico" id="GRE_kwhAnioPersona" min="0"
@@ -180,7 +185,7 @@
 					¿Poseen plan de reducción del consumo en todas las Unidades o Centros?
 					<a href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una opción entre sí, no o no disponible, de marcar sí indicar el % de reducción"><img src="images/question_icon.png" style="width:20px;height:20px;"></a>
 				</label>
-				<div class="form-group has-success" ng-class="{ 'has-error' :  form.porcentajeReduccionConsumo.$invalid}">
+				<div class="form-group has-success" ng-class="{ 'has-error' : form.porcentajeReduccionConsumo.$invalid}">
 					<div class="input-group col-md-4">
 					  <label class="radio-inline">
   						<input  type="radio"
@@ -241,15 +246,18 @@
 				document.getElementById('oculto').style.display = 'none';}
 			</script>
 
-      <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.controlConsumo.$error.required || !formData.controlConsumo }">
+      <div class="form-group" ng-class="{ 'has-error' : form.controlConsumo.$invalid }"> <!--!form.controlConsumo  && (form.controlConsumo.$error.required || !formData.controlConsumo)-->
 				<label for="GRE_Q4">
 					Control y evaluación de consumo según el alcance definido
 				</label>
 				<div class="input-group col-md-4 has-success" >
-					<input type="text" class="form-control" name="controlConsumo" id="GRE_Q4"
-          ng-model="formData.controlConsumo"
-          onclick="validacionND(type, 'GRE_Q4', 'controlConsumoRadio1')"
-          required pattern="^[0-9][0-9]?$|^100$|[0-9]+[0-9]?,[0-9]+$|^No$|^N\/D$">
+					<input  type="text"
+                  class="form-control"
+                  name="controlConsumo"
+                  id="GRE_Q4"
+                  ng-model="formData.controlConsumo"
+                  onclick="validacionND(type, 'GRE_Q4', 'controlConsumoRadio1')"
+                  required pattern="^[0-9][0-9]?$|^100$|[0-9]+[0-9]?,[0-9]+$|^No$|^N\/D$">
 					<div class="input-group-addon">% de reducción</div>
 					<span class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="Ingrese el porcentaje de reducción anual según el alcance definido"><img src="images/question_icon.png" style="width:20px;height:20px;"></a></span>
 				</div>
@@ -263,12 +271,12 @@
 			</div>
 
 
-      <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoTotal.$error.required || !formData.consumoTotal }">
+      <div class="form-group" ng-class="{ 'has-error' : formData.consumoTotal.$invalid }"> <!--!form.$pristine  && (form.consumoTotal.$error.required || !formData.consumoTotal)-->
         <label for="GRE_Q5">
           Consumo total según el alcance definido
         </label>
         <div class="input-group col-md-4 has-success" >
-          <input  type="text" class="form-control" name="consumoTotal" id="GRE_Q5" min="0"
+          <input  type="text" class="form-control" name="consumoTotal" id="GRE_Q5"
                   ng-model="formData.consumoTotal"
                   onclick="validacionND(type, 'GRE_Q5', 'consumoTotalRadio1')"
                   required pattern="^[0-9][0-9]?$|^100$|[0-9]+[0-9]?,[0-9]+$|^No$|^N\/D$">
@@ -291,6 +299,8 @@
           Enviar Formulario
         </button>
       </div>
+
+      Form Data: {{formData}}
 	    </Form>
 	    </div>
 	</div>

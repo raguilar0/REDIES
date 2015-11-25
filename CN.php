@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Carbono neutralidad</title>
+  <title>Carbono Neutralidad</title>
 
   <meta name="description" content="Matriz de indicadores - Carbono Neutralidad">
   <meta name="author" content="Luis Mata, Jose Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí">
@@ -155,35 +155,39 @@
 
       <div class="col-md-11">
         <h3>
-          Carbono neutralidad
+          Carbono Neutralidad
         </h3>
 
         <form role="form" name="form" ng-controller="MainCtrl" action="php/formularios/CN.php" method="post">
 
           <div class="form-group">
-
             <label for="CN_Q1">
               ¿Posee plan de reducción de emisiones de gases de efecto invernadero?
             </label>
-
             <div class="form-group has-success" ng-class="{ 'has-error' : form.cantidadCO2.$invalid}">
               <div class="input-group col-md-4" >
                   <label class="radio-inline">
-                    <input  type="radio" name="emisiones" id="emisionesRadio1"
+                    <input  type="radio"
+                            name="emisiones"
+                            id="emisionesRadio1"
                             value="Sí"
                             ng-model="formData.cantidadCO2"
                             onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
                     > Sí
                   </label>
                   <label class="radio-inline">
-                    <input  type="radio" name="emisiones" id="emisionesRadio2"
+                    <input  type="radio"
+                            name="emisiones"
+                            id="emisionesRadio2"
                             value="No"
                             ng-model="formData.cantidadCO2"
                             onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
                     > No
                   </label>
                   <label class="radio-inline">
-                    <input  type="radio" name="emisiones" id="emisionesRadio3"
+                    <input  type="radio"
+                            name="emisiones"
+                            id="emisionesRadio3"
                             value="N/D"
                             ng-model="formData.cantidadCO2"
                             onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
@@ -193,8 +197,10 @@
                 <div   class="form-group"><!---->
                 <label> Ingrese la cantidad de toneladas de CO<sub>2</sub> por año </label>
                   <div class="input-group col-md-4">
-                    <input  type="text" class="form-control"
-                            name="cantidadCO2" id="CN_Q1"
+                    <input  type="text"
+                            class="form-control"
+                            name="cantidadCO2"
+                            id="CN_Q1"
                             ng-model="formData.cantidadCO2"
                             onchange="validacionSINO(type, 'CN_Q1', 'emisionesRadio1', 'emisionesRadio2', 'emisionesRadio3')"
                             required pattern="[0-9]+$|[0-9]+,[0-9]+$|^No$|^N\/D$"

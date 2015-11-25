@@ -16,7 +16,7 @@
   </head>
   <body>
     <br><br><br><br><br><br><br><br>
-    <h2 align="center">Bienvenido a la plataforma de indicadores de REDIES<h2>
+    <h2 align="center">Bienvenido a la plataforma de indicadores ambientales de REDIES<h2>
     <br><br><br><br><br><br><br>
   </body>
   <?php virtual ("footer.html");?>

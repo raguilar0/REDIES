@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>RH, Agua para Consumo Humano</title>
+  <title>Recurso Hídrico: Agua para Consumo Humano</title>
 
   <meta name="description" content="Matriz de indicadores - Recurso Hídrico, Agua para consumo humano">
   <meta name="author" content="Luis Mata, José Slon, Michael Quirós, Ricardo Aguilar, Brandon Sardí$">
@@ -27,7 +27,7 @@
       <!-- columna 2 -->
 
       <div class="col-md-11">
-        <h3>Recurso Hídrico, agua para consumo humano</h3>
+        <h3>Recurso Hídrico: Agua para Consumo Humano</h3>
 
         <form name="form" role="form" ng-controller="MainCtrl" method="post" action="php/formularios/RH_ACH.php">
           <div class="form-group" ng-class="{ 'has-error' : !form.$pristine  && form.consumoPC.$error.required || !formData.consumoPC }">

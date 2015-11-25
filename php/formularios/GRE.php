@@ -65,8 +65,8 @@ function normalizar_input($input){
 
 		// CODE...
 		//Conexion con la base de datos
-		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
-		//$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
+		//$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', '');
+		$conn = new PDO('mysql:host=localhost;dbname=redies_indicadores', 'root', 'root');
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		// año del formulario no se ha cambiado a formato propuesto por Luis
@@ -116,7 +116,7 @@ function normalizar_input($input){
 		$comite = $_POST['comite']; //GRE_I_G
 		$medidores = $_POST['medidores']; //GRE_II_I_RC
 		$consumoElectrico = $_POST['consumoElectrico']; //GRE_II_II_RC
-		$meta = $_POST['metac']; //GRE_III_G
+		$meta = $_POST['porcentajeReduccionConsumo']; //GRE_III_G
 		$controlConsumo = $_POST['controlConsumo']; //GRE_IV_G
 		$consumoTotal = $_POST['consumoTotal']; //GRE_V_RC
 
