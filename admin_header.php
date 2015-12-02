@@ -1,5 +1,5 @@
 <?php
-
+  
   session_start();
 
   if(!$_SESSION){
@@ -29,7 +29,7 @@
 	  <div class="container-fluid">
 
     <style type="text/css">
-
+    
     .main_logo
     {
       padding-left: 20px;
@@ -47,7 +47,7 @@
           <a href="admin_index.php">
             <img src="images/layouts/main_logo.jpg" alt="Red Costarricense de Instituciones Educativas Sostenibles">
           </a>
-
+          
         </div>
     </div>
   </div>
@@ -66,13 +66,13 @@
         <span class="icon-bar"></span>
       </button>
       <!-- espacio de nommbre de empresa en el menu-->
-      <span class="navbar-brand" href="#"> <?php echo $_SESSION['usuario'].'&nbsp;'.$_SESSION['apellido'] ?> </span>
+      <span class="navbar-brand" href="#"> <?php echo $_SESSION['usuario'].'&nbsp;'.$_SESSION['apellido'] ?> </span> 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrar <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -95,7 +95,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-
+       
        <li>
           <a href="/REDIES/admin_perfil.php">Perfil</a>
         </li>
@@ -105,7 +105,7 @@
         <li>
           <a href="php/login/logout_a.php"><strong>Salir</strong></a>
         </li>
-
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -177,4 +177,5 @@
   <script src="js/scripts.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+  
 </html>
